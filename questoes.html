@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulado de Questões Estilo IFRN | Plataforma IFRN 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --ifrn-green: #008542;
+      --ifrn-green-light: #10b981;
+      --ifrn-red: #e30613;
+      --bg-color: #091310;
+      --card-color: #11201a;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(16, 185, 129, 0.35);
+      --primary: var(--ifrn-green-light);
+      --accent: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 133, 66, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(227, 6, 19, 0.08) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: "Inter", sans-serif;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-simulado {
+      text-align: center;
+      padding: 40px 0 20px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 30px;
+    }
+
+    .header-simulado h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 20%, var(--primary) 70%, var(--ifrn-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-simulado p {
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .texto-base-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border-hover);
+      border-left: 4px solid var(--ifrn-green-light);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+
+    .texto-base-card h3 {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .texto-base-card blockquote {
+      font-style: italic;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .texto-base-card .fonte {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .secao-titulo {
+      font-size: 1.5rem;
+      color: #ffffff;
+      border-left: 5px solid var(--ifrn-red);
+      padding-left: 14px;
+      margin: 40px 0 20px;
+    }
+
+    .card-questao {
+      background: var(--card-color);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .card-questao:hover {
+      border-color: var(--card-border-hover);
+    }
+
+    .num-questao {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .enunciado {
+      font-size: 1.02rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .questao-svg-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin: 16px 0 20px;
+    }
+
+    .questao-svg-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .opcoes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .opcao-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .opcao-label:hover {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--primary);
+    }
+
+    .opcao-label input[type="radio"] {
+      accent-color: var(--primary);
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+    }
+
+    /* ESTILOS DO GABARITO (RESPOSTA CORRETA E INCORRETA) */
+    .opcao-label.opcao-correta {
+      background: rgba(16, 185, 129, 0.25) !important;
+      border: 2px solid var(--ifrn-green-light) !important;
+      color: #ffffff !important;
+      font-weight: 700;
+    }
+
+    .opcao-label.opcao-incorreta {
+      background: rgba(227, 6, 19, 0.25) !important;
+      border: 2px solid var(--ifrn-red) !important;
+      color: #ffffff !important;
+    }
+
+    .status-gabarito {
+      margin-top: 15px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: none;
+    }
+
+    .status-gabarito.acertou {
+      display: block;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--ifrn-green-light);
+      color: var(--ifrn-green-light);
+    }
+
+    .status-gabarito.errou {
+      display: block;
+      background: rgba(227, 6, 19, 0.15);
+      border: 1px solid var(--ifrn-red);
+      color: #f87171;
+    }
+
+    .btn-finalizar {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background: var(--ifrn-green);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 40px;
+      transition: var(--transition);
+    }
+
+    .btn-finalizar:hover {
+      background: #006b35;
+      box-shadow: 0 0 20px rgba(0, 133, 66, 0.5);
+    }
+
+    .painel-resultado {
+      display: none;
+      background: var(--card-color);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-top: 30px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .barra-container {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      height: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .barra-progresso {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #008542);
+      transition: width 1s ease-in-out;
+    }
+
+    .escore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .escore-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--card-border);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .escore-card h4 {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .escore-card span {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar-header">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        IFRN 2026
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="português.html" class="nav-link">Português</a>
+        <a href="matemática.html" class="nav-link">Matemática</a>
+        <a href="redação.html" class="nav-link">Redação</a>
+        <a href="temas-anteriores.html" class="nav-link">Temas anteriores</a>
+        <a href="calculadora.html" class="nav-link">Calculadora de notas</a>
+        <a href="exame-selecao.html" class="nav-link">Sobre o exame de seleção</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <header class="header-simulado">
+      <h1>Simulado Exame de Seleção IFRN</h1>
+      <p>40 Questões contextualizadas no padrão oficial da banca FUNCERN</p>
+    </header>
+
+    <form id="simuladoForm">
+      
+      <h2 class="secao-titulo">Língua Portuguesa</h2>
+      
+      <div class="texto-base-card">
+        <h3>TEXTO 1 (Base para as questões de Língua Portuguesa)</h3>
+        <blockquote>
+          "A urgência em promover a inclusão digital no ambiente escolar transcende a mera distribuição de equipamentos tecnológicos. Trata-se, prioritariamente, de assegurar o letramento crítico, habilitando os jovens a discernir informações verídicas em meio ao fluxo incessante das redes. Contudo, sem investimentos estruturais e capacitação docente contínua, a tecnologia nas salas de aula corre o risco de aprofundar as desigualdades educacionais já existentes."
+        </blockquote>
+        <p class="fonte">Fonte: Adaptado do Portal IFRN / Artigos de Opinião sobre Educação Tecnológica.</p>
+      </div>
+
+      <div id="questoesPortugues"></div>
+
+      <h2 class="secao-titulo">Matemática</h2>
+      <div id="questoesMatematica"></div>
+
+      <button type="button" class="btn-finalizar" id="btnFinalizar" onclick="calcularResultado()">Finalizar Simulado</button>
+    </form>
+
+    <div id="painelResultado" class="painel-resultado">
+      <h2 style="text-align: center;">Relatório de Desempenho</h2>
+      
+      <p style="text-align: center; margin-top: 10px;">Aproveitamento Geral:</p>
+      <div class="barra-container">
+        <div id="barraProgresso" class="barra-progresso"></div>
+      </div>
+      <p style="text-align: center; font-weight: 800; font-size: 1.2rem; color: var(--primary);" id="textoPorcentagem">0%</p>
+
+      <div class="escore-grid">
+        <div class="escore-card">
+          <h4>Total de Acertos</h4>
+          <span id="escoreTotal">0 / 40</span>
+        </div>
+        <div class="escore-card">
+          <h4>Português</h4>
+          <span id="escorePort">0 / 20</span>
+        </div>
+        <div class="escore-card">
+          <h4>Matemática</h4>
+          <span id="escoreMat">0 / 20</span>
+        </div>
+        <div class="escore-card">
+          <h4>Nota Final (0 a 100)</h4>
+          <span id="notaFinal">0,0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questoes = [
+      // --- PORTUGUÊS (1 a 20) ---
+      { id: 1, diciplina: 'P', enunciado: "De acordo com o Texto 1, a verdadeira inclusão digital nas escolas pressupõe:", op: ["A simples aquisição e distribuição de novos aparelhos eletrônicos aos estudantes.", "O desenvolvimento do letramento crítico para o uso consciente e seguro da informação.", "O fim definitivo do uso de materiais impressos e livros em sala de aula.", "A substituição do professor por plataformas digitais automatizadas."], resp: 1 },
+      { id: 2, diciplina: 'P', enunciado: "No Texto 1, a palavra 'Contudo' introduz uma relação de:", op: ["Conclusão em relação à ideia apresentada no período anterior.", "Adição de argumentos favoráveis ao uso exclusivo da tecnologia.", "Oposição/adversidade quanto aos desafios de implementação da tecnologia.", "Explicação detalhada sobre a capacitação dos docentes."], resp: 2 },
+      { id: 3, diciplina: 'P', enunciado: "Assinale a opção em que a regência e o emprego do sinal indicativo de crase atendem à norma-padrão:", op: ["O projeto de extensão do IFRN visa à promoção do desenvolvimento regional.", "As inscrições foram abertas à partir da última segunda-feira.", "A coordenação dirigiu-se à uma sala de reuniões com os pais.", "O candidato recorreu à pareceres técnicos para contestar a questão."], resp: 0 },
+      { id: 4, diciplina: 'P', enunciado: "Análise a frase: 'Se os professores **proporem** novas metodologias, os alunos engajar-se-ão'. A forma verbal destacada apresenta desvio em relação ao padrão culto. A forma correta é:", op: ["proporem", "propuserem", "propor", "proprorem"], resp: 1 },
+      { id: 5, diciplina: 'P', enunciado: "Em '...habilitando os jovens a discernir informações verídicas em meio ao fluxo incessante...', a palavra destacada pode ser substituída, sem alterar o sentido do texto, por:", op: ["Ininterrupto", "Esporádico", "Raro", "Lento"], resp: 0 },
+      { id: 6, diciplina: 'P', enunciado: "Assinale a alternativa que apresenta concordância verbal em conformidade com a norma-padrão:", op: ["No IFRN, fazem anos que a formação técnica de excelência é ofertada.", "Tratam-se de propostas inovadoras aprovadas pelo conselho escolar.", "Houveram muitos candidatos inscritos na modalidade de cotas sociais.", "Mais de um estudante conquistou premiações na olimpíada de matemática."], resp: 3 },
+      { id: 7, diciplina: 'P', enunciado: "Em 'A tecnologia, **que revoluciona a educação**, exige responsabilidade', a oração destacada classifica-se como:", op: ["Subordinada adjetiva explicativa", "Subordinada adjetiva restritiva", "Subordinada substantiva subjetiva", "Coordenada explicativa"], resp: 0 },
+      { id: 8, diciplina: 'P', enunciado: "No trecho 'A internet é um mar de informações, mas navegar exige bússola', identifica-se a figura de linguagem denominada:", op: ["Metáfora", "Metonímia", "Eufemismo", "Hipérbole"], resp: 0 },
+      { id: 9, diciplina: 'P', enunciado: "Quanto à acentuação gráfica, assinale a opção cujas palavras seguem a mesma regra gramatical que 'crítico' e 'tecnológico':", op: ["Café, Sabiá e Maracajá", "Prático, Estatística e Didático", "Fácil, Caráter e Néctar", "Saúde, Baú e Raízes"], resp: 1 },
+      { id: 10, diciplina: 'P', enunciado: "No fragmento 'Aos estudantes, cabe o compromisso com os estudos', o termo em destaque exerce a função sintática de:", op: ["Objeto Direto", "Objeto Indireto", "Sujeito", "Aposto"], resp: 1 },
+      { id: 11, diciplina: 'P', enunciado: "Considere a frase: 'O Diretor do Campus chamou o aluno **cuja** nota foi destaque'. O pronome relativo destacado estabelece relação de:", op: ["Posse entre o antecedente e o consequente", "Lugar em relação ao evento citado", "Modo como a nota foi obtida", "Causa direta do destaque obtido"], resp: 0 },
+      { id: 12, diciplina: 'P', enunciado: "Assinale a alternativa em que a pontuação foi empregada de forma adequada para isolar um elemento explicativo:", op: ["O IFRN, instituição federal reconhecida, abriu novas vagas.", "O IFRN instituição federal, reconhecida abriu novas vagas.", "O IFRN instituição federal reconhecida, abriu novas vagas.", "O IFRN, instituição federal reconhecida abriu, novas vagas."], resp: 0 },
+      { id: 13, diciplina: 'P', enunciado: "Em qual das frases a seguir a palavra 'bastante' atua como adjetivo (devendo concordar com o substantivo)?", op: ["Os candidatos estudaram bastante durante todo o ano.", "Havia razões bastantes para a revisão do edital do processo seletivo.", "As provas do Exame de Seleção estavam bastante complexas.", "A comissão organizadora trabalhou bastante na elaboração."], resp: 1 },
+      { id: 14, diciplina: 'P', enunciado: "Na frase 'Não apenas os alunos, **mas também** os professores comemoraram a aprovação', as palavras destacadas expressam ideia de:", op: ["Oposição", "Adição", "Alternância", "Causa"], resp: 1 },
+      { id: 15, diciplina: 'P', enunciado: "Assinale a opção em que a palavra apresenta o mesmo processo de formação que 'inadimplência' (prefixação):", op: ["Desigualdade", "Escolha", "Girassol", "Entardecer"], resp: 0 },
+      { id: 16, diciplina: 'P', enunciado: "Aponte a alternativa na qual a palavra sublinhada foi empregada em seu sentido CONOTATIVO (figurado):", op: ["A luz da sala de aula piscou durante a tempestade.", "O conhecimento é a chave que abre as portas do futuro.", "O estudante esqueceu a chave da sua residência.", "As provas objetivas serão aplicadas no próximo domingo."], resp: 1 },
+      { id: 17, diciplina: 'P', enunciado: "Em 'É indispensável que todos **participem** da reunião', a oração destacada funciona sintaticamente como:", op: ["Sujeito da oração principal", "Objeto direto do verbo é", "Complemento nominal de indispensável", "Predicativo do sujeito"], resp: 0 },
+      { id: 18, diciplina: 'P', enunciado: "Indique a opção gramaticalmente CORRETA referente à colocação pronominal segundo o padrão culto:", op: ["Nunca me disseram que a prova seria adiada.", "Me disseram que o edital foi publicado ontem.", "Diria-se que todos estavam bem preparados.", "Os alunos reuniram-se e ajudaram-se, não omitindo-se."], resp: 0 },
+      { id: 19, diciplina: 'P', enunciado: "A palavra 'paralisação' é grafada com 's'. Qual das palavras a seguir também é grafada CORRETAMENTE com 's'?", op: ["Análise", "Pesquiza", "Paralizar", "Sintetizar"], resp: 0 },
+      { id: 20, diciplina: 'P', enunciado: "Em um artigo de opinião cobrado na redação do IFRN, o participante deve prioritariamente:", op: ["Narra fatos cotidianos em 1ª pessoa sem utilizar argumentos.", "Defender um ponto de vista embasado em argumentos sólidos e coerentes.", "Apenas expor definições de dicionário sem tomar posicionamento.", "Elaborar um poema em versos livres sobre o tema proposto."], resp: 1 },
+
+      // --- MATEMÁTICA (21 a 40 COM SVGs CONTEXTUALIZADOS) ---
+      { id: 21, diciplina: 'M', enunciado: "Um restaurante acadêmico do IFRN utiliza 3/8 do seu orçamento mensal para a compra de hortifrúti. Se o orçamento mensal é de R$ 32.000,00, o valor investido nesse setor é:", op: ["R$ 8.000,00", "R$ 12.000,00", "R$ 16.000,00", "R$ 20.000,00"], resp: 1 },
+      { id: 22, diciplina: 'M', enunciado: "Para incentivar a leitura, a biblioteca concedeu um desconto de 20% na taxa de renovação de carteirinhas. Se o valor cobrado era R$ 45,00, o novo valor com desconto passou a ser:", op: ["R$ 36,00", "R$ 38,00", "R$ 40,00", "R$ 42,00"], resp: 0 },
+      { id: 23, diciplina: 'M', enunciado: "O resultado da expressão numérica 18 + 2 x (15 - 3²) / 3 é igual a:", op: ["22", "20", "24", "18"], resp: 0 },
+      { 
+        id: 24, 
+        diciplina: 'M', 
+        enunciado: "Um projeto de robótica do IFRN projetou uma rampa de apoio triangular reta. Observe o esquema a seguir com a altura (3 m) e a base (4 m). Determine a extensão total da rampa (x):", 
+        svg: `<svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="40,20 40,120 200,120" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="3"/>
+                <rect x="40" y="105" width="15" height="15" fill="none" stroke="#e30613" stroke-width="2"/>
+                <circle cx="47" cy="112" r="2" fill="#e30613"/>
+                <text x="10" y="75" fill="#f8fafc" font-size="14" font-weight="bold">3 m</text>
+                <text x="110" y="142" fill="#f8fafc" font-size="14" font-weight="bold">4 m</text>
+                <text x="125" y="65" fill="#10b981" font-size="16" font-weight="bold">x</text>
+              </svg>`,
+        op: ["5 m", "7 m", "6 m", "12 m"], 
+        resp: 0 
+      },
+      { id: 25, diciplina: 'M', enunciado: "Se 6 impressoras 3D do laboratório do IFRN produzem um lote de protótipos em 8 horas, em quanto tempo 12 impressoras de mesmo rendimento produzirão o mesmo lote?", op: ["16 horas", "4 horas", "6 horas", "2 horas"], resp: 1 },
+      { 
+        id: 26, 
+        diciplina: 'M', 
+        enunciado: "Em uma reforma no campus, uma praça quadrada teve sua área delimitada em 81 m², conforme a figura abaixo. Qual é o perímetro total dessa praça?", 
+        svg: `<svg width="180" height="150" viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg">
+                <rect x="35" y="15" width="110" height="110" fill="rgba(0, 133, 66, 0.2)" stroke="#10b981" stroke-width="3" rx="4"/>
+                <text x="48" y="75" fill="#ffffff" font-size="13" font-weight="bold">Área = 81 m²</text>
+                <text x="70" y="142" fill="#f59e0b" font-size="13" font-weight="bold">Lado = L</text>
+              </svg>`,
+        op: ["18 m", "36 m", "27 m", "81 m"], 
+        resp: 1 
+      },
+      { id: 27, diciplina: 'M', enunciado: "Resolva o sistema de equações do 1º grau referente às compras de insumos para a aula prática: x + y = 10 e x - y = 4. O valor do produto dos números x . y é:", op: ["21", "24", "14", "16"], resp: 0 },
+      { id: 28, diciplina: 'M', enunciado: "As raízes da equação do 2º grau x² - 7x + 12 = 0, que representam as dimensões de um terreno retangular, são:", op: ["2 e 5", "3 e 4", "-3 e -4", "1 e 12"], resp: 1 },
+      { 
+        id: 29, 
+        diciplina: 'M', 
+        enunciado: "O gráfico a seguir registra o quantitativo de projetos de pesquisa aprovados nos quatro campi do IFRN durante um edital. Qual foi a média de projetos aprovados por campus?", 
+        svg: `<svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
+                <line x1="40" y1="20" x2="40" y2="140" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="40" y1="140" x2="280" y2="140" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="40" y1="110" x2="280" y2="110" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4"/>
+                <line x1="40" y1="80" x2="280" y2="80" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4"/>
+                <line x1="40" y1="50" x2="280" y2="50" stroke="rgba(255,255,255,0.1)" stroke-dasharray="4"/>
+                <rect x="60" y="80" width="35" height="60" fill="#10b981" rx="4"/>
+                <rect x="115" y="50" width="35" height="90" fill="#008542" rx="4"/>
+                <rect x="170" y="110" width="35" height="30" fill="#f59e0b" rx="4"/>
+                <rect x="225" y="20" width="35" height="120" fill="#e30613" rx="4"/>
+                <text x="25" y="145" fill="#94a3b8" font-size="11">0</text>
+                <text x="20" y="115" fill="#94a3b8" font-size="11">10</text>
+                <text x="20" y="85" fill="#94a3b8" font-size="11">20</text>
+                <text x="20" y="55" fill="#94a3b8" font-size="11">30</text>
+                <text x="72" y="73" fill="#ffffff" font-size="12" font-weight="bold">20</text>
+                <text x="127" y="43" fill="#ffffff" font-size="12" font-weight="bold">30</text>
+                <text x="182" y="103" fill="#ffffff" font-size="12" font-weight="bold">10</text>
+                <text x="237" y="15" fill="#ffffff" font-size="12" font-weight="bold">40</text>
+                <text x="63" y="160" fill="#f8fafc" font-size="11">CNAT</text>
+                <text x="120" y="160" fill="#f8fafc" font-size="11">MOSS</text>
+                <text x="172" y="160" fill="#f8fafc" font-size="11">PAR</text>
+                <text x="228" y="160" fill="#f8fafc" font-size="11">CAI</text>
+              </svg>`,
+        op: ["25 projetos", "20 projetos", "30 projetos", "15 projetos"], 
+        resp: 0 
+      },
+      { id: 30, diciplina: 'M', enunciado: "Um atleta do IFRN percorreu uma distância de 4,2 km no treino. Convertendo esse valor para metros, ele percorreu:", op: ["420 m", "4.200 m", "42.000 m", "42 m"], resp: 1 },
+      { id: 31, diciplina: 'M', enunciado: "Em uma urna com 20 cartões numerados para um sorteio escolar, 5 contêm prêmios. A probabilidade de um aluno retirar um cartão premiado na primeira tentativa é:", op: ["15%", "25%", "20%", "30%"], resp: 1 },
+      { id: 32, diciplina: 'M', enunciado: "Análise os números naturais: 11, 15, 19, 21. Qual deles é um número PRIMO?", op: ["15", "21", "19", "Nenhum deles"], resp: 2 },
+      { id: 33, diciplina: 'M', enunciado: "O valor exato da potência 3⁴ utilizada na resolução de um problema de combinatória é:", op: ["12", "81", "27", "64"], resp: 1 },
+      { id: 34, diciplina: 'M', enunciado: "Um investimento inicial de R$ 2.000,00 rendeu juros simples à taxa de 1,5% ao mês durante 4 meses. O montante final ao término da aplicação foi de:", op: ["R$ 2.120,00", "R$ 2.060,00", "R$ 2.150,00", "R$ 2.200,00"], resp: 0 },
+      { 
+        id: 35, 
+        diciplina: 'M', 
+        enunciado: "Calcule a área da vela triangular do barco da equipe de vela do campus, que possui base medindo 8 metros e altura medindo 5 metros:", 
+        svg: `<svg width="220" height="150" viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="30,120 190,120 110,30" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="3"/>
+                <line x1="110" y1="30" x2="110" y2="120" stroke="#e30613" stroke-width="2" stroke-dasharray="4"/>
+                <text x="115" y="80" fill="#e30613" font-size="13" font-weight="bold">h = 5 m</text>
+                <text x="80" y="142" fill="#f8fafc" font-size="13" font-weight="bold">b = 8 m</text>
+              </svg>`,
+        op: ["40 m²", "20 m²", "13 m²", "25 m²"], 
+        resp: 1 
+      },
+      { id: 36, diciplina: 'M', enunciado: "Dois semáforos em frente ao IFRN piscam em intervalos regulares de 6 e 8 segundos. Se eles piscaram juntos agora, piscarão juntos novamente após (MMC):", op: ["12 segundos", "24 segundos", "48 segundos", "14 segundos"], resp: 1 },
+      { 
+        id: 37, 
+        diciplina: 'M', 
+        enunciado: "O ângulo formado pelas hastes de um painel solar instalado no telhado do IFRN mede exatos 120°, conforme ilustração. Como esse ângulo é classificado?", 
+        svg: `<svg width="200" height="130" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 170 110 L 80 110 L 20 40" fill="none" stroke="#10b981" stroke-width="3"/>
+                <path d="M 110 110 A 30 30 0 0 0 60 86" fill="none" stroke="#e30613" stroke-width="2"/>
+                <text x="80" y="80" fill="#ffffff" font-size="13" font-weight="bold">120°</text>
+              </svg>`,
+        op: ["Agudo", "Reto", "Obtuso", "Raso"], 
+        resp: 2 
+      },
+      { id: 38, diciplina: 'M', enunciado: "Sabe-se que a soma dos ângulos internos de qualquer triângulo é 180°. Em um triângulo retângulo, um dos ângulos agudos mede 35°. O outro ângulo agudo mede:", op: ["45°", "55°", "65°", "145°"], resp: 1 },
+      { id: 39, diciplina: 'M', enunciado: "Na maquete do novo prédio do campus elaborada na escala 1:200, uma parede mede 5 cm. A medida real dessa parede é de:", op: ["10 metros", "1 metro", "100 metros", "50 metros"], resp: 0 },
+      { id: 40, diciplina: 'M', enunciado: "Em uma pesquisa com 120 alunos, 40 optaram pelo curso de Informática. A fração simplificada ao máximo que representa essa opção é:", op: ["1/3", "4/12", "2/5", "1/4"], resp: 0 }
+    ];
+
+    // Renderizar Questões na Tela
+    function renderizarQuestoes() {
+      const divPort = document.getElementById('questoesPortugues');
+      const divMat = document.getElementById('questoesMatematica');
+
+      questoes.forEach((q, index) => {
+        const svgContainer = q.svg ? `<div class="questao-svg-container">${q.svg}</div>` : '';
+
+        const questaoHTML = `
+          <div class="card-questao" id="card-q${q.id}">
+            <span class="num-questao">Questão ${index + 1} (${q.diciplina === 'P' ? 'Português' : 'Matemática'})</span>
+            <div class="enunciado">${q.enunciado}</div>
+            ${svgContainer}
+            <div class="opcoes">
+              ${q.op.map((opcao, i) => `
+                <label class="opcao-label" id="label-q${q.id}-op${i}">
+                  <input type="radio" name="q${q.id}" value="${i}">
+                  <span><strong>${String.fromCharCode(65 + i)})</strong> ${opcao}</span>
+                </label>
+              `).join('')}
+            </div>
+            <div class="status-gabarito" id="status-q${q.id}"></div>
+          </div>
+        `;
+
+        if (q.diciplina === 'P') {
+          divPort.innerHTML += questaoHTML;
+        } else {
+          divMat.innerHTML += questaoHTML;
+        }
+      });
+    }
+
+    // Calcular Resultados e Gerar Gabarito Visual
+    function calcularResultado() {
+      let pontosPort = 0;
+      let pontosMat = 0;
+
+      questoes.forEach(q => {
+        const selecionada = document.querySelector(`input[name="q${q.id}"]:checked`);
+        const statusDiv = document.getElementById(`status-q${q.id}`);
+        const opcaoCorretaLabel = document.getElementById(`label-q${q.id}-op${q.resp}`);
+        
+        // Destacar a alternativa correta oficial em verde
+        if (opcaoCorretaLabel) {
+          opcaoCorretaLabel.classList.add('opcao-correta');
+        }
+
+        if (selecionada) {
+          const valorMarcado = parseInt(selecionada.value);
+          const opcaoMarcadaLabel = document.getElementById(`label-q${q.id}-op${valorMarcado}`);
+
+          if (valorMarcado === q.resp) {
+            // Acertou
+            if (q.diciplina === 'P') pontosPort++;
+            if (q.diciplina === 'M') pontosMat++;
+
+            statusDiv.className = 'status-gabarito acertou';
+            statusDiv.innerHTML = '✔ Você acertou esta questão!';
+          } else {
+            // Errou: marca a opção errada do usuário em vermelho
+            if (opcaoMarcadaLabel) {
+              opcaoMarcadaLabel.classList.add('opcao-incorreta');
+            }
+            statusDiv.className = 'status-gabarito errou';
+            statusDiv.innerHTML = `✖ Você marcou a alternativa ${String.fromCharCode(65 + valorMarcado)}. A resposta correta é a letra ${String.fromCharCode(65 + q.resp)}.`;
+          }
+        } else {
+          // Não respondeu
+          statusDiv.className = 'status-gabarito errou';
+          statusDiv.innerHTML = `✖ Questão não respondida. A alternativa correta é a letra ${String.fromCharCode(65 + q.resp)}.`;
+        }
+
+        // Desabilitar radios para travar o simulado após término
+        document.querySelectorAll(`input[name="q${q.id}"]`).forEach(input => input.disabled = true);
+      });
+
+      const totalAcertos = pontosPort + pontosMat;
+      const porcentagem = Math.round((totalAcertos / 40) * 100);
+      const nota100 = (totalAcertos * 2.5).toFixed(1);
+
+      // Atualizar Painel Geral
+      document.getElementById('escoreTotal').textContent = `${totalAcertos} / 40`;
+      document.getElementById('escorePort').textContent = `${pontosPort} / 20`;
+      document.getElementById('escoreMat').textContent = `${pontosMat} / 20`;
+      document.getElementById('notaFinal').textContent = nota100;
+      document.getElementById('textoPorcentagem').textContent = `${porcentagem}% de Aproveitamento (${totalAcertos} acertos)`;
+      
+      const barra = document.getElementById('barraProgresso');
+      const painel = document.getElementById('painelResultado');
+      const btn = document.getElementById('btnFinalizar');
+      
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+      btn.textContent = 'Simulado Finalizado';
+
+      painel.style.display = 'block';
+      setTimeout(() => {
+        barra.style.width = `${porcentagem}%`;
+      }, 100);
+
+      painel.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Controle de Animação e Interação do Menu Responsivo
+    document.addEventListener('DOMContentLoaded', () => {
+      renderizarQuestoes();
+
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      const navOverlay = document.getElementById('navOverlay');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      function toggleMenu() {
+        const isOpen = navMenu.classList.contains('active');
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', !isOpen);
+      }
+
+      function closeMenu() {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        navOverlay.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+      if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+          closeMenu();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
