@@ -367,7 +367,7 @@
   <div class="container">
     <header class="header-simulado">
       <h1>Simulado Exame PROITEC - IFRN</h1>
-      <p>Estrutura Oficial: 50 Questões Objetivas (Língua Portuguesa, Matemática, Ética e Cidadania)</p>
+      <p>Estrutura Oficial: 50 Questões Contextualizadas (Língua Portuguesa, Matemática, Ética e Cidadania)</p>
     </header>
 
     <form id="simuladoForm">
@@ -435,31 +435,31 @@
   <script>
     const questoes = [
       // ==================== LÍNGUA PORTUGUESA (1 a 20) ====================
-      { id: 1, diciplina: 'P', enunciado: "De acordo com o Texto Base, o exercício pleno da cidadania na era digital depende de:", op: ["Acesso ilimitado a computadores de alta velocidade.", "Formação de sujeitos leitores, críticos e autônomos.", "Substituição completa do material impresso pelo digital.", "Aumento da produção diária de conteúdos nas redes."], resp: 1 },
-      { id: 2, diciplina: 'P', enunciado: "No trecho '...a formação de sujeitos leitores <strong>torna-se</strong> o pilar central...', a palavra destacada é um verbo:", op: ["Transitivo direto", "Transitivo indireto", "De ligação", "Intransitivo"], resp: 2 },
-      { id: 3, diciplina: 'P', enunciado: "Assinale a alternativa em que a regência verbal atende à norma-padrão da língua:", op: ["O estudante aspirava ao ingresso no curso técnico do IFRN.", "Os alunos preferem mais a aula prática do que a teórica.", "O professor assistiu o filme sobre ética com a turma.", "O edital obedeceu o prazo estipulado pela coordenação."], resp: 0 },
-      { id: 4, diciplina: 'P', enunciado: "Em 'notícias falsas cresce <strong>exponencialmente</strong>', o termo destacado expressa ideia de:", op: ["Modo", "Lugar", "Tempo", "Negação"], resp: 0 },
-      { id: 5, diciplina: 'P', enunciado: "A palavra 'autônomos' recebe acento gráfico porque é uma:", op: ["Oxítona terminada em 's'", "Paroxítona terminada em ditongo", "Proparoxítona", "Palavra com hiato"], resp: 2 },
-      { id: 6, diciplina: 'P', enunciado: "Assinale a opção que apresenta conjunção com valor explicativo:", op: ["Estude bastante, pois a prova do PROITEC exige dedicação.", "Embora estivesse cansado, revisou todo o conteúdo da prova.", "Ele não apenas leu o livro, mas também fez todos os exercícios.", "Se tiver dúvidas durante a aula, pergunte ao professor."], resp: 0 },
-      { id: 7, diciplina: 'P', enunciado: "Qual das frases abaixo apresenta voz passiva analítica?", op: ["O projeto de inclusão foi elaborado pela equipe do IFRN.", "Os estudantes organizaram a feira de ciências do campus.", "Aluga-se armários para os alunos no pátio central.", "Inscreveram-se muitos candidatos para o simulado."], resp: 0 },
-      { id: 8, diciplina: 'P', enunciado: "Indique a alternativa em que a concordância nominal está CORRETA:", op: ["É proibido a entrada de pessoas não autorizadas.", "A aluna mesmo preparou o resumo de Língua Portuguesa.", "Seguem anexos as fichas de inscrição dos candidatos.", "Ela ficou meia preocupada com a nota do simulado."], resp: 1 },
-      { id: 9, diciplina: 'P', enunciado: "A expressão 'pilar central', presente no Texto Base, é empregada em sentido:", op: ["Literal", "Figurado (Figurativo/Figuracional)", "Científico", "Técnico"], resp: 1 },
-      { id: 10, diciplina: 'P', enunciado: "Assinale a opção em que todas as palavras estão grafadas corretamente:", op: ["Compreensão, exceção, discussão", "Compreenção, esceção, discussão", "Compreensão, exceção, discução", "Compreenção, esceção, discução"], resp: 0 },
-      { id: 11, diciplina: 'P', enunciado: "Em 'A leitura <strong>que libertou o estudante</strong> mudou sua visão de mundo', a oração destacada é:", op: ["Subordinada adjetiva restritiva", "Subordinada adjetiva explicativa", "Subordinada substantiva subjetiva", "Coordenada sindética explicativa"], resp: 0 },
-      { id: 12, diciplina: 'P', enunciado: "Qual é o antônimo da palavra 'autonomia' no contexto do texto?", op: ["Independência", "Dependência", "Liberdade", "Emancipação"], resp: 1 },
-      { id: 13, diciplina: 'P', enunciado: "A palavra 'democratização' é formada por qual processo gramatical?", op: ["Prefixação", "Sufixação", "Composição por justaposição", "Parassíntese"], resp: 1 },
-      { id: 14, diciplina: 'P', enunciado: "Assinale a alternativa na qual o uso do sinal indicativo de crase é OBRIGATÓRIO:", op: ["Entreguei o trabalho à professora de português.", "O candidato começou à fazer a prova no horário.", "Ele preferiu ir à pé para a escola hoje.", "Dirigiu-se à uma sala do prédio principal."], resp: 0 },
-      { id: 15, diciplina: 'P', enunciado: "Em 'Se o aluno <strong>estudar</strong> com foco, obterá bom resultado', o verbo destacado está no:", op: ["Futuro do Subjuntivo", "Presente do Indicativo", "Pretérito Perfeito do Subjuntivo", "Futuro do Presente do Indicativo"], resp: 0 },
-      { id: 16, diciplina: 'P', enunciado: "Qual figura de linguagem está presente em 'A tecnologia é um oceano de informações'?", op: ["Metáfora", "Metonímia", "Antítese", "Hipérbole"], resp: 0 },
-      { id: 17, diciplina: 'P', enunciado: "Em 'O volume de dados cresce <strong>tanto que</strong> assusta os pesquisadores', a locução destacada indica:", op: ["Causa", "Consequência", "Concessão", "Condição"], resp: 1 },
-      { id: 18, diciplina: 'P', enunciado: "Identifique o sujeito do verbo na frase 'Chegaram os novos livros do PROITEC':", op: ["Indeterminado", "Os novos livros do PROITEC", "PROITEC", "Oculto (nós)"], resp: 1 },
-      { id: 19, diciplina: 'P', enunciado: "Assinale o trecho que contém um desvio de pontuação:", op: ["O IFRN oferece, cursos técnicos gratuitos.", "Os estudantes, muito dedicados, passaram na prova.", "A inclusão digital, portanto, é necessária.", "Durante a tarde, revisamos toda a matéria."], resp: 0 },
-      { id: 20, diciplina: 'P', enunciado: "O objetivo principal do Texto Base é defender a importância da:", op: ["Compra massiva de aparelhos eletrônicos.", "Formação crítica de leitores na era digital.", "Censura prévia de redes sociais no país.", "Diminuição das horas de estudo de leitura."], resp: 1 },
+      { id: 1, diciplina: 'P', enunciado: "De acordo com o Texto Base, para evitar cair em desinformações ao pesquisar conteúdos escolares na internet, o estudante precisa exercitar a cidadania por meio de:", op: ["Acesso ilimitado a redes sociais de alta velocidade.", "Formação crítica, autonomia leitora e checagem de dados.", "Substituição completa do livro físico pelo digital.", "Aumento do tempo diário consumindo conteúdos online."], resp: 1 },
+      { id: 2, diciplina: 'P', enunciado: "No trecho '...a formação de sujeitos leitores <strong>torna-se</strong> o pilar central...', o verbo em destaque exige um predicativo do sujeito. Trata-se de um verbo:", op: ["Transitivo direto", "Transitivo indireto", "De ligação", "Intransitivo"], resp: 2 },
+      { id: 3, diciplina: 'P', enunciado: "Para elaborar o edital do simulado sem desvios gramaticais, a comissão do IFRN deve seguir a norma-padrão de regência. Assinale a frase correta:", op: ["O estudante aspirava ao ingresso no curso técnico do IFRN.", "Os alunos preferem mais a aula prática do que a teórica.", "O professor assistiu o filme sobre ética com a turma.", "O edital obedeceu o prazo estipulado pela coordenação."], resp: 0 },
+      { id: 4, diciplina: 'P', enunciado: "Na frase 'As redes sociais propagam desinformações <strong>exponencialmente</strong> na comunidade', o advérbio em destaque indica a circunstância de:", op: ["Modo", "Lugar", "Tempo", "Negação"], resp: 0 },
+      { id: 5, diciplina: 'P', enunciado: "Durante a correção de uma redação sobre tecnologia, a palavra 'autônomos' foi destacada. Ela recebe acento gráfico obrigatoriamente porque é uma:", op: ["Oxítona terminada em 's'", "Paroxítona terminada em ditongo", "Proparoxítona", "Palavra com hiato isolado"], resp: 2 },
+      { id: 6, diciplina: 'P', enunciado: "Em um aviso aos estudantes: 'Estude bastante, <strong>pois</strong> a prova do PROITEC exige dedicação', a conjunção em destaque estabelece relação de:", op: ["Explicação", "Concessão", "Adição", "Condição"], resp: 0 },
+      { id: 7, diciplina: 'P', enunciado: "Observe a frase: 'O projeto de inclusão digital foi elaborado pela equipe do IFRN'. A estrutura gramatical utilizada corresponde à:", op: ["Voz passiva analítica", "Voz ativa com objeto direto", "Voz passiva sintética", "Voz reflexiva simples"], resp: 0 },
+      { id: 8, diciplina: 'P', enunciado: "Em um cartaz informativo no mural do campus, qual das sentenças apresenta concordância nominal CORRETA?", op: ["É proibido a entrada de pessoas não autorizadas.", "A aluna mesmo preparou o resumo de Língua Portuguesa.", "Seguem anexos as fichas de inscrição dos candidatos.", "Ela ficou meia preocupada com a nota do simulado."], resp: 1 },
+      { id: 9, diciplina: 'P', enunciado: "Ao dizer que a leitura é o 'pilar central' da cidadania digital, o autor utiliza a expressão no sentido:", op: ["Literal / Denotativo", "Figurado / Conotativo", "Científico estrito", "Dicionarizado exato"], resp: 1 },
+      { id: 10, diciplina: 'P', enunciado: "Na produção textual do PROITEC, o uso correto da ortografia é essencial. Qual opção apresenta todas as palavras grafadas corretamente?", op: ["Compreensão, exceção, discussão", "Compreenção, esceção, discussão", "Compreensão, exceção, discução", "Compreenção, esceção, discução"], resp: 0 },
+      { id: 11, diciplina: 'P', enunciado: "Analise o trecho do jornal escolar: 'A leitura <strong>que libertou o estudante</strong> mudou sua visão de mundo'. A oração destacada funciona como:", op: ["Subordinada adjetiva restritiva", "Subordinada adjetiva explicativa", "Subordinada substantiva subjetiva", "Coordenada sindética explicativa"], resp: 0 },
+      { id: 12, diciplina: 'P', enunciado: "Um aluno que busca 'autonomia' no aprendizado do IFRN quer ser independente. O antônimo dessa postura é a:", op: ["Emancipação", "Dependência", "Liberdade", "Protagonismo"], resp: 1 },
+      { id: 13, diciplina: 'P', enunciado: "A palavra 'democratização' deriva do vocábulo 'democrático' com o acréscimo de sufixos. O processo de formação desse vocábulo é:", op: ["Prefixação", "Sufixação", "Composição por justaposição", "Parassíntese"], resp: 1 },
+      { id: 14, diciplina: 'P', enunciado: "Analise os avisos da biblioteca. O uso do sinal indicativo de crase é OBRIGATÓRIO em:", op: ["Entreguei o trabalho à professora de português.", "O candidato começou à fazer a prova no horário.", "Ele preferiu ir à pé para a escola hoje.", "Dirigiu-se à uma sala do prédio principal."], resp: 0 },
+      { id: 15, diciplina: 'P', enunciado: "Na frase do orientador pedagógico 'Se o estudante <strong>estudar</strong> com constância, alcançará a vaga', a forma verbal em destaque indica:", op: ["Futuro do Subjuntivo", "Presente do Indicativo", "Pretérito Perfeito do Subjuntivo", "Futuro do Presente do Indicativo"], resp: 0 },
+      { id: 16, diciplina: 'P', enunciado: "Ao dizer 'A internet é um oceano de informações sem fim', o palestrante usou a figura de linguagem chamada:", op: ["Metáfora", "Metonímia", "Antítese", "Eufemismo"], resp: 0 },
+      { id: 17, diciplina: 'P', enunciado: "No trecho 'O volume de mensagens cresceu <strong>tanto que</strong> sobrecarregou os servidores', a locução destacada exprime ideia de:", op: ["Causa", "Consequência", "Concessão", "Condição"], resp: 1 },
+      { id: 18, diciplina: 'P', enunciado: "Na frase 'Chegaram ontem ao campus os novos livros do PROITEC', o sujeito do verbo 'chegaram' é:", op: ["Indeterminado", "Os novos livros do PROITEC", "PROITEC", "Oculto (eles)"], resp: 1 },
+      { id: 19, diciplina: 'P', enunciado: "Assinale a frase em que o uso incorreto da vírgula separou indevidamente o sujeito do verbo:", op: ["O IFRN oferece, cursos técnicos gratuitos.", "Os estudantes, muito dedicados, passaram na prova.", "A inclusão digital, portanto, é necessária.", "Durante a tarde, revisamos toda a matéria."], resp: 0 },
+      { id: 20, diciplina: 'P', enunciado: "Considerando a mensagem global do Texto Base, qual é o seu objetivo comunicativo principal?", op: ["Incentivar a compra massiva de computadores.", "Defender a formação crítica do leitor na era da informação.", "Propor o bloqueio de redes sociais nas redes públicas.", "Recomendar a redução do tempo de estudo presencial."], resp: 1 },
 
-      // ==================== MATEMÁTICA COM SVG REFORMULADOS (21 a 40) ====================
+      // ==================== MATEMÁTICA CONTEXTUALIZADA (21 a 40) ====================
       {
         id: 21, diciplina: 'M',
-        enunciado: "Para a reforma de uma sala no IFRN, desenhou-se o piso retangular mostrado abaixo. Determine o perímetro total dessa sala:",
+        enunciado: "Para a reforma de uma sala de estudos do IFRN, o mestre de obras desenhou o piso retangular mostrado abaixo. Ele precisa comprar um rodapé que contorne todo o perímetro da sala. Quantos metros de rodapé serão necessários?",
         svg: `<svg width="280" height="150" viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="grad21" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -479,7 +479,7 @@
       },
       {
         id: 22, diciplina: 'M',
-        enunciado: "No diagrama circular abaixo, está representada a distribuição de 200 alunos entre os cursos do campus. Quantos alunos optaram por Informática?",
+        enunciado: "Em uma pesquisa com 200 estudantes de 9º ano que farão o PROITEC, o gráfico de setores abaixo mostrou a escolha de cursos. Quantos alunos pretendem cursar Informática?",
         svg: `<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="100" cy="100" r="80" fill="#11201a" stroke="#ffffff" stroke-width="2"/>
                 <path d="M100,100 L100,20 A80,80 0 1,1 20,100 Z" fill="#10b981"/>
@@ -492,7 +492,7 @@
       },
       {
         id: 23, diciplina: 'M',
-        enunciado: "Para instalar uma antena de transmissão no topo de um prédio do campus, fixou-se um cabo esticado conforme o triângulo retângulo abaixo. Qual o comprimento (c) desse cabo?",
+        enunciado: "Para garantir a internet no campus do IFRN, instalou-se um cabo esticado do topo do prédio até a base no solo. Conforme o triângulo retângulo abaixo, qual o comprimento (c) do cabo?",
         svg: `<svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
                 <polygon points="50,20 50,110 200,110" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="3"/>
                 <rect x="50" y="98" width="12" height="12" fill="none" stroke="#ffffff" stroke-width="2"/>
@@ -505,7 +505,7 @@
       },
       {
         id: 24, diciplina: 'M',
-        enunciado: "O gráfico de colunas a seguir representa as notas obtidas por um estudante nos 4 simulados preparatórios do PROITEC. Qual foi a média aritmética das notas?",
+        enunciado: "O gráfico de colunas a seguir apresenta o histórico de notas de João nos 4 simulados do PROITEC. Qual foi a média aritmética simples das notas alcançadas por ele?",
         svg: `<svg width="280" height="160" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
                 <line x1="35" y1="20" x2="35" y2="125" stroke="#94a3b8" stroke-width="2"/>
                 <line x1="35" y1="125" x2="260" y2="125" stroke="#94a3b8" stroke-width="2"/>
@@ -526,7 +526,7 @@
       },
       {
         id: 25, diciplina: 'M',
-        enunciado: "Na figura abaixo, a região pintada em verde representa a fração da horta comunitária reservada para cultivo orgânico. Qual a porcentagem correspondente?",
+        enunciado: "O projeto de sustentabilidade do IFRN dividiu uma horta comunitária em 4 partes iguais. As partes destacadas em verde são destinadas a plantas medicinais. Essa fração corresponde a qual porcentagem?",
         svg: `<svg width="240" height="120" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
                 <rect x="20" y="25" width="200" height="70" fill="rgba(255,255,255,0.05)" stroke="#ffffff" stroke-width="2" rx="6"/>
                 <rect x="22" y="27" width="48" height="66" fill="#10b981" rx="4"/>
@@ -542,7 +542,7 @@
       },
       {
         id: 26, diciplina: 'M',
-        enunciado: "Um reservatório de água em formato de paralelepípedo reto-retângulo possui as dimensões indicadas abaixo. Calcule o seu volume total:",
+        enunciado: "Um reservatório para captação de água da chuva no IFRN possui o formato de um paralelepípedo retângulo, como representado abaixo. Qual é a capacidade em volume (m³) desse reservatório?",
         svg: `<svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
                 <path d="M30,70 L150,70 L190,30 L70,30 Z" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="2"/>
                 <path d="M30,70 L150,70 L150,120 L30,120 Z" fill="rgba(16,185,129,0.4)" stroke="#10b981" stroke-width="2"/>
@@ -555,7 +555,7 @@
       },
       {
         id: 27, diciplina: 'M',
-        enunciado: "A reta numérica abaixo indica a posição das notas de quatro alunos. Qual aluno está localizado exatamente no ponto equivalente a 2,5?",
+        enunciado: "A reta numérica abaixo registra o tempo de estudo diário (em horas) dos candidatos. Qual a posição do ponto X referente a 2,5 horas de estudos?",
         svg: `<svg width="280" height="90" viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg">
                 <line x1="20" y1="45" x2="260" y2="45" stroke="#ffffff" stroke-width="3"/>
                 <line x1="40" y1="35" x2="40" y2="55" stroke="#ffffff" stroke-width="2"/>
@@ -569,11 +569,11 @@
                 <circle cx="165" cy="45" r="7" fill="#e30613" stroke="#ffffff" stroke-width="2"/>
                 <text x="165" y="22" fill="#e30613" font-size="14" font-weight="bold" text-anchor="middle">Ponto X</text>
               </svg>`,
-        op: ["Entre 0 e 1", "Entre 1 e 2", "Exatamente no meio entre 2 e 3", "Após o número 3"], resp: 2
+        op: ["Entre 0 e 1", "Entre 1 e 2", "Exatamente no meio entre 2 e 3", "Após a marca de 3 horas"], resp: 2
       },
       {
         id: 28, diciplina: 'M',
-        enunciado: "A relação entre a quantidade de horas trabalhadas (h) e o valor pago (V) em reais para a manutenção de computadores está mostrada no gráfico cartesiano abaixo. A equação do gráfico é:",
+        enunciado: "Um técnico em informática cobra pela manutenção dos computadores da escola de acordo com as horas trabalhadas (h), gerando a relação do gráfico abaixo. Qual expressão matemática modela esse custo V(h)?",
         svg: `<svg width="240" height="160" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
                 <line x1="40" y1="130" x2="210" y2="130" stroke="#94a3b8" stroke-width="2"/>
                 <line x1="40" y1="130" x2="40" y2="20" stroke="#94a3b8" stroke-width="2"/>
@@ -590,7 +590,7 @@
       },
       {
         id: 29, diciplina: 'M',
-        enunciado: "Uma roleta numerada de 1 a 8 foi utilizada em um jogo educativo no IFRN. Qual é a probabilidade de a roleta parar em um número par?",
+        enunciado: "Em uma feira de ciências do IFRN, utilizou-se a roleta numerada de 1 a 8 abaixo para sortear brindes ecológicos. Qual é a probabilidade de o ponteiro parar em um número par?",
         svg: `<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="90" cy="90" r="75" fill="#11201a" stroke="#10b981" stroke-width="4"/>
                 <line x1="90" y1="15" x2="90" y2="165" stroke="#10b981" stroke-width="2"/>
@@ -611,7 +611,7 @@
       },
       {
         id: 30, diciplina: 'M',
-        enunciado: "O paralelogramo abaixo representa a planta de uma praça de convivência no campus. Sabendo que a base mede 12 m e a altura mede 6 m, qual a área total?",
+        enunciado: "O espaço de vivência dos alunos possui o formato do paralelogramo representado abaixo. Sabendo que a base mede 12 m e a altura mede 6 m, qual é a área total desse espaço?",
         svg: `<svg width="250" height="130" viewBox="0 0 250 130" xmlns="http://www.w3.org/2000/svg">
                 <polygon points="60,20 210,20 160,100 10,100" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="3"/>
                 <line x1="60" y1="20" x2="60" y2="100" stroke="#f59e0b" stroke-dasharray="4" stroke-width="2"/>
@@ -620,28 +620,28 @@
               </svg>`,
         op: ["36 m²", "48 m²", "72 m²", "144 m²"], resp: 2
       },
-      { id: 31, diciplina: 'M', enunciado: "Se 3 cadernos do PROITEC custam R$ 45,00, quanto custarão 7 cadernos do mesmo modelo?", op: ["R$ 90,00", "R$ 105,00", "R$ 115,00", "R$ 120,00"], resp: 1 },
-      { id: 32, diciplina: 'M', enunciado: "Resolva a equação do 1º grau: 4x - 8 = 2x + 12. O valor de x é:", op: ["8", "10", "12", "14"], resp: 1 },
-      { id: 33, diciplina: 'M', enunciado: "Em uma turma de 40 alunos, 60% foram aprovados no exame final. Quantos alunos foram aprovados?", op: ["20 alunos", "24 alunos", "28 alunos", "30 alunos"], resp: 1 },
-      { id: 34, diciplina: 'M', enunciado: "Qual o resultado da expressão numérica: 5 + 3 × (8 - 2²)?", op: ["17", "29", "32", "20"], resp: 0 },
-      { id: 35, diciplina: 'M', enunciado: "Convertendo 4,5 quilômetros em metros, encontramos:", op: ["450 m", "4.500 m", "45.000 m", "0,45 m"], resp: 1 },
-      { id: 36, diciplina: 'M', enunciado: "Um produto que custava R$ 200,00 teve um desconto de 20%. Qual o novo valor do produto?", op: ["R$ 140,00", "R$ 150,00", "R$ 160,00", "R$ 180,00"], resp: 2 },
-      { id: 37, diciplina: 'M', enunciado: "O Mínimo Múltiplo Comum (MMC) entre os números 6, 8 e 12 é igual a:", op: ["24", "36", "48", "72"], resp: 0 },
-      { id: 38, diciplina: 'M', enunciado: "Dada a função f(x) = 3x - 5, calcule o valor de f(4):", op: ["5", "7", "9", "12"], resp: 1 },
-      { id: 39, diciplina: 'M', enunciado: "Um capital de R$ 1.000,00 foi aplicado a juros simples com taxa de 2% ao mês durante 5 meses. O valor dos juros gerados foi:", op: ["R$ 50,00", "R$ 100,00", "R$ 150,00", "R$ 200,00"], resp: 1 },
-      { id: 40, diciplina: 'M', enunciado: "A razão entre o número de meninas (15) e o número de meninos (25) em uma sala de aula simplificada é de:", op: ["1/2", "3/5", "3/4", "5/3"], resp: 1 },
+      { id: 31, diciplina: 'M', enunciado: "Para distribuir na comunidade escolar, a grêmio comprou 3 blocos de anotações do PROITEC por R$ 45,00. Mantendo o mesmo custo unitário, quanto pagará por 7 blocos?", op: ["R$ 90,00", "R$ 105,00", "R$ 115,00", "R$ 120,00"], resp: 1 },
+      { id: 32, diciplina: 'M', enunciado: "Um professor organizou um desafio matemático no quadro: 4x - 8 = 2x + 12, onde x representa a quantidade de turmas do PROITEC. Qual é o valor de x?", op: ["8", "10", "12", "14"], resp: 1 },
+      { id: 33, diciplina: 'M', enunciado: "Em uma turma de 40 alunos de uma escola pública potiguar, 60% conseguiram aprovação direta no PROITEC. Quantos alunos foram aprovados?", op: ["20 alunos", "24 alunos", "28 alunos", "30 alunos"], resp: 1 },
+      { id: 34, diciplina: 'M', enunciado: "Ao resolver a expressão matemática 5 + 3 × (8 - 2²) para calcular a quantidade de kits escolares, qual resultado o aluno deve obter?", op: ["17", "29", "32", "20"], resp: 0 },
+      { id: 35, diciplina: 'M', enunciado: "A distância percorrida pelo ônibus escolar do centro até o campus do IFRN é de 4,5 quilômetros. Essa distância equivale a quantos metros?", op: ["450 m", "4.500 m", "45.000 m", "0,45 m"], resp: 1 },
+      { id: 36, diciplina: 'M', enunciado: "Um livro didático preparatório para o IFRN custava R$ 200,00 e recebeu um desconto de 20% durante a feira estudantil. Qual é o novo preço?", op: ["R$ 140,00", "R$ 150,00", "R$ 160,00", "R$ 180,00"], resp: 2 },
+      { id: 37, diciplina: 'M', enunciado: "Três ônibus intermunicipais partem para o campus em intervalos de 6, 8 e 12 minutos. O tempo mínimo em minutos para que eles partam juntos novamente (MMC) é:", op: ["24 minutos", "36 minutos", "48 minutos", "72 minutos"], resp: 0 },
+      { id: 38, diciplina: 'M', enunciado: "A pontuação final f(x) em uma atividade do PROITEC depende do número de acertos x, calculada por f(x) = 3x - 5. Se o aluno acertar 4 questões (x = 4), sua pontuação será:", op: ["5", "7", "9", "12"], resp: 1 },
+      { id: 39, diciplina: 'M', enunciado: "A cantina da escola obteve um empréstimo de R$ 1.000,00 para reformas a juros simples de 2% ao mês. Qual o valor dos juros acumulados após 5 meses?", op: ["R$ 50,00", "R$ 100,00", "R$ 150,00", "R$ 200,00"], resp: 1 },
+      { id: 40, diciplina: 'M', enunciado: "Na comissão organizadora do evento no IFRN, há 15 meninas e 25 meninos. A razão simplificada entre o número de meninas e o de meninos é:", op: ["1/2", "3/5", "3/4", "5/3"], resp: 1 },
 
-      // ==================== ÉTICA E CIDADANIA (41 a 50) ====================
-      { id: 41, diciplina: 'C', enunciado: "Sob a perspectiva dos Direitos Humanos, a cidadania se constrói mediante:", op: ["Garantia universal de direitos civis, políticos e sociais.", "Privilégio de grupos economicamente dominantes.", "Cumprimento cego de normas sem questionamentos.", "Isolamento de Minorias nos processos de decisão."], resp: 0 },
-      { id: 42, diciplina: 'C', enunciado: "O conceito de Ética no ambiente de aprendizagem envolve:", op: ["Respeitar a diversidade, evitar o plágio e colaborar coletivamente.", "Buscar notas altas independentemente dos meios utilizados.", "Competir com os colegas ocultando dados e materiais.", "Aceitar passivamente desinformações divulgadas online."], resp: 0 },
-      { id: 43, diciplina: 'C', enunciado: "A inclusão social de estudantes com deficiência nos Institutos Federais assegura:", op: ["Equidade de oportunidades, acessibilidade e respeito às diferenças.", "Atendimento em turmas separadas e isoladas dos demais.", "Isenção total da realização de atividades pedagógicas.", "Apenas fornecimento de material impresso padronizado."], resp: 0 },
-      { id: 44, diciplina: 'C', enunciado: "A postura crítica diante das chamadas 'Fake News' é fundamental porque:", op: ["Preserva a integridade da informação e combate a desinformação social.", "Aumenta o tráfego nas redes sociais dos estudantes.", "Impede totalmente a utilização da internet na escola.", "Evita que as pessoas opinem sobre temas polêmicos."], resp: 0 },
-      { id: 45, diciplina: 'C', enunciado: "A gestão democrática na escola pública é garantida quando:", op: ["A comunidade escolar participa ativamente das decisões pedagógicas e orçamentárias.", "Apenas o diretor define as regras e a aplicação de verbas.", "Os alunos tomam decisões sem consultar os professores e técnicos.", "O governo municipal define o horário sem ouvir a comunidade."], resp: 0 },
-      { id: 46, diciplina: 'C', enunciado: "O Estatuto da Criança e do Adolescente (ECA) estabelece como prioridade absoluta:", op: ["A garantia dos direitos à vida, à saúde, à alimentação e à educação.", "O ingresso obrigatório e precoce no mercado de trabalho informal.", "A responsabilidade civil integral a partir dos 10 anos de idade.", "O acompanhamento exclusivamente militar nas escolas públicas."], resp: 0 },
-      { id: 47, diciplina: 'C', enunciado: "Entende-se por consumo consciente e sustentabilidade no ambiente escolar:", op: ["Utilizar recursos como água, energia e papel de forma racional sem desperdícios.", "Substituir materiais escolares novos a cada bimestre sem necessidade.", "Descartar resíduos orgânicos e recicláveis em um único recipiente.", "Imprimir todos os documentos e apostilas digitais disponíveis."], resp: 0 },
-      { id: 48, diciplina: 'C', enunciado: "A empatia nas relações interpessoais escolares consiste em:", op: ["Capacidade de compreender e se colocar no lugar do outro.", "Impor opiniões pessoais em todos os trabalhos em grupo.", "Ignorar os sentimentos e limitações dos colegas de turma.", "Julgar as pessoas com base em estereótipos prévios."], resp: 0 },
-      { id: 49, diciplina: 'C', enunciado: "O combate ao Bullying nas instituições de ensino visa:", op: ["Promover um ambiente seguro, acolhedor e livre de violência física ou psicológica.", "Identificar e punir apenas as vítimas das agressões Verbais.", "Separar os alunos por rendimento escolar em salas distintas.", "Ocultar os conflitos para manter a reputação da escola."], resp: 0 },
-      { id: 50, diciplina: 'C', enunciado: "O acesso público às informações de contas do IFRN pelo Portal da Transparência representa um exercício de:", op: ["Controle social e fiscalização cidadã sobre o uso do dinheiro público.", "Violação da privacidade dos gestores públicos do instituto.", "Burocracia desnecessária que atrasa o ensino técnico.", "Propaganda governamental obrigatória em período eleitoral."], resp: 0 }
+      // ==================== ÉTICA E CIDADANIA CONTEXTUALIZADA (41 a 50) ====================
+      { id: 41, diciplina: 'C', enunciado: "Garantir que todos os jovens potiguares tenham acesso à educação pública de qualidade sem discriminação é um princípio dos Direitos Humanos focado na:", op: ["Universalização dos direitos civis, políticos e sociais.", "Manutenção de privilégios econômicos de minorias.", "Aceitação cega das injustiças sem questionamentos.", "Segregação dos alunos em grupos isolados."], resp: 0 },
+      { id: 42, diciplina: 'C', enunciado: "Ao realizar pesquisas acadêmicas no IFRN, o estudante deve agir com atitude ética. Isso significa:", op: ["Citar fontes, respeitar a diversidade e recusar o plágio.", "Copiar trabalhos prontos da internet para tirar nota máxima.", "Competir com os colegas escondendo materiais de estudo.", "Compartilhar dados não checados nos grupos da turma."], resp: 0 },
+      { id: 43, diciplina: 'C', enunciado: "A política de inclusão de estudantes com deficiência nos Institutos Federais promove:", op: ["Acessibilidade, equidade e integração completa no ambiente escolar.", "Separação física dos estudantes em salas de aula isoladas.", "Dispensa total da realização das atividades de estudo.", "Fornecimento de materiais exclusivamente em versão única."], resp: 0 },
+      { id: 44, diciplina: 'C', enunciado: "Frente à disseminação de notícias falsas que prejudicam a comunidade, a postura cidadã do estudante deve ser:", op: ["Verificar a veracidade das fontes antes de repassar qualquer informação.", "Compartilhar mensagens chamativas rapidamente sem ler o conteúdo.", "Acreditar em qualquer informação divulgada por redes sociais.", "Evitar pesquisar sobre assuntos sociais e políticos importantes."], resp: 0 },
+      { id: 45, diciplina: 'C', enunciado: "No IFRN, a Gestão Democrática possibilita a participação da comunidade escolar nas decisões. Esse processo ocorre quando:", op: ["Professores, estudantes e pais participam dos conselhos e decisões.", "Apenas o diretor decide o destino de todos os recursos da escola.", "Os estudantes tomam decisões sem autorização do corpo docente.", "Órgãos externos impõem as regras sem ouvir o campus escolar."], resp: 0 },
+      { id: 46, diciplina: 'C', enunciado: "Segundo o Estatuto da Criança e do Adolescente (ECA), a garantia com prioridade absoluta aos jovens envolve:", op: ["Proteção integral ao direito à vida, à saúde e à educação de qualidade.", "Abertura para o trabalho infantil em jornadas integrais insalubres.", "Responsabilização adulta irrestrita a partir dos 10 anos de idade.", "Substituição do ambiente escolar por treinamento militar estrito."], resp: 0 },
+      { id: 47, diciplina: 'C', enunciado: "Praticar o consumo consciente no cotidiano dos campi do IFRN envolve hábitos como:", op: ["Economizar água, energia elétrica e evitar o desperdício de papel.", "Descartar resíduos orgânicos e plásticos na mesma lixeira.", "Comprar materiais novos sem necessidade ao final de cada mês.", "Imprimir todos os arquivos e materiais disponíveis na plataforma."], resp: 0 },
+      { id: 48, diciplina: 'C', enunciado: "O exercício da empatia entre os colegas durante os trabalhos em grupo consiste em:", op: ["Compreender e respeitar os sentimentos e realidades dos outros.", "Impor opiniões próprias sem aceitar o diálogo ou debate.", "Desprezar as dificuldades de aprendizado demonstradas pelos colegas.", "Julgar a capacidade dos estudantes por meio de estereótipos."], resp: 0 },
+      { id: 49, diciplina: 'C', enunciado: "As ações contínuas de combate ao Bullying promovidas pelo IFRN buscam:", op: ["Criar um ambiente escolar acolhedor, seguro e livre de agressões.", "Punir apenas as vítimas atingidas pelas agressões diárias.", "Classificar os alunos em salas diferentes de acordo com seu comportamento.", "Ocultar os episódios de violência para manter a imagem da instituição."], resp: 0 },
+      { id: 50, diciplina: 'C', enunciado: "A publicação detalhada dos gastos do IFRN no Portal da Transparência possibilita à sociedade:", op: ["Exercer o controle social e fiscalizar a aplicação dos verbas públicas.", "Invadir a privacidade e segurança pessoal dos servidores públicos.", "Aumentar a burocracia sem qualquer utilidade para o cidadão.", "Fazer propaganda eleitoral obrigatória em favor do governo."], resp: 0 }
     ];
 
     function renderizarQuestoes() {
@@ -753,5 +753,3 @@
 </body>
 
 </html>
-
-```
