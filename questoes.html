@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
 
   <style>
     :root {
@@ -78,22 +77,23 @@
       border: 1px solid var(--card-border-hover);
       border-left: 4px solid var(--ifrn-green-light);
       border-radius: var(--radius-sm);
-      padding: 20px;
-      margin-bottom: 24px;
-      font-size: 0.95rem;
+      padding: 24px;
+      margin-bottom: 30px;
+      font-size: 0.98rem;
       color: #e2e8f0;
     }
 
     .texto-base-card h3 {
       color: var(--primary);
       font-size: 1.1rem;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
     }
 
     .texto-base-card blockquote {
       font-style: italic;
-      margin-bottom: 10px;
-      line-height: 1.7;
+      margin-bottom: 12px;
+      line-height: 1.75;
     }
 
     .texto-base-card .fonte {
@@ -165,7 +165,7 @@
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 12px 16px;
+      padding: 14px 16px;
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-sm);
@@ -183,7 +183,7 @@
       accent-color: var(--primary);
       width: 18px;
       height: 18px;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     .opcao-label.opcao-correta {
@@ -201,7 +201,7 @@
 
     .status-gabarito {
       margin-top: 15px;
-      padding: 10px 14px;
+      padding: 12px 14px;
       border-radius: var(--radius-sm);
       font-size: 0.9rem;
       font-weight: 700;
@@ -293,76 +293,9 @@
       color: var(--primary);
     }
   </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.getElementById('menuToggle');
-      const navMenu = document.getElementById('navMenu');
-      const navOverlay = document.getElementById('navOverlay');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      function toggleMenu() {
-        const isOpen = navMenu.classList.contains('active');
-
-        menuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        navOverlay.classList.toggle('active');
-
-        menuToggle.setAttribute('aria-expanded', !isOpen);
-      }
-
-      function closeMenu() {
-        if (menuToggle) menuToggle.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
-        if (navOverlay) navOverlay.classList.remove('active');
-        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-      }
-
-      if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
-      if (navOverlay) navOverlay.addEventListener('click', closeMenu);
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
-          closeMenu();
-        }
-      });
-    });
-  </script>
 </head>
 
 <body>
-
-  <header class="navbar-header">
-    <div class="navbar-container">
-      <a href="index.html" class="logo">
-        <span class="logo-dot"></span>
-        IFRN 2026
-      </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <div class="nav-overlay" id="navOverlay"></div>
-
-      <nav class="nav-menu" id="navMenu">
-        <a href="index.html" class="nav-link">Início</a>
-        <a href="português.html" class="nav-link">Português</a>
-        <a href="matemática.html" class="nav-link">Matemática</a>
-        <a href="redação.html" class="nav-link">Redação</a>
-        <a href="questoes.html" class="nav-link active">Simulado PROITEC</a>
-        <a href="simulador-vagas.html" class="nav-link">Simulador de Vagas</a>
-        <a href="temas anteriores.html" class="nav-link">Temas Anteriores</a>
-        <a href="exame-selecao.html" class="nav-link">Sobre o Exame</a>
-      </nav>
-    </div>
-  </header>
 
   <div class="container">
     <header class="header-simulado">
@@ -382,7 +315,7 @@
           exponencialmente, a formação de sujeitos leitores e autônomos torna-se o pilar central para a democratização
           do conhecimento e para a inclusão social no espaço escolar e profissional."
         </blockquote>
-        <p class="fonte">Fonte: Caderno de Provas PROITEC / IFRN - Adaptação Pedagógica.</p>
+        <p class="fonte">Fonte: Caderno de Estudos PROITEC / IFRN - Adaptação Pedagógica.</p>
       </div>
 
       <div id="questoesPortugues"></div>
@@ -393,8 +326,7 @@
       <h2 class="secao-titulo">Ética e Cidadania (Questões 41 a 50)</h2>
       <div id="questoesCidadania"></div>
 
-      <button type="button" class="btn-finalizar" id="btnFinalizar" onclick="calcularResultado()">Finalizar e Corrigir
-        Prova</button>
+      <button type="button" class="btn-finalizar" id="btnFinalizar" onclick="calcularResultado()">Finalizar e Corrigir Prova</button>
     </form>
 
     <div id="painelResultado" class="painel-resultado">
@@ -435,213 +367,213 @@
   <script>
     const questoes = [
       // ==================== LÍNGUA PORTUGUESA (1 a 20) ====================
-      { id: 1, diciplina: 'P', enunciado: "De acordo com o Texto Base, o exercício pleno da cidadania na era digital depende de:", op: ["Acesso ilimitado a computadores de alta velocidade.", "Formação de sujeitos leitores, críticos e autônomos.", "Substituição completa do material impresso pelo digital.", "Aumento da produção diária de conteúdos nas redes."], resp: 1 },
-      { id: 2, diciplina: 'P', enunciado: "No trecho '...a formação de sujeitos leitores <strong>torna-se</strong> o pilar central...', a palavra destacada é um verbo:", op: ["Transitivo direto", "Transitivo indireto", "De ligação", "Intransitivo"], resp: 2 },
-      { id: 3, diciplina: 'P', enunciado: "Assinale a alternativa em que a regência verbal atende à norma-padrão da língua:", op: ["O estudante aspirava ao ingresso no curso técnico do IFRN.", "Os alunos preferem mais a aula prática do que a teórica.", "O professor assistiu o filme sobre ética com a turma.", "O edital obedeceu o prazo estipulado pela coordenação."], resp: 0 },
-      { id: 4, diciplina: 'P', enunciado: "Em 'notícias falsas cresce <strong>exponencialmente</strong>', o termo destacado expressa ideia de:", op: ["Modo", "Lugar", "Tempo", "Negação"], resp: 0 },
-      { id: 5, diciplina: 'P', enunciado: "A palavra 'autônomos' recebe acento gráfico porque é uma:", op: ["Oxítona terminada em 's'", "Paroxítona terminada em ditongo", "Proparoxítona", "Palavra com hiato"], resp: 2 },
-      { id: 6, diciplina: 'P', enunciado: "Assinale a opção que apresenta conjunção com valor explicativo:", op: ["Estude bastante, pois a prova do PROITEC exige dedicação.", "Embora estivesse cansado, revisou todo o conteúdo da prova.", "Ele não apenas leu o livro, mas também fez todos os exercícios.", "Se tiver dúvidas durante a aula, pergunte ao professor."], resp: 0 },
-      { id: 7, diciplina: 'P', enunciado: "Qual das frases abaixo apresenta voz passiva analítica?", op: ["O projeto de inclusão foi elaborado pela equipe do IFRN.", "Os estudantes organizaram a feira de ciências do campus.", "Aluga-se armários para os alunos no pátio central.", "Inscreveram-se muitos candidatos para o simulado."], resp: 0 },
-      { id: 8, diciplina: 'P', enunciado: "Indique a alternativa em que a concordância nominal está CORRETA:", op: ["É proibido a entrada de pessoas não autorizadas.", "A aluna mesmo preparou o resumo de Língua Portuguesa.", "Seguem anexos as fichas de inscrição dos candidatos.", "Ela ficou meia preocupada com a nota do simulado."], resp: 1 },
-      { id: 9, diciplina: 'P', enunciado: "A expressão 'pilar central', presente no Texto Base, é empregada em sentido:", op: ["Literal", "Figurado (Figurativo/Figuracional)", "Científico", "Técnico"], resp: 1 },
-      { id: 10, diciplina: 'P', enunciado: "Assinale a opção em que todas as palavras estão grafadas corretamente:", op: ["Compreensão, exceção, discussão", "Compreenção, esceção, discussão", "Compreensão, exceção, discução", "Compreenção, esceção, discução"], resp: 0 },
-      { id: 11, diciplina: 'P', enunciado: "Em 'A leitura <strong>que libertou o estudante</strong> mudou sua visão de mundo', a oração destacada é:", op: ["Subordinada adjetiva restritiva", "Subordinada adjetiva explicativa", "Subordinada substantiva subjetiva", "Coordenada sindética explicativa"], resp: 0 },
-      { id: 12, diciplina: 'P', enunciado: "Qual é o antônimo da palavra 'autonomia' no contexto do texto?", op: ["Independência", "Dependência", "Liberdade", "Emancipação"], resp: 1 },
-      { id: 13, diciplina: 'P', enunciado: "A palavra 'democratização' é formada por qual processo gramatical?", op: ["Prefixação", "Sufixação", "Composição por justaposição", "Parassíntese"], resp: 1 },
-      { id: 14, diciplina: 'P', enunciado: "Assinale a alternativa na qual o uso do sinal indicativo de crase é OBRIGATÓRIO:", op: ["Entreguei o trabalho à professora de português.", "O candidato começou à fazer a prova no horário.", "Ele preferiu ir à pé para a escola hoje.", "Dirigiu-se à uma sala do prédio principal."], resp: 0 },
-      { id: 15, diciplina: 'P', enunciado: "Em 'Se o aluno <strong>estudar</strong> com foco, obterá bom resultado', o verbo destacado está no:", op: ["Futuro do Subjuntivo", "Presente do Indicativo", "Pretérito Perfeito do Subjuntivo", "Futuro do Presente do Indicativo"], resp: 0 },
-      { id: 16, diciplina: 'P', enunciado: "Qual figura de linguagem está presente em 'A tecnologia é um oceano de informações'?", op: ["Metáfora", "Metonímia", "Antítese", "Hipérbole"], resp: 0 },
-      { id: 17, diciplina: 'P', enunciado: "Em 'O volume de dados cresce <strong>tanto que</strong> assusta os pesquisadores', a locução destacada indica:", op: ["Causa", "Consequência", "Concessão", "Condição"], resp: 1 },
-      { id: 18, diciplina: 'P', enunciado: "Identifique o sujeito do verbo na frase 'Chegaram os novos livros do PROITEC':", op: ["Indeterminado", "Os novos livros do PROITEC", "PROITEC", "Oculto (nós)"], resp: 1 },
-      { id: 19, diciplina: 'P', enunciado: "Assinale o trecho que contém um desvio de pontuação:", op: ["O IFRN oferece, cursos técnicos gratuitos.", "Os estudantes, muito dedicados, passaram na prova.", "A inclusão digital, portanto, é necessária.", "Durante a tarde, revisamos toda a matéria."], resp: 0 },
-      { id: 20, diciplina: 'P', enunciado: "O objetivo principal do Texto Base é defender a importância da:", op: ["Compra massiva de aparelhos eletrônicos.", "Formação crítica de leitores na era digital.", "Censura prévia de redes sociais no país.", "Diminuição das horas de estudo de leitura."], resp: 1 },
+      { id: 1, diciplina: 'P', enunciado: "De acordo com as ideias expressas no Texto Base, o exercício pleno da cidadania na era digital depende diretamente de:", op: ["Garantia de acesso ilimitado a redes sociais e computadores de última geração.", "Formação de sujeitos leitores aptos a analisar criticamente as informações.", "Substituição completa e definitiva do material impresso por arquivos digitais.", "Expansão descontrolada da produção de notícias nas plataformas digitais."], resp: 1 },
+      { id: 2, diciplina: 'P', enunciado: "No trecho '...a formação de sujeitos leitores <strong>torna-se</strong> o pilar central...', a palavra destacada atua gramaticalmente como um verbo:", op: ["Transitivo direto", "Transitivo indireto", "De ligação", "Intransitivo"], resp: 2 },
+      { id: 3, diciplina: 'P', enunciado: "Considerando a norma-padrão da Língua Portuguesa sobre regência verbal, assinale a alternativa CORRETA:", op: ["O estudante do PROITEC aspirava ao ingresso em um curso técnico do IFRN.", "Os alunos preferem mais as aulas práticas no laboratório do que as teóricas.", "O professor assistiu o filme educativo junto com a turma do ensino fundamental.", "A coordenação do campus obedeceu o prazo estabelecido no edital de seleção."], resp: 0 },
+      { id: 4, diciplina: 'P', enunciado: "Na frase '...o volume de notícias falsas cresce <strong>exponencialmente</strong>...', o advérbio em destaque expressa circunstância de:", op: ["Modo", "Lugar", "Tempo", "Negação"], resp: 0 },
+      { id: 5, diciplina: 'P', enunciado: "A palavra 'autônomos' é acentuada graficamente pelo mesmo motivo da seguinte regra gramatical:", op: ["Todas as palavras proparoxítonas são acentuadas.", "Paroxítonas terminadas em ditongo crescente devem ser acentuadas.", "Oxítonas terminadas em 'o' ou 'os' recebem acento gráfico.", "Vogais 'i' e 'u' tônicas em hiato recebem acento agudo."], resp: 0 },
+      { id: 6, diciplina: 'P', enunciado: "Assinale a alternativa em que a oração destacada possui valor conector explicativo:", op: ["Dedique-se aos estudos, <strong>pois a prova do PROITEC exige foco</strong>.", "<strong>Embora estivesse exausto</strong>, o estudante revisou as questões de Matemática.", "Ele não apenas leu o texto base, <strong>mas também fez as anotações</strong>.", "<strong>Se houver dúvidas sobre a matéria</strong>, pergunte ao professor no fórum."], resp: 0 },
+      { id: 7, diciplina: 'P', enunciado: "Aponte a opção em que a oração está estruturada na voz passiva analítica:", op: ["O novo projeto de inclusão digital foi elaborado pelos professores do IFRN.", "Os alunos do PROITEC organizaram a feira de ciências e tecnologia.", "Alugaram-se computadores para os laboratórios no início do ano.", "Increveram-se centenas de estudantes para o processo seletivo."], resp: 0 },
+      { id: 8, diciplina: 'P', enunciado: "Assinale a opção em que a concordância nominal atende plenamente à norma-padrão:", op: ["É proibido a entrada de pessoas estranhas no recinto do exame.", "A aluna mesma organizou os resumos para o simulado do PROITEC.", "Seguem anexos as fichas de inscrição e os comprovantes dos alunos.", "Ela ficou meia preocupada com o resultado final da avaliação."], resp: 1 },
+      { id: 9, diciplina: 'P', enunciado: "No contexto do Texto Base, a expressão 'pilar central' foi empregada em sentido:", op: ["Denotativo (literal)", "Conotativo (figurado)", "Científico estrito", "Técnico-arquitetônico"], resp: 1 },
+      { id: 10, diciplina: 'P', enunciado: "Indique a alternativa cujas palavras estão todas corretamente grafadas segundo a ortografia vigente:", op: ["Compreensão, exceção, discussão", "Compreenção, esceção, discussão", "Compreensão, exceção, discução", "Compreenção, esceção, discução"], resp: 0 },
+      { id: 11, diciplina: 'P', enunciado: "Em 'A leitura <strong>que desenvolve o senso crítico</strong> é essencial', a oração destacada classifica-se como:", op: ["Subordinada adjetiva restritiva", "Subordinada adjetiva explicativa", "Subordinada substantiva subjetiva", "Coordenada sindética explicativa"], resp: 0 },
+      { id: 12, diciplina: 'P', enunciado: "Considerando a relação semântica do Texto Base, assinale a opção que apresenta um antônimo para 'autonomia':", op: ["Independência", "Submissão", "Emancipação", "Liberdade"], resp: 1 },
+      { id: 13, diciplina: 'P', enunciado: "A palavra 'democratização' é formada a partir do seguinte processo de derivação:", op: ["Prefixação", "Sufixação", "Composição por justaposição", "Parassíntese"], resp: 1 },
+      { id: 14, diciplina: 'P', enunciado: "Assinale a frase em que a ocorrência do sinal indicativo de crase é OBRIGATÓRIA:", op: ["O aluno entregou a redação à professora ao final da aula.", "O candidato começou à resolver as questões no horário previsto.", "A turma caminhou à pé até o laboratório de informática.", "A diretora dirigiu-se à uma sala de reuniões no primeiro andar."], resp: 0 },
+      { id: 15, diciplina: 'P', enunciado: "Em 'Se o estudante <strong>mantiver</strong> a rotina de estudos, passará no IFRN', o verbo destacado encontra-se no:", op: ["Futuro do Subjuntivo", "Presente do Indicativo", "Pretérito Perfeito do Subjuntivo", "Futuro do Presente do Indicativo"], resp: 0 },
+      { id: 16, diciplina: 'P', enunciado: "Assinale a opção que identifica a figura de linguagem na frase: 'A internet é um mar de informações e dúvidas'.", op: ["Metáfora", "Metonímia", "Antítese", "Hipérbole"], resp: 0 },
+      { id: 17, diciplina: 'P', enunciado: "Na frase 'O volume de notícias falsas cresce <strong>de modo que</strong> assusta a sociedade', o termo destacado estabelece ideia de:", op: ["Causa", "Consequência", "Concessão", "Condição"], resp: 1 },
+      { id: 18, diciplina: 'P', enunciado: "Identifique a classificação do sujeito na oração: 'Chegaram ao campus do IFRN os novos livros didáticos do PROITEC':", op: ["Indeterminado", "Os novos livros didáticos do PROITEC", "Campus do IFRN", "Oculto (eles)"], resp: 1 },
+      { id: 19, diciplina: 'P', enunciado: "Aponte a alternativa que apresenta um ERRO na utilização da pontuação:", op: ["O IFRN oferece, cursos técnicos integrados e gratuitos.", "Os estudantes, bastante focados, realizaram o simulado.", "A inclusão digital, portanto, precisa ser democratizada.", "Durante a tarde de sábado, revisamos todo o conteúdo."], resp: 0 },
+      { id: 20, diciplina: 'P', enunciado: "A intenção comunicativa principal do Texto Base é:", op: ["Incentivar a aquisição desenfreada de dispositivos tecnológicos.", "Defender o desenvolvimento da leitura crítica para o pleno exercício da cidadania.", "Propor a proibição total das redes sociais no ambiente de ensino.", "Sugerir a redução da carga horária dedicada à leitura nas escolas."], resp: 1 },
 
-      // ==================== MATEMÁTICA COM SVG REFORMULADOS (21 a 40) ====================
+      // ==================== MATEMÁTICA (21 a 40) ====================
       {
         id: 21, diciplina: 'M',
-        enunciado: "Para a reforma de uma sala no IFRN, desenhou-se o piso retangular mostrado abaixo. Determine o perímetro total dessa sala:",
-        svg: `<svg width="280" height="150" viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="grad21" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#008542" stop-opacity="0.05"/>
-                  </linearGradient>
-                </defs>
-                <rect x="40" y="30" width="200" height="80" rx="8" fill="url(#grad21)" stroke="#10b981" stroke-width="3"/>
-                <line x1="35" y1="30" x2="35" y2="110" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
-                <line x1="40" y1="120" x2="240" y2="120" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
-                <text x="140" y="22" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">8 m</text>
-                <text x="140" y="138" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">8 m</text>
-                <text x="20" y="75" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">5 m</text>
-                <text x="260" y="75" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">5 m</text>
+        enunciado: "O campus do IFRN solicitou o cercamento de uma área retangular destinada ao novo laboratório de robótica. De acordo com a planta retangular abaixo com dimensões de 8 metros por 5 metros, qual é o perímetro total dessa área?",
+        svg: `<svg width="320" height="160" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="30" width="220" height="90" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="3" rx="4"/>
+                <line x1="50" y1="15" x2="270" y2="15" stroke="#f59e0b" stroke-width="1.5"/>
+                <path d="M50 12 L50 18 M270 12 L270 18" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="160" y="11" fill="#f59e0b" font-size="13" font-weight="bold" text-anchor="middle">8 m</text>
+                
+                <line x1="285" y1="30" x2="285" y2="120" stroke="#f59e0b" stroke-width="1.5"/>
+                <path d="M282 30 L288 30 M282 120 L288 120" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="298" y="80" fill="#f59e0b" font-size="13" font-weight="bold" text-anchor="middle">5 m</text>
+                
+                <path d="M 50 42 L 62 42 L 62 30" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="56" cy="36" r="2" fill="#ffffff"/>
               </svg>`,
         op: ["13 m", "26 m", "40 m", "30 m"], resp: 1
       },
       {
         id: 22, diciplina: 'M',
-        enunciado: "No diagrama circular abaixo, está representada a distribuição de 200 alunos entre os cursos do campus. Quantos alunos optaram por Informática?",
-        svg: `<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="80" fill="#11201a" stroke="#ffffff" stroke-width="2"/>
-                <path d="M100,100 L100,20 A80,80 0 1,1 20,100 Z" fill="#10b981"/>
-                <path d="M100,100 L20,100 A80,80 0 0,1 100,20 Z" fill="#f59e0b"/>
-                <circle cx="100" cy="100" r="30" fill="#091310" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="125" y="120" fill="#ffffff" font-size="14" font-weight="bold">Info 75%</text>
-                <text x="35" y="70" fill="#ffffff" font-size="12" font-weight="bold">Outros 25%</text>
+        enunciado: "Um levantamento realizado com 200 alunos matriculados no PROITEC identificou a preferência pelos cursos técnicos do IFRN, conforme o gráfico de setor abaixo. Quantos alunos optaram pelo curso de Informática?",
+        svg: `<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110,110 L110,20 A90,90 0 1,1 20,110 Z" fill="#10b981" stroke="#091310" stroke-width="2"/>
+                <path d="M110,110 L20,110 A90,90 0 0,1 110,20 Z" fill="#f59e0b" stroke="#091310" stroke-width="2"/>
+                <circle cx="110" cy="110" r="35" fill="#091310" stroke="#ffffff" stroke-width="1.5"/>
+                <text x="145" y="140" fill="#ffffff" font-size="13" font-weight="bold">Informática (75%)</text>
+                <text x="30" y="65" fill="#ffffff" font-size="12" font-weight="bold">Outros (25%)</text>
               </svg>`,
         op: ["50 alunos", "100 alunos", "150 alunos", "175 alunos"], resp: 2
       },
       {
         id: 23, diciplina: 'M',
-        enunciado: "Para instalar uma antena de transmissão no topo de um prédio do campus, fixou-se um cabo esticado conforme o triângulo retângulo abaixo. Qual o comprimento (c) desse cabo?",
-        svg: `<svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="50,20 50,110 200,110" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="3"/>
-                <rect x="50" y="98" width="12" height="12" fill="none" stroke="#ffffff" stroke-width="2"/>
-                <circle cx="56" cy="104" r="2" fill="#ffffff"/>
-                <text x="25" y="70" fill="#ffffff" font-size="14" font-weight="bold">6 m</text>
-                <text x="125" y="132" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">8 m</text>
-                <text x="135" y="58" fill="#10b981" font-size="16" font-weight="bold">c = ?</text>
+        enunciado: "Para fixar uma antena de transmissão no prédio central do campus, utilizou-se um cabo esticado do topo da parede até o solo, formando o triângulo retângulo ilustrado abaixo. Qual é o comprimento ($c$) desse cabo?",
+        svg: `<svg width="280" height="160" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="60,20 60,120 220,120" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="3"/>
+                <path d="M 60 108 L 72 108 L 72 120" fill="none" stroke="#ffffff" stroke-width="2"/>
+                <circle cx="66" cy="114" r="2" fill="#ffffff"/>
+                
+                <text x="35" y="75" fill="#ffffff" font-size="14" font-weight="bold">6 m</text>
+                <text x="140" y="142" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">8 m</text>
+                <text x="150" y="60" fill="#10b981" font-size="16" font-weight="bold">c = ?</text>
               </svg>`,
         op: ["10 m", "12 m", "14 m", "100 m"], resp: 0
       },
       {
         id: 24, diciplina: 'M',
-        enunciado: "O gráfico de colunas a seguir representa as notas obtidas por um estudante nos 4 simulados preparatórios do PROITEC. Qual foi a média aritmética das notas?",
-        svg: `<svg width="280" height="160" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
-                <line x1="35" y1="20" x2="35" y2="125" stroke="#94a3b8" stroke-width="2"/>
-                <line x1="35" y1="125" x2="260" y2="125" stroke="#94a3b8" stroke-width="2"/>
-                <rect x="50" y="65" width="30" height="60" fill="#10b981" rx="4"/>
-                <rect x="105" y="45" width="30" height="80" fill="#10b981" rx="4"/>
-                <rect x="160" y="55" width="30" height="70" fill="#10b981" rx="4"/>
-                <rect x="215" y="25" width="30" height="100" fill="#10b981" rx="4"/>
-                <text x="65" y="58" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">6.0</text>
-                <text x="120" y="38" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">8.0</text>
-                <text x="175" y="48" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">7.0</text>
-                <text x="230" y="18" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">10.0</text>
-                <text x="65" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S1</text>
-                <text x="120" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S2</text>
-                <text x="175" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S3</text>
-                <text x="230" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S4</text>
+        enunciado: "O gráfico de colunas a seguir aponta as notas obtidas por um estudante nos quatro simulados preparatórios do PROITEC. Qual foi a média aritmética das notas deste aluno?",
+        svg: `<svg width="300" height="170" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">
+                <line x1="40" y1="20" x2="40" y2="130" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="40" y1="130" x2="280" y2="130" stroke="#94a3b8" stroke-width="2"/>
+                <rect x="60" y="70" width="35" height="60" fill="#10b981" rx="4"/>
+                <rect x="115" y="50" width="35" height="80" fill="#10b981" rx="4"/>
+                <rect x="170" y="60" width="35" height="70" fill="#10b981" rx="4"/>
+                <rect x="225" y="30" width="35" height="100" fill="#10b981" rx="4"/>
+                <text x="77" y="62" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">6,0</text>
+                <text x="132" y="42" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">8,0</text>
+                <text x="187" y="52" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">7,0</text>
+                <text x="242" y="22" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">10,0</text>
+                <text x="77" y="150" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">Sim 1</text>
+                <text x="132" y="150" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">Sim 2</text>
+                <text x="187" y="150" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">Sim 3</text>
+                <text x="242" y="150" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">Sim 4</text>
               </svg>`,
-        op: ["7.0", "7.75", "8.0", "8.25"], resp: 1
+        op: ["7,0", "7,75", "8,0", "8,25"], resp: 1
       },
       {
         id: 25, diciplina: 'M',
-        enunciado: "Na figura abaixo, a região pintada em verde representa a fração da horta comunitária reservada para cultivo orgânico. Qual a porcentagem correspondente?",
-        svg: `<svg width="240" height="120" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="25" width="200" height="70" fill="rgba(255,255,255,0.05)" stroke="#ffffff" stroke-width="2" rx="6"/>
-                <rect x="22" y="27" width="48" height="66" fill="#10b981" rx="4"/>
-                <rect x="72" y="27" width="48" height="66" fill="#10b981" rx="4"/>
-                <rect x="122" y="27" width="48" height="66" fill="#10b981" rx="4"/>
-                <line x1="170" y1="25" x2="170" y2="95" stroke="#ffffff" stroke-width="2"/>
-                <text x="46" y="65" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">1</text>
-                <text x="96" y="65" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">2</text>
-                <text x="146" y="65" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">3</text>
-                <text x="195" y="65" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">4</text>
+        enunciado: "O horta pedagógica do IFRN foi dividida em 4 setores congruentes. A região destacada em verde representa os setores cultivados com hortaliças orgânicas. Qual porcentagem do terreno está sendo utilizada?",
+        svg: `<svg width="280" height="110" viewBox="0 0 280 110" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="20" width="240" height="70" fill="none" stroke="#ffffff" stroke-width="2" rx="4"/>
+                <rect x="22" y="22" width="58" height="66" fill="#10b981"/>
+                <rect x="82" y="22" width="58" height="66" fill="#10b981"/>
+                <rect x="142" y="22" width="58" height="66" fill="#10b981"/>
+                <line x1="80" y1="20" x2="80" y2="90" stroke="#ffffff" stroke-width="2"/>
+                <line x1="140" y1="20" x2="140" y2="90" stroke="#ffffff" stroke-width="2"/>
+                <line x1="200" y1="20" x2="200" y2="90" stroke="#ffffff" stroke-width="2"/>
+                <text x="51" y="60" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">1</text>
+                <text x="111" y="60" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">2</text>
+                <text x="171" y="60" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">3</text>
+                <text x="231" y="60" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">4</text>
               </svg>`,
         op: ["25%", "50%", "75%", "80%"], resp: 2
       },
       {
         id: 26, diciplina: 'M',
-        enunciado: "Um reservatório de água em formato de paralelepípedo reto-retângulo possui as dimensões indicadas abaixo. Calcule o seu volume total:",
-        svg: `<svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
-                <path d="M30,70 L150,70 L190,30 L70,30 Z" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="2"/>
-                <path d="M30,70 L150,70 L150,120 L30,120 Z" fill="rgba(16,185,129,0.4)" stroke="#10b981" stroke-width="2"/>
-                <path d="M150,70 L190,30 L190,80 L150,120 Z" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="2"/>
-                <text x="90" y="138" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">Comprimento = 4 m</text>
-                <text x="180" y="105" fill="#f59e0b" font-size="12" font-weight="bold">Largura = 2 m</text>
-                <text x="15" y="98" fill="#10b981" font-size="13" font-weight="bold">Altura = 3 m</text>
+        enunciado: "Um reservatório de água em formato de paralelepípedo retângulo foi construído no campus para captação da chuva. Com base nas dimensões indicadas na figura, calcule o volume total em m³:",
+        svg: `<svg width="280" height="150" viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40,70 L160,70 L210,30 L90,30 Z" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="2"/>
+                <path d="M40,70 L160,70 L160,120 L40,120 Z" fill="rgba(16,185,129,0.4)" stroke="#10b981" stroke-width="2"/>
+                <path d="M160,70 L210,30 L210,80 L160,120 Z" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="2"/>
+                <text x="100" y="138" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Comprimento = 4 m</text>
+                <text x="200" y="105" fill="#f59e0b" font-size="12" font-weight="bold">Largura = 2 m</text>
+                <text x="25" y="98" fill="#10b981" font-size="12" font-weight="bold" text-anchor="end">Altura = 3 m</text>
               </svg>`,
         op: ["9 m³", "12 m³", "24 m³", "36 m³"], resp: 2
       },
       {
         id: 27, diciplina: 'M',
-        enunciado: "A reta numérica abaixo indica a posição das notas de quatro alunos. Qual aluno está localizado exatamente no ponto equivalente a 2,5?",
-        svg: `<svg width="280" height="90" viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg">
-                <line x1="20" y1="45" x2="260" y2="45" stroke="#ffffff" stroke-width="3"/>
+        enunciado: "A reta numérica abaixo indica a posição das médias finais de alguns candidatos. O Ponto X corresponde a qual número racional indicado na escala?",
+        svg: `<svg width="300" height="90" viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="45" x2="280" y2="45" stroke="#ffffff" stroke-width="3"/>
                 <line x1="40" y1="35" x2="40" y2="55" stroke="#ffffff" stroke-width="2"/>
                 <text x="40" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">0</text>
-                <line x1="90" y1="35" x2="90" y2="55" stroke="#ffffff" stroke-width="2"/>
-                <text x="90" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">1</text>
-                <line x1="140" y1="35" x2="140" y2="55" stroke="#ffffff" stroke-width="2"/>
-                <text x="140" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">2</text>
-                <line x1="190" y1="35" x2="190" y2="55" stroke="#ffffff" stroke-width="2"/>
-                <text x="190" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">3</text>
-                <circle cx="165" cy="45" r="7" fill="#e30613" stroke="#ffffff" stroke-width="2"/>
-                <text x="165" y="22" fill="#e30613" font-size="14" font-weight="bold" text-anchor="middle">Ponto X</text>
+                <line x1="100" y1="35" x2="100" y2="55" stroke="#ffffff" stroke-width="2"/>
+                <text x="100" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">1</text>
+                <line x1="160" y1="35" x2="160" y2="55" stroke="#ffffff" stroke-width="2"/>
+                <text x="160" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">2</text>
+                <line x1="220" y1="35" x2="220" y2="55" stroke="#ffffff" stroke-width="2"/>
+                <text x="220" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">3</text>
+                <circle cx="190" cy="45" r="7" fill="#e30613" stroke="#ffffff" stroke-width="2"/>
+                <text x="190" y="22" fill="#e30613" font-size="14" font-weight="bold" text-anchor="middle">Ponto X</text>
               </svg>`,
-        op: ["Entre 0 e 1", "Entre 1 e 2", "Exatamente no meio entre 2 e 3", "Após o número 3"], resp: 2
+        op: ["1,5", "2,0", "2,5", "3,0"], resp: 2
       },
       {
         id: 28, diciplina: 'M',
-        enunciado: "A relação entre a quantidade de horas trabalhadas (h) e o valor pago (V) em reais para a manutenção de computadores está mostrada no gráfico cartesiano abaixo. A equação do gráfico é:",
-        svg: `<svg width="240" height="160" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
-                <line x1="40" y1="130" x2="210" y2="130" stroke="#94a3b8" stroke-width="2"/>
-                <line x1="40" y1="130" x2="40" y2="20" stroke="#94a3b8" stroke-width="2"/>
-                <line x1="40" y1="130" x2="190" y2="30" stroke="#10b981" stroke-width="4"/>
-                <circle cx="115" cy="80" r="5" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/>
-                <line x1="115" y1="130" x2="115" y2="80" stroke="#f59e0b" stroke-dasharray="3"/>
-                <line x1="40" y1="80" x2="115" y2="80" stroke="#f59e0b" stroke-dasharray="3"/>
-                <text x="215" y="135" fill="#94a3b8" font-size="12" font-weight="bold">h (horas)</text>
-                <text x="35" y="15" fill="#94a3b8" font-size="12" font-weight="bold">V (R$)</text>
-                <text x="115" y="148" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">2h</text>
-                <text x="22" y="84" fill="#f59e0b" font-size="11" font-weight="bold">100</text>
+        enunciado: "O gráfico cartesiano relaciona o valor cobrado ($V$), em reais, pela manutenção preventiva de computadores do IFRN em função das horas trabalhadas ($h$). A lei da função correspondente é:",
+        svg: `<svg width="260" height="170" viewBox="0 0 260 170" xmlns="http://www.w3.org/2000/svg">
+                <line x1="40" y1="140" x2="240" y2="140" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="40" y1="140" x2="40" y2="20" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="40" y1="140" x2="200" y2="20" stroke="#10b981" stroke-width="3"/>
+                <circle cx="120" cy="80" r="5" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/>
+                <line x1="120" y1="140" x2="120" y2="80" stroke="#f59e0b" stroke-dasharray="4"/>
+                <line x1="40" y1="80" x2="120" y2="80" stroke="#f59e0b" stroke-dasharray="4"/>
+                <text x="245" y="145" fill="#94a3b8" font-size="12" font-weight="bold">h</text>
+                <text x="35" y="15" fill="#94a3b8" font-size="12" font-weight="bold">V</text>
+                <text x="120" y="158" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">2 h</text>
+                <text x="15" y="84" fill="#f59e0b" font-size="12" font-weight="bold">R$ 100</text>
               </svg>`,
         op: ["V = 20 · h", "V = 50 · h", "V = 100 · h", "V = h + 50"], resp: 1
       },
       {
         id: 29, diciplina: 'M',
-        enunciado: "Uma roleta numerada de 1 a 8 foi utilizada em um jogo educativo no IFRN. Qual é a probabilidade de a roleta parar em um número par?",
-        svg: `<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="90" cy="90" r="75" fill="#11201a" stroke="#10b981" stroke-width="4"/>
-                <line x1="90" y1="15" x2="90" y2="165" stroke="#10b981" stroke-width="2"/>
-                <line x1="15" y1="90" x2="165" y2="90" stroke="#10b981" stroke-width="2"/>
-                <line x1="37" y1="37" x2="143" y2="143" stroke="#10b981" stroke-width="2"/>
-                <line x1="37" y1="143" x2="143" y2="37" stroke="#10b981" stroke-width="2"/>
-                <circle cx="90" cy="90" r="15" fill="#008542"/>
-                <text x="86" y="42" fill="#ffffff" font-size="13" font-weight="bold">1</text>
-                <text x="122" y="55" fill="#f59e0b" font-size="13" font-weight="bold">2</text>
-                <text x="138" y="95" fill="#ffffff" font-size="13" font-weight="bold">3</text>
-                <text x="122" y="132" fill="#f59e0b" font-size="13" font-weight="bold">4</text>
-                <text x="86" y="148" fill="#ffffff" font-size="13" font-weight="bold">5</text>
-                <text x="48" y="132" fill="#f59e0b" font-size="13" font-weight="bold">6</text>
-                <text x="32" y="95" fill="#ffffff" font-size="13" font-weight="bold">7</text>
-                <text x="48" y="55" fill="#f59e0b" font-size="13" font-weight="bold">8</text>
+        enunciado: "Em uma atividade do projeto de extensão do IFRN, utilizou-se uma roleta dividida em 8 setores iguais numerados de 1 a 8. Qual a probabilidade de o ponteiro parar em um número par?",
+        svg: `<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="85" fill="#11201a" stroke="#10b981" stroke-width="3"/>
+                <line x1="100" y1="15" x2="100" y2="185" stroke="#10b981" stroke-width="2"/>
+                <line x1="15" y1="100" x2="185" y2="100" stroke="#10b981" stroke-width="2"/>
+                <line x1="40" y1="40" x2="160" y2="160" stroke="#10b981" stroke-width="2"/>
+                <line x1="40" y1="160" x2="160" y2="40" stroke="#10b981" stroke-width="2"/>
+                <circle cx="100" cy="100" r="18" fill="#008542"/>
+                <text x="96" y="45" fill="#ffffff" font-size="13" font-weight="bold">1</text>
+                <text x="135" y="60" fill="#f59e0b" font-size="13" font-weight="bold">2</text>
+                <text x="150" y="105" fill="#ffffff" font-size="13" font-weight="bold">3</text>
+                <text x="135" y="148" fill="#f59e0b" font-size="13" font-weight="bold">4</text>
+                <text x="96" y="165" fill="#ffffff" font-size="13" font-weight="bold">5</text>
+                <text x="58" y="148" fill="#f59e0b" font-size="13" font-weight="bold">6</text>
+                <text x="42" y="105" fill="#ffffff" font-size="13" font-weight="bold">7</text>
+                <text x="58" y="60" fill="#f59e0b" font-size="13" font-weight="bold">8</text>
               </svg>`,
         op: ["25%", "37,5%", "50%", "75%"], resp: 2
       },
       {
         id: 30, diciplina: 'M',
-        enunciado: "O paralelogramo abaixo representa a planta de uma praça de convivência no campus. Sabendo que a base mede 12 m e a altura mede 6 m, qual a área total?",
-        svg: `<svg width="250" height="130" viewBox="0 0 250 130" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="60,20 210,20 160,100 10,100" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="3"/>
-                <line x1="60" y1="20" x2="60" y2="100" stroke="#f59e0b" stroke-dasharray="4" stroke-width="2"/>
-                <text x="110" y="118" fill="#ffffff" font-size="13" font-weight="bold">Base = 12 m</text>
-                <text x="68" y="65" fill="#f59e0b" font-size="13" font-weight="bold">h = 6 m</text>
+        enunciado: "O espaço de convivência dos estudantes no campus possui o formato de um paralelogramo com base de 12 m e altura de 6 m, conforme a representação visual abaixo. Calcule a sua área total:",
+        svg: `<svg width="280" height="140" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="70,25 240,25 180,110 10,110" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="3"/>
+                <line x1="70" y1="25" x2="70" y2="110" stroke="#f59e0b" stroke-dasharray="4" stroke-width="2"/>
+                <text x="125" y="128" fill="#ffffff" font-size="13" font-weight="bold">Base = 12 m</text>
+                <text x="78" y="70" fill="#f59e0b" font-size="13" font-weight="bold">h = 6 m</text>
               </svg>`,
         op: ["36 m²", "48 m²", "72 m²", "144 m²"], resp: 2
       },
-      { id: 31, diciplina: 'M', enunciado: "Se 3 cadernos do PROITEC custam R$ 45,00, quanto custarão 7 cadernos do mesmo modelo?", op: ["R$ 90,00", "R$ 105,00", "R$ 115,00", "R$ 120,00"], resp: 1 },
-      { id: 32, diciplina: 'M', enunciado: "Resolva a equação do 1º grau: 4x - 8 = 2x + 12. O valor de x é:", op: ["8", "10", "12", "14"], resp: 1 },
-      { id: 33, diciplina: 'M', enunciado: "Em uma turma de 40 alunos, 60% foram aprovados no exame final. Quantos alunos foram aprovados?", op: ["20 alunos", "24 alunos", "28 alunos", "30 alunos"], resp: 1 },
-      { id: 34, diciplina: 'M', enunciado: "Qual o resultado da expressão numérica: 5 + 3 × (8 - 2²)?", op: ["17", "29", "32", "20"], resp: 0 },
-      { id: 35, diciplina: 'M', enunciado: "Convertendo 4,5 quilômetros em metros, encontramos:", op: ["450 m", "4.500 m", "45.000 m", "0,45 m"], resp: 1 },
-      { id: 36, diciplina: 'M', enunciado: "Um produto que custava R$ 200,00 teve um desconto de 20%. Qual o novo valor do produto?", op: ["R$ 140,00", "R$ 150,00", "R$ 160,00", "R$ 180,00"], resp: 2 },
-      { id: 37, diciplina: 'M', enunciado: "O Mínimo Múltiplo Comum (MMC) entre os números 6, 8 e 12 é igual a:", op: ["24", "36", "48", "72"], resp: 0 },
-      { id: 38, diciplina: 'M', enunciado: "Dada a função f(x) = 3x - 5, calcule o valor de f(4):", op: ["5", "7", "9", "12"], resp: 1 },
-      { id: 39, diciplina: 'M', enunciado: "Um capital de R$ 1.000,00 foi aplicado a juros simples com taxa de 2% ao mês durante 5 meses. O valor dos juros gerados foi:", op: ["R$ 50,00", "R$ 100,00", "R$ 150,00", "R$ 200,00"], resp: 1 },
-      { id: 40, diciplina: 'M', enunciado: "A razão entre o número de meninas (15) e o número de meninos (25) em uma sala de aula simplificada é de:", op: ["1/2", "3/5", "3/4", "5/3"], resp: 1 },
+      { id: 31, diciplina: 'M', enunciado: "Na papelaria do campus, 3 cadernos do PROITEC custam R$ 45,00. Mantendo essa mesma proporção, quanto custará um lote com 7 cadernos idênticos?", op: ["R$ 90,00", "R$ 105,00", "R$ 115,00", "R$ 120,00"], resp: 1 },
+      { id: 32, diciplina: 'M', enunciado: "Para resolver a quantidade de equipamentos necessários em um laboratório, utilizou-se a equação do 1º grau $4x - 8 = 2x + 12$. O valor correto de $x$ é:", op: ["8", "10", "12", "14"], resp: 1 },
+      { id: 33, diciplina: 'M', enunciado: "Em uma turma do PROITEC com 40 alunos, 60% obtiveram aprovação direta para os cursos técnicos do IFRN. Quantos estudantes foram aprovados?", op: ["20 alunos", "24 alunos", "28 alunos", "30 alunos"], resp: 1 },
+      { id: 34, diciplina: 'M', enunciado: "Ao calcular o valor numérico da expressão $5 + 3 \times (8 - 2^2)$ para uma questão de lógica, obtém-se:", op: ["17", "29", "32", "20"], resp: 0 },
+      { id: 35, diciplina: 'M', enunciado: "O transporte escolar do IFRN percorre diariamente uma distância de 4,5 quilômetros entre a estação e o campus. Essa distância convertida para metros corresponde a:", op: ["450 m", "4.500 m", "45.000 m", "0,45 m"], resp: 1 },
+      { id: 36, diciplina: 'M', enunciado: "Um livro preparatório do PROITEC que custava R$ 200,00 foi comprado com um desconto promocional de 20%. O valor efetivamente pago pelo estudante foi:", op: ["R$ 140,00", "R$ 150,00", "R$ 160,00", "R$ 180,00"], resp: 2 },
+      { id: 37, diciplina: 'M', enunciado: "Três rotas de ônibus escolar passam pelo IFRN em intervalos de 6, 8 e 12 minutos. O Mínimo Múltiplo Comum (MMC) que determina após quantos minutos os ônibus coincidirão no ponto é:", op: ["24", "36", "48", "72"], resp: 0 },
+      { id: 38, diciplina: 'M', enunciado: "Dada a função do 1º grau $f(x) = 3x - 5$, que determina a pontuação de um participante no simulado, calcule a pontuação obtida para $f(4)$:", op: ["5", "7", "9", "12"], resp: 1 },
+      { id: 39, diciplina: 'M', enunciado: "Um projeto de extensão do IFRN recebeu um investimento financeiro de R$ 1.000,00 submetido a uma taxa de juros simples de 2% ao mês durante 5 meses. Os juros gerados foram de:", op: ["R$ 50,00", "R$ 100,00", "R$ 150,00", "R$ 200,00"], resp: 1 },
+      { id: 40, diciplina: 'M', enunciado: "Em uma sala do curso preparatório, há 15 alunas e 25 alunos. A razão simplificada entre o número de meninas e o número de meninos é igual a:", op: ["1/2", "3/5", "3/4", "5/3"], resp: 1 },
 
       // ==================== ÉTICA E CIDADANIA (41 a 50) ====================
-      { id: 41, diciplina: 'C', enunciado: "Sob a perspectiva dos Direitos Humanos, a cidadania se constrói mediante:", op: ["Garantia universal de direitos civis, políticos e sociais.", "Privilégio de grupos economicamente dominantes.", "Cumprimento cego de normas sem questionamentos.", "Isolamento de Minorias nos processos de decisão."], resp: 0 },
-      { id: 42, diciplina: 'C', enunciado: "O conceito de Ética no ambiente de aprendizagem envolve:", op: ["Respeitar a diversidade, evitar o plágio e colaborar coletivamente.", "Buscar notas altas independentemente dos meios utilizados.", "Competir com os colegas ocultando dados e materiais.", "Aceitar passivamente desinformações divulgadas online."], resp: 0 },
-      { id: 43, diciplina: 'C', enunciado: "A inclusão social de estudantes com deficiência nos Institutos Federais assegura:", op: ["Equidade de oportunidades, acessibilidade e respeito às diferenças.", "Atendimento em turmas separadas e isoladas dos demais.", "Isenção total da realização de atividades pedagógicas.", "Apenas fornecimento de material impresso padronizado."], resp: 0 },
-      { id: 44, diciplina: 'C', enunciado: "A postura crítica diante das chamadas 'Fake News' é fundamental porque:", op: ["Preserva a integridade da informação e combate a desinformação social.", "Aumenta o tráfego nas redes sociais dos estudantes.", "Impede totalmente a utilização da internet na escola.", "Evita que as pessoas opinem sobre temas polêmicos."], resp: 0 },
-      { id: 45, diciplina: 'C', enunciado: "A gestão democrática na escola pública é garantida quando:", op: ["A comunidade escolar participa ativamente das decisões pedagógicas e orçamentárias.", "Apenas o diretor define as regras e a aplicação de verbas.", "Os alunos tomam decisões sem consultar os professores e técnicos.", "O governo municipal define o horário sem ouvir a comunidade."], resp: 0 },
-      { id: 46, diciplina: 'C', enunciado: "O Estatuto da Criança e do Adolescente (ECA) estabelece como prioridade absoluta:", op: ["A garantia dos direitos à vida, à saúde, à alimentação e à educação.", "O ingresso obrigatório e precoce no mercado de trabalho informal.", "A responsabilidade civil integral a partir dos 10 anos de idade.", "O acompanhamento exclusivamente militar nas escolas públicas."], resp: 0 },
-      { id: 47, diciplina: 'C', enunciado: "Entende-se por consumo consciente e sustentabilidade no ambiente escolar:", op: ["Utilizar recursos como água, energia e papel de forma racional sem desperdícios.", "Substituir materiais escolares novos a cada bimestre sem necessidade.", "Descartar resíduos orgânicos e recicláveis em um único recipiente.", "Imprimir todos os documentos e apostilas digitais disponíveis."], resp: 0 },
-      { id: 48, diciplina: 'C', enunciado: "A empatia nas relações interpessoais escolares consiste em:", op: ["Capacidade de compreender e se colocar no lugar do outro.", "Impor opiniões pessoais em todos os trabalhos em grupo.", "Ignorar os sentimentos e limitações dos colegas de turma.", "Julgar as pessoas com base em estereótipos prévios."], resp: 0 },
-      { id: 49, diciplina: 'C', enunciado: "O combate ao Bullying nas instituições de ensino visa:", op: ["Promover um ambiente seguro, acolhedor e livre de violência física ou psicológica.", "Identificar e punir apenas as vítimas das agressões Verbais.", "Separar os alunos por rendimento escolar em salas distintas.", "Ocultar os conflitos para manter a reputação da escola."], resp: 0 },
-      { id: 50, diciplina: 'C', enunciado: "O acesso público às informações de contas do IFRN pelo Portal da Transparência representa um exercício de:", op: ["Controle social e fiscalização cidadã sobre o uso do dinheiro público.", "Violação da privacidade dos gestores públicos do instituto.", "Burocracia desnecessária que atrasa o ensino técnico.", "Propaganda governamental obrigatória em período eleitoral."], resp: 0 }
+      { id: 41, diciplina: 'C', enunciado: "Sob a perspectiva dos Direitos Humanos e das diretrizes do IFRN, a construção da cidadania plena fundamenta-se na:", op: ["Garantia universal dos direitos civis, políticos e sociais a todos os cidadãos.", "Concessão de privilégios exclusivos a grupos economicamente favorecidos.", "Aceitação cega de regulamentos sem espaço para o questionamento crítico.", "Segregação de minorias sociais nos processos de tomada de decisão."], resp: 0 },
+      { id: 42, diciplina: 'C', enunciado: "O conceito de ética no cotidiano escolar dos Institutos Federais implica prioritariamente:", op: ["Respeitar a diversidade, repudiar o plágio acadêmico e agir de forma colaborativa.", "Priorizar notas elevadas independentemente dos métodos utilizados para obtê-las.", "Rivalizar com os colegas omitindo informações e materiais de estudo.", "Repassar conteúdos não verificados sem checar a veracidade dos fatos."], resp: 0 },
+      { id: 43, diciplina: 'C', enunciado: "As políticas de inclusão de pessoas com deficiência nos Institutos Federais garantem institucionalmente:", op: ["Equidade de oportunidades, acessibilidade arquitetônica e respeito às singularidades.", "Acomodação dos estudantes em turmas isoladas e separadas dos demais alunos.", "Isenção automática de tarefas pedagógicas e avaliações curriculares.", "Fornecimento exclusivo de livros didáticos em formato tradicional e padronizado."], resp: 0 },
+      { id: 44, diciplina: 'C', enunciado: "O desenvolvimento da capacidade crítica para identificar notícias falsas (*fake news*) é indispensável porque:", op: ["Preserva a confiabilidade das informações e combate os danos sociais da desinformação.", "Eleva o tempo de navegação e o tráfego nas redes sociais pessoais.", "Impede definitivamente a utilização da internet nos computadores da escola.", "Elimina a liberdade de expressão dos cidadãos nos meios de comunicação."], resp: 0 },
+      { id: 45, diciplina: 'C', enunciado: "A gestão democrática no âmbito da escola pública, diretriz central do IFRN, consolida-se quando:", op: ["A comunidade escolar participa ativamente das decisões administrativas e pedagógicas.", "Apenas a direção central estabelece as normas e destina as verbas do campus.", "Os estudantes deliberam sem consultar o corpo docente e os servidores técnicos.", "A prefeitura local determina o calendário acadêmico sem ouvir a comunidade escolar."], resp: 0 },
+      { id: 46, diciplina: 'C', enunciado: "O Estatuto da Criança e do Adolescente (ECA) estabelece como dever priorutário do Estado e da família:", op: ["Garantir com absoluta prioridade os direitos à vida, à saúde, à alimentação e à educação.", "Estimular o ingresso precoce de adolescentes no mercado de trabalho informal.", "Atribuir responsabilidade civil integral a menores de idade a partir dos 10 anos.", "Submeter as instituições públicas de ensino ao regime disciplinar exclusivamente militar."], resp: 0 },
+      { id: 47, diciplina: 'C', enunciado: "Considerando as práticas de sustentabilidade promovidas no IFRN, o consumo consciente na escola baseia-se em:", op: ["Utilizar racionalmente os recursos de água, energia e papel, reduzindo o desperdício.", "Descartar materiais escolares novos ao fim de cada período para modernizar insumos.", "Misturar resíduos orgânicos e materiais recicláveis na mesma lixeira escolar.", "Imprimir obrigatoriamente todos os materiais e apostilas fornecidos em meio digital."], resp: 0 },
+      { id: 48, diciplina: 'C', enunciado: "Nas relações interpessoais no ambiente acadêmico, a empatia caracteriza-se como a:", op: ["Capacidade de compreender a perspectiva do outro e colocar-se no lugar dele.", "Necessidade de impor opiniões individuais em trabalhos coletivos.", "Postura de desconsiderar as limitações e sentimentos demonstrados pelos colegas.", "Prática de julgar os colegas com base em estereótipos sociais prévios."], resp: 0 },
+      { id: 49, diciplina: 'C', enunciado: "A implementação de programas permanentes contra o *Bullying* no IFRN visa primordialmente:", op: ["Assegurar um ambiente educacional seguro, acolhedor e isento de violências.", "Identificar e punir exclusivamente as vítimas afetadas por agressões verbais.", "Agrupar estudantes por níveis de rendimento escolar em turmas separadas.", "Ocultar divergências internas para preservar a imagem pública do campus."], resp: 0 },
+      { id: 50, diciplina: 'C', enunciado: "O livre acesso da sociedade às contas públicas do IFRN via Portal da Transparência configura um mecanismo de:", op: ["Controle social e fiscalização cidadã sobre a aplicação dos recursos públicos.", "Violação indevida da privacidade e sigilo dos gestores governamentais.", "Obstáculo burocrático que atrasa a execução do ensino técnico público.", "Propaganda eleitoral obrigatória voltada aos alunos e servidores."], resp: 0 }
     ];
 
     function renderizarQuestoes() {
@@ -703,17 +635,17 @@
             if (q.diciplina === 'C') pontosCid++;
 
             statusDiv.className = 'status-gabarito acertou';
-            statusDiv.innerHTML = 'Resposta Correta!';
+            statusDiv.innerHTML = '✓ Resposta Correta!';
           } else {
             if (opcaoMarcadaLabel) {
               opcaoMarcadaLabel.classList.add('opcao-incorreta');
             }
             statusDiv.className = 'status-gabarito errou';
-            statusDiv.innerHTML = `Alternativa marcada: ${String.fromCharCode(65 + valorMarcado)}. Alternativa correta: ${String.fromCharCode(65 + q.resp)}.`;
+            statusDiv.innerHTML = `✕ Resposta incorreta. Alternativa assinalada: ${String.fromCharCode(65 + valorMarcado)}. Alternativa correta: ${String.fromCharCode(65 + q.resp)}.`;
           }
         } else {
           statusDiv.className = 'status-gabarito errou';
-          statusDiv.innerHTML = `Questão não respondida. Alternativa correta: ${String.fromCharCode(65 + q.resp)}.`;
+          statusDiv.innerHTML = `! Questão não respondida. Alternativa correta: ${String.fromCharCode(65 + q.resp)}.`;
         }
 
         document.querySelectorAll(`input[name="q${q.id}"]`).forEach(input => input.disabled = true);
@@ -736,6 +668,7 @@
 
       btn.disabled = true;
       btn.style.opacity = '0.5';
+      btn.style.cursor = 'not-allowed';
       btn.textContent = 'Prova Finalizada';
 
       painel.style.display = 'block';
