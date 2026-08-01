@@ -19,30 +19,6 @@
       }
     };
 
-// Pega o botão pelo ID
-const btnTopo = document.getElementById("btnTopo");
-
-// Quando o usuário rolar a página, executa a função
-window.onscroll = function() {
-  verificarRolagem();
-};
-
-function verificarRolagem() {
-  // Se rolar mais de 300px para baixo, exibe o botão
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    btnTopo.style.display = "block";
-  } else {
-    btnTopo.style.display = "none";
-  }
-}
-
-// Função para rolar suavemente até o topo
-function voltarAoTopo() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth" // Faz a rolagem ser suave
-  });
-}
 
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -50,9 +26,7 @@ function voltarAoTopo() {
 
 
 </head>
-<body>
 
-<button id="btnTopo">↑</button>
 
   <header class="navbar-header">
   <div class="navbar-container">
@@ -427,55 +401,7 @@ function voltarAoTopo() {
     <p>&copy; 2026 - Guia de Preparação IFRN. Desenvolvido para o Exame de Seleção dos Cursos Técnicos Integrados.</p>
   </footer>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    const navOverlay = document.getElementById('navOverlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (!menuToggle || !navMenu) return;
-
-    function initMenu() {
-      menuToggle.classList.remove('active');
-      navMenu.classList.remove('active');
-      if (navOverlay) navOverlay.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-
-    initMenu();
-
-    function toggleMenu() {
-      const isOpen = navMenu.classList.contains('active');
-      
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      if (navOverlay) navOverlay.classList.toggle('active');
-      
-      menuToggle.setAttribute('aria-expanded', String(!isOpen));
-    }
-
-    function closeMenu() {
-      initMenu();
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-    
-    if (navOverlay) {
-      navOverlay.addEventListener('click', closeMenu);
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-        closeMenu();
-      }
-    });
-  });
-  </script>
+<script src="script.js"></script>
 
 </body>
 </html>
