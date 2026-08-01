@@ -294,74 +294,13 @@
     }
   </style>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.getElementById('menuToggle');
-      const navMenu = document.getElementById('navMenu');
-      const navOverlay = document.getElementById('navOverlay');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      function toggleMenu() {
-        const isOpen = navMenu.classList.contains('active');
-
-        menuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        navOverlay.classList.toggle('active');
-
-        menuToggle.setAttribute('aria-expanded', !isOpen);
-      }
-
-      function closeMenu() {
-        if (menuToggle) menuToggle.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
-        if (navOverlay) navOverlay.classList.remove('active');
-        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-      }
-
-      if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
-      if (navOverlay) navOverlay.addEventListener('click', closeMenu);
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
-          closeMenu();
-        }
-      });
-    });
-// Pega o botão pelo ID
-const btnTopo = document.getElementById("btnTopo");
-
-// Quando o usuário rolar a página, executa a função
-window.onscroll = function() {
-  verificarRolagem();
-};
-
-function verificarRolagem() {
-  // Se rolar mais de 300px para baixo, exibe o botão
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    btnTopo.style.display = "block";
-  } else {
-    btnTopo.style.display = "none";
-  }
-}
-
-// Função para rolar suavemente até o topo
-function voltarAoTopo() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth" // Faz a rolagem ser suave
-  });
-}
-
-  </script>
+  
 </head>
 
 <body>
 
-<button id="btnTopo" onclick="voltarAoTopo()" title="Voltar ao topo">↑</button>
+<script src="script.js"></script>
+
 
   <header class="navbar-header">
   <div class="navbar-container">
