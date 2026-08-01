@@ -36,6 +36,8 @@
 </head>
 <body>
 
+<button id="btnTopo" onclick="voltarAoTopo()" title="Voltar ao topo">↑</button>
+
     <header>
         <h1>Redação: Artigo de Opinião</h1>
         <p>Guia completo, estrutura, tipos de introdução/desenvolvimento/conclusão, repertórios e artigo nota 1000 para o IFRN.</p>
@@ -416,6 +418,31 @@
       }
     });
   });
+// Pega o botão pelo ID
+const btnTopo = document.getElementById("btnTopo");
+
+// Quando o usuário rolar a página, executa a função
+window.onscroll = function() {
+  verificarRolagem();
+};
+
+function verificarRolagem() {
+  // Se rolar mais de 300px para baixo, exibe o botão
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btnTopo.style.display = "block";
+  } else {
+    btnTopo.style.display = "none";
+  }
+}
+
+// Função para rolar suavemente até o topo
+function voltarAoTopo() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // Faz a rolagem ser suave
+  });
+}
+
 </script>
 
 </body>
