@@ -3,56 +3,258 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temas Anteriores de Redação | Exame de Seleção IFRN</title>
+  <title>Provas e Temas Anteriores | Exame de Seleção IFRN 2026</title>
 
   <link rel="stylesheet" href="style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Estilos específicos para a página de Repositório de Provas e Temas */
+    .provas-container {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    .provas-header {
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .provas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .prova-card {
+      background: var(--card-color, rgba(13, 25, 19, 0.65));
+      border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius, 16px);
+      padding: 24px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+    }
+
+    .prova-card:hover {
+      border-color: var(--card-border-hover, rgba(46, 182, 90, 0.5));
+      transform: translateY(-4px);
+    }
+
+    .prova-header-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .prova-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--ifrn-green-light, #10b981);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .prova-ano {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main, #f8fafc);
+      margin: 0;
+    }
+
+    .prova-desc {
+      color: var(--text-muted, #94a3b8);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .links-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+      border-radius: 10px;
+      color: var(--text-main, #f8fafc);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-download:hover {
+      background: var(--ifrn-green, #008542);
+      border-color: var(--ifrn-green, #008542);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 133, 66, 0.3);
+    }
+
+    .btn-download.gabarito:hover {
+      background: #10b981;
+      border-color: #10b981;
+    }
+
+    .dica-box {
+      margin-top: 40px;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: var(--radius, 16px);
+      padding: 20px;
+      color: var(--text-main, #f8fafc);
+    }
+
+    .dica-box h3 {
+      color: #f59e0b;
+      margin-top: 0;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dica-box p {
+      margin: 8px 0 0;
+      font-size: 0.95rem;
+      color: var(--text-muted, #94a3b8);
+      line-height: 1.6;
+    }
+
+    /* Espaçamento entre as seções principais */
+    .secao-espacamento {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 <body>
 
-
-
-
   <header class="navbar-header">
-  <div class="navbar-container">
-    <a href="index.html" class="logo">
-      <span class="logo-dot"></span>
-      IFRN 2026
-    </a>
+    <div class="navbar-container">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        IFRN 2026
+      </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-    <div class="nav-overlay" id="navOverlay"></div>
+      <div class="nav-overlay" id="navOverlay"></div>
 
-    <nav class="nav-menu" id="navMenu">
-      <a href="index.html" class="nav-link">Início</a>
-      <a href="português.html" class="nav-link">Português</a>
-      <a href="matemática.html" class="nav-link">Matemática</a>
-      <a href="redação.html" class="nav-link">Redação</a>
-      <a href="exame-selecao.html" class="nav-link">Sobre o exame de seleção</a>
-      <a href="temas anteriores.html" class="nav-link">Temas anteriores</a>
-      <a href="questoes.html" class="nav-link">Simulado (Prova)</a>
-    </nav>
-  </div>
-</header>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="português.html" class="nav-link">Português</a>
+        <a href="matemática.html" class="nav-link">Matemática</a>
+        <a href="redação.html" class="nav-link">Redação</a>
+        <a href="exame-selecao.html" class="nav-link">Sobre o exame</a>
+        <a href="simulador-vagas.html" class="nav-link">Simulador de Vagas</a>
+        <a href="questoes.html" class="nav-link">Simulado (Prova)</a>
+        <a href="provas-e-temas.html" class="nav-link active">Provas e Temas</a>
+      </nav>
+    </div>
+  </header>
 
-  <main class="container">
-    
-    <header>
+  <main class="container provas-container">
+    <section class="secao-espacamento">
       <span class="badge badge-primary">Histórico Oficial IFRN / FUNCERN</span>
-      <h1>Temas Reais das Provas do IFRN</h1>
-      <p>Confira as perguntas temáticas oficiais cobradas nas edições recentes do Exame de Seleção (Técnico Integrado).</p>
-    </header>
+      <h2 class="titulo" style="margin-top: 10px;">Provas anteriotes/gabaritos do Exame de Seleção</h2>
+      <p style="color: var(--text-muted, #94a3b8); font-size: 1.05rem; margin-bottom: 24px;">Confira as perguntas temáticas oficiais cobradas nas edições recentes do Exame de Seleção (Técnico Integrado).</p>
 
-    <section>
-      <h2 class="titulo">Histórico de Propostas Oficiais</h2>
+
+      <div class="provas-grid">
+
+        <div class="prova-card">
+          <div>
+            <div class="prova-header-card">
+              <h2 class="prova-ano">Exame 2026</h2>
+              <span class="prova-tag">Mais Recente</span>
+            </div>
+            <p class="prova-desc">Provas de Língua Portuguesa, Matemática e Produção Textual (Artigo de Opinião).</p>
+          </div>
+          <div class="links-group">
+            <a href="https://portal.ifrn.edu.br/documents/24234/Caderno_de_Provas_-T%C3%A9cnico_Integrado_2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">
+              📄 Baixar Caderno de Prova (PDF)
+            </a>
+            <a href="https://portal.ifrn.edu.br/documents/24650/GABARITO_EXAME_DE_SELE%C3%87%C3%83O_2026_-_DEFINITIVO.pdf" target="_blank" rel="noopener noreferrer" class="btn-download gabarito">
+              ✅ Baixar Gabarito Oficial (PDF)
+            </a>
+          </div>
+        </div>
+
+        <div class="prova-card">
+          <div>
+            <div class="prova-header-card">
+              <h2 class="prova-ano">Exame 2025</h2>
+              <span class="prova-tag">Técnico Integrado</span>
+            </div>
+            <p class="prova-desc">Provas objetivas completas e proposta de redação do processo seletivo 2025.</p>
+          </div>
+          <div class="links-group">
+            <a href="https://portal.ifrn.edu.br/documents/16968/PROVA_IFRN_-_EXAME_DE_SELE%C3%87%C3%83O_2025.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">
+              📄 Baixar Caderno de Prova (PDF)
+            </a>
+            <a href="https://portal.ifrn.edu.br/documents/16969/Gabarito_Oficial_Preliminar_-_IFRN_-_integrado.pdf" target="_blank" rel="noopener noreferrer" class="btn-download gabarito">
+              ✅ Baixar Gabarito Oficial (PDF)
+            </a>
+          </div>
+        </div>
+
+        <div class="prova-card">
+          <div>
+            <div class="prova-header-card">
+              <h2 class="prova-ano">Exame 2024</h2>
+              <span class="prova-tag">Técnico Integrado</span>
+            </div>
+            <p class="prova-desc">Exame de seleção dos Cursos Técnicos Integrados ao Ensino Médio.</p>
+          </div>
+          <div class="links-group">
+            <a href="https://portal.ifrn.edu.br/documents/10663/Cadernos_de_provas_-_Cursos_Tecnicos_Integrados_2024_.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">
+              📄 Baixar Caderno de Prova (PDF)
+            </a>
+            <a href="https://portal.ifrn.edu.br/documents/10664/IFRN_Edital_78.2023_Exame_de_Sele%C3%A7%C3%A3o_2024_Gabarito_Oficial_Preliminar.pdf" target="_blank" rel="noopener noreferrer" class="btn-download gabarito">
+              ✅ Baixar Gabarito Oficial (PDF)
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dica-box">
+        <h3>💡 Como usar as provas para estudar melhor?</h3>
+        <p>
+          Reserve <strong>4 horas contínuas</strong> sem distrações no seu final de semana para resolver a prova em um ambiente silencioso. Em seguida, utilize o gabarito para verificar seus acertos e lance suas notas no nosso 
+          <a href="simulador-vagas.html" style="color: var(--ifrn-green-light, #10b981); text-decoration: underline;">Simulador de Vagas</a> para testar suas chances de aprovação!
+        </p>
+      </div>
+    </section>
+
+    <section class="secao-espacamento">
+      <span class="badge badge-primary">Histórico Oficial IFRN / FUNCERN</span>
+      <h2 class="titulo" style="margin-top: 10px;">Temas Reais das Redações do IFRN</h2>
+      <p style="color: var(--text-muted, #94a3b8); font-size: 1.05rem; margin-bottom: 24px;">Confira as perguntas temáticas oficiais cobradas nas edições recentes do Exame de Seleção (Técnico Integrado).</p>
 
       <details class="accordion-item">
         <summary class="accordion-header">
@@ -131,7 +333,7 @@
           <h2>Exame de Seleção 2022 (Edital nº 29/2021-PROEN)</h2>
         </summary>
         <div class="accordion-content">
-          <span class="badge badge-accent">Tema Oficial 2021</span>
+          <span class="badge badge-accent">Tema Oficial</span>
           <br><br>
           <div class="formula">
             "O governo brasileiro é responsável por proteger as terras indígenas?"
@@ -142,33 +344,16 @@
           </div>
         </div>
       </details>
-
     </section>
 
-    <section>
-      <h2 class="titulo">Como Responder aos Temas do IFRN</h2>
-
-      <div class="exercicio-box">
-        <h3>1. Assuma uma Posição Clara (Sim ou Não / Ponto de Vista)</h3>
-        <p>A pergunta temática da prova exige um posicionamento firme. No seu <strong>Artigo de Opinião</strong>, responda argumentativamente à questão formulada pela banca logo na introdução.</p>
-      </div>
-
-      <div class="exercicio-box">
-        <h3>2. Use Obrigatoriamente o Pseudônimo Indicado</h3>
-        <p>O IFRN exige a assinatura com um pseudônimo específico ao final da proposta (ex.: <i>"Amazonino Belém"</i> ou <i>"O REI DA NET"</i>). <strong>Nunca assine com seu nome verdadeiro</strong>, pois isso anula a redação.</p>
-      </div>
-
-      <div class="attention">
-        <strong>Atenção às Normas do Edital:</strong> A redação deve possuir mais de 8 (oito) linhas autorais para ser corrigida. Textos copiados dos textos motivadores ou que firam os Direitos Humanos sofrerão penalizações severas (até 10 pontos na nota ou desclassificação).
-      </div>
-    </section>
-
+    
   </main>
 
   <footer>
-    <p>&copy; 2026 - Guia de Preparação IFRN. Informações oficiais compiladas dos editais do Exame de Seleção.</p>
+    <p>&copy; 2026 - Guia de Preparação IFRN • Plataforma de Estudos com Provas e Temas Oficiais.</p>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
