@@ -8,19 +8,16 @@
 
   <title>IFRN 2026 | Plataforma Oficial de Estudos</title>
 
+  <!-- Importação de fontes conforme padrão do CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-  <a href="#conteudo-principal" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Ir para o conteúdo principal</a>
-
-  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
-
+  <!-- Banner Flutuante PROITEC -->
   <aside class="proitec-glass-banner" aria-label="Contagem regressiva PROITEC">
     <div class="popup-content">
       <div class="popup-header">
@@ -39,9 +36,10 @@
     </div>
   </aside>
 
+  <!-- Cabeçalho Principal -->
   <header class="navbar-header" role="banner">
     <div class="navbar-container">
-      <a href="#" class="logo" aria-label="Página Inicial IFRN 2026">
+      <a href="index.html" class="logo" aria-label="Página Inicial IFRN 2026">
         <span class="logo-dot" aria-hidden="true"></span>
         IFRN 2026
       </a>
@@ -52,7 +50,10 @@
         <span class="bar"></span>
       </button>
 
-      <nav class="nav-menu" id="navMenu" aria-label="Navegação principal" role="navigation">
+      <!-- Overlay do Menu Mobile -->
+      <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
         <a href="#estudos" class="nav-link">Áreas</a>
         <a href="#diferenciais" class="nav-link">Diferenciais</a>
         <a href="#praticar" class="nav-link" id="btnNavPraticar">Praticar</a>
@@ -60,8 +61,10 @@
     </div>
   </header>
 
-  <main id="conteudo-principal" role="main">
+  <!-- Conteúdo Principal -->
+  <main id="conteudo-principal">
 
+    <!-- Seção Hero -->
     <section class="hero">
       <div class="badge-tag">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
@@ -87,7 +90,7 @@
       <div class="hero-stats">
         <div class="stat-item">
           <div class="stat-number">100%</div>
-          <div class="stat-label">Gratuito & Aberto</div>
+          <div class="stat-label">Gratuito &amp; Aberto</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">Focado</div>
@@ -100,6 +103,7 @@
       </div>
     </section>
 
+    <!-- Seção de Áreas de Conhecimento -->
     <section id="estudos">
       <div class="section-header">
         <h2 class="titulo">Áreas de Conhecimento</h2>
@@ -114,7 +118,7 @@
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
             </svg>
           </div>
-          <h2>Português</h2>
+          <h3>Português</h3>
           <p>Gramática, interpretação de texto, análise sintática, variação linguística e listas explicativas.</p>
         </article>
 
@@ -127,7 +131,7 @@
               <circle cx="16" cy="16" r="2"></circle>
             </svg>
           </div>
-          <h2>Matemática</h2>
+          <h3>Matemática</h3>
           <p>Álgebra, geometria, razões, porcentagem e resolução passo a passo de questões do exame.</p>
         </article>
 
@@ -138,12 +142,13 @@
               <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
             </svg>
           </div>
-          <h2>Redação</h2>
+          <h3>Redação</h3>
           <p>Estrutura dissertativa, repertórios coringa, propostas anteriores e técnicas de argumentação.</p>
         </article>
       </div>
     </section>
 
+    <!-- Seção Diferenciais -->
     <section id="diferenciais">
       <div class="section-header">
         <h2 class="titulo">Por que utilizar esta plataforma?</h2>
@@ -158,7 +163,7 @@
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
           </div>
-          <h2>Conteúdo Alinhado</h2>
+          <h3>Conteúdo Alinhado</h3>
           <p>Toda a estrutura modular é estritamente alinhada às exatas exigências da matriz do edital IFRN.</p>
         </article>
 
@@ -169,7 +174,7 @@
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
           </div>
-          <h2>Estudo Eficiente</h2>
+          <h3>Estudo Eficiente</h3>
           <p>Foco nos temas recorrentes com alta incidência nas provas de anos anteriores.</p>
         </article>
 
@@ -181,17 +186,20 @@
               <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
           </div>
-          <h2>Navegação Simples</h2>
+          <h3>Navegação Simples</h3>
           <p>Interface leve, limpa e modular projetada para facilitar suas rotinas de revisão diária.</p>
         </article>
       </div>
     </section>
+
   </main>
 
-  <footer role="contentinfo">
+  <!-- Rodapé -->
+  <footer>
     <p>&copy; 2026 Plataforma IFRN. Desenvolvido para impulsionar a sua aprovação.</p>
   </footer>
 
+  <!-- Modal de Opções de Estudo -->
   <div id="modalDisciplinas" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitulo">
     <div class="modal-card">
       <button type="button" class="fechar-modal" id="btnFecharModal" aria-label="Fechar modal">&times;</button>
@@ -289,7 +297,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Contador Regressivo
+      // 1. Contador Regressivo PROITEC
       (function inicializarContador() {
         const dataProitec = new Date(2026, 7, 16, 13, 15, 0).getTime();
 
@@ -384,7 +392,7 @@
         }
       }
 
-      // 5. Registradores de Eventos
+      // 5. Event Listeners
       if (btnHeroComecar) btnHeroComecar.addEventListener('click', abrirModal);
       if (btnNavPraticar) {
         btnNavPraticar.addEventListener('click', (e) => {
@@ -403,7 +411,7 @@
         }
       });
 
-      // Fechar modal ao clicar na área externa
+      // Fechar modal ao clicar fora
       window.addEventListener('click', (event) => {
         if (event.target === modal) {
           fecharModal();
