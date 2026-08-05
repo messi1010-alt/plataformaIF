@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Surpresa e Simulado IFRN | COP30</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Estilos Específicos e Refinamentos para a Página de Quiz */
+    .simulado-container {
+      max-width: 960px;
+      margin: 20px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* Card Sticky para Progresso durante o Quiz */
+    .progress-sticky-card {
+      position: sticky;
+      top: 90px;
+      z-index: 90;
+      background: rgba(8, 18, 13, 0.85);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--card-border-hover);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm), 0 0 20px var(--ifrn-green-glow);
+    }
+
+    /* Barra de Progresso */
+    .barra-progresso-bg {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .barra-progresso-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--ifrn-green-light) 100%);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Caixa do Texto-Base Institucional */
+    .texto-base-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--ifrn-green-light);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      margin-bottom: 28px;
+      text-align: left;
+      line-height: 1.7;
+      font-size: 0.98rem;
+      max-height: 420px;
+      overflow-y: auto;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .texto-base-box h3 {
+      color: var(--ifrn-green-light);
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    /* Formatação dos Cards de Questão */
+    .questao-card {
+      background: var(--card-color);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--card-border);
+      border-top: 1px solid var(--card-border-top);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 36px);
+      margin-bottom: 24px;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .enunciado-titulo {
+      font-weight: 700;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: var(--text-main);
+    }
+
+    .destaque-sublinhado {
+      text-decoration: underline;
+      text-decoration-color: var(--ifrn-green-light);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Opções de Resposta Modernizadas */
+    .opcao-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      background: rgba(0, 0, 0, 0.25);
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .opcao-item:hover {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--ifrn-green-light);
+      transform: translateX(4px);
+    }
+
+    .opcao-item.selecionada {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: var(--ifrn-green-light);
+      box-shadow: 0 0 16px var(--ifrn-green-glow);
+    }
+
+    .opcao-item input[type="radio"] {
+      accent-color: var(--ifrn-green-light);
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    /* Grids do Relatório e Ranking */
+    .grid-estatisticas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .card-estatistica {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      text-align: center;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .cert-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .cert-container svg {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Suporte a Fórmulas e SVGs do Quiz */
+    .quiz-svg-wrapper {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin-bottom: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Ações Finais */
+    .acoes-finais {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-glow-effect" style="top: 0; opacity: 0.5;"></div>
+
+  <header class="navbar-header">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        IFRN 2026
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="nav-overlay" id="navOverlay"></div>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="questoes.html" class="nav-link">Simulado</a>
+        <a href="quiz.html" class="nav-link active">Quiz Surpresa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="simulado-container">
+
+    <div id="tela-inicial" class="questao-card" style="text-align: center;">
+      <span class="badge badge-primary" style="margin-bottom: 16px; display: inline-flex;">Módulo de Alta Complexidade</span>
+      
+      <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 12px; font-weight: 800;">
+        Quiz Surpresa: Avaliação Avançada IFRN
+      </h1>
+      <p style="color: var(--text-muted); max-width: 580px; margin: 0 auto 28px;">
+        Testagem analítica baseada no edital oficial. Preencha sua identificação para registrar seu desempenho no ranking global e emissão de certificado.
+      </p>
+
+      <div id="caixa-resumo-simulado" class="resumo-simulado" style="display: none;"></div>
+
+      <form id="form-identificacao" style="max-width: 480px; margin: 0 auto 24px;">
+        <label for="nome-aluno" style="display: block; text-align: left; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main);">
+          Nome Completo do Candidato:
+        </label>
+        <input type="text" id="nome-aluno" class="form-control" placeholder="Digite seu nome completo..." autocomplete="off">
+        
+        <button type="submit" class="btn btn-primary" id="btn-iniciar" style="width: 100%; margin-top: 16px; padding: 16px; font-weight: 700;">
+          Acessar Texto-Base e Iniciar Avaliação
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </form>
+    </div>
+
+    <div id="tela-texto" class="questao-card" style="display: none;">
+      <div class="texto-base-box">
+        <span class="badge badge-primary" style="margin-bottom: 12px; display: inline-flex;">Texto-Base Oficial</span>
+        <h3>COP30 no Brasil: Perspectivas Globais e Desafios Socioambientais</h3>
+        <h4 style="color: var(--text-main); font-weight: 600; margin-bottom: 8px; font-size: 1.05rem;">A Cúpula do Clima em Belém do Pará</h4>
+        <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 18px;">Fonte: Secretaria de Comunicação Social / Núcleo COP30</p>
+        
+        <p>A 30ª Conferência das Nações Unidas sobre Mudança do Clima (COP30), sediada em Belém (PA), constitui o ápice das negociações multilaterais para a consolidação das metas do Acordo de Paris. O evento exige do Brasil a demonstração prática de compromissos com a transição energética, a descarbonização da matriz produtiva e o combate incisivo ao desmatamento ilegal na Amazônia Legal.</p>
+        <p>Projeta-se a presença de 40.000 participantes, dos quais 7.000 integram comitivas diplomáticas formais e órgãos técnicos da ONU. Estruturalmente, a cúpula subdivide-se entre a <strong>Zona Azul</strong> — espaço restrito às deliberações soberanas entre Chefes de Estado e negociadores credenciados — e a <strong>Zona Verde</strong>, destinada a debates públicos e manifestações da sociedade civil. Os aportes financeiros somam R$ 7,3 bilhões distribuídos em 38 intervenções de infraestrutura urbana na capital paraense, destacando-se R$ 980 milhões alocados no Parque da Cidade.</p>
+      </div>
+
+      <button type="button" class="btn btn-primary" id="btn-ir-para-questoes" style="width: 100%; padding: 16px; font-weight: 700;">
+        Iniciar Resolução das Questões
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+
+    <div id="tela-quiz" style="display: none;">
+      
+      <div class="progress-sticky-card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span id="quiz-contador-questao" style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">Questão 1 de 20</span>
+          <span id="quiz-materia" class="badge badge-primary">Língua Portuguesa</span>
+        </div>
+        <div class="barra-progresso-bg">
+          <div class="barra-progresso-fill" id="barra-progresso"></div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <div id="quiz-enunciado" class="enunciado-titulo"></div>
+        <div id="quiz-math-container" class="quiz-svg-wrapper" style="display: none;"></div>
+        <div id="quiz-opcoes"></div>
+      </div>
+
+      <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap;">
+        <button type="button" class="btn btn-secondary" id="btn-anterior" style="flex: 1; min-width: 140px; padding: 14px;">
+          ← Anterior
+        </button>
+        <button type="button" class="btn btn-primary" id="btn-proximo" style="flex: 2; min-width: 200px; padding: 14px; font-weight: 700;">
+          Próxima Questão →
+        </button>
+      </div>
+    </div>
+
+    <div id="tela-resultados" style="display: none;">
+      <div class="questao-card" style="text-align: center;">
+        <span class="badge badge-primary" style="margin-bottom: 12px; display: inline-flex;">Avaliação Finalizada</span>
+        <h2 style="color: var(--text-main); margin-bottom: 8px; font-size: 1.8rem; font-weight: 800;">Relatório de Desempenho</h2>
+        <p style="color: var(--text-muted); margin-bottom: 28px;">Confira a síntese do seu rendimento final na avaliação:</p>
+
+        <div class="grid-estatisticas">
+          <div class="card-estatistica">
+            <div id="stat-acertos" style="font-size: 2rem; font-weight: 800; color: var(--ifrn-green-light);">0</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Acertos</div>
+          </div>
+          <div class="card-estatistica">
+            <div id="stat-erros" style="font-size: 2rem; font-weight: 800; color: var(--ifrn-red);">0</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Erros</div>
+          </div>
+          <div class="card-estatistica">
+            <div id="stat-nres" style="font-size: 2rem; font-weight: 800; color: #f59e0b;">0</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Em Branco</div>
+          </div>
+          <div class="card-estatistica">
+            <div id="stat-aproveitamento" style="font-size: 2rem; font-weight: 800; color: #3b82f6;">0%</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Aproveitamento</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="questao-card">
+        <h3 style="color: var(--ifrn-green-light); margin-bottom: 20px; font-size: 1.3rem;">Classificação Geral dos Candidatos</h3>
+        <div id="tabela-ranking" class="table-container"></div>
+      </div>
+
+      <div class="questao-card">
+        <h3 style="color: var(--ifrn-green-light); margin-bottom: 20px; text-align: center; font-size: 1.3rem;">Certificado Institucional de Conclusão</h3>
+        <div class="cert-container" id="cert-svg-box"></div>
+      </div>
+
+      <div class="questao-card">
+        <h3 style="color: var(--ifrn-green-light); margin-bottom: 20px; font-size: 1.3rem;">Gabarito Analítico e Comentado</h3>
+        <div id="gabarito-lista"></div>
+      </div>
+
+      <div class="acoes-finais">
+        <button type="button" class="btn btn-primary" onclick="window.location.reload();" style="padding: 14px 28px; font-weight: 700;">
+          🔄 Tentar Novamente
+        </button>
+        <a href="index.html" class="btn btn-secondary" style="padding: 14px 28px; font-weight: 600;">
+          🏠 Voltar ao Início
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Portal Preparatório IFRN 2026 • Material de Apoio Acadêmico</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nomeSalvo = localStorage.getItem('nomeUsuario');
+      const inputNome = document.getElementById('nome-aluno');
+
+      if (nomeSalvo && inputNome) {
+        inputNome.value = nomeSalvo;
+      }
+
+      const resSimuladoRaw = localStorage.getItem('resultadoSimulado');
+      const caixaResumo = document.getElementById('caixa-resumo-simulado');
+
+      if (resSimuladoRaw && caixaResumo) {
+        try {
+          const res = JSON.parse(resSimuladoRaw);
+          caixaResumo.style.display = 'block';
+          caixaResumo.style.background = 'rgba(16, 185, 129, 0.1)';
+          caixaResumo.style.border = '1px solid var(--ifrn-green-light)';
+          caixaResumo.style.padding = '18px';
+          caixaResumo.style.borderRadius = 'var(--radius-sm)';
+          caixaResumo.style.textAlign = 'left';
+          caixaResumo.style.marginBottom = '24px';
+          caixaResumo.innerHTML = `
+            <strong style="color: var(--ifrn-green-light); font-size: 1rem;">Registro de Desempenho Anterior (${res.nome || nomeSalvo || 'Candidato'}):</strong><br>
+            <span style="color: var(--text-muted); font-size: 0.93rem; display: block; margin-top: 6px;">
+              • Língua Portuguesa: <strong style="color: #fff;">${res.portugues}/20</strong> acertos<br>
+              • Matemática: <strong style="color: #fff;">${res.matematica}/20</strong> acertos<br>
+              • Rendimento Global: <strong style="color: var(--ifrn-green-light);">${res.porcentagem}%</strong> (${res.total}/40 acertos)
+            </span>
+          `;
+        } catch (e) {
+          console.error("Erro ao carregar os dados de resultadoSimulado.", e);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
