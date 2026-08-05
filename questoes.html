@@ -1,720 +1,758 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulado Completo PROITEC | IFRN</title>
+  <title>Simulado Exame de Seleção IFRN | 40 Questões</title>
+
+  <link rel="stylesheet" href="style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --ifrn-green: #008542;
-      --ifrn-green-light: #10b981;
-      --ifrn-red: #e30613;
-      --bg-color: #091310;
-      --card-color: #11201a;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(16, 185, 129, 0.35);
-      --primary: var(--ifrn-green-light);
-      --accent: #f59e0b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --radius: 16px;
-      --radius-sm: 8px;
-      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    /* Estilos de controle do Texto-Base Retrátil e Ajustes Finais do Simulado */
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      background-image:
-        radial-gradient(at 0% 0%, rgba(0, 133, 66, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(227, 6, 19, 0.08) 0px, transparent 50%);
-      background-attachment: fixed;
-      color: var(--text-main);
-      font-family: "Inter", sans-serif;
-      line-height: 1.6;
-      padding-bottom: 60px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .header-simulado {
-      text-align: center;
-      padding: 40px 0 20px;
-      border-bottom: 1px solid var(--card-border);
-      margin-bottom: 30px;
-    }
-
-    .header-simulado h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 20%, var(--primary) 70%, var(--ifrn-green) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .header-simulado p {
-      color: var(--text-muted);
-      margin-top: 8px;
-    }
-
-    .texto-base-card {
+    .texto-base-box {
       background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--card-border-hover);
+      border: 1px solid var(--card-border);
       border-left: 4px solid var(--ifrn-green-light);
-      border-radius: var(--radius-sm);
-      padding: 20px;
-      margin-bottom: 24px;
-      font-size: 0.95rem;
-      color: #e2e8f0;
-    }
-
-    .texto-base-card h3 {
-      color: var(--primary);
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-
-    .texto-base-card blockquote {
-      font-style: italic;
-      margin-bottom: 10px;
-      line-height: 1.7;
-    }
-
-    .texto-base-card .fonte {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-align: right;
-    }
-
-    .secao-titulo {
-      font-size: 1.5rem;
-      color: #ffffff;
-      border-left: 5px solid var(--ifrn-red);
-      padding-left: 14px;
-      margin: 40px 0 20px;
-    }
-
-    .card-questao {
-      background: var(--card-color);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
+      border-radius: var(--radius-md);
       padding: 24px;
       margin-bottom: 24px;
-      transition: var(--transition);
+      line-height: 1.8;
+      font-size: 0.98rem;
+      position: relative;
+      transition: max-height 0.4s ease, padding 0.3s ease;
     }
 
-    .card-questao:hover {
-      border-color: var(--card-border-hover);
+    /* Estado recolhido (padrão) */
+    .texto-base-box.recolhido {
+      max-height: 240px;
+      overflow: hidden;
     }
 
-    .num-questao {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 10px;
-      display: block;
+    /* Estado expandido */
+    .texto-base-box.expandido {
+      max-height: 2000px;
+      overflow: visible;
     }
 
-    .enunciado {
-      font-size: 1.02rem;
-      font-weight: 500;
-      margin-bottom: 18px;
+    /* Degradê de fusão na borda inferior quando recolhido */
+    .texto-base-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: linear-gradient(180deg, rgba(4, 9, 7, 0) 0%, rgba(4, 9, 7, 0.95) 100%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      border-bottom-left-radius: var(--radius-md);
+      border-bottom-right-radius: var(--radius-md);
     }
 
-    .questao-svg-container {
-      display: flex;
-      justify-content: center;
+    .texto-base-box.expandido .texto-base-fade {
+      opacity: 0;
+    }
+
+    .btn-toggle-texto {
+      display: inline-flex;
       align-items: center;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid var(--card-border-hover);
-      border-radius: var(--radius-sm);
-      padding: 24px;
-      margin: 20px 0;
-      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .questao-svg-container svg {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .opcoes {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .opcao-label {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px 16px;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 0.95rem;
-    }
-
-    .opcao-label:hover {
-      background: rgba(16, 185, 129, 0.1);
-      border-color: var(--primary);
-    }
-
-    .opcao-label input[type="radio"] {
-      accent-color: var(--primary);
-      width: 18px;
-      height: 18px;
-      margin-top: 3px;
-    }
-
-    .opcao-label.opcao-correta {
-      background: rgba(16, 185, 129, 0.25) !important;
-      border: 2px solid var(--ifrn-green-light) !important;
-      color: #ffffff !important;
-      font-weight: 700;
-    }
-
-    .opcao-label.opcao-incorreta {
-      background: rgba(227, 6, 19, 0.25) !important;
-      border: 2px solid var(--ifrn-red) !important;
-      color: #ffffff !important;
-    }
-
-    .status-gabarito {
-      margin-top: 15px;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-      font-size: 0.9rem;
-      font-weight: 700;
-      display: none;
-    }
-
-    .status-gabarito.acertou {
-      display: block;
-      background: rgba(16, 185, 129, 0.15);
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 8px 18px;
+      background: rgba(16, 185, 129, 0.12);
       border: 1px solid var(--ifrn-green-light);
       color: var(--ifrn-green-light);
-    }
-
-    .status-gabarito.errou {
-      display: block;
-      background: rgba(227, 6, 19, 0.15);
-      border: 1px solid var(--ifrn-red);
-      color: #f87171;
-    }
-
-    .btn-finalizar {
-      display: block;
-      width: 100%;
-      padding: 18px;
-      background: var(--ifrn-green);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1.2rem;
-      font-weight: 800;
-      cursor: pointer;
-      margin-top: 40px;
-      transition: var(--transition);
-    }
-
-    .btn-finalizar:hover {
-      background: #006b35;
-      box-shadow: 0 0 20px rgba(0, 133, 66, 0.5);
-    }
-
-    .painel-resultado {
-      display: none;
-      background: var(--card-color);
-      border: 2px solid var(--primary);
-      border-radius: var(--radius);
-      padding: 30px;
-      margin-top: 30px;
-    }
-
-    .barra-container {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      height: 24px;
-      border-radius: 12px;
-      overflow: hidden;
-      margin: 20px 0;
-    }
-
-    .barra-progresso {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #10b981, #008542);
-      transition: width 1s ease-in-out;
-    }
-
-    .escore-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .escore-card {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--card-border);
-      padding: 16px;
       border-radius: var(--radius-sm);
-      text-align: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
-    .escore-card h4 {
-      font-size: 0.85rem;
+    .btn-toggle-texto:hover {
+      background: var(--ifrn-green-light);
+      color: #ffffff;
+      box-shadow: 0 0 12px var(--ifrn-green-glow);
+    }
+
+    /* Destaques do Enunciado */
+    .termo-sublinhado {
+      text-decoration: underline;
+      text-decoration-color: var(--ifrn-green-light);
+      text-underline-offset: 4px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Sticky de Progresso Otimizada */
+    .progress-sticky-card {
+      position: sticky;
+      top: 70px;
+      z-index: 90;
+      background: rgba(4, 9, 7, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px 10px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Botões de Navegação dos Módulos superiores */
+    .nav-modulos {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .btn-modulo {
+      flex: 1;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
-    .escore-card span {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--primary);
+    .btn-modulo:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+
+    .btn-modulo.active {
+      background: var(--ifrn-green);
+      border-color: var(--ifrn-green-light);
+      color: #ffffff;
+      box-shadow: 0 0 14px var(--ifrn-green-glow);
+    }
+
+    /* Modal Inicial */
+    .tela-inicial-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(4, 9, 7, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .tela-inicial-card {
+      background: var(--card-color);
+      border: 1px solid var(--ifrn-green-light);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
     }
   </style>
-
-  
 </head>
-
 <body>
 
-<script src="script.js"></script>
-
-
-  <header class="navbar-header">
-  <div class="navbar-container">
-    <a href="index.html" class="logo">
-      <span class="logo-dot"></span>
-      IFRN 2026
-    </a>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <div class="nav-overlay" id="navOverlay"></div>
-
-    <nav class="nav-menu" id="navMenu">
-      <a href="index.html" class="nav-link">Início</a>
-      <a href="português.html" class="nav-link">Português</a>
-      <a href="matemática.html" class="nav-link">Matemática</a>
-      <a href="redação.html" class="nav-link">Redação</a>
-      <a href="exame-selecao.html" class="nav-link">Sobre o exame de seleção</a>
-      <a href="temas anteriores.html" class="nav-link">Temas anteriores</a>
-      <a href="questoes.html" class="nav-link active">Simulado (Prova)</a>
-    </nav>
-  </div>
-</header>
-
-  <div class="container">
-    <header class="header-simulado">
-      <h1>Simulado Exame PROITEC - IFRN</h1>
-      <p>Estrutura Oficial: 50 Questões Contextualizadas (Língua Portuguesa, Matemática, Ética e Cidadania)</p>
-    </header>
-
-    <form id="simuladoForm">
-
-      <h2 class="secao-titulo">Língua Portuguesa (Questões 01 a 20)</h2>
-
-      <div class="texto-base-card">
-        <h3>TEXTO BASE</h3>
-        <blockquote>
-          "A leitura e a compreensão crítica das informações no ambiente digital são pressupostos fundamentais para o
-          exercício pleno da cidadania. Em um contexto em que o volume de dados e notícias falsas cresce
-          exponencialmente, a formação de sujeitos leitores e autônomos torna-se o pilar central para a democratização
-          do conhecimento e para a inclusão social no espaço escolar e profissional."
-        </blockquote>
-        <p class="fonte">Fonte: Caderno de Provas PROITEC / IFRN - Adaptação Pedagógica.</p>
+  <div class="tela-inicial-overlay" id="telaInicial">
+    <div class="tela-inicial-card">
+      <span class="badge badge-primary" style="margin-bottom: 12px;">PROITEC / IFRN 2026</span>
+      <h2 style="color: var(--text-main); margin-bottom: 10px; font-weight: 800;"> Bem-vindo ao Simulado IFRN</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px; line-height: 1.6;">
+        Digite o seu nome para registrar o progresso e personalizar o seu resultado ao final do exame.
+      </p>
+      
+      <div class="form-group" style="margin-bottom: 20px;">
+        <input type="text" id="nomeUsuarioInput" class="form-control" placeholder="Digite seu nome completo..." required autocomplete="off">
       </div>
-
-      <div id="questoesPortugues"></div>
-
-      <h2 class="secao-titulo">Matemática (Questões 21 a 40)</h2>
-      <div id="questoesMatematica"></div>
-
-      <h2 class="secao-titulo">Ética e Cidadania (Questões 41 a 50)</h2>
-      <div id="questoesCidadania"></div>
-
-      <button type="button" class="btn-finalizar" id="btnFinalizar" onclick="calcularResultado()">Finalizar e Corrigir
-        Prova</button>
-    </form>
-
-    <div id="painelResultado" class="painel-resultado">
-      <h2 style="text-align: center;">Relatório Geral de Desempenho</h2>
-
-      <p style="text-align: center; margin-top: 10px;">Aproveitamento Geral:</p>
-      <div class="barra-container">
-        <div id="barraProgresso" class="barra-progresso"></div>
-      </div>
-      <p style="text-align: center; font-weight: 800; font-size: 1.2rem; color: var(--primary);" id="textoPorcentagem">
-        0%</p>
-
-      <div class="escore-grid">
-        <div class="escore-card">
-          <h4>Total de Acertos</h4>
-          <span id="escoreTotal">0 / 50</span>
-        </div>
-        <div class="escore-card">
-          <h4>Português</h4>
-          <span id="escorePort">0 / 20</span>
-        </div>
-        <div class="escore-card">
-          <h4>Matemática</h4>
-          <span id="escoreMat">0 / 20</span>
-        </div>
-        <div class="escore-card">
-          <h4>Ética e Cidadania</h4>
-          <span id="escoreCid">0 / 10</span>
-        </div>
-        <div class="escore-card">
-          <h4>Pontuação Final</h4>
-          <span id="notaFinal">0.0</span>
-        </div>
-      </div>
+      
+      <button type="button" id="btnIniciarSimulado" class="btn btn-primary" style="width: 100%;" onclick="iniciarSimulado()">
+         Iniciar Simulado Oficial
+      </button>
     </div>
   </div>
 
+  <header class="navbar-header">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        IFRN 2026
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="questoes.html" class="nav-link active">Simulado</a>
+        <a href="quiz.html" class="nav-link">Quiz Surpresa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="simulador-container" style="max-width: 960px; margin: 30px auto 60px; padding: 0 20px;">
+
+    <div style="text-align: center; margin-bottom: 28px;">
+      <h2 style="color: var(--text-main); font-weight: 800; margin-bottom: 6px;"> Simulado Oficial PROITEC - IFRN</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">40 Questões inéditas baseadas no Edital e no Texto-Base Oficial da COP30.</p>
+    </div>
+
+    <div class="progress-sticky-card" id="barraAcompanhamento">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <span id="labelModuloAtual" style="font-weight: 800; color: var(--ifrn-green-light); font-size: 0.95rem;"> Módulo 01: Língua Portuguesa</span>
+        <span id="labelProgresso" style="font-size: 0.88rem; color: var(--text-muted);">
+          Respondidas: <strong id="qtdRespondidas" style="color: #ffffff;">0</strong> / 40
+        </span>
+      </div>
+      <div class="barra-progresso-bg" style="margin-bottom: 6px;">
+        <div class="barra-progresso-fill" id="barra-progresso-simulado" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 28px; padding: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <span class="badge badge-primary">Leitura Obrigatória</span>
+        <button type="button" class="btn-toggle-texto" id="btnToggleTexto" onclick="toggleTextoBase()">
+          <span id="textoBtnToggle"> Expandir Texto Completo</span>
+        </button>
+      </div>
+
+      <div class="texto-base-box recolhido" id="caixaTextoBase">
+        <h3 style="color: var(--ifrn-green-light); margin-bottom: 6px; font-weight: 800;"> TEXTO BASE OFICIAL</h3>
+        <h4 style="color: var(--text-main); margin-bottom: 8px;">COP30 no Brasil: o que é, quando acontece e por que é tão importante para o futuro do clima</h4>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 16px;">Fonte: Redação COP30 • Atualizado em Julho/2025</p>
+
+        <p>A 30ª Conferência das Nações Unidas sobre Mudança do Clima (Conferência das Partes – COP30 –), que acontecerá entre os dias 10 e 21 de novembro na cidade de Belém, capital do Pará, já está movimentando o Brasil de diversas maneiras. O evento, que ocorre anualmente, reúne líderes mundiais, cientistas, organizações não governamentais e representantes da sociedade civil para discutir o futuro do planeta, por meio de ações para combater as mudanças climáticas. Na edição anterior, realizada em Baku, Azerbaijão, a conferência enfrentou críticas por não estabelecer metas suficientemente ambiciosas para mitigar os efeitos das mudanças climáticas.</p>
+        
+        <p>Durante o evento, o país terá a responsabilidade de apresentar seus esforços em áreas como energias renováveis, biocombustíveis e agricultura de baixo carbono. Para o governo brasileiro, a COP30 é uma oportunidade singular de reforçar o papel do Brasil como líder nas discussões globais sobre mudanças climáticas e sustentabilidade. Os temas centrais da COP30 abrangerão a redução de emissões de gases de efeito estufa, a adaptação às mudanças climáticas, o financiamento climático para países em desenvolvimento, tecnologias de energia renovável e soluções de baixo carbono, além da preservação de florestas e biodiversidade. A justiça climática e os impactos sociais das mudanças climáticas também fazem parte dos temas centrais do encontro.</p>
+
+        <p>Segundo estimativas da Fundação Getúlio Vargas (FGV), espera-se que a COP30 atraia cerca de 40 mil visitantes. Dentre eles, pelo menos, 7 mil serão integrantes da ONU e de delegações de países-membros. A escolha de Belém como sede da COP30 transcende uma celebração simbólica dos 10 anos do Acordo de Paris, prometendo marcar um momento de ação concreta e compromissos efetivos. Conforme afirmou o embaixador André Corrêa do Lago, presidente da conferência, este é um momento que exige ação concreta e a implementação de compromissos já firmados. Em entrevista à Jovem Pan, Lago deixou claro que o evento será um marco de transição entre a diplomacia climática e a execução de políticas sustentáveis. Mais de 30 anos após sediar a Rio-92, evento tido como a pedra fundamental para o estabelecimento das COP, o Brasil recebe novamente uma conferência de tal magnitude.</p>
+
+        <p><strong>Mas afinal, o que é a COP?</strong><br>
+        A Conferência das Partes (COP) é o órgão decisório da Convenção-Quadro das Nações Unidas sobre Mudança do Clima (CQNUMC ou UNFCCC). Sua função é implementar os compromissos globais de combate às mudanças climáticas assumidos pelos países signatários e ratificadores da Convenção. Atualmente, 198 nações participam da UNFCCC, tornando-a um dos maiores organismos multilaterais da Organização das Nações Unidas (ONU). A COP representa a cúpula global do clima, que é realizada anualmente em um país diferente. Ela também funciona como Reunião das Partes para o Protocolo de Quioto (CMP) e o Acordo de Paris, cujo objetivo principal é mitigar o aquecimento global e manter o aumento da temperatura global abaixo de 2º C, com esforços para limitá-lo a 1,5º C.</p>
+
+        <p>Na dinâmica da COP, que ocorre ao longo de duas semanas, a primeira semana é dedicada a discussões técnicas, enquanto a segunda é voltada para encontros políticos e assinatura dos acordos. Os resultados devem ser alcançados por consenso, garantindo que todos os países tenham direito a voto. Durante a COP, eventos ocorrem simultaneamente todos os dias. A conferência é dividida em Zona Azul e Zona Verde. A Zona Azul, que é gerenciada diretamente pela ONU, é onde acontecem as negociações políticas e os encontros diplomáticos. Já a Zona Verde sedia painéis para o público geral, apresentação de ONG e outras atividades, inclusive as culturais.</p>
+
+        <p><strong>Como o Brasil está se preparando para receber a COP30?</strong><br>
+        Belém é a cidade escolhida para sediar o evento que acontecerá em novembro. A capital paraense tem a missão de recuperar a posição de “capital da Amazônia”. Uma força-tarefa foi montada para preparar a cidade e a região para receber a COP30. Neste sentido, a prefeitura da cidade e o governo do estado estão trabalhando junto ao governo federal e à iniciativa privada para impulsionar o desenvolvimento e deixar a cidade pronta para receber os milhares de visitantes previstos. O Além da Energia vem acompanhando os avanços nos preparativos da cidade. Estima-se que o conjunto de obras do Parque da Cidade, espaço que sediará as exposições e reuniões da COP30, receba pelo menos R$ 980 milhões em investimentos. Ao todo, são 38 obras em andamento na cidade, o que representa um investimento de R$ 7,3 bilhões, de acordo com o G1. Entre as obras, estão a modernização do Aeroporto Internacional de Belém, a revitalização de rodovias e o BRT Metropolitano, além do citado Parque da Cidade. As obras estão organizadas em quatro categorias: hospedagem, infraestrutura, mobilidade e saneamento. Na área de infraestrutura, que tem mais projetos e recursos, são 14 obras orçadas em R$ 2,7 bilhões. Hospedagem, mobilidade e saneamento recebem oito obras públicas cada uma. Apesar de impulsionar o desenvolvimento, a escolha da capital paraense como sede da COP carrega implicações ambientais e geopolíticas. No entanto, o desafio logístico é considerável. Acelerando os projetos de infraestrutura, o governo também se preocupa com a rede hoteleira: “A questão dos leitos é crítica. Os preços subiram muito e isso pode afastar não só delegações oficiais, mas também a sociedade civil, empresários e cientistas. A COP precisa ser acessível”, alertou Corrêa do Lago.</p>
+
+        <p><strong>A Amazônia como sede da COP no Brasil</strong><br>
+        A cúpula reunirá líderes globais na Amazônia brasileira para focar na questão climática. Essa escolha é estratégica para o Brasil, pois destaca o bioma e oferece ao país uma plataforma para mostrar suas iniciativas de preservação e transição energética. O Brasil é um líder nesse setor e possui recursos que lhe permitem dar o exemplo. Entre os desafios do Brasil na COP30, está a mediação das discussões, o que pode demonstrar que o país pode assumir um papel central no combate às mudanças climáticas. A COP30 será presidida pelo embaixador André Corrêa do Lago, com Ana Toni atuando como CEO da Conferência. As ministras Marina Silva, do Meio Ambiente e Mudança do Clima, e Sonia Guajajara, dos Povos Indígenas, devem participar ativamente das discussões.</p>
+
+        <p>Um dos pontos centrais da conferência será a tentativa de reposicionar o Brasil no cenário internacional como uma potência ambiental. Com uma das matrizes energéticas mais limpas do mundo, um histórico no uso de biocombustíveis e investimentos crescentes em tecnologias sustentáveis, o país pretende apresentar um novo modelo de crescimento verde. “Essa agenda favorece o Brasil. Podemos crescer mais, gerar empregos e atender à nova demanda global por produtos sustentáveis”, reforçou o embaixador. A Amazônia corresponde a um terço das florestas tropicais do mundo e desempenha um papel determinante na absorção global de carbono, ajudando a reduzir (naturalmente) os níveis de gases de efeito estufa na atmosfera. Segundo a CNN Brasil, o país tem chances de ser o grande protagonista da edição, mas ainda precisa mostrar ao mundo que isso não se deve apenas ao fato de abrigar parte da maior floresta do planeta, o que, por si só, já justificaria o título. A expectativa da COP30 é que o Brasil demonstre aos líderes globais como está combatendo as mudanças climáticas, uma vez que é referência mundial na utilização de energia limpa, com mais de 90% da eletricidade proveniente de fontes renováveis. Pedro Côrtes, professor do Instituto de Energia e Ambiente da Universidade de São Paulo (USP), declarou em entrevista à CNN Brasil que receber a COP pode representar uma “excelente oportunidade” para o Brasil mostrar suas iniciativas na área de geração de energia.</p>
+
+        <div class="texto-base-fade" id="fadeTextoBase"></div>
+      </div>
+    </div>
+
+    <div class="nav-modulos">
+      <button class="btn-modulo active" id="tab-português" onclick="trocarModulo('português')"> Módulo 1: Português (1-20)</button>
+      <button class="btn-modulo" id="tab-matematica" onclick="trocarModulo('matematica')"> Módulo 2: Matemática (21-40)</button>
+    </div>
+
+    <form id="formSimulado">
+      
+      <div id="modulo-português">
+        
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">1. Com base na leitura atenta do texto-base, a realização da COP30 na cidade de Belém representa para o Brasil, precipuamente:</div>
+          <label class="opcao-resposta"><input type="radio" name="q1" value="1"> A) Uma oportunidade estratégica de reafirmar a liderança do país na agenda ambiental global e demonstrar compromissos práticos contra as mudanças climáticas.</label>
+          <label class="opcao-resposta"><input type="radio" name="q1" value="0"> B) Uma imposição multilateral da ONU visando privatizar e gerenciar diretamente os recursos hídricos da Bacia Amazônica.</label>
+          <label class="opcao-resposta"><input type="radio" name="q1" value="0"> C) Um evento restrito a acordos comerciais focados no aumento do consumo de combustíveis fósseis na região Norte.</label>
+          <label class="opcao-resposta"><input type="radio" name="q1" value="0"> D) Uma celebração exclusivamente simbólica sem desdobramentos práticos na infraestrutura da capital paraense.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">2. No trecho: "Espera-se que a COP30 atraia cerca de 40 mil visitantes...", a palavra <span class="termo-sublinhado">se</span> cumpre o papel sintático e gramatical de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q2" value="1"> A) Pronome apassivador, pois acompanha verbo transitivo direto estabelecendo uma oração na voz passiva sintética.</label>
+          <label class="opcao-resposta"><input type="radio" name="q2" value="0"> B) Índice de indeterminabilidade do sujeito, tornando o sujeito da oração indeterminado.</label>
+          <label class="opcao-resposta"><input type="radio" name="q2" value="0"> C) Conjunção subordinada condicional, inserindo uma hipótese no discurso.</label>
+          <label class="opcao-resposta"><input type="radio" name="q2" value="0"> D) Partícula expletiva de realce, podendo ser retirada sem prejuízo gramatical ou sintático.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">3. No fragmento "A escolha de Belém como sede da COP30 <span class="termo-sublinhado">transcende</span> uma celebração simbólica...", o verbo destacado possui valor semântico equivalente a:</div>
+          <label class="opcao-resposta"><input type="radio" name="q3" value="1"> A) Ultrapassa / vai além do limite de.</label>
+          <label class="opcao-resposta"><input type="radio" name="q3" value="0"> B) Restringe-se / limita-se exclusivamente a.</label>
+          <label class="opcao-resposta"><input type="radio" name="q3" value="0"> C) Contradiz / opõe-se integralmente a.</label>
+          <label class="opcao-resposta"><input type="radio" name="q3" value="0"> D) Invalida / cancela os efeitos de.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">4. No período "<span class="termo-sublinhado">No entanto</span>, o desafio logístico é considerável", o termo em destaque é uma locução conjuntiva que estabelece uma relação lógico-discursiva de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q4" value="1"> A) Adversidade / oposição de ideias.</label>
+          <label class="opcao-resposta"><input type="radio" name="q4" value="0"> B) Conclusão / fechamento de raciocínio.</label>
+          <label class="opcao-resposta"><input type="radio" name="q4" value="0"> C) Causa / justificativa de fatos anteriores.</label>
+          <label class="opcao-resposta"><input type="radio" name="q4" value="0"> D) Concessão / ressalva irrelevante.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">5. Assinale a opção em que o uso do sinal indicativo de crase atende rigorosamente às exigências da norma-padrão da língua escrita:</div>
+          <label class="opcao-resposta"><input type="radio" name="q5" value="1"> A) O embaixador fez referência à implementação efetiva dos acordos ambientais.</label>
+          <label class="opcao-resposta"><input type="radio" name="q5" value="0"> B) Várias comissões começaram à debater estratégias sustentáveis pela manhã.</label>
+          <label class="opcao-resposta"><input type="radio" name="q5" value="0"> C) O público poderá acompanhar o evento à partir do dia 10 de novembro.</label>
+          <label class="opcao-resposta"><input type="radio" name="q5" value="0"> D) O relatório oficial destina-se à um grupo restrito de especialistas internacionais.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">6. Em "...na cidade de Belém, <span class="termo-sublinhado">capital do Pará</span>, já está movimentando o Brasil...", o termo entre vírgulas desempenha a função sintática de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q6" value="1"> A) Aposto explicativo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q6" value="0"> B) Vocativo direto.</label>
+          <label class="opcao-resposta"><input type="radio" name="q6" value="0"> C) Adjunto adverbial de lugar.</label>
+          <label class="opcao-resposta"><input type="radio" name="q6" value="0"> D) Predicativo do objeto.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">7. A palavra <span class="termo-sublinhado">países</span> é acentuada graficamente devido à regra do hiato. Assinale a alternativa cuja palavra segue EXATAMENTE essa mesma regra fonético-ortográfica:</div>
+          <label class="opcao-resposta"><input type="radio" name="q7" value="1"> A) Saúde.</label>
+          <label class="opcao-resposta"><input type="radio" name="q7" value="0"> B) Caráter.</label>
+          <label class="opcao-resposta"><input type="radio" name="q7" value="0"> C) Ecológico.</label>
+          <label class="opcao-resposta"><input type="radio" name="q7" value="0"> D) Amapá.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">8. Tendo em vista as características estruturais e a finalidade comunicativa, o texto-base pertence predominantemente ao gênero e tipo textual:</div>
+          <label class="opcao-resposta"><input type="radio" name="q8" value="1"> A) Jornalístico-informativo / Expositivo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q8" value="0"> B) Literário-ficcional / Narrativo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q8" value="0"> C) Técnico-instrucional / Injuntivo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q8" value="0"> D) Doutrinário / Poético-expressivo.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">9. No trecho "...uma oportunidade <span class="termo-sublinhado">singular</span> de reforçar o papel do Brasil...", a palavra sublinhada foi empregada com o significado de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q9" value="1"> A) Especial, única e de grande relevância.</label>
+          <label class="opcao-resposta"><input type="radio" name="q9" value="0"> B) Vulgar, comum e sem impacto significativo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q9" value="0"> C) Numérica, referindo-se a um indivíduo isolado.</label>
+          <label class="opcao-resposta"><input type="radio" name="q9" value="0"> D) Ambígua, causando incerteza quanto aos resultados.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">10. A metáfora <span class="termo-sublinhado">pedra fundamental</span> em "evento tido como a pedra fundamental para o estabelecimento das COP" refere-se a:</div>
+          <label class="opcao-resposta"><input type="radio" name="q10" value="1"> A) Marco inicial decisivo que serviu de base e alicerce para as conferências futuras.</label>
+          <label class="opcao-resposta"><input type="radio" name="q10" value="0"> B) Monumento geológico preservado na cidade do Rio de Janeiro.</label>
+          <label class="opcao-resposta"><input type="radio" name="q10" value="0"> C) Obstáculo diplomático que impediu a assinatura de acordos ecológicos.</label>
+          <label class="opcao-resposta"><input type="radio" name="q10" value="0"> D) Recurso mineral explorado para financiar a infraestrutura da COP.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">11. No contexto do texto, a afirmação de que o país tem chances de ser o grande <span class="termo-sublinhado">protagonista</span> da edição sugere que o Brasil deve:</div>
+          <label class="opcao-resposta"><input type="radio" name="q11" value="1"> A) Assumir o papel principal e liderar ativamente as negociações globais do clima.</label>
+          <label class="opcao-resposta"><input type="radio" name="q11" value="0"> B) Atuar apenas como observador neutro das decisões tomadas pelas nações desenvolvidas.</label>
+          <label class="opcao-resposta"><input type="radio" name="q11" value="0"> C) Ceder a gestão das reuniões técnicas para os representantes da ONU.</label>
+          <label class="opcao-resposta"><input type="radio" name="q11" value="0"> D) Figurar como um mero coadjuvante sem poder de veto no evento.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">12. De acordo com a divisão estrutural da COP30 explicada no texto, a <span class="termo-sublinhado">Zona Azul</span> caracteriza-se por ser o espaço destinado a:</div>
+          <label class="opcao-resposta"><input type="radio" name="q12" value="1"> A) Negociações políticas e encontros diplomáticos formais gerenciados diretamente pela ONU.</label>
+          <label class="opcao-resposta"><input type="radio" name="q12" value="0"> B) Feiras populares e apresentações culturais abertas sem restrição ao público leigo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q12" value="0"> C) Hospedagem exclusiva dos chefes de estado e de governo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q12" value="0"> D) Apenas exposições de empresas privadas do setor de tecnologia.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">13. Em contrapartida à Zona Azul, a <span class="termo-sublinhado">Zona Verde</span> da conferência destina-se a:</div>
+          <label class="opcao-resposta"><input type="radio" name="q13" value="1"> A) Abrigar painéis para a sociedade civil, ONGs, atividades culturais e debates abertos ao público em geral.</label>
+          <label class="opcao-resposta"><input type="radio" name="q13" value="0"> B) Reuniões ultrasecretas para votação de sanções econômicas globais.</label>
+          <label class="opcao-resposta"><input type="radio" name="q13" value="0"> C) Instalação de usinas portáteis de energias renováveis.</label>
+          <label class="opcao-resposta"><input type="radio" name="q13" value="0"> D) Alojamento provisório de manifestantes e forças de segurança.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">14. Analise a oração em destaque no trecho: "Espera-se <span class="termo-sublinhado">que a COP30 atraia cerca de 40 mil visitantes</span>". Sintaticamente, essa oração subordinada funciona como:</div>
+          <label class="opcao-resposta"><input type="radio" name="q14" value="1"> A) Sujeito oracional (Oração Subordinada Substantiva Subjetiva).</label>
+          <label class="opcao-resposta"><input type="radio" name="q14" value="0"> B) Objeto direto (Oração Subordinada Substantiva Objetiva Direta).</label>
+          <label class="opcao-resposta"><input type="radio" name="q14" value="0"> C) Complemento nominal (Oração Subordinada Substantiva Completiva Nominal).</label>
+          <label class="opcao-resposta"><input type="radio" name="q14" value="0"> D) Predicativo do sujeito (Oração Subordinada Substantiva Predicativa).</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">15. O termo <span class="termo-sublinhado">CQNUMC</span> citado no texto é um recurso de abreviação classificado como:</div>
+          <label class="opcao-resposta"><input type="radio" name="q15" value="1"> A) Sigla que nomeia a Convenção-Quadro das Nações Unidas sobre Mudança do Clima.</label>
+          <label class="opcao-resposta"><input type="radio" name="q15" value="0"> B) Acrônimo utilizado para definir as normas de saneamento da prefeitura de Belém.</label>
+          <label class="opcao-resposta"><input type="radio" name="q15" value="0"> C) Abreviação de um tratado militar firmado na Rio-92.</label>
+          <label class="opcao-resposta"><input type="radio" name="q15" value="0"> D) Símbolo internacional de classificação de gases do efeito estufa.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">16. Quando o embaixador declara que "A questão dos leitos é <span class="termo-sublinhado">crítica</span>", a palavra em destaque expressa uma situação:</div>
+          <label class="opcao-resposta"><input type="radio" name="q16" value="1"> A) Preocupante, delicada e que exige atenção urgente.</label>
+          <label class="opcao-resposta"><input type="radio" name="q16" value="0"> B) Totalmente favorável e com excesso de vagas disponíveis.</label>
+          <label class="opcao-resposta"><input type="radio" name="q16" value="0"> C) Irrelevante para o sucesso das negociações multilaterais.</label>
+          <label class="opcao-resposta"><input type="radio" name="q16" value="0"> D) Resolvida com o apoio exclusivo da iniciativa privada.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">17. Ao afirmar que o Brasil possui "uma das matrizes energéticas mais limpas do mundo", o texto evidencia que o país:</div>
+          <label class="opcao-resposta"><input type="radio" name="q17" value="1"> A) Destaca-se pelo uso predominante de fontes renováveis na geração de eletricidade.</label>
+          <label class="opcao-resposta"><input type="radio" name="q17" value="0"> B) Erradicou completamente o uso de derivados de petróleo na indústria transportadora.</label>
+          <label class="opcao-resposta"><input type="radio" name="q17" value="0"> C) Depende fundamentalmente da importação de energia nuclear de países vizinhos.</label>
+          <label class="opcao-resposta"><input type="radio" name="q17" value="0"> D) Lidera a produção de carvão mineral de baixo impacto ecológico.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">18. No segmento "...na edição anterior, realizada em Baku, a conferência <span class="termo-sublinhado">enfrentou</span> críticas...", a forma verbal destacada encontra-se no:</div>
+          <label class="opcao-resposta"><input type="radio" name="q18" value="1"> A) Pretérito perfeito do modo indicativo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q18" value="0"> B) Pretérito imperfeito do modo indicativo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q18" value="0"> C) Pretérito mais-que-perfeito do modo indicativo.</label>
+          <label class="opcao-resposta"><input type="radio" name="q18" value="0"> D) Futuro do pretérito do modo indicativo.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">19. Em "A Amazônia corresponde a <span class="termo-sublinhado">um terço</span> das florestas tropicais do mundo...", a expressão sublinhada indica uma relação de quantidade expressa por um numeral:</div>
+          <label class="opcao-resposta"><input type="radio" name="q19" value="1"> A) Fracionário, representando 1 de 3 partes iguais do total das florestas tropicais.</label>
+          <label class="opcao-resposta"><input type="radio" name="q19" value="0"> B) Multiplicativo, indicando o triplo da área verde global.</label>
+          <label class="opcao-resposta"><input type="radio" name="q19" value="0"> C) Ordinal, estabelecendo a terceira posição no ranking dos biomas.</label>
+          <label class="opcao-resposta"><input type="radio" name="q19" value="0"> D) Cardinal, indicando a contagem exata de três florestas existentes.</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">20. O tom e a intenção comunicativa predominantes do autor ao redigir o texto-base sobre a COP30 são:</div>
+          <label class="opcao-resposta"><input type="radio" name="q20" value="1"> A) Informativo e analítico, apresentando fatos, projeções e desafios da conferência.</label>
+          <label class="opcao-resposta"><input type="radio" name="q20" value="0"> B) Ironico e sarcástico, ridicularizando a preparação das autoridades paraenses.</label>
+          <label class="opcao-resposta"><input type="radio" name="q20" value="0"> C) Fictício e persuasivo, incentivando o turismo comercial na Amazônia.</label>
+          <label class="opcao-resposta"><input type="radio" name="q20" value="0"> D) Poético e contemplativo, exaltando apenas as belezas naturais de Belém.</label>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="trocarModulo('matematica')" style="width: 100%; margin-top: 20px; padding: 16px; font-size: 1.05rem;">
+          Próximo: Módulo 2 (Matemática)
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+      </div>
+
+      <div id="modulo-matematica" style="display: none;">
+        
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">21. Das 40.000 pessoas esperadas na COP30 em Belém, projeta-se que exatamente 7.000 pertençam à ONU e delegações oficiais. A porcentagem que essas delegações representam em relação ao público total é de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q21" value="1"> A) 17,5%</label>
+          <label class="opcao-resposta"><input type="radio" name="q21" value="0"> B) 15,0%</label>
+          <label class="opcao-resposta"><input type="radio" name="q21" value="0"> C) 20,0%</label>
+          <label class="opcao-resposta"><input type="radio" name="q21" value="0"> D) 12,5%</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">22. Do investimento total de R$ 7,3 bilhões alocados para as 38 obras de infraestrutura, sabe-se que o Parque da Cidade absorverá R$ 980 milhões (R$ 0,98 bilhão). O montante destinado às outras 37 obras é de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q22" value="1"> A) R$ 6,32 bilhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q22" value="0"> B) R$ 6,50 bilhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q22" value="0"> C) R$ 5,80 bilhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q22" value="0"> D) R$ 6,82 bilhões</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">23. Na área de infraestrutura propriamente dita, há 14 obras orçadas no total de R$ 2,7 bilhões. Arredondando para uma casa decimal, o custo médio estimado por obra nessa área é de aproximadamente:</div>
+          <label class="opcao-resposta"><input type="radio" name="q23" value="1"> A) R$ 192,8 milhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q23" value="0"> B) R$ 250,0 milhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q23" value="0"> C) R$ 150,0 milhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q23" value="0"> D) R$ 210,5 milhões</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">24. As categorias de Hospedagem, Mobilidade e Saneamento contemplam 8 obras públicas cada uma. Qual é o percentual dessas 24 obras juntas em relação ao total de 38 obras em andamento na cidade?</div>
+          <label class="opcao-resposta"><input type="radio" name="q24" value="1"> A) Aproximadamente 63,16%</label>
+          <label class="opcao-resposta"><input type="radio" name="q24" value="0"> B) Exatamente 50,00%</label>
+          <label class="opcao-resposta"><input type="radio" name="q24" value="0"> C) Aproximadamente 72,50%</label>
+          <label class="opcao-resposta"><input type="radio" name="q24" value="0"> D) Exatamente 24,00%</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">25. Sabendo que mais de 90% da eletricidade brasileira vem de fontes limpas e renováveis, considere uma demanda de 2.500 MWh em um dos complexos da COP30. A quantidade mínima de megawatts-hora gerada por fontes limpas será de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q25" value="1"> A) Mais de 2.250 MWh</label>
+          <label class="opcao-resposta"><input type="radio" name="q25" value="0"> B) Exatamente 2.000 MWh</label>
+          <label class="opcao-resposta"><input type="radio" name="q25" value="0"> C) Mais de 1.800 MWh</label>
+          <label class="opcao-resposta"><input type="radio" name="q25" value="0"> D) Menos de 2.100 MWh</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">26. Um dos pavilhões de exposição da Zona Verde em Belém possui formato retangular com 300 metros de comprimento por 150 metros de largura. A área total construída e o perímetro desse pavilhão são, respectivamente:</div>
+          <label class="opcao-resposta"><input type="radio" name="q26" value="1"> A) 45.000 m² e 900 m</label>
+          <label class="opcao-resposta"><input type="radio" name="q26" value="0"> B) 4.500 m² e 450 m</label>
+          <label class="opcao-resposta"><input type="radio" name="q26" value="0"> C) 45.000 m² e 450 m</label>
+          <label class="opcao-resposta"><input type="radio" name="q26" value="0"> D) 90.000 m² e 900 m</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">27. Devido à alta demanda da COP30, o valor da diária de uma suíte passou de R$ 500,00 para R$ 750,00. O aumento percentual aplicado sobre essa tarifa foi de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q27" value="1"> A) 50%</label>
+          <label class="opcao-resposta"><input type="radio" name="q27" value="0"> B) 25%</label>
+          <label class="opcao-resposta"><input type="radio" name="q27" value="0"> C) 75%</label>
+          <label class="opcao-resposta"><input type="radio" name="q27" value="0"> D) 150%</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">28. Na maquete do Parque da Cidade, elaborada na escala 1:2.000, a distância entre o portão principal e o auditório central mede 10 cm. Na realidade, essa distância corresponde a:</div>
+          <label class="opcao-resposta"><input type="radio" name="q28" value="1"> A) 200 metros</label>
+          <label class="opcao-resposta"><input type="radio" name="q28" value="0"> B) 2.000 metros</label>
+          <label class="opcao-resposta"><input type="radio" name="q28" value="0"> C) 20 metros</label>
+          <label class="opcao-resposta"><input type="radio" name="q28" value="0"> D) 500 metros</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">29. Em uma das obras viárias de Belém, 20 operários, trabalhando no mesmo ritmo, concluem a pavimentação de um trecho em 30 dias. Mantendo a produtividade, 40 operários realizariam o mesmo serviço em:</div>
+          <label class="opcao-resposta"><input type="radio" name="q29" value="1"> A) 15 dias</label>
+          <label class="opcao-resposta"><input type="radio" name="q29" value="0"> B) 60 dias</label>
+          <label class="opcao-resposta"><input type="radio" name="q29" value="0"> C) 20 dias</label>
+          <label class="opcao-resposta"><input type="radio" name="q29" value="0"> D) 10 dias</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">30. Para suprir a necessidade de água potável no Parque da Cidade, instalou-se um reservatório cúbico com capacidade de 60 m³. Sabendo que 1 m³ equivale a 1.000 litros, a capacidade total do reservatório em litros é de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q30" value="1"> A) 60.000 litros</label>
+          <label class="opcao-resposta"><input type="radio" name="q30" value="0"> B) 6.000 litros</label>
+          <label class="opcao-resposta"><input type="radio" name="q30" value="0"> C) 600.000 litros</label>
+          <label class="opcao-resposta"><input type="radio" name="q30" value="0"> D) 36.000 litros</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">31. Durante a primeira semana da conferência, a quantidade diária de participantes em quatro painéis sobre preservação foi de: 5.000, 7.000, 8.000 e 10.000 pessoas. A média aritmética diária de participantes nesses quatro eventos foi de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q31" value="1"> A) 7.500 participantes</label>
+          <label class="opcao-resposta"><input type="radio" name="q31" value="0"> B) 8.000 participantes</label>
+          <label class="opcao-resposta"><input type="radio" name="q31" value="0"> C) 7.000 participantes</label>
+          <label class="opcao-resposta"><input type="radio" name="q31" value="0"> D) 8.500 participantes</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">32. O texto informa que a Amazônia corresponde a 1/3 das florestas tropicais do planeta. A representação percentual dízima exata dessa fração equivale a aproximadamente:</div>
+          <label class="opcao-resposta"><input type="radio" name="q32" value="1"> A) 33,33%</label>
+          <label class="opcao-resposta"><input type="radio" name="q32" value="0"> B) 30,00%</label>
+          <label class="opcao-resposta"><input type="radio" name="q32" value="0"> C) 25,00%</label>
+          <label class="opcao-resposta"><input type="radio" name="q32" value="0"> D) 35,00%</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">33. O investimento total de R$ 7,3 bilhões em obras estruturantes em Belém, quando expresso em notação numérica padrão com todas as suas ordens, é grafado como:</div>
+          <label class="opcao-resposta"><input type="radio" name="q33" value="1"> A) R$ 7.300.000.000,00</label>
+          <label class="opcao-resposta"><input type="radio" name="q33" value="0"> B) R$ 730.000.000,00</label>
+          <label class="opcao-resposta"><input type="radio" name="q33" value="0"> C) R$ 73.000.000.000,00</label>
+          <label class="opcao-resposta"><input type="radio" name="q33" value="0"> D) R$ 7.300.000,00</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">34. A extensão de uma nova pista de acesso ao BRT Metropolitano em Belém mede 5,4 quilômetros. Essa distância convertida para metros é igual a:</div>
+          <label class="opcao-resposta"><input type="radio" name="q34" value="1"> A) 5.400 metros</label>
+          <label class="opcao-resposta"><input type="radio" name="q34" value="0"> B) 540 metros</label>
+          <label class="opcao-resposta"><input type="radio" name="q34" value="0"> C) 54.000 metros</label>
+          <label class="opcao-resposta"><input type="radio" name="q34" value="0"> D) 54 metros</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">35. Para o transporte dos congressistas entre os hotéis e o Parque da Cidade, foram contratados ônibus com capacidade para 45 passageiros cada. Para transportar exatamente 900 delegados sem que ninguém vá em pé, serão necessárias:</div>
+          <label class="opcao-resposta"><input type="radio" name="q35" value="1"> A) 20 viagens</label>
+          <label class="opcao-resposta"><input type="radio" name="q35" value="0"> B) 15 viagens</label>
+          <label class="opcao-resposta"><input type="radio" name="q35" value="0"> C) 25 viagens</label>
+          <label class="opcao-resposta"><input type="radio" name="q35" value="0"> D) 18 viagens</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">36. Se a verba de R$ 980 milhões do Parque da Cidade for repassada pelo Governo Federal em 10 parcelas iguais e mensais, cada cota corresponderá a:</div>
+          <label class="opcao-resposta"><input type="radio" name="q36" value="1"> A) R$ 98 milhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q36" value="0"> B) R$ 9,8 milhões</label>
+          <label class="opcao-resposta"><input type="radio" name="q36" value="0"> C) R$ 980 mil</label>
+          <label class="opcao-resposta"><input type="radio" name="q36" value="0"> D) R$ 49 milhões</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">37. O texto afirma que 198 nações participam ativamente da Convenção-Quadro das Nações Unidas sobre Mudança do Clima (UNFCCC). Para que a convenção atinja a marca exata de 210 países signatários, ainda faltam:</div>
+          <label class="opcao-resposta"><input type="radio" name="q37" value="1"> A) 12 países</label>
+          <label class="opcao-resposta"><input type="radio" name="q37" value="0"> B) 2 países</label>
+          <label class="opcao-resposta"><input type="radio" name="q37" value="0"> C) 22 países</label>
+          <label class="opcao-resposta"><input type="radio" name="q37" value="0"> D) 18 países</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">38. A programação oficial da COP30 estende-se ao longo de 14 dias ininterruptos (2 semanas). O total de horas correspondente a toda a duração da conferência é:</div>
+          <label class="opcao-resposta"><input type="radio" name="q38" value="1"> A) 336 horas</label>
+          <label class="opcao-resposta"><input type="radio" name="q38" value="0"> B) 280 horas</label>
+          <label class="opcao-resposta"><input type="radio" name="q38" value="0"> C) 360 horas</label>
+          <label class="opcao-resposta"><input type="radio" name="q38" value="0"> D) 168 horas</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">39. Em um cenário hipotético em que a média de temperatura global suba 0,25º C a cada 5 anos, ao cabo de 4 décadas (40 anos), a elevação acumulada da temperatura será de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q39" value="1"> A) 2,0º C</label>
+          <label class="opcao-resposta"><input type="radio" name="q39" value="0"> B) 1,5º C</label>
+          <label class="opcao-resposta"><input type="radio" name="q39" value="0"> C) 3,0º C</label>
+          <label class="opcao-resposta"><input type="radio" name="q39" value="0"> D) 2,5º C</label>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="enunciado-titulo" style="font-weight: 700; color: #fff; margin-bottom: 16px;">40. Se dos 40.000 visitantes previstos, exatamente 25.000 adquirirem um credenciamento cultural a R$ 40,00 cada, o total arrecadado com essa venda será de:</div>
+          <label class="opcao-resposta"><input type="radio" name="q40" value="1"> A) R$ 1.000.000,00</label>
+          <label class="opcao-resposta"><input type="radio" name="q40" value="0"> B) R$ 100.000,00</label>
+          <label class="opcao-resposta"><input type="radio" name="q40" value="0"> C) R$ 10.000.000,00</label>
+          <label class="opcao-resposta"><input type="radio" name="q40" value="0"> D) R$ 2.500.000,00</label>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="finalizarSimulado()" style="width: 100%; margin-top: 24px; padding: 18px; font-size: 1.15rem;">
+           Finalizar Simulado de 40 Questões
+        </button>
+
+      </div>
+
+    </form>
+
+    <div id="painelResultado" class="card" style="display: none; margin-top: 30px; text-align: center; border: 1px solid var(--ifrn-green-light); padding: 30px;">
+      <span class="badge badge-primary" style="margin-bottom: 12px;">Resultado Oficial</span>
+      <h3 style="color: var(--ifrn-green-light); margin-bottom: 8px; font-weight: 800;"> Desempenho no Simulado</h3>
+      <p id="textoResultadoGeral" style="margin: 20px 0; line-height: 1.8; font-size: 1.05rem;"></p>
+      
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+        <a href="quiz.html" class="btn btn-primary" style="text-decoration: none;">
+          ⚡ Ir para o Quiz Surpresa
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
   <script>
-    const questoes = [
-      // ==================== LÍNGUA PORTUGUESA (1 a 20) ====================
-      { id: 1, diciplina: 'P', enunciado: "De acordo com o Texto Base, para evitar cair em desinformações ao pesquisar conteúdos escolares na internet, o estudante precisa exercitar a cidadania por meio de:", op: ["Acesso ilimitado a redes sociais de alta velocidade.", "Formação crítica, autonomia leitora e checagem de dados.", "Substituição completa do livro físico pelo digital.", "Aumento do tempo diário consumindo conteúdos online."], resp: 1 },
-      { id: 2, diciplina: 'P', enunciado: "No trecho '...a formação de sujeitos leitores <strong>torna-se</strong> o pilar central...', o verbo em destaque exige um predicativo do sujeito. Trata-se de um verbo:", op: ["Transitivo direto", "Transitivo indireto", "De ligação", "Intransitivo"], resp: 2 },
-      { id: 3, diciplina: 'P', enunciado: "Para elaborar o edital do simulado sem desvios gramaticais, a comissão do IFRN deve seguir a norma-padrão de regência. Assinale a frase correta:", op: ["O estudante aspirava ao ingresso no curso técnico do IFRN.", "Os alunos preferem mais a aula prática do que a teórica.", "O professor assistiu o filme sobre ética com a turma.", "O edital obedeceu o prazo estipulado pela coordenação."], resp: 0 },
-      { id: 4, diciplina: 'P', enunciado: "Na frase 'As redes sociais propagam desinformações <strong>exponencialmente</strong> na comunidade', o advérbio em destaque indica a circunstância de:", op: ["Modo", "Lugar", "Tempo", "Negação"], resp: 0 },
-      { id: 5, diciplina: 'P', enunciado: "Durante a correção de uma redação sobre tecnologia, a palavra 'autônomos' foi destacada. Ela recebe acento gráfico obrigatoriamente porque é uma:", op: ["Oxítona terminada em 's'", "Paroxítona terminada em ditongo", "Proparoxítona", "Palavra com hiato isolado"], resp: 2 },
-      { id: 6, diciplina: 'P', enunciado: "Em um aviso aos estudantes: 'Estude bastante, <strong>pois</strong> a prova do PROITEC exige dedicação', a conjunção em destaque estabelece relação de:", op: ["Explicação", "Concessão", "Adição", "Condição"], resp: 0 },
-      { id: 7, diciplina: 'P', enunciado: "Observe a frase: 'O projeto de inclusão digital foi elaborado pela equipe do IFRN'. A estrutura gramatical utilizada corresponde à:", op: ["Voz passiva analítica", "Voz ativa com objeto direto", "Voz passiva sintética", "Voz reflexiva simples"], resp: 0 },
-      { id: 8, diciplina: 'P', enunciado: "Em um cartaz informativo no mural do campus, qual das sentenças apresenta concordância nominal CORRETA?", op: ["É proibido a entrada de pessoas não autorizadas.", "A aluna mesmo preparou o resumo de Língua Portuguesa.", "Seguem anexos as fichas de inscrição dos candidatos.", "Ela ficou meia preocupada com a nota do simulado."], resp: 1 },
-      { id: 9, diciplina: 'P', enunciado: "Ao dizer que a leitura é o 'pilar central' da cidadania digital, o autor utiliza a expressão no sentido:", op: ["Literal / Denotativo", "Figurado / Conotativo", "Científico estrito", "Dicionarizado exato"], resp: 1 },
-      { id: 10, diciplina: 'P', enunciado: "Na produção textual do PROITEC, o uso correto da ortografia é essencial. Qual opção apresenta todas as palavras grafadas corretamente?", op: ["Compreensão, exceção, discussão", "Compreenção, esceção, discussão", "Compreensão, exceção, discução", "Compreenção, esceção, discução"], resp: 0 },
-      { id: 11, diciplina: 'P', enunciado: "Analise o trecho do jornal escolar: 'A leitura <strong>que libertou o estudante</strong> mudou sua visão de mundo'. A oração destacada funciona como:", op: ["Subordinada adjetiva restritiva", "Subordinada adjetiva explicativa", "Subordinada substantiva subjetiva", "Coordenada sindética explicativa"], resp: 0 },
-      { id: 12, diciplina: 'P', enunciado: "Um aluno que busca 'autonomia' no aprendizado do IFRN quer ser independente. O antônimo dessa postura é a:", op: ["Emancipação", "Dependência", "Liberdade", "Protagonismo"], resp: 1 },
-      { id: 13, diciplina: 'P', enunciado: "A palavra 'democratização' deriva do vocábulo 'democrático' com o acréscimo de sufixos. O processo de formação desse vocábulo é:", op: ["Prefixação", "Sufixação", "Composição por justaposição", "Parassíntese"], resp: 1 },
-      { id: 14, diciplina: 'P', enunciado: "Analise os avisos da biblioteca. O uso do sinal indicativo de crase é OBRIGATÓRIO em:", op: ["Entreguei o trabalho à professora de português.", "O candidato começou à fazer a prova no horário.", "Ele preferiu ir à pé para a escola hoje.", "Dirigiu-se à uma sala do prédio principal."], resp: 0 },
-      { id: 15, diciplina: 'P', enunciado: "Na frase do orientador pedagógico 'Se o estudante <strong>estudar</strong> com constância, alcançará a vaga', a forma verbal em destaque indica:", op: ["Futuro do Subjuntivo", "Presente do Indicativo", "Pretérito Perfeito do Subjuntivo", "Futuro do Presente do Indicativo"], resp: 0 },
-      { id: 16, diciplina: 'P', enunciado: "Ao dizer 'A internet é um oceano de informações sem fim', o palestrante usou a figura de linguagem chamada:", op: ["Metáfora", "Metonímia", "Antítese", "Eufemismo"], resp: 0 },
-      { id: 17, diciplina: 'P', enunciado: "No trecho 'O volume de mensagens cresceu <strong>tanto que</strong> sobrecarregou os servidores', a locução destacada exprime ideia de:", op: ["Causa", "Consequência", "Concessão", "Condição"], resp: 1 },
-      { id: 18, diciplina: 'P', enunciado: "Na frase 'Chegaram ontem ao campus os novos livros do PROITEC', o sujeito do verbo 'chegaram' é:", op: ["Indeterminado", "Os novos livros do PROITEC", "PROITEC", "Oculto (eles)"], resp: 1 },
-      { id: 19, diciplina: 'P', enunciado: "Assinale a frase em que o uso incorreto da vírgula separou indevidamente o sujeito do verbo:", op: ["O IFRN oferece, cursos técnicos gratuitos.", "Os estudantes, muito dedicados, passaram na prova.", "A inclusão digital, portanto, é necessária.", "Durante a tarde, revisamos toda a matéria."], resp: 0 },
-      { id: 20, diciplina: 'P', enunciado: "Considerando a mensagem global do Texto Base, qual é o seu objetivo comunicativo principal?", op: ["Incentivar a compra massiva de computadores.", "Defender a formação crítica do leitor na era da informação.", "Propor o bloqueio de redes sociais nas redes públicas.", "Recomendar a redução do tempo de estudo presencial."], resp: 1 },
+    // 1. Lógica do Modal Inicial e Nome
+    function iniciarSimulado() {
+      const inputNome = document.getElementById('nomeUsuarioInput');
+      const nomeInput = inputNome ? inputNome.value.trim() : '';
+      
+      if (!nomeInput) {
+        alert('Por favor, digite seu nome antes de começar.');
+        return;
+      }
+      
+      localStorage.setItem('nomeUsuario', nomeInput);
 
-      // ==================== MATEMÁTICA CONTEXTUALIZADA (21 a 40) ====================
-      {
-        id: 21, diciplina: 'M',
-        enunciado: "Para a reforma de uma sala de estudos do IFRN, o mestre de obras desenhou o piso retangular mostrado abaixo. Ele precisa comprar um rodapé que contorne todo o perímetro da sala. Quantos metros de rodapé serão necessários?",
-        svg: `<svg width="280" height="150" viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="grad21" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#008542" stop-opacity="0.05"/>
-                  </linearGradient>
-                </defs>
-                <rect x="40" y="30" width="200" height="80" rx="8" fill="url(#grad21)" stroke="#10b981" stroke-width="3"/>
-                <line x1="35" y1="30" x2="35" y2="110" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
-                <line x1="40" y1="120" x2="240" y2="120" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
-                <text x="140" y="22" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">8 m</text>
-                <text x="140" y="138" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">8 m</text>
-                <text x="20" y="75" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">5 m</text>
-                <text x="260" y="75" fill="#f59e0b" font-size="14" font-weight="bold" text-anchor="middle">5 m</text>
-              </svg>`,
-        op: ["13 m", "26 m", "40 m", "30 m"], resp: 1
-      },
-      {
-        id: 22, diciplina: 'M',
-        enunciado: "Em uma pesquisa com 200 estudantes de 9º ano que farão o PROITEC, o gráfico de setores abaixo mostrou a escolha de cursos. Quantos alunos pretendem cursar Informática?",
-        svg: `<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="80" fill="#11201a" stroke="#ffffff" stroke-width="2"/>
-                <path d="M100,100 L100,20 A80,80 0 1,1 20,100 Z" fill="#10b981"/>
-                <path d="M100,100 L20,100 A80,80 0 0,1 100,20 Z" fill="#f59e0b"/>
-                <circle cx="100" cy="100" r="30" fill="#091310" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="125" y="120" fill="#ffffff" font-size="14" font-weight="bold">Info 75%</text>
-                <text x="35" y="70" fill="#ffffff" font-size="12" font-weight="bold">Outros 25%</text>
-              </svg>`,
-        op: ["50 alunos", "100 alunos", "150 alunos", "175 alunos"], resp: 2
-      },
-      {
-        id: 23, diciplina: 'M',
-        enunciado: "Para garantir a internet no campus do IFRN, instalou-se um cabo esticado do topo do prédio até a base no solo. Conforme o triângulo retângulo abaixo, qual o comprimento (c) do cabo?",
-        svg: `<svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="50,20 50,110 200,110" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="3"/>
-                <rect x="50" y="98" width="12" height="12" fill="none" stroke="#ffffff" stroke-width="2"/>
-                <circle cx="56" cy="104" r="2" fill="#ffffff"/>
-                <text x="25" y="70" fill="#ffffff" font-size="14" font-weight="bold">6 m</text>
-                <text x="125" y="132" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">8 m</text>
-                <text x="135" y="58" fill="#10b981" font-size="16" font-weight="bold">c = ?</text>
-              </svg>`,
-        op: ["10 m", "12 m", "14 m", "100 m"], resp: 0
-      },
-      {
-        id: 24, diciplina: 'M',
-        enunciado: "O gráfico de colunas a seguir apresenta o histórico de notas de João nos 4 simulados do PROITEC. Qual foi a média aritmética simples das notas alcançadas por ele?",
-        svg: `<svg width="280" height="160" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
-                <line x1="35" y1="20" x2="35" y2="125" stroke="#94a3b8" stroke-width="2"/>
-                <line x1="35" y1="125" x2="260" y2="125" stroke="#94a3b8" stroke-width="2"/>
-                <rect x="50" y="65" width="30" height="60" fill="#10b981" rx="4"/>
-                <rect x="105" y="45" width="30" height="80" fill="#10b981" rx="4"/>
-                <rect x="160" y="55" width="30" height="70" fill="#10b981" rx="4"/>
-                <rect x="215" y="25" width="30" height="100" fill="#10b981" rx="4"/>
-                <text x="65" y="58" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">6.0</text>
-                <text x="120" y="38" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">8.0</text>
-                <text x="175" y="48" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">7.0</text>
-                <text x="230" y="18" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">10.0</text>
-                <text x="65" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S1</text>
-                <text x="120" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S2</text>
-                <text x="175" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S3</text>
-                <text x="230" y="145" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">S4</text>
-              </svg>`,
-        op: ["7.0", "7.75", "8.0", "8.25"], resp: 1
-      },
-      {
-        id: 25, diciplina: 'M',
-        enunciado: "O projeto de sustentabilidade do IFRN dividiu uma horta comunitária em 4 partes iguais. As partes destacadas em verde são destinadas a plantas medicinais. Essa fração corresponde a qual porcentagem?",
-        svg: `<svg width="240" height="120" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="25" width="200" height="70" fill="rgba(255,255,255,0.05)" stroke="#ffffff" stroke-width="2" rx="6"/>
-                <rect x="22" y="27" width="48" height="66" fill="#10b981" rx="4"/>
-                <rect x="72" y="27" width="48" height="66" fill="#10b981" rx="4"/>
-                <rect x="122" y="27" width="48" height="66" fill="#10b981" rx="4"/>
-                <line x1="170" y1="25" x2="170" y2="95" stroke="#ffffff" stroke-width="2"/>
-                <text x="46" y="65" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">1</text>
-                <text x="96" y="65" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">2</text>
-                <text x="146" y="65" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">3</text>
-                <text x="195" y="65" fill="#94a3b8" font-size="12" font-weight="bold" text-anchor="middle">4</text>
-              </svg>`,
-        op: ["25%", "50%", "75%", "80%"], resp: 2
-      },
-      {
-        id: 26, diciplina: 'M',
-        enunciado: "Um reservatório para captação de água da chuva no IFRN possui o formato de um paralelepípedo retângulo, como representado abaixo. Qual é a capacidade em volume (m³) desse reservatório?",
-        svg: `<svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
-                <path d="M30,70 L150,70 L190,30 L70,30 Z" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="2"/>
-                <path d="M30,70 L150,70 L150,120 L30,120 Z" fill="rgba(16,185,129,0.4)" stroke="#10b981" stroke-width="2"/>
-                <path d="M150,70 L190,30 L190,80 L150,120 Z" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="2"/>
-                <text x="90" y="138" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">Comprimento = 4 m</text>
-                <text x="180" y="105" fill="#f59e0b" font-size="12" font-weight="bold">Largura = 2 m</text>
-                <text x="15" y="98" fill="#10b981" font-size="13" font-weight="bold">Altura = 3 m</text>
-              </svg>`,
-        op: ["9 m³", "12 m³", "24 m³", "36 m³"], resp: 2
-      },
-      {
-        id: 27, diciplina: 'M',
-        enunciado: "A reta numérica abaixo registra o tempo de estudo diário (em horas) dos candidatos. Qual a posição do ponto X referente a 2,5 horas de estudos?",
-        svg: `<svg width="280" height="90" viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg">
-                <line x1="20" y1="45" x2="260" y2="45" stroke="#ffffff" stroke-width="3"/>
-                <line x1="40" y1="35" x2="40" y2="55" stroke="#ffffff" stroke-width="2"/>
-                <text x="40" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">0</text>
-                <line x1="90" y1="35" x2="90" y2="55" stroke="#ffffff" stroke-width="2"/>
-                <text x="90" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">1</text>
-                <line x1="140" y1="35" x2="140" y2="55" stroke="#ffffff" stroke-width="2"/>
-                <text x="140" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">2</text>
-                <line x1="190" y1="35" x2="190" y2="55" stroke="#ffffff" stroke-width="2"/>
-                <text x="190" y="75" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">3</text>
-                <circle cx="165" cy="45" r="7" fill="#e30613" stroke="#ffffff" stroke-width="2"/>
-                <text x="165" y="22" fill="#e30613" font-size="14" font-weight="bold" text-anchor="middle">Ponto X</text>
-              </svg>`,
-        op: ["Entre 0 e 1", "Entre 1 e 2", "Exatamente no meio entre 2 e 3", "Após a marca de 3 horas"], resp: 2
-      },
-      {
-        id: 28, diciplina: 'M',
-        enunciado: "Um técnico em informática cobra pela manutenção dos computadores da escola de acordo com as horas trabalhadas (h), gerando a relação do gráfico abaixo. Qual expressão matemática modela esse custo V(h)?",
-        svg: `<svg width="240" height="160" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
-                <line x1="40" y1="130" x2="210" y2="130" stroke="#94a3b8" stroke-width="2"/>
-                <line x1="40" y1="130" x2="40" y2="20" stroke="#94a3b8" stroke-width="2"/>
-                <line x1="40" y1="130" x2="190" y2="30" stroke="#10b981" stroke-width="4"/>
-                <circle cx="115" cy="80" r="5" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/>
-                <line x1="115" y1="130" x2="115" y2="80" stroke="#f59e0b" stroke-dasharray="3"/>
-                <line x1="40" y1="80" x2="115" y2="80" stroke="#f59e0b" stroke-dasharray="3"/>
-                <text x="215" y="135" fill="#94a3b8" font-size="12" font-weight="bold">h (horas)</text>
-                <text x="35" y="15" fill="#94a3b8" font-size="12" font-weight="bold">V (R$)</text>
-                <text x="115" y="148" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">2h</text>
-                <text x="22" y="84" fill="#f59e0b" font-size="11" font-weight="bold">100</text>
-              </svg>`,
-        op: ["V = 20 · h", "V = 50 · h", "V = 100 · h", "V = h + 50"], resp: 1
-      },
-      {
-        id: 29, diciplina: 'M',
-        enunciado: "Em uma feira de ciências do IFRN, utilizou-se a roleta numerada de 1 a 8 abaixo para sortear brindes ecológicos. Qual é a probabilidade de o ponteiro parar em um número par?",
-        svg: `<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="90" cy="90" r="75" fill="#11201a" stroke="#10b981" stroke-width="4"/>
-                <line x1="90" y1="15" x2="90" y2="165" stroke="#10b981" stroke-width="2"/>
-                <line x1="15" y1="90" x2="165" y2="90" stroke="#10b981" stroke-width="2"/>
-                <line x1="37" y1="37" x2="143" y2="143" stroke="#10b981" stroke-width="2"/>
-                <line x1="37" y1="143" x2="143" y2="37" stroke="#10b981" stroke-width="2"/>
-                <circle cx="90" cy="90" r="15" fill="#008542"/>
-                <text x="86" y="42" fill="#ffffff" font-size="13" font-weight="bold">1</text>
-                <text x="122" y="55" fill="#f59e0b" font-size="13" font-weight="bold">2</text>
-                <text x="138" y="95" fill="#ffffff" font-size="13" font-weight="bold">3</text>
-                <text x="122" y="132" fill="#f59e0b" font-size="13" font-weight="bold">4</text>
-                <text x="86" y="148" fill="#ffffff" font-size="13" font-weight="bold">5</text>
-                <text x="48" y="132" fill="#f59e0b" font-size="13" font-weight="bold">6</text>
-                <text x="32" y="95" fill="#ffffff" font-size="13" font-weight="bold">7</text>
-                <text x="48" y="55" fill="#f59e0b" font-size="13" font-weight="bold">8</text>
-              </svg>`,
-        op: ["25%", "37,5%", "50%", "75%"], resp: 2
-      },
-      {
-        id: 30, diciplina: 'M',
-        enunciado: "O espaço de vivência dos alunos possui o formato do paralelogramo representado abaixo. Sabendo que a base mede 12 m e a altura mede 6 m, qual é a área total desse espaço?",
-        svg: `<svg width="250" height="130" viewBox="0 0 250 130" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="60,20 210,20 160,100 10,100" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="3"/>
-                <line x1="60" y1="20" x2="60" y2="100" stroke="#f59e0b" stroke-dasharray="4" stroke-width="2"/>
-                <text x="110" y="118" fill="#ffffff" font-size="13" font-weight="bold">Base = 12 m</text>
-                <text x="68" y="65" fill="#f59e0b" font-size="13" font-weight="bold">h = 6 m</text>
-              </svg>`,
-        op: ["36 m²", "48 m²", "72 m²", "144 m²"], resp: 2
-      },
-      { id: 31, diciplina: 'M', enunciado: "Para distribuir na comunidade escolar, a grêmio comprou 3 blocos de anotações do PROITEC por R$ 45,00. Mantendo o mesmo custo unitário, quanto pagará por 7 blocos?", op: ["R$ 90,00", "R$ 105,00", "R$ 115,00", "R$ 120,00"], resp: 1 },
-      { id: 32, diciplina: 'M', enunciado: "Um professor organizou um desafio matemático no quadro: 4x - 8 = 2x + 12, onde x representa a quantidade de turmas do PROITEC. Qual é o valor de x?", op: ["8", "10", "12", "14"], resp: 1 },
-      { id: 33, diciplina: 'M', enunciado: "Em uma turma de 40 alunos de uma escola pública potiguar, 60% conseguiram aprovação direta no PROITEC. Quantos alunos foram aprovados?", op: ["20 alunos", "24 alunos", "28 alunos", "30 alunos"], resp: 1 },
-      { id: 34, diciplina: 'M', enunciado: "Ao resolver a expressão matemática 5 + 3 × (8 - 2²) para calcular a quantidade de kits escolares, qual resultado o aluno deve obter?", op: ["17", "29", "32", "20"], resp: 0 },
-      { id: 35, diciplina: 'M', enunciado: "A distância percorrida pelo ônibus escolar do centro até o campus do IFRN é de 4,5 quilômetros. Essa distância equivale a quantos metros?", op: ["450 m", "4.500 m", "45.000 m", "0,45 m"], resp: 1 },
-      { id: 36, diciplina: 'M', enunciado: "Um livro didático preparatório para o IFRN custava R$ 200,00 e recebeu um desconto de 20% durante a feira estudantil. Qual é o novo preço?", op: ["R$ 140,00", "R$ 150,00", "R$ 160,00", "R$ 180,00"], resp: 2 },
-      { id: 37, diciplina: 'M', enunciado: "Três ônibus intermunicipais partem para o campus em intervalos de 6, 8 e 12 minutos. O tempo mínimo em minutos para que eles partam juntos novamente (MMC) é:", op: ["24 minutos", "36 minutos", "48 minutos", "72 minutos"], resp: 0 },
-      { id: 38, diciplina: 'M', enunciado: "A pontuação final f(x) em uma atividade do PROITEC depende do número de acertos x, calculada por f(x) = 3x - 5. Se o aluno acertar 4 questões (x = 4), sua pontuação será:", op: ["5", "7", "9", "12"], resp: 1 },
-      { id: 39, diciplina: 'M', enunciado: "A cantina da escola obteve um empréstimo de R$ 1.000,00 para reformas a juros simples de 2% ao mês. Qual o valor dos juros acumulados após 5 meses?", op: ["R$ 50,00", "R$ 100,00", "R$ 150,00", "R$ 200,00"], resp: 1 },
-      { id: 40, diciplina: 'M', enunciado: "Na comissão organizadora do evento no IFRN, há 15 meninas e 25 meninos. A razão simplificada entre o número de meninas e o de meninos é:", op: ["1/2", "3/5", "3/4", "5/3"], resp: 1 },
-
-      // ==================== ÉTICA E CIDADANIA CONTEXTUALIZADA (41 a 50) ====================
-      { id: 41, diciplina: 'C', enunciado: "Garantir que todos os jovens potiguares tenham acesso à educação pública de qualidade sem discriminação é um princípio dos Direitos Humanos focado na:", op: ["Universalização dos direitos civis, políticos e sociais.", "Manutenção de privilégios econômicos de minorias.", "Aceitação cega das injustiças sem questionamentos.", "Segregação dos alunos em grupos isolados."], resp: 0 },
-      { id: 42, diciplina: 'C', enunciado: "Ao realizar pesquisas acadêmicas no IFRN, o estudante deve agir com atitude ética. Isso significa:", op: ["Citar fontes, respeitar a diversidade e recusar o plágio.", "Copiar trabalhos prontos da internet para tirar nota máxima.", "Competir com os colegas escondendo materiais de estudo.", "Compartilhar dados não checados nos grupos da turma."], resp: 0 },
-      { id: 43, diciplina: 'C', enunciado: "A política de inclusão de estudantes com deficiência nos Institutos Federais promove:", op: ["Acessibilidade, equidade e integração completa no ambiente escolar.", "Separação física dos estudantes em salas de aula isoladas.", "Dispensa total da realização das atividades de estudo.", "Fornecimento de materiais exclusivamente em versão única."], resp: 0 },
-      { id: 44, diciplina: 'C', enunciado: "Frente à disseminação de notícias falsas que prejudicam a comunidade, a postura cidadã do estudante deve ser:", op: ["Verificar a veracidade das fontes antes de repassar qualquer informação.", "Compartilhar mensagens chamativas rapidamente sem ler o conteúdo.", "Acreditar em qualquer informação divulgada por redes sociais.", "Evitar pesquisar sobre assuntos sociais e políticos importantes."], resp: 0 },
-      { id: 45, diciplina: 'C', enunciado: "No IFRN, a Gestão Democrática possibilita a participação da comunidade escolar nas decisões. Esse processo ocorre quando:", op: ["Professores, estudantes e pais participam dos conselhos e decisões.", "Apenas o diretor decide o destino de todos os recursos da escola.", "Os estudantes tomam decisões sem autorização do corpo docente.", "Órgãos externos impõem as regras sem ouvir o campus escolar."], resp: 0 },
-      { id: 46, diciplina: 'C', enunciado: "Segundo o Estatuto da Criança e do Adolescente (ECA), a garantia com prioridade absoluta aos jovens envolve:", op: ["Proteção integral ao direito à vida, à saúde e à educação de qualidade.", "Abertura para o trabalho infantil em jornadas integrais insalubres.", "Responsabilização adulta irrestrita a partir dos 10 anos de idade.", "Substituição do ambiente escolar por treinamento militar estrito."], resp: 0 },
-      { id: 47, diciplina: 'C', enunciado: "Praticar o consumo consciente no cotidiano dos campi do IFRN envolve hábitos como:", op: ["Economizar água, energia elétrica e evitar o desperdício de papel.", "Descartar resíduos orgânicos e plásticos na mesma lixeira.", "Comprar materiais novos sem necessidade ao final de cada mês.", "Imprimir todos os arquivos e materiais disponíveis na plataforma."], resp: 0 },
-      { id: 48, diciplina: 'C', enunciado: "O exercício da empatia entre os colegas durante os trabalhos em grupo consiste em:", op: ["Compreender e respeitar os sentimentos e realidades dos outros.", "Impor opiniões próprias sem aceitar o diálogo ou debate.", "Desprezar as dificuldades de aprendizado demonstradas pelos colegas.", "Julgar a capacidade dos estudantes por meio de estereótipos."], resp: 0 },
-      { id: 49, diciplina: 'C', enunciado: "As ações contínuas de combate ao Bullying promovidas pelo IFRN buscam:", op: ["Criar um ambiente escolar acolhedor, seguro e livre de agressões.", "Punir apenas as vítimas atingidas pelas agressões diárias.", "Classificar os alunos em salas diferentes de acordo com seu comportamento.", "Ocultar os episódios de violência para manter a imagem da instituição."], resp: 0 },
-      { id: 50, diciplina: 'C', enunciado: "A publicação detalhada dos gastos do IFRN no Portal da Transparência possibilita à sociedade:", op: ["Exercer o controle social e fiscalizar a aplicação dos verbas públicas.", "Invadir a privacidade e segurança pessoal dos servidores públicos.", "Aumentar a burocracia sem qualquer utilidade para o cidadão.", "Fazer propaganda eleitoral obrigatória em favor do governo."], resp: 0 }
-    ];
-
-    function renderizarQuestoes() {
-      const divPort = document.getElementById('questoesPortugues');
-      const divMat = document.getElementById('questoesMatematica');
-      const divCid = document.getElementById('questoesCidadania');
-
-      questoes.forEach((q) => {
-        let nomeDisciplina = 'Língua Portuguesa';
-        if (q.diciplina === 'M') nomeDisciplina = 'Matemática';
-        if (q.diciplina === 'C') nomeDisciplina = 'Ética e Cidadania';
-
-        const svgBlock = q.svg ? `<div class="questao-svg-container">${q.svg}</div>` : '';
-
-        const questaoHTML = `
-          <div class="card-questao" id="card-q${q.id}">
-            <span class="num-questao">Questão ${q.id} (${nomeDisciplina})</span>
-            <div class="enunciado">${q.enunciado}</div>
-            ${svgBlock}
-            <div class="opcoes">
-              ${q.op.map((opcao, i) => `
-                <label class="opcao-label" id="label-q${q.id}-op${i}">
-                  <input type="radio" name="q${q.id}" value="${i}">
-                  <span><strong>${String.fromCharCode(65 + i)})</strong> ${opcao}</span>
-                </label>
-              `).join('')}
-            </div>
-            <div class="status-gabarito" id="status-q${q.id}"></div>
-          </div>
-        `;
-
-        if (q.diciplina === 'P') divPort.innerHTML += questaoHTML;
-        else if (q.diciplina === 'M') divMat.innerHTML += questaoHTML;
-        else if (q.diciplina === 'C') divCid.innerHTML += questaoHTML;
-      });
+      const telaInicial = document.getElementById('telaInicial');
+      if (telaInicial) {
+        telaInicial.style.display = 'none';
+      }
     }
 
-    function calcularResultado() {
-      let pontosPort = 0;
-      let pontosMat = 0;
-      let pontosCid = 0;
+    // 2. Expandir e Recolher o Texto Base
+    function toggleTextoBase() {
+      const caixa = document.getElementById('caixaTextoBase');
+      const btnTexto = document.getElementById('textoBtnToggle');
 
-      questoes.forEach(q => {
-        const selecionada = document.querySelector(`input[name="q${q.id}"]:checked`);
-        const statusDiv = document.getElementById(`status-q${q.id}`);
-        const opcaoCorretaLabel = document.getElementById(`label-q${q.id}-op${q.resp}`);
-
-        if (opcaoCorretaLabel) {
-          opcaoCorretaLabel.classList.add('opcao-correta');
-        }
-
-        if (selecionada) {
-          const valorMarcado = parseInt(selecionada.value);
-          const opcaoMarcadaLabel = document.getElementById(`label-q${q.id}-op${valorMarcado}`);
-
-          if (valorMarcado === q.resp) {
-            if (q.diciplina === 'P') pontosPort++;
-            if (q.diciplina === 'M') pontosMat++;
-            if (q.diciplina === 'C') pontosCid++;
-
-            statusDiv.className = 'status-gabarito acertou';
-            statusDiv.innerHTML = 'Resposta Correta!';
-          } else {
-            if (opcaoMarcadaLabel) {
-              opcaoMarcadaLabel.classList.add('opcao-incorreta');
-            }
-            statusDiv.className = 'status-gabarito errou';
-            statusDiv.innerHTML = `Alternativa marcada: ${String.fromCharCode(65 + valorMarcado)}. Alternativa correta: ${String.fromCharCode(65 + q.resp)}.`;
-          }
-        } else {
-          statusDiv.className = 'status-gabarito errou';
-          statusDiv.innerHTML = `Questão não respondida. Alternativa correta: ${String.fromCharCode(65 + q.resp)}.`;
-        }
-
-        document.querySelectorAll(`input[name="q${q.id}"]`).forEach(input => input.disabled = true);
-      });
-
-      const totalAcertos = pontosPort + pontosMat + pontosCid;
-      const porcentagem = Math.round((totalAcertos / 50) * 100);
-      const notaFinal = ((totalAcertos / 50) * 100).toFixed(1);
-
-      document.getElementById('escoreTotal').textContent = `${totalAcertos} / 50`;
-      document.getElementById('escorePort').textContent = `${pontosPort} / 20`;
-      document.getElementById('escoreMat').textContent = `${pontosMat} / 20`;
-      document.getElementById('escoreCid').textContent = `${pontosCid} / 10`;
-      document.getElementById('notaFinal').textContent = notaFinal;
-      document.getElementById('textoPorcentagem').textContent = `${porcentagem}% de Aproveitamento`;
-
-      const barra = document.getElementById('barraProgresso');
-      const painel = document.getElementById('painelResultado');
-      const btn = document.getElementById('btnFinalizar');
-
-      btn.disabled = true;
-      btn.style.opacity = '0.5';
-      btn.textContent = 'Prova Finalizada';
-
-      painel.style.display = 'block';
-      setTimeout(() => {
-        barra.style.width = `${porcentagem}%`;
-      }, 100);
-
-      painel.scrollIntoView({ behavior: 'smooth' });
+      if (caixa.classList.contains('recolhido')) {
+        caixa.classList.remove('recolhido');
+        caixa.classList.add('expandido');
+        if (btnTexto) btnTexto.textContent = '▲ Recolher Texto Base';
+      } else {
+        caixa.classList.remove('expandido');
+        caixa.classList.add('recolhido');
+        if (btnTexto) btnTexto.textContent = ' Expandir Texto Completo';
+      }
     }
 
+    // 3. Gerenciador de alternância entre abas dos Módulos
+    function trocarModulo(modulo) {
+      const modPort = document.getElementById('modulo-português');
+      const modMat = document.getElementById('modulo-matematica');
+      const tabPort = document.getElementById('tab-português');
+      const tabMat = document.getElementById('tab-matematica');
+      const label = document.getElementById('labelModuloAtual');
+
+      if (modulo === 'português') {
+        if (modPort) modPort.style.display = 'block';
+        if (modMat) modMat.style.display = 'none';
+        if (tabPort) tabPort.classList.add('active');
+        if (tabMat) tabMat.classList.remove('active');
+        if (label) label.textContent = 'Módulo 01: Língua Portuguesa';
+      } else {
+        if (modPort) modPort.style.display = 'none';
+        if (modMat) modMat.style.display = 'block';
+        if (tabPort) tabPort.classList.remove('active');
+        if (tabMat) tabMat.classList.add('active');
+        if (label) label.textContent = 'Módulo 02: Matemática';
+      }
+
+      // Rola a página suavemente até o topo das questões
+      const barraAcc = document.getElementById('barraAcompanhamento');
+      if (barraAcc) {
+        barraAcc.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // 4. Atualizador do Progresso do Simulado
     document.addEventListener('DOMContentLoaded', () => {
-      renderizarQuestoes();
+      const formSimulado = document.getElementById('formSimulado');
+      if (formSimulado) {
+        formSimulado.addEventListener('change', () => {
+          const selecionadas = document.querySelectorAll('#formSimulado input[type="radio"]:checked').length;
+          const qtdEl = document.getElementById('qtdRespondidas');
+          const barraFill = document.getElementById('barra-progresso-simulado');
+          
+          if (qtdEl) qtdEl.textContent = selecionadas;
+          if (barraFill) {
+            const perc = Math.round((selecionadas / 40) * 100);
+            barraFill.style.width = perc + '%';
+          }
+        });
+      }
     });
-  </script>
-</body>
 
+    // 5. Finalização e Gravação dos Resultados
+    function finalizarSimulado() {
+      let acertosPort = 0;
+      let acertosMat = 0;
+
+      for (let i = 1; i <= 20; i++) {
+        const checked = document.querySelector(`input[name="q${i}"]:checked`);
+        if (checked && checked.value === "1") acertosPort++;
+      }
+
+      for (let i = 21; i <= 40; i++) {
+        const checked = document.querySelector(`input[name="q${i}"]:checked`);
+        if (checked && checked.value === "1") acertosMat++;
+      }
+
+      const totalAcertos = acertosPort + acertosMat;
+      const porcentagem = Math.round((totalAcertos / 40) * 100);
+      const nomeUsuario = localStorage.getItem('nomeUsuario') || 'Estudante';
+
+      const resultadoSimulado = {
+        nome: nomeUsuario,
+        portugues: acertosPort,
+        matematica: acertosMat,
+        total: totalAcertos,
+        porcentagem: porcentagem,
+        concluido: true
+      };
+      
+      localStorage.setItem('resultadoSimulado', JSON.stringify(resultadoSimulado));
+
+      const painel = document.getElementById('painelResultado');
+      const texto = document.getElementById('textoResultadoGeral');
+
+      if (painel && texto) {
+        painel.style.display = 'block';
+        texto.innerHTML = `
+          <strong>Parabéns, ${nomeUsuario}!</strong><br><br>
+          <strong>Total de Acertos:</strong> ${totalAcertos} de 40 questões (${porcentagem}% de aproveitamento)<br><br>
+           <strong>Português:</strong> ${acertosPort} / 20 acertos<br>
+           <strong>Matemática:</strong> ${acertosMat} / 20 acertos
+        `;
+        painel.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+
+</body>
 </html>
