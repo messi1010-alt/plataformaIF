@@ -642,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </g>
 
         <text x="410" y="46" fill="#FFFFFF" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="3">
-          INSTITUTO FEDERAL DO RIO GRANDE DO NORTE
+          CURSINHO PREPARATÓRIO IF26
         </text>
 
         <text x="400" y="112" fill="#0F172A" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="1">
@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <line x1="200" y1="248" x2="600" y2="248" stroke="#CBD5E1" stroke-width="1.5"/>
 
         <text x="400" y="285" fill="#334155" font-size="14" text-anchor="middle">
-          concluiu com êxito a Maratona Unificada do Simulado + Quiz Extra,
+          concluiu com êxito o Simulado de Preparação para a prova do Exame de Seleção IFRN 2026,
         </text>
         <text x="400" y="310" fill="#334155" font-size="14" text-anchor="middle">
           obtendo aproveitamento geral de <tspan font-weight="800" fill="#008542">${percentual}%</tspan> com o total de <tspan font-weight="800" fill="#996515">${acertos} acertos</tspan> de 60 questões.
