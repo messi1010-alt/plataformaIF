@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de Estudos IFRN 2026 - Guia completo dos conteúdos de Matemática mais cobrados no Exame de Seleção.">
     <title>Matemática - Plataforma de Estudos IFRN</title>
     
     <link rel="stylesheet" href="style.css">
 
+    <!-- Configuração do MathJax -->
     <script>
         window.MathJax = {
             tex: {
@@ -19,89 +21,6 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <style>
-        /* Correções de layout e contenção de transbordamento */
-        .card, 
-        .section-box, 
-        .exercicio-box {
-            word-break: break-word;
-            overflow-wrap: break-word;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        .exercicio-box {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
-            border-radius: var(--radius-sm, 8px);
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-
-        /* Garante que expressões matemáticas do MathJax não quebrem o layout */
-        mjx-container {
-            max-width: 100% !important;
-            overflow-x: auto !important;
-            overflow-y: hidden !important;
-            display: inline-block !important;
-            vertical-align: middle;
-        }
-
-        mjx-container[jax="SVG"][display="true"] {
-            display: block !important;
-            margin: 1em 0 !important;
-        }
-
-        .table-container {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .svg-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-            background: rgba(0, 0, 0, 0.25);
-            padding: 20px;
-            border-radius: var(--radius-sm, 8px);
-            border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
-            max-width: 100%;
-            overflow-x: auto;
-        }
-        .svg-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin: 20px 0;
-        }
-        .svg-card {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
-            border-radius: var(--radius-sm, 8px);
-            padding: 16px;
-            text-align: center;
-            transition: var(--transition, all 0.25s ease);
-        }
-        .svg-card:hover {
-            border-color: var(--card-border-hover, rgba(16, 185, 129, 0.4));
-            transform: translateY(-2px);
-        }
-        .svg-card svg {
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-        }
-        .svg-card span {
-            display: block;
-            margin-top: 10px;
-            font-weight: 600;
-            color: var(--primary, #10b981);
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
 
@@ -120,156 +39,92 @@
 
             <div class="nav-overlay" id="navOverlay"></div>
 
-            <nav class="nav-menu" id="navMenu">
+            <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
                 <a href="index.html" class="nav-link">Início</a>
-                <a href="português.html" class="nav-link">Português</a>
+                <a href="portugues.html" class="nav-link">Português</a>
                 <a href="matematica.html" class="nav-link active" aria-current="page">Matemática</a>
-                <a href="redação.html" class="nav-link">Redação</a>
+                <a href="redacao.html" class="nav-link">Redação</a>
                 <a href="exame-selecao.html" class="nav-link">Sobre o Exame de Seleção</a>
                 <a href="questoes.html" class="nav-link">Simulado (prova)</a>
-                <a href="temas anteriores.html" class="nav-link">Temas anteriores</a>
+                <a href="temas-anteriores.html" class="nav-link">Temas Anteriores</a>
             </nav>
         </div>
     </header>
 
     <header class="page-header">
         <h1>Matemática</h1>
-        <p>Guia definitivo e completo dos conteúdos mais cobrados no exame de seleção do IFRN.</p>
+        <p>Guia definitivo e completo dos conteúdos mais cobrados no Exame de Seleção do IFRN.</p>
     </header>
 
     <main>
 
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Porcentagem</h2>
-            </summary>
-            <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Fundamentos</h2>
-                    <p>Porcentagem é uma razão cujo denominador é igual a 100. Representa uma fração de algo em relação ao total de 100 partes e é simbolizada pelo sinal <strong>%</strong>.</p>
-                    <p>Pode ser representada em três formas: percentual ($25\%$), fracionária ($\frac{25}{100}$) ou decimal ($0,25$).</p>
-                </div>
-
-                <div class="grid">
-                    <div class="card">
-                        <h2>Fatores de Aumento e Desconto</h2>
-                        <p>Para calcular aumentos ou descontos sucessivos, utiliza-se o fator multiplicativo:</p>
-                        <ul>
-                            <li><strong>Aumento de $i\%$:</strong> Fator = $(1 + i)$</li>
-                            <li><strong>Desconto de $i\%$:</strong> Fator = $(1 - i)$</li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h2>Como Identificar nos Enunciados</h2>
-                        <ul>
-                            <li><strong>Cálculo direto:</strong> "Quanto é $X\%$ de $Y$?" (Multiplica-se a fração por $Y$).</li>
-                            <li><strong>Variação percentual:</strong> "Qual foi o aumento percentual de $A$ para $B$?" ($\frac{\text{Variação}}{\text{Valor Inicial}}$).</li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h2>Erros Comuns</h2>
-                        <ul>
-                            <li><strong>Somar porcentagens diretamente:</strong> Um aumento de $10\%$ seguido de outro de $10\%$ não equivale a $20\%$, mas sim a $21\%$ (aumentos sucessivos).</li>
-                            <li><strong>Confundir o valor base:</strong> Esquecer que a porcentagem de desconto incide sobre o valor atualizado, não necessariamente sobre o original.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="section-box">
-                    <h2>Exemplo Prático e Análise</h2>
-                    <blockquote>Um produto de R$ 200,00 teve um aumento de 10% e, no mês seguinte, um desconto de 10%. Qual o valor final?</blockquote>
-                    <p><strong>Comentário:</strong> Após o aumento: $200 \times 1,10 = 220$. Após o desconto: $220 \times 0,90 = 198$. O valor final é R$ 198,00 (houve uma perda líquida de $1\%$).</p>
-                    <div class="attention">
-                        <strong>Dica IFRN:</strong> Fique atento às questões de interpretação gráfica e tabelas que envolvem reajustes salariais ou inflação acumulada.
-                    </div>
-                </div>
-
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Em uma sala com 40 alunos, 60% são meninas. Quantos são os meninos?</p>
-                        <p><strong>Resolução:</strong> Se 60% são meninas, 40% são meninos. $40\% \text{ de } 40 = 0,40 \times 40 = 16$. <strong>Gabarito: 16 meninos</strong>.</p>
-                    </div>
-
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Um ingresso custava R$ 50,00 e passou a custar R$ 65,00. Qual foi a taxa percentual de aumento?</p>
-                        <p><strong>Resolução:</strong> O aumento foi de R$ 15,00. $\frac{15}{50} = \frac{30}{100} = 30\%$. <strong>Gabarito: 30%</strong>.</p>
-                    </div>
-                </div>
-
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
-                    <ol>
-                        <li>Calcule 15% de R$ 1.200,00.</li>
-                        <li>Um produto sofreu dois aumentos sucessivos de 20%. Qual foi o aumento percentual total?</li>
-                        <li>Se 30% de um número é igual a 81, qual é esse número?</li>
-                        <li>Um tênis de R$ 250,00 é vendido à vista com 12% de desconto. Qual o preço final?</li>
-                        <li>A população de uma cidade passou de 50.000 para 65.000 habitantes. Qual foi o percentual de crescimento?</li>
-                    </ol>
-                </div>
-            </div>
-        </details>
-
+        <!-- GEOMETRIA PLANA -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Geometria Plana</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Fundamentos</h2>
-                    <p>A Geometria Plana (ou Euclidiana) estuda as figuras em duas dimensões (largura e comprimento), tais como triângulos, quadriláteros e círculos, focando em propriedades, perímetros e áreas.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Fundamentos</h3>
+                    <p>A Geometria Plana (ou Euclidiana) estuda as figuras bidimensionais (que possuem comprimento e largura), tais como triângulos, quadriláteros e círculos, focando em suas propriedades, perímetros e áreas.</p>
+                </section>
 
-                <div class="section-box">
-                    <h2>Ilustração das Figuras Geométricas</h2>
+                <section class="section-box">
+                    <h3>Ilustração das Figuras Geométricas</h3>
                     <div class="svg-grid">
-                        <div class="svg-card">
-                            <svg width="120" height="100" viewBox="0 0 120 100" role="img" aria-label="Ilustração de um triângulo">
+                        <figure class="svg-card">
+                            <svg width="120" height="100" viewBox="0 0 120 100" aria-labelledby="title-triangulo desc-triangulo">
+                                <title id="title-triangulo">Triângulo</title>
+                                <desc id="desc-triangulo">Ilustração de um triângulo exibindo base e altura</desc>
                                 <polygon points="60,10 10,90 110,90" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
                                 <line x1="60" y1="10" x2="60" y2="90" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
                                 <text x="63" y="55" fill="#f59e0b" font-size="12">h</text>
                                 <text x="55" y="98" fill="#10b981" font-size="12">b</text>
                             </svg>
-                            <span>Triângulo</span>
-                        </div>
-                        <div class="svg-card">
-                            <svg width="120" height="100" viewBox="0 0 120 100" role="img" aria-label="Ilustração de um retângulo">
+                            <figcaption>Triângulo</figcaption>
+                        </figure>
+                        <figure class="svg-card">
+                            <svg width="120" height="100" viewBox="0 0 120 100" aria-labelledby="title-retangulo desc-retangulo">
+                                <title id="title-retangulo">Retângulo</title>
+                                <desc id="desc-retangulo">Ilustração de um retângulo exibindo base e altura</desc>
                                 <rect x="15" y="20" width="90" height="60" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
                                 <text x="55" y="93" fill="#10b981" font-size="12">b</text>
                                 <text x="2" y="55" fill="#10b981" font-size="12">h</text>
                             </svg>
-                            <span>Retângulo</span>
-                        </div>
-                        <div class="svg-card">
-                            <svg width="120" height="100" viewBox="0 0 120 100" role="img" aria-label="Ilustração de um trapézio">
+                            <figcaption>Retângulo</figcaption>
+                        </figure>
+                        <figure class="svg-card">
+                            <svg width="120" height="100" viewBox="0 0 120 100" aria-labelledby="title-trapezio desc-trapezio">
+                                <title id="title-trapezio">Trapézio</title>
+                                <desc id="desc-trapezio">Ilustração de um trapézio com base maior, base menor e altura</desc>
                                 <polygon points="35,20 85,20 110,80 10,80" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
                                 <line x1="35" y1="20" x2="35" y2="80" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
                                 <text x="55" y="15" fill="#10b981" font-size="12">b</text>
                                 <text x="55" y="95" fill="#10b981" font-size="12">B</text>
                                 <text x="38" y="55" fill="#f59e0b" font-size="12">h</text>
                             </svg>
-                            <span>Trapézio</span>
-                        </div>
-                        <div class="svg-card">
-                            <svg width="120" height="100" viewBox="0 0 120 100" role="img" aria-label="Ilustração de um círculo">
+                            <figcaption>Trapézio</figcaption>
+                        </figure>
+                        <figure class="svg-card">
+                            <svg width="120" height="100" viewBox="0 0 120 100" aria-labelledby="title-circulo desc-circulo">
+                                <title id="title-circulo">Círculo</title>
+                                <desc id="desc-circulo">Ilustração de um círculo mostrando o raio</desc>
                                 <circle cx="60" cy="50" r="35" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
                                 <line x1="60" y1="50" x2="95" y2="50" stroke="#f59e0b" stroke-width="2"/>
                                 <circle cx="60" cy="50" r="3" fill="#f59e0b"/>
                                 <text x="73" y="45" fill="#f59e0b" font-size="12">r</text>
                             </svg>
-                            <span>Círculo</span>
-                        </div>
+                            <figcaption>Círculo</figcaption>
+                        </figure>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Teorema de Pitágoras e Elementos do Triângulo Retângulo</h2>
+                <section class="section-box">
+                    <h3>Teorema de Pitágoras e Elementos do Triângulo Retângulo</h3>
                     <div class="svg-container">
-                        <svg width="240" height="180" viewBox="0 0 240 180" role="img" aria-label="Triângulo Retângulo Pitagórico">
+                        <svg width="240" height="180" viewBox="0 0 240 180" aria-labelledby="title-pitagoras desc-pitagoras">
+                            <title id="title-pitagoras">Triângulo Retângulo</title>
+                            <desc id="desc-pitagoras">Diagrama do triângulo retângulo indicando os catetos b e c e a hipotenusa a</desc>
                             <polygon points="30,140 200,140 30,20" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="2.5"/>
                             <rect x="30" y="125" width="15" height="15" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
                             <circle cx="37.5" cy="132.5" r="2" fill="#f59e0b"/>
@@ -278,101 +133,111 @@
                             <text x="120" y="75" fill="#f59e0b" font-size="14" font-weight="bold">a (Hipotenusa)</text>
                         </svg>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Fórmulas de Áreas Principais</h2>
-                    <div class="table-container">
+                <section class="section-box">
+                    <h3>Fórmulas de Áreas Principais</h3>
+                    <div class="table-container" role="region" aria-label="Tabela de fórmulas de área" tabindex="0">
                         <table>
+                            <caption>Resumo das fórmulas de áreas e parâmetros geométricos</caption>
                             <thead>
                                 <tr>
-                                    <th>Figura</th>
-                                    <th>Fórmula da Área</th>
-                                    <th>Parâmetros</th>
+                                    <th scope="col">Figura</th>
+                                    <th scope="col">Fórmula da Área</th>
+                                    <th scope="col">Parâmetros</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Triângulo</td>
+                                    <th scope="row">Triângulo</th>
                                     <td>$A = \frac{b \cdot h}{2}$</td>
-                                    <td>$b$ = base, $h$ = altura</td>
+                                    <td>$b$ = base, $h$ = altura relativa a $b$</td>
                                 </tr>
                                 <tr>
-                                    <td>Retângulo</td>
+                                    <th scope="row">Retângulo</th>
                                     <td>$A = b \cdot h$</td>
                                     <td>$b$ = base, $h$ = altura</td>
                                 </tr>
                                 <tr>
-                                    <td>Trapezóide (Trapézio)</td>
+                                    <th scope="row">Trapézio</th>
                                     <td>$A = \frac{(B + b) \cdot h}{2}$</td>
                                     <td>$B$ = base maior, $b$ = base menor, $h$ = altura</td>
                                 </tr>
                                 <tr>
-                                    <td>Círculo</td>
+                                    <th scope="row">Círculo</th>
                                     <td>$A = \pi \cdot r^2$</td>
-                                    <td>$r$ = raio, $\pi \approx 3,14$</td>
+                                    <td>$r$ = raio do círculo, $\pi \approx 3{,}14$</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Teorema de Pitágoras</h2>
-                        <p>Aplica-se exclusivamente a triângulos retângulos:</p>
+                    <article class="card">
+                        <h3>Teorema de Pitágoras</h3>
+                        <p>Em todo triângulo retângulo, o quadrado da hipotenusa é igual à soma dos quadrados dos catetos:</p>
                         <p>$$a^2 = b^2 + c^2$$</p>
-                        <p>Onde $a$ é a hipotenusa e $b, c$ são os catetos.</p>
-                    </div>
+                        <p>em que $a$ é a hipotenusa e $b, c$ são os catetos.</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Perímetro</h2>
-                        <p>O perímetro é a soma de todos os lados de uma figura plana. No caso do círculo, o comprimento da circunferência é dado por $C = 2 \pi r$.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Perímetro e Circunferência</h3>
+                        <p>O perímetro é a medida do contorno de uma figura plana. Para polígonos, é a soma dos lados. No caso do círculo, o comprimento do contorno (circunferência) é dado por:</p>
+                        <p>$$C = 2 \cdot \pi \cdot r$$</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Um terreno retangular possui 12 metros de largura e 25 metros de comprimento. Qual é a sua área e seu perímetro?</p>
-                        <p><strong>Resolução:</strong> Área: $A = 12 \times 25 = 300\text{ m}^2$. Perímetro: $P = 2(12 + 25) = 74\text{ m}$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Um terreno retangular possui 12 metros de largura e 25 metros de comprimento. Qual é a sua área e o seu perímetro?</p>
+                        <p><strong>Resolução:</strong><br>
+                        Área: $$A = b \cdot h = 25 \text{ m} \cdot 12 \text{ m} = 300\text{ m}^2$$
+                        Perímetro: $$P = 2 \cdot (b + h) = 2 \cdot (25 \text{ m} + 12 \text{ m}) = 2 \cdot 37 \text{ m} = 74\text{ m}$$<br>
+                        <strong>Gabarito: Área = $300\text{ m}^2$; Perímetro = $74\text{ m}$</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
                         <p>Um triângulo retângulo possui catetos medindo 6 cm e 8 cm. Qual a medida da sua hipotenusa?</p>
-                        <p><strong>Resolução:</strong> $a^2 = 6^2 + 8^2 \implies a^2 = 36 + 64 = 100 \implies a = 10\text{ cm}$.</p>
-                    </div>
-                </div>
+                        <p><strong>Resolução:</strong> Aplicando o Teorema de Pitágoras ($a^2 = b^2 + c^2$):<br>
+                        $$a^2 = 6^2 + 8^2 \implies a^2 = 36 + 64 \implies a^2 = 100 \implies a = \sqrt{100} = 10\text{ cm}$$<br>
+                        <strong>Gabarito: Hipotenusa = 10 cm</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Calcule a área de um círculo com raio de 5 cm (use $\pi = 3,14$).</li>
-                        <li>Determine a área de um trapézio de bases 10 cm e 6 cm, com altura de 4 cm.</li>
-                        <li>Qual o comprimento da diagonal de um quadrado de lado 7 cm?</li>
-                        <li>Determine a soma dos ângulos internos de um hexágono regular.</li>
-                        <li>Um terreno em formato de triângulo equilátero tem lado medindo 8 m. Calcule sua área.</li>
+                        <li>Calcule a área de um círculo com raio de $5\text{ cm}$ (use $\pi = 3{,}14$). ($A = 3{,}14 \cdot 5^2 = 3{,}14 \cdot 25 = 78{,}5\text{ cm}^2$).</li>
+                        <li>Determine a área de um trapézio cujas bases medem $10\text{ cm}$ e $6\text{ cm}$, e cuja altura mede $4\text{ cm}$. ($A = \frac{(10 + 6) \cdot 4}{2} = \frac{16 \cdot 4}{2} = 32\text{ cm}^2$).</li>
+                        <li>Qual a medida da diagonal de um quadrado de lado $7\text{ cm}$? ($d = l\sqrt{2} \implies d = 7\sqrt{2}\text{ cm}$).</li>
+                        <li>Determine a soma dos ângulos internos de um hexágono regular ($n = 6$). ($S_i = (n - 2) \cdot 180^\circ \implies S_i = (6 - 2) \cdot 180^\circ = 4 \cdot 180^\circ = 720^\circ$).</li>
+                        <li>Um terreno tem o formato de um triângulo equilátero com lado medindo $8\text{ m}$. Calcule sua área exatamente. ($A = \frac{l^2 \sqrt{3}}{4} = \frac{8^2 \sqrt{3}}{4} = \frac{64\sqrt{3}}{4} = 16\sqrt{3}\text{ m}^2$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- EXPRESSÕES ALGÉBRICAS -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Expressões Algébricas</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Produtos Notáveis</h2>
-                    <p>Expressões algébricas envolvem números, variáveis (letras) e operações matemáticas. A simplificação exige o agrupamento de termos semelhantes.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Produtos Notáveis</h3>
+                    <p>Expressões algébricas são estruturas matemáticas que envolvem números, variáveis (letras) e operações. A simplificação de expressões exige o agrupamento e a redução de termos semelhantes.</p>
+                </section>
 
-                <div class="section-box">
-                    <h2>Representação Geométrica de $(a + b)^2$</h2>
+                <section class="section-box">
+                    <h3>Representação Geométrica de $(a + b)^2$</h3>
                     <div class="svg-container">
-                        <svg width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="Interpretação geométrica do produto notável a mais b ao quadrado">
+                        <svg width="220" height="220" viewBox="0 0 220 220" aria-labelledby="title-prod-notavel desc-prod-notavel">
+                            <title id="title-prod-notavel">Produto Notável</title>
+                            <desc id="desc-prod-notavel">Demonstração geométrica da expansão de a mais b ao quadrado dividida em a ao quadrado, dois ab e b ao quadrado</desc>
                             <rect x="20" y="20" width="120" height="120" fill="rgba(16, 185, 129, 0.3)" stroke="#10b981" stroke-width="1.5"/>
                             <text x="75" y="85" fill="#ffffff" font-weight="bold" font-size="16">a²</text>
                             
@@ -386,107 +251,124 @@
                             <text x="163" y="175" fill="#3b82f6" font-weight="bold" font-size="14">b²</text>
                         </svg>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Produtos Notáveis Importantes</h2>
+                <section class="section-box">
+                    <h3>Produtos Notáveis Importantes</h3>
                     <ul>
-                        <li><strong>Quadrado da Soma:</strong> $(a + b)^2 = a^2 + 2ab + b^2$</li>
-                        <li><strong>Quadrado da Diferença:</strong> $(a - b)^2 = a^2 - 2ab + b^2$</li>
-                        <li><strong>Produto da Soma pela Diferença:</strong> $(a + b)(a - b) = a^2 - b^2$</li>
+                        <li><strong>Quadrado da Soma de Dois Termos:</strong> $$(a + b)^2 = a^2 + 2ab + b^2$$</li>
+                        <li><strong>Quadrado da Diferença de Dois Termos:</strong> $$(a - b)^2 = a^2 - 2ab + b^2$$</li>
+                        <li><strong>Produto da Soma pela Diferença de Dois Termos:</strong> $$(a + b)(a - b) = a^2 - b^2$$</li>
                     </ul>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Desenvolva a expressão $(2x + 3)^2$.</p>
-                        <p><strong>Resolução:</strong> $(2x)^2 + 2(2x)(3) + (3)^2 = 4x^2 + 12x + 9$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Desenvolva a expressão algébrica $(2x + 3)^2$.</p>
+                        <p><strong>Resolução:</strong> Aplicando o quadrado da soma ($(a + b)^2 = a^2 + 2ab + b^2$), com $a = 2x$ e $b = 3$:<br>
+                        $$(2x + 3)^2 = (2x)^2 + 2 \cdot (2x) \cdot (3) + (3)^2 = 4x^2 + 12x + 9$$<br>
+                        <strong>Gabarito: $4x^2 + 12x + 9$</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Simplifique a expressão: $3(x + 2) - 2(2x - 1)$.</p>
-                        <p><strong>Resolução:</strong> $3x + 6 - 4x + 2 = -x + 8$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Simplifique a expressão algébrica: $3(x + 2) - 2(2x - 1)$.</p>
+                        <p><strong>Resolução:</strong> Aplicando a propriedade distributiva:<br>
+                        $$3(x + 2) - 2(2x - 1) = 3x + 6 - 4x + 2 = (3x - 4x) + (6 + 2) = -x + 8$$<br>
+                        <strong>Gabarito: $-x + 8$</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Fatore a expressão $x^2 - 16$.</li>
-                        <li>Calcule o valor numérico de $2x^2 - 3x + 5$ para $x = -2$.</li>
-                        <li>Desenvolva $(x - 5)^2$.</li>
-                        <li>Simplifique a fração algébrica $\frac{x^2 - 9}{x + 3}$.</li>
-                        <li>Fatore por colocação em evidência: $5x^3 + 10x^2$.</li>
+                        <li>Fatore completamente a expressão $x^2 - 16$. ($(x + 4)(x - 4)$).</li>
+                        <li>Calcule o valor numérico da expressão $2x^2 - 3x + 5$ para $x = -2$. ($2(-2)^2 - 3(-2) + 5 = 2(4) + 6 + 5 = 8 + 6 + 5 = 19$).</li>
+                        <li>Desenvolva o produto notável $(x - 5)^2$. ($x^2 - 10x + 25$).</li>
+                        <li>Simplifique a fração algébrica $\frac{x^2 - 9}{x + 3}$ para $x \neq -3$. ($\frac{(x + 3)(x - 3)}{x + 3} = x - 3$).</li>
+                        <li>Fatore por colocação de fator comum em evidência: $5x^3 + 10x^2$. ($5x^2(x + 2)$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- SISTEMA DE EQUAÇÕES -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Sistema de Equações</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Métodos de Resolução</h2>
-                    <p>Um sistema de equações de $1^{\text{o}}$ grau é um conjunto de equações com duas ou mais incógnitas que compartilham a mesma solução.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Métodos de Resolução</h3>
+                    <p>Um sistema de equações do $1^{\text{o}}$ grau com duas incógnitas é formado por um conjunto de equações que devem ser satisfeitas simultaneamente pelo mesmo par ordenado $(x, y)$.</p>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Método da Substituição</h2>
-                        <p>Isola-se uma incógnita em uma das equações e substitui-se o valor encontrado na outra equação.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Método da Substituição</h3>
+                        <p>Isola-se uma das incógnitas em uma das equações e substitui-se a expressão resultante na outra equação.</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Método da Adição</h2>
-                        <p>Soma-se as equações membro a membro de forma que uma das incógnitas seja anulada ($0$).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Método da Adição</h3>
+                        <p>Multiplicam-se as equações por valores adequados para que os coeficientes de uma das incógnitas fiquem opostos (simétricos), permitindo eliminá-la ao somar as duas equações membro a membro.</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Resolva o sistema: $\begin{cases} x + y = 10 \\ x - y = 4 \end{cases}$</p>
-                        <p><strong>Resolução (Adição):</strong> Somando as duas equações: $2x = 14 \implies x = 7$. Substituindo $x$: $7 + y = 10 \implies y = 3$. Conjunto Solução: $(7, 3)$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Resolva o sistema de equações: $\begin{cases} x + y = 10 \\ x - y = 4 \end{cases}$</p>
+                        <p><strong>Resolução (Método da Adição):</strong> Somando as duas equações membro a membro:<br>
+                        $$(x + x) + (y - y) = 10 + 4 \implies 2x = 14 \implies x = \frac{14}{2} = 7$$<br>
+                        Substituindo $x = 7$ na primeira equação:<br>
+                        $$7 + y = 10 \implies y = 10 - 7 = 3$$<br>
+                        <strong>Gabarito: Par ordenado $(7, 3)$</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Em uma fazenda há galinhas ($g$) e coelhos ($c$), totalizando 20 cabeças e 56 pés. Quantos coelhos há?</p>
-                        <p><strong>Resolução:</strong> $\begin{cases} g + c = 20 \\ 2g + 4c = 56 \end{cases}$. Multiplicando a $1^{\text{a}}$ por $-2$: $-2g - 2c = -40$. Somando com a $2^{\text{a}}$: $2c = 16 \implies c = 8$ coelhos.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Em uma fazenda há galinhas ($g$) e coelhos ($c$), totalizando 20 animais e 56 patas. Quantos coelhos há na fazenda?</p>
+                        <p><strong>Resolução:</strong> Montando o sistema com o total de animais e patas:<br>
+                        $$\begin{cases} g + c = 20 \quad (\text{eq. 1}) \\ 2g + 4c = 56 \quad (\text{eq. 2}) \end{cases}$$<br>
+                        Multiplicando a eq. 1 por $-2$: $$-2g - 2c = -40$$<br>
+                        Somando com a eq. 2:<br>
+                        $$(-2g + 2g) + (-2c + 4c) = -40 + 56 \implies 2c = 16 \implies c = \frac{16}{2} = 8$$<br>
+                        <strong>Gabarito: 8 coelhos</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Resolva o sistema: $\begin{cases} 2x + y = 7 \\ x - y = 2 \end{cases}$</li>
-                        <li>A soma de dois números é 50 e a diferença entre eles é 14. Quais são os números?</li>
-                        <li>Paguei R$ 38,00 por 3 canetas e 2 cadernos. Minha amiga pagou R$ 26,00 por 2 canetas e 1 caderno. Qual o preço de cada item?</li>
-                        <li>Determine $x$ e $y$ em: $\begin{cases} 3x + 2y = 12 \\ x - y = 1 \end{cases}$</li>
-                        <li>Em um estacionamento há carros e motos, totalizando 15 veículos e 46 pneus. Quantos carros estão estacionados?</li>
+                        <li>Resolva o sistema: $\begin{cases} 2x + y = 7 \\ x - y = 2 \end{cases}$ (Somando: $3x = 9 \implies x = 3$; substituindo: $3 - y = 2 \implies y = 1 \implies (3, 1)$).</li>
+                        <li>A soma de dois números é 50 e a diferença entre eles é 14. Quais são esses números? ($\begin{cases} x + y = 50 \\ x - y = 14 \end{cases} \implies 2x = 64 \implies x = 32, y = 18$).</li>
+                        <li>Paguei R$ 25,00 por 3 canetas e 1 caderno. Minha amiga pagou R$ 21,00 por 2 canetas e 1 caderno do mesmo tipo. Qual é o preço unitário de cada item? ($\begin{cases} 3c + 1k = 25 \\ 2c + 1k = 21 \end{cases} \implies c = \text{R\$ } 4{,}00 \text{ e } k = \text{R\$ } 13{,}00$).</li>
+                        <li>Determine a solução do sistema: $\begin{cases} 3x + 2y = 12 \\ x - y = 1 \end{cases}$ ($x = y + 1 \implies 3(y + 1) + 2y = 12 \implies 5y = 9 \implies y = 1{,}8; x = 2{,}8$).</li>
+                        <li>Em um estacionamento há carros ($c$) e motos ($m$), totalizando 15 veículos e 46 pneus. Quantos carros estão estacionados? ($\begin{cases} c + m = 15 \\ 4c + 2m = 46 \end{cases} \implies 2c = 16 \implies c = 8 \text{ carros}$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- FUNÇÕES -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Funções (Afim e Quadrática)</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito de Função e Plano Cartesiano</h2>
-                    <p>Uma função é uma relação entre dois conjuntos onde cada elemento do primeiro conjunto (domínio $x$) está associado a exatamente um elemento do segundo conjunto (contradomínio/imagem $y$).</p>
+                <section class="section-box">
+                    <h3>Conceito de Função e Plano Cartesiano</h3>
+                    <p>Uma função é uma regra que associa cada elemento de um conjunto inicial (domínio, representado pela variável $x$) a um único elemento em um conjunto final (imagem, representada por $y$ ou $f(x)$).</p>
                     <p>No Plano Cartesiano, o eixo horizontal é o eixo das abscissas ($x$) e o vertical é o eixo das ordenadas ($y$).</p>
 
                     <div class="svg-container">
-                        <svg width="300" height="260" viewBox="0 0 300 260" role="img" aria-label="Gráfico cartesiano demonstrando uma função afim">
+                        <svg width="300" height="260" viewBox="0 0 300 260" aria-labelledby="title-plano-cartesiano desc-plano-cartesiano">
+                            <title id="title-plano-cartesiano">Plano Cartesiano e Função Afim</title>
+                            <desc id="desc-plano-cartesiano">Gráfico cartesiano demonstrando a reta de uma função afim e a indicação do ponto P com coordenadas 3 e 2</desc>
                             <defs>
                                 <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
                                     <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
@@ -510,34 +392,35 @@
                             <text x="240" y="45" fill="#10b981" font-size="11">f(x) = ax + b</text>
                         </svg>
                     </div>
-                </div>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Função Afim ($1^\circ$ Grau)</h2>
-                        <p>Definida por $f(x) = ax + b$, com $a \neq 0$.</p>
+                    <article class="card">
+                        <h3>Função Afim ($1^\circ$ Grau)</h3>
+                        <p>Definida pela lei $f(x) = ax + b$, com $a, b \in \mathbb{R}$ e $a \neq 0$. Seu gráfico é uma <strong>reta</strong>.</p>
                         <ul>
-                            <li><strong>$a$ (Coeficiente Angular):</strong> Define a inclinação da reta. Se $a > 0$, a função é crescente; se $a < 0$, é decrescente.</li>
-                            <li><strong>$b$ (Coeficiente Linear):</strong> Ponto de intersecção com o eixo $y$ no ponto $(0, b)$.</li>
-                            <li><strong>Raiz ou Zero da Função:</strong> Valor de $x$ para $f(x) = 0 \implies x = -\frac{b}{a}$.</li>
+                            <li><strong>$a$ (Coeficiente Angular):</strong> Taxa de variação. Se $a &gt; 0$, a função é crescente; se $a &lt; 0$, é decrescente.</li>
+                            <li><strong>$b$ (Coeficiente Linear):</strong> Ordenada do ponto de intersecção com o eixo $y$, ponto $(0, b)$.</li>
+                            <li><strong>Raiz ou Zero da Função:</strong> Valor de $x$ para o qual $f(x) = 0$: $$x = -\frac{b}{a}$$</li>
                         </ul>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <h2>Função Quadrática ($2^\circ$ Grau)</h2>
-                        <p>Definida por $f(x) = ax^2 + bx + c$, com $a \neq 0$. O gráfico é uma <strong>parábola</strong>.</p>
+                    <article class="card">
+                        <h3>Função Quadrática ($2^\circ$ Grau)</h3>
+                        <p>Definida por $f(x) = ax^2 + bx + c$, com $a, b, c \in \mathbb{R}$ e $a \neq 0$. O gráfico é uma <strong>parábola</strong>.</p>
                         <ul>
-                            <li><strong>$a > 0$:</strong> Concavidade voltada para cima $\cup$ (possui Ponto Mínimo).</li>
-                            <li><strong>$a < 0$:</strong> Concavidade voltada para baixo $\cap$ (possui Ponto Máximo).</li>
-                            <li><strong>Vértice da Parábola:</strong> $X_v = -\frac{b}{2a} \quad \text{e} \quad Y_v = -\frac{\Delta}{4a}$.</li>
+                            <li><strong>Concavidade:</strong> $a &gt; 0$ (voltada para cima $\cup$) ou $a &lt; 0$ (voltada para baixo $\cap$).</li>
+                            <li><strong>Vértice da Parábola ($V$):</strong> Ponto extremo de máximo ou mínimo: $$x_v = -\frac{b}{2a} \quad \text{e} \quad y_v = -\frac{\Delta}{4a}$$</li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Gráfico da Parábola e Vértice</h2>
+                <section class="section-box">
+                    <h3>Gráfico da Parábola e Vértice</h3>
                     <div class="svg-container">
-                        <svg width="300" height="220" viewBox="0 0 300 220" role="img" aria-label="Gráfico de uma parábola mostrando o Vértice">
+                        <svg width="300" height="220" viewBox="0 0 300 220" aria-labelledby="title-parabola desc-parabola">
+                            <title id="title-parabola">Gráfico de Parábola</title>
+                            <desc id="desc-parabola">Gráfico cartesiano com uma parábola com concavidade para cima destacando a posição do Vértice</desc>
                             <line x1="20" y1="180" x2="280" y2="180" stroke="#94a3b8" stroke-width="2"/>
                             <line x1="150" y1="200" x2="150" y2="20" stroke="#94a3b8" stroke-width="2"/>
                             
@@ -549,181 +432,200 @@
                             <text x="142" y="195" fill="#f59e0b" font-size="11">Xv</text>
                         </svg>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Um motorista de aplicativo cobra uma taxa fixa de R$ 5,00 mais R$ 2,00 por quilômetro rodado. Escreva a lei da função e determine o valor de uma corrida de 12 km.</p>
-                        <p><strong>Resolução:</strong> Lei da função: $f(x) = 2x + 5$. Para $x = 12$: $f(12) = 2(12) + 5 = 24 + 5 = 29$. <strong>Gabarito: R$ 29,00</strong>.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Um motorista de aplicativo cobra uma taxa fixa de R$ 5,00 mais R$ 2,00 por quilômetro rodado. Escreva a lei da função que modela o valor cobrado e determine o custo de uma corrida de 12 km.</p>
+                        <p><strong>Resolução:</strong> Lei da função afim: $f(x) = 2x + 5$, onde $x$ representa os quilômetros rodados.<br>
+                        Para $x = 12$: $$f(12) = 2 \cdot (12) + 5 = 24 + 5 = 29$$<br>
+                        <strong>Gabarito: R$ 29,00</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
                         <p>Determine o vértice da parábola dada pela função $f(x) = x^2 - 6x + 5$.</p>
-                        <p><strong>Resolução:</strong> $a = 1, b = -6, c = 5$.<br>
-                        $X_v = -\frac{-6}{2(1)} = \frac{6}{2} = 3$.<br>
-                        $\Delta = (-6)^2 - 4(1)(5) = 36 - 20 = 16$.<br>
-                        $Y_v = -\frac{16}{4(1)} = -4$.<br>
-                        <strong>Gabarito: $V(3, -4)$</strong>.</p>
-                    </div>
-                </div>
+                        <p><strong>Resolução:</strong> Coeficientes: $a = 1, b = -6, c = 5$.<br>
+                        Cálculo do $x_v$: $$x_v = -\frac{b}{2a} = -\frac{-6}{2(1)} = \frac{6}{2} = 3$$
+                        Cálculo do $\Delta$: $$\Delta = b^2 - 4ac = (-6)^2 - 4(1)(5) = 36 - 20 = 16$$
+                        Cálculo do $y_v$: $$y_v = -\frac{\Delta}{4a} = -\frac{16}{4(1)} = -4$$<br>
+                        <strong>Gabarito: Vértice $V(3, -4)$</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Encontre a raiz da função afim $f(x) = 3x - 12$.</li>
-                        <li>Dada a função $f(x) = -2x + 8$, verifique se ela é crescente ou decrescente e calcule $f(5)$.</li>
-                        <li>Determine as raízes da função quadrática $f(x) = x^2 - 5x + 6$ utilizando a fórmula de Bhaskara.</li>
-                        <li>Um projétil é lançado e sua altura $h$ em metros segue a função $h(t) = -t^2 + 8t$, onde $t$ é o tempo em segundos. Qual a altura máxima atingida pelo projétil?</li>
-                        <li>Em qual ponto a reta da função $f(x) = 4x - 7$ intercepta o eixo $y$?</li>
+                        <li>Encontre a raiz da função afim $f(x) = 3x - 12$. ($3x - 12 = 0 \implies x = 4$).</li>
+                        <li>Dada a função $f(x) = -2x + 8$, verifique se ela é crescente ou decrescente e calcule $f(5)$. ($a = -2 &lt; 0 \implies \text{decrescente}; f(5) = -2(5) + 8 = -2$).</li>
+                        <li>Determine as raízes da função quadrática $f(x) = x^2 - 5x + 6$. ($x^2 - 5x + 6 = 0 \implies \Delta = 1 \implies x_1 = 3, x_2 = 2$).</li>
+                        <li>Um projétil é lançado e sua altura $h$ em metros segue a função $h(t) = -t^2 + 8t$, em que $t$ é o tempo decorrido em segundos. Qual é a altura máxima atingida? ($t_v = -\frac{8}{2(-1)} = 4\text{ s} \implies h_{\text{máx}} = -(4)^2 + 8(4) = -16 + 32 = 16\text{ m}$).</li>
+                        <li>Em qual ponto o gráfico da função $f(x) = 4x - 7$ intercepta o eixo $y$? (No ponto $(0, b) = (0, -7)$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- RAZÃO E PROPORÇÃO -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Razão e Proporção</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito</h2>
-                    <p><strong>Razão:</strong> É o quociente entre dois números $a$ e $b$ ($b \neq 0$), representado por $\frac{a}{b}$, comparando duas grandezas.</p>
-                    <p><strong>Proporção:</strong> É a igualdade entre duas razões: $\frac{a}{b} = \frac{c}{d}$. A propriedade fundamental afirma que o produto dos meios é igual ao produto dos extremos ($a \cdot d = b \cdot c$).</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito</h3>
+                    <p><strong>Razão:</strong> É o quociente entre dois números $a$ e $b$ ($b \neq 0$), indicado por $\frac{a}{b}$ ou $a : b$, utilizado para comparar duas grandezas.</p>
+                    <p><strong>Proporção:</strong> É a igualdade entre duas razões: $\frac{a}{b} = \frac{c}{d}$. A propriedade fundamental das proporções estabelece que o produto dos meios é igual ao produto dos extremos:</p>
+                    <p>$$a \cdot d = b \cdot c$$</p>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Grandezas Diretamente Proporcionais</h2>
-                        <p>Quando o aumento de uma grandeza provoca o aumento da outra na mesma razão ($\frac{A}{B} = k$).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Grandezas Diretamente Proporcionais</h3>
+                        <p>Duas grandezas são diretamente proporcionais quando a variação de uma provoca a variação da outra na mesma razão: $$\frac{A}{B} = k \quad (k \text{ é constante})$$</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Grandezas Inversamente Proporcionais</h2>
-                        <p>Quando o aumento de uma grandeza provoca a redução da outra na mesma proporção ($A \cdot B = k$).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Grandezas Inversamente Proporcionais</h3>
+                        <p>Duas grandezas são inversamente proporcionais quando o aumento de uma provoca a redução da outra na mesma proporção: $$A \cdot B = k \quad (k \text{ é constante})$$</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Se a razão entre a idade de Pedro e a idade de Paulo é de $2/3$, e a soma das idades é 25 anos, qual a idade de Pedro?</p>
-                        <p><strong>Resolução:</strong> $2x + 3x = 25 \implies 5x = 25 \implies x = 5$. Pedro tem $2x = 2(5) = 10$ anos.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Se a razão entre a idade de Pedro e a idade de Paulo é de $2/3$, e a soma das idades dos dois é de 25 anos, qual é a idade de Pedro?</p>
+                        <p><strong>Resolução:</strong> Seja $k$ a constante de proporcionalidade. As idades são $2k$ e $3k$.<br>
+                        $$2k + 3k = 25 \implies 5k = 25 \implies k = \frac{25}{5} = 5$$
+                        A idade de Pedro é $$2k = 2 \cdot 5 = 10\text{ anos}$$<br>
+                        <strong>Gabarito: 10 anos</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Determine $x$ na proporção: $\frac{x}{12} = \frac{5}{20}$.</p>
-                        <p><strong>Resolução:</strong> $20x = 12 \times 5 \implies 20x = 60 \implies x = 3$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Determine o valor de $x$ na proporção: $\frac{x}{12} = \frac{5}{20}$.</p>
+                        <p><strong>Resolução:</strong> Aplicando a propriedade fundamental das proporções ($a \cdot d = b \cdot c$):<br>
+                        $$20 \cdot x = 12 \cdot 5 \implies 20x = 60 \implies x = \frac{60}{20} = 3$$<br>
+                        <strong>Gabarito: $x = 3$</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>A razão entre dois números é $3/5$. Se o menor deles é 18, qual é o maior?</li>
-                        <li>Divida o número 120 em duas partes diretamente proporcionais a 2 e 3.</li>
-                        <li>Divida o número 180 em partes inversamente proporcionais a 2 e 4.</li>
-                        <li>A maquete de um prédio foi feita na escala 1:50. Se a maquete tem 80 cm de altura, qual o tamanho real do prédio?</li>
-                        <li>A razão entre meninos e meninas em uma turma é $4/5$. Se há 20 meninos, quantas são as meninas?</li>
+                        <li>A razão entre dois números é $3/5$. Se o menor deles é 18, qual é o valor do maior número? ($\frac{18}{y} = \frac{3}{5} \implies 3y = 90 \implies y = 30$).</li>
+                        <li>Divida o número 120 em duas partes diretamente proporcionais aos números 2 e 3. ($2k + 3k = 120 \implies 5k = 120 \implies k = 24$; Partes: $48$ e $72$).</li>
+                        <li>Divida o número 180 em duas partes inversamente proporcionais aos números 2 e 4. ($\frac{x}{1/2} = \frac{y}{1/4} \implies 2x = 4y \implies x = 2y$; $2y + y = 180 \implies 3y = 180 \implies y = 60, x = 120$).</li>
+                        <li>A maquete de um edifício foi construída na escala 1:50. Se a maquete tem 80 cm de altura, qual é a altura real do prédio em metros? ($H_{\text{real}} = 80 \cdot 50 = 4000\text{ cm} = 40\text{ m}$).</li>
+                        <li>A razão entre o número de meninos e meninas em uma turma é $4/5$. Se há 20 meninos, qual é o total de meninas? ($\frac{20}{M} = \frac{4}{5} \implies 4M = 100 \implies M = 25\text{ meninas}$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- RAZÕES ESPECIAIS -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Razões Especiais</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Aplicações</h2>
-                    <p>Razões especiais são relações entre grandezas distintas com aplicações diretas na física, geografia e economia cotidiana.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Aplicações</h3>
+                    <p>Razões especiais são quocientes pré-definidos entre grandezas de naturezas distintas, amplamente utilizados na Física, Geografia e no cotidiano.</p>
+                </section>
 
-                <div class="section-box">
-                    <h2>Principais Razões Especiais</h2>
-                    <div class="table-container">
+                <section class="section-box">
+                    <h3>Principais Razões Especiais</h3>
+                    <div class="table-container" role="region" aria-label="Tabela de razões especiais" tabindex="0">
                         <table>
+                            <caption>Tabela com as principais razões especiais, fórmulas e unidades</caption>
                             <thead>
                                 <tr>
-                                    <th>Razão Especial</th>
-                                    <th>Fórmula</th>
-                                    <th>Unidade Típica</th>
+                                    <th scope="col">Razão Especial</th>
+                                    <th scope="col">Fórmula</th>
+                                    <th scope="col">Unidade Típica</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Velocidade Média</td>
+                                    <th scope="row">Velocidade Média</th>
                                     <td>$V_m = \frac{\Delta s}{\Delta t}$</td>
                                     <td>km/h ou m/s</td>
                                 </tr>
                                 <tr>
-                                    <td>Densidade Demográfica</td>
-                                    <td>$D = \frac{\text{Habitantes}}{\text{Área}}$</td>
+                                    <th scope="row">Densidade Demográfica</th>
+                                    <td>$D = \frac{N_{\text{hab}}}{\text{Área}}$</td>
                                     <td>hab/km²</td>
                                 </tr>
                                 <tr>
-                                    <td>Escala</td>
-                                    <td>$E = \frac{\text{Medida no Desenho}}{\text{Medida Real}}$</td>
-                                    <td>Adimensional (ex: 1:100)</td>
+                                    <th scope="row">Escala</th>
+                                    <td>$E = \frac{d_{\text{desenho}}}{D_{\text{real}}}$</td>
+                                    <td>Adimensional (mesma unidade)</td>
                                 </tr>
                                 <tr>
-                                    <td>Rendimento / Vazão</td>
-                                    <td>$Q = \frac{\text{Volume}}{\text{Tempo}}$</td>
+                                    <th scope="row">Vazão</th>
+                                    <td>$Q = \frac{V}{\Delta t}$</td>
                                     <td>L/min ou m³/h</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Um carro percorre 300 km em 4 horas. Qual a sua velocidade média?</p>
-                        <p><strong>Resolução:</strong> $V_m = \frac{300}{4} = 75\text{ km/h}$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Um automóvel percorre uma distância de 300 km em 4 horas. Qual foi a sua velocidade média nesse percurso?</p>
+                        <p><strong>Resolução:</strong> $$V_m = \frac{\Delta s}{\Delta t} = \frac{300\text{ km}}{4\text{ h}} = 75\text{ km/h}$$<br>
+                        <strong>Gabarito: 75 km/h</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Um mapa foi desenhado na escala $1:100.000$. Uma distância de $5\text{ cm}$ no mapa corresponde a quanto no mundo real?</p>
-                        <p><strong>Resolução:</strong> Distância real $= 5 \times 100.000 = 500.000\text{ cm} = 5\text{ km}$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Um mapa foi desenhado na escala $1:100.000$. Uma distância de $5\text{ cm}$ nesse mapa corresponde a qual distância real em quilômetros?</p>
+                        <p><strong>Resolução:</strong> Pela definição de escala $E = \frac{d}{D}$:<br>
+                        $$\frac{1}{100.000} = \frac{5\text{ cm}}{D} \implies D = 5 \cdot 100.000\text{ cm} = 500.000\text{ cm}$$
+                        Convertendo para metros: $500.000\text{ cm} = 5.000\text{ m}$.<br>
+                        Convertendo para quilômetros: $5.000\text{ m} = 5\text{ km}$.<br>
+                        <strong>Gabarito: 5 km</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Uma cidade possui 250.000 habitantes espalhados em uma área de 500 km². Calcule sua densidade demográfica.</li>
-                        <li>Converta a velocidade de 72 km/h para m/s.</li>
-                        <li>Uma torneira enche um reservatório de 500 litros em 20 minutos. Qual a sua vazão em L/min?</li>
-                        <li>Em um mapa na escala 1:200, a parede de um cômodo mede 3 cm. Qual o comprimento real da parede em metros?</li>
-                        <li>Um carro gasta 40 litros de combustível para rodar 480 km. Qual a taxa de consumo médio (km/L)?</li>
+                        <li>Uma cidade possui $250.000$ habitantes distribuídos em uma área de $500\text{ km}^2$. Calcule a sua densidade demográfica. ($D = \frac{250000}{500} = 500\text{ hab/km}^2$).</li>
+                        <li>Converta a velocidade de $72\text{ km/h}$ para metros por segundo ($\text{m/s}$). ($V = \frac{72}{3{,}6} = 20\text{ m/s}$).</li>
+                        <li>Uma torneira enche um reservatório de $500\text{ litros}$ em $20\text{ minutos}$. Qual é a sua vazão em $\text{L/min}$? ($Q = \frac{500}{20} = 25\text{ L/min}$).</li>
+                        <li>Em um mapa feito na escala $1:200$, a parede de uma sala mede $3\text{ cm}$. Qual é o comprimento real em metros? ($D = 3 \cdot 200 = 600\text{ cm} = 6\text{ m}$).</li>
+                        <li>Um carro consome $40\text{ litros}$ de combustível para percorrer $480\text{ km}$. Qual é o consumo médio desse veículo em $\text{km/L}$? ($C = \frac{480}{40} = 12\text{ km/L}$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- PROBABILIDADE -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Probabilidade</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Definição</h2>
-                    <p>Probabilidade é o ramo da matemática que calcula a chance de ocorrência de um determinado evento dentro de um experimento aleatório.</p>
-                    <p>$$\text{Probabilidade } P(A) = \frac{\text{Número de casos favoráveis}}{\text{Número total de casos possíveis (Espaço Amostral)}}$$</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Definição</h3>
+                    <p>A Probabilidade mede numericamente a chance de ocorrência de um determinado evento em um experimento aleatório equiprovável.</p>
+                    <p>$$P(A) = \frac{n(A)}{n(\Omega)} = \frac{\text{Número de casos favoráveis}}{\text{Número total de casos possíveis}}$$</p>
+                </section>
 
-                <div class="section-box">
-                    <h2>Visualização do Espaço Amostral (Exemplo da Urna)</h2>
+                <section class="section-box">
+                    <h3>Visualização do Espaço Amostral (Exemplo da Urna)</h3>
                     <div class="svg-container">
-                        <svg width="280" height="150" viewBox="0 0 280 150" role="img" aria-label="Visualização de probabilidade em urna">
+                        <svg width="280" height="150" viewBox="0 0 280 150" aria-labelledby="title-urna desc-urna">
+                            <title id="title-urna">Experimento de probabilidade</title>
+                            <desc id="desc-urna">Ilustração de uma urna contendo 7 bolas divididas por cores representando o espaço amostral</desc>
                             <rect x="20" y="20" width="240" height="110" rx="15" fill="rgba(0,0,0,0.2)" stroke="#94a3b8" stroke-width="2"/>
                             
                             <circle cx="60" cy="60" r="16" fill="#ef4444"/>
@@ -739,330 +641,367 @@
                             <text x="30" y="145" fill="#cbd5e1" font-size="11">Espaço Amostral (U) = 7 bolas</text>
                         </svg>
                     </div>
-                </div>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Espaço Amostral ($\Omega$)</h2>
-                        <p>Conjunto de todos os resultados possíveis de um experimento (ex: ao jogar um dado, $\Omega = \{1, 2, 3, 4, 5, 6\}$).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Espaço Amostral ($\Omega$)</h3>
+                        <p>É o conjunto de todos os resultados possíveis de um experimento aleatório (ex.: no lançamento de um dado de 6 faces, $\Omega = \{1, 2, 3, 4, 5, 6\}$ e $n(\Omega) = 6$).</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Evento ($E$)</h2>
-                        <p>Qualquer subconjunto do espaço amostral (ex: sair um número par ao jogar um dado: $E = \{2, 4, 6\}$).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Evento ($A$)</h3>
+                        <p>É qualquer subconjunto do espaço amostral (ex.: obter um número par no lançamento do dado: $A = \{2, 4, 6\}$ e $n(A) = 3$).</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Ao lançar um dado comum de 6 faces, qual é a probabilidade de obter um número primo?</p>
-                        <p><strong>Resolução:</strong> Casos possíveis: $\{1,2,3,4,5,6\}$ (6). Primos: $\{2,3,5\}$ (3). $P = \frac{3}{6} = \frac{1}{2} = 50\%$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Ao lançar um dado honesto de 6 faces, qual é a probabilidade de obter um número primo?</p>
+                        <p><strong>Resolução:</strong> Espaço amostral $\Omega = \{1,2,3,4,5,6\} \implies n(\Omega) = 6$.<br>
+                        Evento primos $A = \{2,3,5\} \implies n(A) = 3$.<br>
+                        $$P(A) = \frac{n(A)}{n(\Omega)} = \frac{3}{6} = \frac{1}{2} = 0{,}50 = 50\%$$<br>
+                        <strong>Gabarito: 50% (ou 1/2)</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Em uma urna há 5 bolas vermelhas, 3 azuis e 2 verdes. Retirando uma bola ao acaso, qual a chance de ela NÃO ser azul?</p>
-                        <p><strong>Resolução:</strong> Total de bolas = 10. Bolas não azuis = $5 + 2 = 7$. $P = \frac{7}{10} = 70\%$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Em uma urna há 5 bolas vermelhas, 3 azuis e 2 verdes. Retirando-se uma bola ao acaso, qual a probabilidade de ela NÃO ser azul?</p>
+                        <p><strong>Resolução:</strong> Total de bolas $n(\Omega) = 5 + 3 + 2 = 10$.<br>
+                        Bolas não azuis (vermelhas ou verdes): $n(A) = 5 + 2 = 7$.<br>
+                        $$P(A) = \frac{7}{10} = 0{,}70 = 70\%$$<br>
+                        <strong>Gabarito: 70% (ou 7/10)</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Qual a probabilidade de sortear uma carta do baralho (52 cartas) e ela ser um Ás?</li>
-                        <li>No lançamento de dois dados comuns, qual a probabilidade da soma das faces ser igual a 7?</li>
-                        <li>Escolhendo ao acaso um dia da semana, qual a chance de ser um dia do fim de semana?</li>
-                        <li>Uma moeda honesta é lançada três vezes. Qual a probabilidade de saírem três caras?</li>
-                        <li>Um número de 1 a 20 é escolhido aleatoriamente. Qual a probabilidade de ele ser um múltiplo de 4?</li>
+                        <li>Qual a probabilidade de retirar aleatoriamente um Ás de um baralho padrão de $52$ cartas? ($P = \frac{4}{52} = \frac{1}{13}$).</li>
+                        <li>No lançamento simultâneo de dois dados comuns de 6 faces, qual a probabilidade de a soma ser igual a 7? ($n(\Omega) = 36$; Casos favoráveis: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\} \implies 6$; $P = \frac{6}{36} = \frac{1}{6}$).</li>
+                        <li>Escolhendo-se ao acaso um dia da semana, qual a probabilidade de ser um dia do fim de semana? ($P = \frac{2}{7}$).</li>
+                        <li>Uma moeda honesta é lançada três vezes consecutivas. Qual a probabilidade de obter exatamente três caras? ($n(\Omega) = 2^3 = 8$; Fav: \{(C,C,C)\} $\implies 1$; $P = \frac{1}{8} = 12{,}5\%$).</li>
+                        <li>Escolhendo-se aleatoriamente um número inteiro de $1$ a $20$, qual a probabilidade de ele ser um múltiplo de $4$? (Múltiplos: $\{4,8,12,16,20\} \implies 5$; $P = \frac{5}{20} = \frac{1}{4} = 25\%$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- REGRA DE TRÊS -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Regra de Três</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito</h2>
-                    <p>É um processo prático para resolver problemas que envolvem quatro ou mais valores, dos quais conhecemos três e buscamos determinar o valor desconhecido.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito</h3>
+                    <p>A Regra de Três é um método prático utilizado para resolver problemas que envolvem duas ou mais grandezas proporcionalmente relacionadas.</p>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Simples</h2>
-                        <p>Envolve apenas duas grandezas (direta ou inversamente proporcionais).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Regra de Três Simples</h3>
+                        <p>Envolve apenas duas grandezas relacionáveis de forma diretamente ou inversamente proporcional.</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Composta</h2>
-                        <p>Envolve três ou mais grandezas simultaneamente. Exige a comparação individual de cada grandeza com aquela que contém a incógnita $x$.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Regra de Três Composta</h3>
+                        <p>Envolve três ou mais grandezas. A análise de proporcionalidade (direta ou inversa) deve ser feita individualmente entre a grandeza que contém a incógnita $x$ e cada uma das demais.</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01 (Inversa)</h3>
-                        <p>4 operários constroem um muro em 6 dias. Em quantos dias 8 operários, com mesma capacidade, construiriam o mesmo muro?</p>
-                        <p><strong>Resolução:</strong> Mais operários $\rightarrow$ menos dias (Inversamente proporcional). $8x = 4 \times 6 \implies 8x = 24 \implies x = 3\text{ dias}$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01 (Inversamente Proporcional)</h4>
+                        <p>4 operários, trabalhando no mesmo ritmo, constroem um muro em 6 dias. Em quantos dias 8 operários, de mesmo rendimento, construiriam o mesmo muro?</p>
+                        <p><strong>Resolução:</strong> Operários e dias são grandezas inversamente proporcionais ($A_1 \cdot B_1 = A_2 \cdot B_2$):<br>
+                        $$4 \cdot 6 = 8 \cdot x \implies 24 = 8x \implies x = \frac{24}{8} = 3\text{ dias}$$<br>
+                        <strong>Gabarito: 3 dias</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02 (Direta)</h3>
-                        <p>Com 3 litros de tinta é possível pintar $15\text{ m}^2$ de parede. Quantos litros serão necessários para pintar $45\text{ m}^2$?</p>
-                        <p><strong>Resolução:</strong> Mais área $\rightarrow$ mais tinta (Diretamente proporcional). $\frac{3}{x} = \frac{15}{45} \implies 15x = 135 \implies x = 9\text{ litros}$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02 (Diretamente Proporcional)</h4>
+                        <p>Com 3 litros de tinta é possível pintar $15\text{ m}^2$ de parede. Quantos litros dessa mesma tinta serão necessários para pintar $45\text{ m}^2$?</p>
+                        <p><strong>Resolução:</strong> Litros de tinta e área são grandezas diretamente proporcionais ($\frac{A_1}{B_1} = \frac{A_2}{B_2}$):<br>
+                        $$\frac{3}{x} = \frac{15}{45} \implies 15 \cdot x = 3 \cdot 45 \implies 15x = 135 \implies x = \frac{135}{15} = 9\text{ litros}$$<br>
+                        <strong>Gabarito: 9 litros</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Um carro a 80 km/h faz um trajeto em 3 horas. Quanto tempo levaria se a velocidade fosse de 120 km/h?</li>
-                        <li>Se 5 canetas custam R$ 12,50, quanto custarão 12 canetas do mesmo tipo?</li>
-                        <li>Em 8 dias, 6 máquinas produzem 1.200 peças. Quantas peças serão produzidas por 10 máquinas trabalhando durante 12 dias?</li>
-                        <li>Para alimentar 15 cavalos durante 30 dias são necessários 600 kg de ração. Quantos kg serão necessários para 10 cavalos em 12 dias?</li>
-                        <li>Uma equipe de 10 pedreiros realiza uma obra em 15 dias. Quantos pedreiros seriam necessários para concluir a mesma obra em 6 dias?</li>
+                        <li>Um veículo a uma velocidade constante de $80\text{ km/h}$ realiza certo trajeto em $3\text{ horas}$. Quanto tempo levaria para fazer o mesmo trajeto a $120\text{ km/h}$? ($80 \cdot 3 = 120 \cdot t \implies 240 = 120t \implies t = 2\text{ horas}$).</li>
+                        <li>Se 5 canetas idênticas custam R$ 12,50, quanto custarão 12 canetas do mesmo modelo? ($\frac{5}{12} = \frac{12{,}50}{x} \implies 5x = 150 \implies x = \text{R\$ } 30{,}00$).</li>
+                        <li>Em 8 dias, 6 máquinas idênticas produzem 1.200 peças. Quantas peças serão produzidas por 10 máquinas do mesmo tipo trabalhando durante 12 dias? ($\frac{1200}{x} = \frac{6}{10} \cdot \frac{8}{12} = \frac{48}{120} = \frac{2}{5} \implies 2x = 6000 \implies x = 3.000\text{ peças}$).</li>
+                        <li>Para alimentar 15 cavalos durante 30 dias são necessários 600 kg de ração. Quantos quilogramas de ração serão necessários para alimentar 10 cavalos por 12 dias? ($\frac{600}{x} = \frac{15}{10} \cdot \frac{30}{12} = \frac{3}{2} \cdot \frac{5}{2} = \frac{15}{4} \implies 15x = 2400 \implies x = 160\text{ kg}$).</li>
+                        <li>Uma equipe de 10 pedreiros realiza uma reforma em 15 dias. Quantos pedreiros de mesmo rendimento seriam necessários para concluir a mesma obra em 6 dias? ($10 \cdot 15 = P \cdot 6 \implies 150 = 6P \implies P = 25\text{ pedreiros}$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- FRAÇÃO -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Fração</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Operações Básicas</h2>
-                    <p>Uma fração $\frac{a}{b}$ representa uma ou mais partes de um todo dividido em partes iguais, onde $a$ é o numerador e $b$ é o denominador ($b \neq 0$).</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Operações Básicas</h3>
+                    <p>Uma fração $\frac{a}{b}$ representa uma parte de um todo dividido em partes iguais, na qual $a$ é o numerador (partes consideradas) e $b$ é o denominador (total de partes divididas, com $b \neq 0$).</p>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Soma e Subtração</h2>
-                        <p>Quando os denominadores são diferentes, é necessário encontrar o MMC para obter denominadores equivalentes antes de operar.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Adição e Subtração</h3>
+                        <p>Para denominadores iguais, mantêm-se o denominador e somam-se/subtraem-se os numeradores. Para denominadores diferentes, calcula-se o Mínimo Múltiplo Comum ($\text{MMC}$):</p>
+                        <p>$$\frac{a}{b} \pm \frac{c}{d} = \frac{a \cdot d \pm b \cdot c}{b \cdot d}$$</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Multiplicação e Divisão</h2>
-                        <p><strong>Multiplicação:</strong> Multiplica-se numerador por numerador e denominador por denominador.<br><strong>Divisão:</strong> Mantém a primeira e multiplica pelo inverso da segunda.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Multiplicação e Divisão</h3>
+                        <p><strong>Multiplicação:</strong> $$\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}$$</p>
+                        <p><strong>Divisão:</strong> $$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c}$$</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Calcule a soma: $\frac{1}{3} + \frac{2}{5}$.</p>
-                        <p><strong>Resolução:</strong> $\text{MMC}(3,5) = 15$. $\frac{5}{15} + \frac{6}{15} = \frac{11}{15}$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Calcule a soma das frações: $\frac{1}{3} + \frac{2}{5}$.</p>
+                        <p><strong>Resolução:</strong> O $\text{MMC}(3, 5) = 15$. Reescrevendo as frações:<br>
+                        $$\frac{1}{3} + \frac{2}{5} = \frac{1 \cdot 5 + 2 \cdot 3}{15} = \frac{5 + 6}{15} = \frac{11}{15}$$<br>
+                        <strong>Gabarito: $\frac{11}{15}$</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Efetue a divisão: $\frac{3}{4} \div \frac{2}{5}$.</p>
-                        <p><strong>Resolução:</strong> $\frac{3}{4} \times \frac{5}{2} = \frac{15}{8}$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Efetue a divisão entre as frações: $\frac{3}{4} \div \frac{2}{5}$.</p>
+                        <p><strong>Resolução:</strong> Mantém-se a primeira fração e multiplica-se pelo inverso da segunda:<br>
+                        $$\frac{3}{4} \div \frac{2}{5} = \frac{3}{4} \cdot \frac{5}{2} = \frac{3 \cdot 5}{4 \cdot 2} = \frac{15}{8}$$<br>
+                        <strong>Gabarito: $\frac{15}{8}$</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Simplifique a fração $\frac{48}{72}$ até torná-la irredutível.</li>
-                        <li>Calcule: $\frac{5}{6} - \frac{1}{4}$.</li>
-                        <li>Quanto é $\frac{2}{3}$ de R$ 900,00?</li>
-                        <li>Efetue: $\left(\frac{2}{3}\right) \times \left(\frac{9}{10}\right)$.</li>
-                        <li>Um bolo foi dividido em 12 fatias iguais. Se João comeu $1/4$ do bolo e Maria comeu $1/3$, quantas fatias sobraram?</li>
+                        <li>Simplifique a fração $\frac{48}{72}$ até a forma irredutível. ($\text{MDC}(48, 72) = 24 \implies \frac{48 \div 24}{72 \div 24} = \frac{2}{3}$).</li>
+                        <li>Calcule o resultado de: $\frac{5}{6} - \frac{1}{4}$. ($\text{MMC}(6, 4) = 12 \implies \frac{10 - 3}{12} = \frac{7}{12}$).</li>
+                        <li>Quanto equivale a $\frac{2}{3}$ da quantia de R$ 900,00? ($\frac{2}{3} \cdot 900 = 2 \cdot 300 = \text{R\$ } 600{,}00$).</li>
+                        <li>Efetue a multiplicação: $\left(\frac{2}{3}\right) \cdot \left(\frac{9}{10}\right)$. ($\frac{2 \cdot 9}{3 \cdot 10} = \frac{18}{30} = \frac{3}{5}$).</li>
+                        <li>Um bolo foi dividido em 12 fatias iguais. Se João comeu $\frac{1}{4}$ do bolo e Maria comeu $\frac{1}{3}$, quantas fatias sobraram? (João: $\frac{1}{4} \cdot 12 = 3$; Maria: $\frac{1}{3} \cdot 12 = 4$; Sobraram: $12 - (3 + 4) = 5\text{ fatias}$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- NOTAÇÃO CIENTÍFICA -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Notação Científica</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Regra Formativa</h2>
-                    <p>A notação científica é uma forma simplificada de registrar números muito grandes ou extremamente pequenos usando potências de base 10.</p>
-                    <p>$$N = a \times 10^n$$</p>
-                    <p>Onde $1 \le |a| < 10$ (mantissa) e $n \in \mathbb{Z}$ (expoente inteiro).</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Regra Formativa</h3>
+                    <p>A notação científica é uma forma padronizada de representação numérica utilizada para simplificar a escrita de números extremamente grandes ou muito próximos de zero através de potências de base 10.</p>
+                    <p>$$N = a \cdot 10^n$$</p>
+                    <p>Em que $1 \le |a| &lt; 10$ ($a$ é a mantissa) e $n \in \mathbb{Z}$ ($n$ é o expoente inteiro).</p>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Números Grandes ($n > 0$)</h2>
-                        <p>A vírgula desloca-se para a <strong>esquerda</strong>. O expoente da potência de 10 é positivo.<br>Exemplo: $450.000 = 4,5 \times 10^5$.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Representação de Números Grandes ($n &gt; 0$)</h3>
+                        <p>Ao deslocar a vírgula para a <strong>esquerda</strong> até obter a mantissa entre $1$ e $10$, o expoente $n$ da potência de $10$ é positivo e igual ao número de casas decimais deslocadas.<br>Exemplo: $450.000 = 4{,}5 \cdot 10^5$.</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Números Pequenos ($n < 0$)</h2>
-                        <p>A vírgula desloca-se para a <strong>direita</strong>. O expoente da potência de 10 é negativo.<br>Exemplo: $0,00032 = 3,2 \times 10^{-4}$.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Representação de Números Pequenos ($n &lt; 0$)</h3>
+                        <p>Ao deslocar a vírgula para a <strong>direita</strong> até obter a mantissa entre $1$ e $10$, o expoente $n$ da potência de $10$ é negativo e em módulo igual ao número de casas decimais deslocadas.<br>Exemplo: $0{,}00032 = 3{,}2 \cdot 10^{-4}$.</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Escreva o número $0,0000078$ em notação científica.</p>
-                        <p><strong>Resolução:</strong> Desloca-se a vírgula 6 casas para a direita: $7,8 \times 10^{-6}$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Escreva o número $0{,}0000078$ em notação científica.</p>
+                        <p><strong>Resolução:</strong> Desloca-se a vírgula 6 casas para a direita para obter a mantissa $7{,}8$. O expoente é $-6$:<br>
+                        $$0{,}0000078 = 7{,}8 \cdot 10^{-6}$$<br>
+                        <strong>Gabarito: $7{,}8 \cdot 10^{-6}$</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Efetue a multiplicação: $(2 \times 10^4) \times (3 \times 10^3)$.</p>
-                        <p><strong>Resolução:</strong> Multiplica os coeficientes e soma os expoentes: $(2 \times 3) \times 10^{4+3} = 6 \times 10^7$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Efetue a multiplicação: $(2 \cdot 10^4) \cdot (3 \cdot 10^3)$.</p>
+                        <p><strong>Resolução:</strong> Multiplicam-se as mantissas e somam-se os expoentes das potências de base 10 ($10^a \cdot 10^b = 10^{a+b}$):<br>
+                        $$(2 \cdot 3) \cdot 10^{4+3} = 6 \cdot 10^7$$<br>
+                        <strong>Gabarito: $6 \cdot 10^7$</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Escreva 149.600.000 (distância média da Terra ao Sol em km) em notação científica.</li>
-                        <li>Escreva o diâmetro de uma célula de $0,000005\text{ m}$ em notação científica.</li>
-                        <li>Converta $4,23 \times 10^{-3}$ para a forma decimal.</li>
-                        <li>Efetue a divisão: $\frac{8 \times 10^8}{2 \times 10^3}$.</li>
-                        <li>Calcule: $(3 \times 10^5) + (4 \times 10^4)$ mantendo o resultado em notação científica.</li>
+                        <li>Escreva a distância média da Terra ao Sol ($149.600.000\text{ km}$) em notação científica. ($1{,}496 \cdot 10^8\text{ km}$).</li>
+                        <li>Escreva o diâmetro de uma célula de $0{,}000005\text{ m}$ em notação científica. ($5 \cdot 10^{-6}\text{ m}$).</li>
+                        <li>Represente $4{,}23 \cdot 10^{-3}$ em sua forma decimal expandida. ($0{,}00423$).</li>
+                        <li>Efetue a divisão: $\frac{8 \cdot 10^8}{2 \cdot 10^3}$. ($\frac{8}{2} \cdot 10^{8-3} = 4 \cdot 10^5$).</li>
+                        <li>Calcule a soma $(3 \cdot 10^5) + (4 \cdot 10^4)$ expressando o resultado em notação científica. ($30 \cdot 10^4 + 4 \cdot 10^4 = 34 \cdot 10^4 = 3{,}4 \cdot 10^5$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- VOLUME DE SÓLIDOS -->
         <details class="accordion-item">
             <summary class="accordion-header">
-                <h2>Volume de Sólidos</h2>
+                <h2>Volume de Sólidos Geométricos</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito</h2>
-                    <p>O volume mede o espaço tridimensional ocupado por um corpo geométrico. A unidade padrão do SI é o metro cúbico ($\text{m}^3$), valendo a relação de conversão fundamental: $1\text{ m}^3 = 1.000\text{ Litros}$ e $1\text{ cm}^3 = 1\text{ mL}$.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Unidades de Medida</h3>
+                    <p>O volume mede o espaço tridimensional ocupado por um corpo geométrico. A unidade padrão no Sistema Internacional (SI) é o metro cúbico ($\text{m}^3$).</p>
+                    <p>Relações equivalentes fundamentais de capacidade:<br>
+                    $$1\text{ m}^3 = 1.000\text{ Litros} \quad \text{e} \quad 1\text{ dm}^3 = 1\text{ Litro} \quad \text{e} \quad 1\text{ cm}^3 = 1\text{ mL}$$</p>
+                </section>
 
-                <div class="section-box">
-                    <h2>Representação 3D de Sólidos Geométricos</h2>
+                <section class="section-box">
+                    <h3>Representação 3D de Sólidos Geométricos</h3>
                     <div class="svg-grid">
-                        <div class="svg-card">
-                            <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Cubo Tridimensional">
+                        <figure class="svg-card">
+                            <svg width="120" height="120" viewBox="0 0 120 120" aria-labelledby="title-cubo desc-cubo">
+                                <title id="title-cubo">Cubo</title>
+                                <desc id="desc-cubo">Sólido tridimensional em formato de cubo</desc>
                                 <polygon points="20,40 60,20 100,40 60,60" fill="rgba(16, 185, 129, 0.4)" stroke="#10b981"/>
                                 <polygon points="20,40 60,60 60,100 20,80" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981"/>
                                 <polygon points="60,60 100,40 100,80 60,100" fill="rgba(16, 185, 129, 0.3)" stroke="#10b981"/>
                             </svg>
-                            <span>Cubo</span>
-                        </div>
+                            <figcaption>Cubo</figcaption>
+                        </figure>
 
-                        <div class="svg-card">
-                            <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Cilindro Tridimensional">
+                        <figure class="svg-card">
+                            <svg width="120" height="120" viewBox="0 0 120 120" aria-labelledby="title-cilindro desc-cilindro">
+                                <title id="title-cilindro">Cilindro</title>
+                                <desc id="desc-cilindro">Sólido tridimensional em formato de cilindro</desc>
                                 <ellipse cx="60" cy="30" rx="35" ry="12" fill="rgba(16, 185, 129, 0.4)" stroke="#10b981"/>
                                 <path d="M 25,30 L 25,90 A 35,12 0 0,0 95,90 L 95,30" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981"/>
                                 <path d="M 25,90 A 35,12 0 0,1 95,90" fill="none" stroke="#10b981" stroke-dasharray="3"/>
                             </svg>
-                            <span>Cilindro</span>
-                        </div>
+                            <figcaption>Cilindro</figcaption>
+                        </figure>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Sólidos Principais e Fórmulas</h2>
-                    <div class="table-container">
+                <section class="section-box">
+                    <h3>Sólidos Principais e Fórmulas</h3>
+                    <div class="table-container" role="region" aria-label="Tabela de fórmulas de volume" tabindex="0">
                         <table>
+                            <caption>Tabela com fórmulas e variáveis de volume de sólidos geométricos</caption>
                             <thead>
                                 <tr>
-                                    <th>Sólido</th>
-                                    <th>Fórmula do Volume</th>
-                                    <th>Variáveis</th>
+                                    <th scope="col">Sólido</th>
+                                    <th scope="col">Fórmula do Volume</th>
+                                    <th scope="col">Variáveis</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Cubo</td>
+                                    <th scope="row">Cubo</th>
                                     <td>$V = a^3$</td>
-                                    <td>$a$ = aresta</td>
+                                    <td>$a$ = comprimento da aresta</td>
                                 </tr>
                                 <tr>
-                                    <td>Paralelepípedo</td>
+                                    <th scope="row">Paralelepípedo Retângulo</th>
                                     <td>$V = a \cdot b \cdot c$</td>
-                                    <td>$a, b, c$ = dimensões (comprimento, largura, altura)</td>
+                                    <td>$a, b, c$ = comprimento, largura e altura</td>
                                 </tr>
                                 <tr>
-                                    <td>Cilindro</td>
+                                    <th scope="row">Cilindro Reto</th>
                                     <td>$V = \pi \cdot r^2 \cdot h$</td>
-                                    <td>$r$ = raio da base, $h$ = altura</td>
+                                    <td>$r$ = raio da base circular, $h$ = altura</td>
                                 </tr>
                                 <tr>
-                                    <td>Cone</td>
+                                    <th scope="row">Cone Reto</th>
                                     <td>$V = \frac{\pi \cdot r^2 \cdot h}{3}$</td>
-                                    <td>$r$ = raio da base, $h$ = altura</td>
+                                    <td>$r$ = raio da base circular, $h$ = altura</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Uma caixa d'água no formato de paralelepípedo tem dimensões $2\text{ m} \times 1,5\text{ m} \times 1\text{ m}$. Quantos litros de água ela comporta?</p>
-                        <p><strong>Resolução:</strong> $V = 2 \times 1,5 \times 1 = 3\text{ m}^3$. Como $1\text{ m}^3 = 1.000\text{ L}$, comporta $3.000\text{ Litros}$.</p>
-                    </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Uma caixa d'água em formato de paralelepípedo retângulo possui dimensões internas de $2\text{ m}$ de comprimento, $1{,}5\text{ m}$ de largura e $1\text{ m}$ de altura. Quantos litros de água ela comporta quando totalmente cheia?</p>
+                        <p><strong>Resolução:</strong> Cálculo do volume em $\text{m}^3$: $$V = a \cdot b \cdot c = 2 \cdot 1{,}5 \cdot 1 = 3\text{ m}^3$$<br>
+                        Como $1\text{ m}^3 = 1.000\text{ Litros}$, a capacidade é $$3 \cdot 1.000 = 3.000\text{ Litros}$$<br>
+                        <strong>Gabarito: 3.000 Litros</strong>.</p>
+                    </article>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Calcule o volume de um cilindro com raio da base igual a $3\text{ cm}$ e altura de $10\text{ cm}$ (adote $\pi = 3,14$).</p>
-                        <p><strong>Resolução:</strong> $V = \pi \times 3^2 \times 10 = 3,14 \times 9 \times 10 = 282,6\text{ cm}^3$.</p>
-                    </div>
-                </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Calcule o volume de um cilindro reto que possui raio da base igual a $3\text{ cm}$ e altura de $10\text{ cm}$ (adote a aproximação $\pi = 3{,}14$).</p>
+                        <p><strong>Resolução:</strong> $$V = \pi \cdot r^2 \cdot h = 3{,}14 \cdot (3)^2 \cdot 10 = 3{,}14 \cdot 9 \cdot 10 = 282{,}6\text{ cm}^3$$<br>
+                        <strong>Gabarito: $282{,}6\text{ cm}^3$</strong>.</p>
+                    </article>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Determine o volume de um cubo cujas arestas medem 4 cm.</li>
-                        <li>Uma piscina retangular tem 8 m de comprimento, 4 m de largura e 1,5 m de profundidade. Qual o volume total em litros?</li>
-                        <li>Calcule o volume de um cone com $r = 6\text{ cm}$ e $h = 10\text{ cm}$ ($\pi = 3,14$).</li>
-                        <li>Se o volume de um cubo é $125\text{ cm}^3$, qual é a medida de sua aresta?</li>
-                        <li>Um reservatório cilíndrico possui diâmetro de 4 m e altura de 5 m. Calcule sua capacidade total de armazenamento.</li>
+                        <li>Determine o volume de um cubo cujas arestas medem $4\text{ cm}$ cada. ($V = 4^3 = 64\text{ cm}^3$).</li>
+                        <li>Uma piscina retangular tem $8\text{ m}$ de comprimento, $4\text{ m}$ de largura e $1{,}5\text{ m}$ de profundidade. Qual a capacidade total em litros? ($V = 8 \cdot 4 \cdot 1{,}5 = 48\text{ m}^3 = 48.000\text{ L}$).</li>
+                        <li>Calcule o volume de um cone reto com raio da base $r = 6\text{ cm}$ e altura $h = 10\text{ cm}$ (use $\pi = 3{,}14$). ($V = \frac{3{,}14 \cdot 6^2 \cdot 10}{3} = \frac{3{,}14 \cdot 36 \cdot 10}{3} = 3{,}14 \cdot 12 \cdot 10 = 376{,}8\text{ cm}^3$).</li>
+                        <li>Se o volume de um reservatório cúbico é $125\text{ m}^3$, qual é a medida de sua aresta? ($a^3 = 125 \implies a = \sqrt[3]{125} = 5\text{ m}$).</li>
+                        <li>Um reservatório cilíndrico possui diâmetro de $4\text{ m}$ (raio $r = 2\text{ m}$) e altura de $5\text{ m}$. Calcule seu volume ($\pi = 3{,}14$). ($V = 3{,}14 \cdot 2^2 \cdot 5 = 3{,}14 \cdot 4 \cdot 5 = 62{,}8\text{ m}^3$).</li>
                     </ol>
-                </div>
+                </section>
             </div>
         </details>
 
+        <!-- ANÁLISE DE GRÁFICOS E ESTATÍSTICA -->
         <details class="accordion-item">
             <summary class="accordion-header">
-                <h2>Análise de Gráficos</h2>
+                <h2>Análise de Gráficos e Estatística</h2>
             </summary>
             <div class="accordion-content">
-                <div class="section-box">
-                    <h2>Conceito e Leitura de Dados</h2>
-                    <p>Análise gráfica consiste em interpretar, extrair conclusões e tomar decisões a partir da representação visual de dados quantitativos estatísticos.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Conceito e Leitura de Dados</h3>
+                    <p>A análise estatística descritiva e gráfica consiste em coletar, organizar, interpretar e extrair conclusões a partir de dados numéricos representados por tabelas e gráficos.</p>
+                </section>
 
                 <div class="grid">
-                    <div class="card">
-                        <h2>Gráfico de Colunas / Barras</h2>
-                        <p>Ideal para comparar categorias discretas ou grandezas ao longo do tempo através de barras verticais ou horizontais.</p>
-                    </div>
+                    <article class="card">
+                        <h3>Gráfico de Colunas / Barras</h3>
+                        <p>Utilizado para comparar dados discretos ou grandezas categorizadas.</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Gráfico de Linhas</h2>
-                        <p>Mostra tendências e variações contínuas de uma grandeza ao longo de um intervalo de tempo (crescimento/decrescimento).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Gráfico de Linhas</h3>
+                        <p>Utilizado para demonstrar a evolução ou tendência contínua de uma variável ao longo do tempo.</p>
+                    </article>
 
-                    <div class="card">
-                        <h2>Gráfico de Setores ("Pizza")</h2>
-                        <p>Utilizado para demonstrar a proporção/porcentagem de cada parte em relação ao todo ($100\%$ equivale a $360^\circ$).</p>
-                    </div>
+                    <article class="card">
+                        <h3>Gráfico de Setores ("Pizza")</h3>
+                        <p>Utilizado para demonstrar a proporção de cada categoria em relação ao total ($100\%$ do total corresponde a $360^\circ$ do setor circular completo).</p>
+                    </article>
                 </div>
 
-                <div class="section-box">
-                    <h2>Exemplos de Tipos de Gráficos em SVG</h2>
+                <section class="section-box">
+                    <h3>Exemplos de Tipos de Gráficos em SVG</h3>
                     <div class="svg-grid">
-                        <div class="svg-card">
-                            <svg width="200" height="160" viewBox="0 0 200 160" role="img" aria-label="Exemplo de gráfico de colunas">
+                        <figure class="svg-card">
+                            <svg width="200" height="160" viewBox="0 0 200 160" aria-labelledby="title-colunas desc-colunas">
+                                <title id="title-colunas">Gráfico de Colunas</title>
+                                <desc id="desc-colunas">Ilustração simplificada de um gráfico de barras com quatro categorias A, B, C e D</desc>
                                 <line x1="30" y1="130" x2="190" y2="130" stroke="#94a3b8" stroke-width="2"/>
                                 <line x1="30" y1="130" x2="30" y2="20" stroke="#94a3b8" stroke-width="2"/>
                                 
@@ -1080,11 +1019,13 @@
                                 <text x="132" y="145" fill="#94a3b8" font-size="10">C</text>
                                 <text x="172" y="145" fill="#94a3b8" font-size="10">D</text>
                             </svg>
-                            <span>Gráfico de Colunas</span>
-                        </div>
+                            <figcaption>Gráfico de Colunas</figcaption>
+                        </figure>
 
-                        <div class="svg-card">
-                            <svg width="200" height="160" viewBox="0 0 200 160" role="img" aria-label="Exemplo de gráfico de linhas">
+                        <figure class="svg-card">
+                            <svg width="200" height="160" viewBox="0 0 200 160" aria-labelledby="title-linhas desc-linhas">
+                                <title id="title-linhas">Gráfico de Linhas</title>
+                                <desc id="desc-linhas">Exemplo de gráfico de linha ao longo dos meses de Janeiro a Abril</desc>
                                 <line x1="30" y1="130" x2="190" y2="130" stroke="#94a3b8" stroke-width="2"/>
                                 <line x1="30" y1="130" x2="30" y2="20" stroke="#94a3b8" stroke-width="2"/>
                                 
@@ -1100,11 +1041,13 @@
                                 <text x="118" y="145" fill="#94a3b8" font-size="10">Mar</text>
                                 <text x="158" y="145" fill="#94a3b8" font-size="10">Abr</text>
                             </svg>
-                            <span>Gráfico de Linhas</span>
-                        </div>
+                            <figcaption>Gráfico de Linhas</figcaption>
+                        </figure>
 
-                        <div class="svg-card">
-                            <svg width="200" height="160" viewBox="0 0 200 160" role="img" aria-label="Exemplo de gráfico de setores">
+                        <figure class="svg-card">
+                            <svg width="200" height="160" viewBox="0 0 200 160" aria-labelledby="title-setores desc-setores">
+                                <title id="title-setores">Gráfico de Setores</title>
+                                <desc id="desc-setores">Exemplo de gráfico de setores dividido em 50%, 25% e 25%</desc>
                                 <path d="M 100,80 L 100,30 A 50,50 0 0,1 100,130 Z" fill="#10b981"/>
                                 <path d="M 100,80 L 100,130 A 50,50 0 0,1 50,80 Z" fill="#f59e0b"/>
                                 <path d="M 100,80 L 50,80 A 50,50 0 0,1 100,30 Z" fill="#3b82f6"/>
@@ -1115,42 +1058,247 @@
                                 <text x="70" y="105" fill="#ffffff" font-size="10" font-weight="bold">25%</text>
                                 <text x="70" y="65" fill="#ffffff" font-size="10" font-weight="bold">25%</text>
                             </svg>
-                            <span>Gráfico de Setores</span>
-                        </div>
+                            <figcaption>Gráfico de Setores</figcaption>
+                        </figure>
                     </div>
-                </div>
+                </section>
 
-                <div class="section-box">
-                    <h2>Exemplo Prático</h2>
-                    <p><em>Um gráfico de setores mostra que o setor A representa $25\%$ das vendas. Qual o ângulo correspondente no gráfico?</em></p>
-                    <p><strong>Análise:</strong> $25\% \text{ de } 360^\circ = 0,25 \times 360^\circ = 90^\circ$.</p>
-                </div>
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>As temperaturas máximas registradas em uma cidade de segunda a sexta-feira foram: Seg ($20^\circ\text{C}$), Ter ($22^\circ\text{C}$), Qua ($25^\circ\text{C}$), Qui ($21^\circ\text{C}$) e Sex ($22^\circ\text{C}$). Qual a temperatura média registrada nesse período?</p>
+                        <p><strong>Resolução:</strong> Média Aritmética Simples: $$\bar{x} = \frac{20 + 22 + 25 + 21 + 22}{5} = \frac{110}{5} = 22^\circ\text{C}$$<br>
+                        <strong>Gabarito: $22^\circ\text{C}$</strong>.</p>
+                    </article>
 
-                <div class="section-box">
-                    <h2>Questões Resolvidas</h2>
-                    <div class="exercicio-box">
-                        <h3>Questão 01</h3>
-                        <p>Um gráfico indica as temperaturas de uma semana: Seg ($20^\circ\text{C}$), Ter ($22^\circ\text{C}$), Qua ($25^\circ\text{C}$), Qui ($21^\circ\text{C}$), Sex ($22^\circ\text{C}$). Qual a temperatura média registrada?</p>
-                        <p><strong>Resolução:</strong> Média $= \frac{20 + 22 + 25 + 21 + 22}{5} = \frac{110}{5} = 22^\circ\text{C}$.</p>
-                    </div>
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Em uma pesquisa efetuada com $500$ pessoas representada em um gráfico de setores, a opção "Sim" ocupou um setor cujo ângulo central mede $180^\circ$. Quantas pessoas escolheram essa opção?</p>
+                        <p><strong>Resolução:</strong> A razão da fatia circular é dada pela proporção do ângulo sobre $360^\circ$:<br>
+                        $$\text{Proporção} = \frac{180^\circ}{360^\circ} = \frac{1}{2} = 50\%$$
+                        Calculando $50\%$ de $500$: $$N = 0{,}50 \cdot 500 = 250\text{ pessoas}$$<br>
+                        <strong>Gabarito: 250 pessoas</strong>.</p>
+                    </article>
+                </section>
 
-                    <div class="exercicio-box">
-                        <h3>Questão 02</h3>
-                        <p>Em um gráfico de pizza com $500$ entrevistados, a fatia da opção "Sim" possui um ângulo central de $180^\circ$. Quantas pessoas optaram por "Sim"?</p>
-                        <p><strong>Resolução:</strong> $180^\circ$ representa metade do círculo ($50\%$). Metade de 500 equivale a 250 pessoas.</p>
-                    </div>
-                </div>
-
-                <div class="section-box">
-                    <h2>Exercícios para Praticar</h2>
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
                     <ol>
-                        <li>Aponte a diferença entre média aritmética simples e média ponderada na análise de tabelas.</li>
-                        <li>Construa uma tabela de frequências simples a partir das notas de um simulado.</li>
-                        <li>Determine a moda e a mediana da seguinte série de dados: $\{4, 7, 7, 8, 10, 12, 15\}$.</li>
-                        <li>Em um gráfico de setores, qual o ângulo correspondente a uma fatia de $10\%$ do total?</li>
-                        <li>Analise o pico de produção mensal informado em um gráfico de linhas e calcule a diferença percentual entre o mês de maior e de menor produção.</li>
+                        <li>Explique conceitualmente a diferença entre média aritmética simples e média ponderada na análise de conjuntos de dados.</li>
+                        <li>Construa uma tabela de frequências contendo a frequência absoluta e a frequência relativa de um conjunto de dados simples.</li>
+                        <li>Determine a moda e a mediana da seguinte lista ordenada de valores: $\{4, 7, 7, 8, 10, 12, 15\}$. ($Mo = 7$; Mediana $Md = 8$ por ser o 4º termo).</li>
+                        <li>Em um gráfico de setores circular, qual é a medida do ângulo central correspondente a uma fatia que representa $10\%$ do total? ($\theta = 10\% \cdot 360^\circ = 0{,}10 \cdot 360^\circ = 36^\circ$).</li>
+                        <li>Em uma série temporal representada por um gráfico de linhas, o ponto mínimo foi 100 unidades e o ponto máximo foi 150 unidades. Qual foi o percentual de aumento do ponto mínimo para o máximo? ($\Delta\% = \frac{150 - 100}{100} = \frac{50}{100} = 50\%$).</li>
                     </ol>
+                </section>
+            </div>
+        </details>
+        
+        <!-- EQUAÇÃO DO 2º GRAU -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Equação do 2º Grau</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Forma Geral</h3>
+                    <p>Uma equação do $2^\circ$ grau com uma incógnita é qualquer equação polinomial que pode ser escrita na forma $ax^2 + bx + c = 0$, em que $a, b, c \in \mathbb{R}$ e $a \neq 0$. Os valores de $x$ que satisfazem a igualdade são chamados de <strong>raízes</strong>.</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Fórmula Resolutiva (Bhaskara) e Discriminante ($\Delta$)</h3>
+                        <p>$$x = \frac{-b \pm \sqrt{\Delta}}{2a}$$</p>
+                        <p>Onde o discriminante $\Delta$ é dado por: $$\Delta = b^2 - 4ac$$</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Análise do Discriminante ($\Delta$)</h3>
+                        <ul>
+                            <li><strong>$\Delta &gt; 0$:</strong> Duas raízes reais e distintas ($x_1 \neq x_2$).</li>
+                            <li><strong>$\Delta = 0$:</strong> Duas raízes reais e iguais ($x_1 = x_2$).</li>
+                            <li><strong>$\Delta &lt; 0$:</strong> Não possui raízes no conjunto dos números reais ($\mathbb{R}$).</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Relações de Girard (Soma e Produto)</h3>
+                        <p>Para equações na forma $ax^2 + bx + c = 0$ que admitem raízes reais $x_1$ e $x_2$:</p>
+                        <ul>
+                            <li><strong>Soma das raízes ($S$):</strong> $$S = x_1 + x_2 = -\frac{b}{a}$$</li>
+                            <li><strong>Produto das raízes ($P$):</strong> $$P = x_1 \cdot x_2 = \frac{c}{a}$$</li>
+                        </ul>
+                    </article>
                 </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Encontre as raízes reais da equação $x^2 - 7x + 10 = 0$.</p>
+                        <p><strong>Resolução:</strong> Coeficientes: $a = 1, b = -7, c = 10$.<br>
+                        $$\Delta = (-7)^2 - 4 \cdot (1) \cdot (10) = 49 - 40 = 9$$
+                        $$x = \frac{-(-7) \pm \sqrt{9}}{2(1)} = \frac{7 \pm 3}{2}$$
+                        $$x_1 = \frac{7 + 3}{2} = \frac{10}{2} = 5 \quad \text{e} \quad x_2 = \frac{7 - 3}{2} = \frac{4}{2} = 2$$<br>
+                        <strong>Gabarito: $S = \{2, 5\}$</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Determine a soma e o produto das raízes da equação $2x^2 - 8x + 6 = 0$ utilizando as Relações de Girard.</p>
+                        <p><strong>Resolução:</strong> Coeficientes: $a = 2, b = -8, c = 6$.<br>
+                        Soma: $$S = -\frac{b}{a} = -\frac{-8}{2} = 4$$
+                        Produto: $$P = \frac{c}{a} = \frac{6}{2} = 3$$<br>
+                        <strong>Gabarito: Soma = 4; Produto = 3</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Resolva no conjunto dos números reais a equação incompleta $3x^2 - 12 = 0$. ($3x^2 = 12 \implies x^2 = 4 \implies x = \pm 2$).</li>
+                        <li>Determine $k$ para que $x^2 - 6x + k = 0$ possua duas raízes reais iguais ($\Delta = 0$). ($(-6)^2 - 4(1)(k) = 0 \implies 36 - 4k = 0 \implies k = 9$).</li>
+                        <li>Determine as raízes da equação $x^2 - 5x + 6 = 0$ identificando dois números cuja soma seja 5 e o produto seja 6. ($x_1 = 2, x_2 = 3$).</li>
+                        <li>Resolva a equação incompleta $x^2 - 4x = 0$ utilizando fatoração. ($x(x - 4) = 0 \implies x_1 = 0 \text{ ou } x_2 = 4$).</li>
+                        <li>A área de um retângulo é $36\text{ m}^2$. Sabendo que o comprimento excede a largura em $5\text{ m}$, calcule as dimensões. ($x(x + 5) = 36 \implies x^2 + 5x - 36 = 0 \implies (x + 9)(x - 4) = 0 \implies x = 4\text{ m}$; Dimensões: $4\text{ m}$ por $9\text{ m}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- JUROS SIMPLES -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Juros Simples</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Definição</h3>
+                    <p>No regime de <strong>Juros Simples</strong>, a taxa de juros incide exclusivamente sobre o Capital Inicial ($C$) durante todo o período da aplicação.</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Fórmula dos Juros</h3>
+                        <p>$$J = C \cdot i \cdot t$$</p>
+                        <ul>
+                            <li><strong>$J$:</strong> Valor dos Juros gerados.</li>
+                            <li><strong>$C$:</strong> Capital inicial aplicado.</li>
+                            <li><strong>$i$:</strong> Taxa de juros (expressa obrigatoriamente em valor decimal na fórmula, $i = \frac{\text{taxa\%}}{100}$).</li>
+                            <li><strong>$t$:</strong> Tempo de aplicação.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Fórmula do Montante</h3>
+                        <p>$$M = C + J \quad \text{ou} \quad M = C \cdot (1 + i \cdot t)$$</p>
+                        <p>O Montante ($M$) é a soma acumulada do Capital inicial aplicado aos Juros gerados.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Compatibilidade de Unidades</h3>
+                        <p>A taxa de juros ($i$) e o tempo ($t$) <strong>devem estar expressos rigorosamente na mesma unidade de tempo</strong> (ex.: taxa mensal e tempo em meses, ou taxa anual e tempo em anos).</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Um investimento de R$ 1.200,00 foi aplicado sob o regime de juros simples a uma taxa de 2% ao mês durante 5 meses. Qual o valor dos juros produzidos e o montante final?</p>
+                        <p><strong>Resolução:</strong> Dados: $C = 1200$, $i = 2\% \text{ a.m.} = 0{,}02$, $t = 5 \text{ meses}$.<br>
+                        Juros: $$J = C \cdot i \cdot t = 1200 \cdot 0{,}02 \cdot 5 = 1200 \cdot 0{,}10 = 120{,}00\text{ reais}$$
+                        Montante: $$M = C + J = 1200 + 120 = 1.320{,}00\text{ reais}$$<br>
+                        <strong>Gabarito: Juros = R$ 120,00; Montante = R$ 1.320,00</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Durante quanto tempo um capital de R$ 800,00 deve ficar aplicado a uma taxa de juros simples de 3% ao mês para render R$ 144,00 de juros?</p>
+                        <p><strong>Resolução:</strong> Dados: $J = 144$, $C = 800$, $i = 3\% \text{ a.m.} = 0{,}03$.<br>
+                        $$J = C \cdot i \cdot t \implies 144 = 800 \cdot 0{,}03 \cdot t \implies 144 = 24 \cdot t \implies t = \frac{144}{24} = 6\text{ meses}$$<br>
+                        <strong>Gabarito: 6 meses</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Calcule os juros simples gerados por R$ 2.500,00 aplicados a $1{,}5\%$ ao mês durante 1 ano ($12\text{ meses}$). ($J = 2500 \cdot 0{,}015 \cdot 12 = \text{R\$ } 450{,}00$).</li>
+                        <li>Qual é o montante acumulado por uma aplicação de R$ 5.000,00 a uma taxa de juros simples de $10\%$ ao ano durante 3 anos? ($M = 5000 \cdot (1 + 0{,}10 \cdot 3) = 5000 \cdot 1{,}30 = \text{R\$ } 6.500{,}00$).</li>
+                        <li>Qual taxa mensal de juros simples faz com que um capital de R$ 1.000,00 produza R$ 200,00 de juros ao fim de 8 meses? ($200 = 1000 \cdot i \cdot 8 \implies 8000i = 200 \implies i = 0{,}025 = 2{,}5\%\text{ a.m.}$).</li>
+                        <li>Em quanto tempo um capital dobrará de valor se aplicado a uma taxa de juros simples de $5\%$ ao mês? ($J = C \implies C = C \cdot 0{,}05 \cdot t \implies 0{,}05t = 1 \implies t = 20\text{ meses}$).</li>
+                        <li>Um empréstimo de R$ 3.000,00 gerou um montante final de R$ 3.540,00 ao fim de 6 meses. Qual foi a taxa mensal de juros simples cobrada? ($J = 3540 - 3000 = 540$; $540 = 3000 \cdot i \cdot 6 \implies 18000i = 540 \implies i = 0{,}03 = 3\%\text{ a.m.}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- ESTATÍSTICA (MEDIDAS DE TENDÊNCIA CENTRAL) -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Estatística (Média, Moda e Mediana)</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Medidas de Tendência Central</h3>
+                    <p>As medidas de tendência central são valores representativos que sintetizam o comportamento de um conjunto de dados numéricos em torno de seu centro.</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Média Aritmética Simples ($\bar{x}$)</h3>
+                        <p>$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} = \frac{x_1 + x_2 + \dots + x_n}{n}$$</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Média Ponderada ($\bar{x}_p$)</h3>
+                        <p>Calculada multiplicando-se cada valor pelo seu respectivo peso e dividindo-se pela soma dos pesos:</p>
+                        <p>$$\bar{x}_p = \frac{x_1 \cdot p_1 + x_2 \cdot p_2 + \dots + x_n \cdot p_n}{p_1 + p_2 + \dots + p_n}$$</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Moda ($Mo$) e Mediana ($Md$)</h3>
+                        <ul>
+                            <li><strong>Moda ($Mo$):</strong> É o valor (ou valores) de maior frequência absoluta no conjunto. Caso nenhum valor se repita, o conjunto é chamado de amodal.</li>
+                            <li><strong>Mediana ($Md$):</strong> É o elemento central do conjunto organizando os dados em ordem crescente ou decrescente (Rol). Se a quantidade de elementos $n$ for par, a mediana será a média aritmética simples dos dois elementos centrais: $$Md = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2}$$</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Considere o conjunto de notas obtidas por um estudante: $\{6{,}0; 8{,}0; 7{,}5; 8{,}0; 5{,}5\}$. Determine a média aritmética simples, a moda e a mediana.</p>
+                        <p><strong>Resolução:</strong><br>
+                        1. <strong>Média:</strong> $$\bar{x} = \frac{6{,}0 + 8{,}0 + 7{,}5 + 8{,}0 + 5{,}5}{5} = \frac{35{,}0}{5} = 7{,}0$$
+                        2. <strong>Moda:</strong> O valor $8{,}0$ possui maior frequência (aparece 2 vezes). $Mo = 8{,}0$.<br>
+                        3. <strong>Mediana:</strong> Ordenando em Rol crescente: $\{5{,}5; 6{,}0; 7{,}5; 8{,}0; 8{,}0\}$. Como $n = 5$ (ímpar), a mediana é o termo central ($3^\circ$ termo): $Md = 7{,}5$.<br>
+                        <strong>Gabarito: Média = 7,0; Moda = 8,0; Mediana = 7,5</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Determine a mediana do conjunto numérico: $\{12, 5, 8, 20, 15, 10\}$.</p>
+                        <p><strong>Resolução:</strong> Ordenando em Rol crescente: $\{5, 8, 10, 12, 15, 20\}$.<br>
+                        O número de elementos é $n = 6$ (par). Os dois valores centrais são o $3^\circ$ e $4^\circ$ termos ($10$ e $12$).<br>
+                        $$Md = \frac{10 + 12}{2} = \frac{22}{2} = 11$$<br>
+                        <strong>Gabarito: Mediana = 11</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Um estudante obteve notas $7{,}0$; $8{,}0$ e $9{,}0$ em avaliações com pesos $1$, $2$ e $3$, respectivamente. Qual é a sua média ponderada? ($\bar{x}_p = \frac{7 \cdot 1 + 8 \cdot 2 + 9 \cdot 3}{1 + 2 + 3} = \frac{7 + 16 + 27}{6} = \frac{50}{6} \approx 8{,}33$).</li>
+                        <li>Encontre a moda e a mediana da lista de idades: $\{14, 15, 15, 16, 15, 17, 18, 16, 14\}$. (Rol: $\{14, 14, 15, 15, 15, 16, 16, 17, 18\}$; $Mo = 15$; $n = 9 \implies Md = 5^\circ \text{ termo} = 15$).</li>
+                        <li>A média aritmética de quatro números é 15. Se três deles são 10, 14 e 18, qual é o valor do quarto número? ($\frac{10 + 14 + 18 + x}{4} = 15 \implies 42 + x = 60 \implies x = 18$).</li>
+                        <li>Dada a sequência de dados já ordenada $\{12, 14, 15, 18, 20, 25\}$, qual é o valor da mediana? ($n = 6 \implies Md = \frac{15 + 18}{2} = 16{,}5$).</li>
+                        <li>Em uma pesquisa sobre o número de filhos por família, foram registrados os dados: $0, 1, 1, 2, 2, 2, 3, 4$. Qual é a média e a moda desse grupo? ($\bar{x} = \frac{0 + 1 + 1 + 2 + 2 + 2 + 3 + 4}{8} = \frac{15}{8} = 1{,}875$; $Mo = 2$).</li>
+                    </ol>
+                </section>
             </div>
         </details>
 
@@ -1159,6 +1307,7 @@
     <footer>
         <p>© 2026 • Plataforma de Estudos IFRN • Desenvolvido com foco no seu sucesso acadêmico.</p>
     </footer>
-            <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
