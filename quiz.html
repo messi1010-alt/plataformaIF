@@ -24,7 +24,7 @@
       position: sticky;
       top: 90px;
       z-index: 90;
-      background: rgba(8, 18, 13, 0.85);
+      background: rgba(8, 18, 13, 0.90);
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       border: 1px solid var(--card-border-hover);
@@ -37,18 +37,18 @@
     /* Barra de Progresso */
     .barra-progresso-bg {
       width: 100%;
-      height: 8px;
+      height: 10px;
       background: rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-full);
       overflow: hidden;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .barra-progresso-fill {
       height: 100%;
       width: 0%;
       background: linear-gradient(90deg, var(--primary) 0%, var(--ifrn-green-light) 100%);
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Caixa do Texto-Base Institucional */
@@ -169,6 +169,26 @@
       box-shadow: var(--shadow-lg);
     }
 
+    /* Feedback de Desempenho */
+    .feedback-box {
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .feedback-alerta {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid var(--ifrn-red);
+      color: #fca5a5;
+    }
+
+    .feedback-sucesso {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--ifrn-green-light);
+      color: var(--ifrn-green-light);
+    }
+
     /* Suporte a Fórmulas e SVGs do Quiz */
     .quiz-svg-wrapper {
       background: rgba(0, 0, 0, 0.4);
@@ -226,7 +246,7 @@
         Quiz Surpresa: Avaliação Avançada IFRN
       </h1>
       <p style="color: var(--text-muted); max-width: 580px; margin: 0 auto 28px;">
-        Testagem analítica baseada no edital oficial. Preencha sua identificação para registrar seu desempenho no ranking global e emissão de certificado.
+        Testagem analítica baseada no edital oficial. Preencha sua identificação para registrar seu desempenho no ranking global e liberar a emissão do certificado (mínimo de 50% de aproveitamento).
       </p>
 
       <div id="caixa-resumo-simulado" class="resumo-simulado" style="display: none;"></div>
@@ -320,7 +340,7 @@
         <div id="tabela-ranking" class="table-container"></div>
       </div>
 
-      <div class="questao-card">
+      <div class="questao-card" id="card-certificado-area">
         <h3 style="color: var(--ifrn-green-light); margin-bottom: 20px; text-align: center; font-size: 1.3rem;">Certificado Institucional de Conclusão</h3>
         <div class="cert-container" id="cert-svg-box"></div>
       </div>
