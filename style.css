@@ -1387,7 +1387,193 @@ proitec-glass-banner {
   color: var(--ifrn-green-light);
   letter-spacing: -0.01em;
 }
-/* ==========================================================================
+/*/* ==========================================================================
+BANNER PROITEC (GLASSMORPHISM & OTIMIZADO)
+========================================================================== */
+.proitec-glass-banner,
+proitec-glass-banner {
+  width: calc(100% - 32px);
+  max-width: 1000px;
+  margin: 20px auto 28px auto;
+  background: linear-gradient(
+    135deg, 
+    rgba(17, 32, 26, 0.75) 0%, 
+    rgba(8, 18, 14, 0.85) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--card-border);
+  border-top: 1px solid var(--card-border-top);
+  border-left: 4px solid var(--ifrn-green-light);
+  border-radius: var(--radius-md);
+  padding: 14px 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.proitec-glass-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s ease;
+}
+
+.proitec-glass-banner:hover::before {
+  left: 200%;
+}
+
+.proitec-glass-banner:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--ifrn-green-glow);
+}
+
+.popup-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--ifrn-green-light);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+}
+
+.badge-glass::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--ifrn-green-light);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--ifrn-green-light);
+  animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.fecha-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.contador-compacto {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.time-unit {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.time-unit span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.time-unit small {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ifrn-green-light);
+  text-transform: uppercase;
+}
+
+.colon {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  user-select: none;
+}
+
+.alerta-hoje {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ifrn-green-light);
+  letter-spacing: -0.01em;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Adaptabilidade Mobile para o PROITEC */
+@media (max-width: 640px) {
+  .proitec-glass-banner,
+  proitec-glass-banner {
+    padding: 14px 16px;
+  }
+
+  .popup-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .contador-compacto {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .time-unit {
+    flex: 1;
+    justify-content: center;
+    padding: 6px 8px;
+  }
+}
+ ==========================================================================
 ESTILOS DO QUIZ / SIMULADO INTERATIVO
 ========================================================================== */
 .quiz-header-top {
