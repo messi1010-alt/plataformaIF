@@ -87,300 +87,301 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 3. QUIZ SURPRESA (BANCO DE QUESTÕES)
+  // 3. QUIZ SURPRESA (BANCO DE QUESTÕES FOCADO NA COP30)
   // ==========================================
   const bancoQuestoes = [
     {
       materia: "Português",
-      enunciado: "No trecho <span class='destaque-sublinhado'>\"Embora a meta de neutralidade de carbono seja ambiciosa\"</span>, sua viabilidade depende do comprometimento das nações desenvolvidas. A oração em destaque exprime uma relação sintático-semântica de:",
-      svg: `<svg viewBox="0 0 400 100" style="width:100%; height:100px; font-family:'Plus Jakarta Sans', sans-serif;">
-              <rect width="400" height="100" rx="8" fill="#0d1913" stroke="rgba(255,255,255,0.08)"/>
-              <text x="20" y="32" fill="#10b981" font-weight="700" font-size="13">Análise Sintático-Discursiva</text>
-              <line x1="20" y1="42" x2="380" y2="42" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1.5"/>
-              <text x="20" y="68" fill="#f59e0b" font-size="12" font-weight="600">[Oração Subordinada Adverbial]</text>
-              <text x="210" y="68" fill="#ffffff" font-size="12">→ [Oração Principal]</text>
-            </svg>`,
+      enunciado: "No trecho <span class='destaque-sublinhado'>\"A 30ª Conferência das Nações Unidas [...] constitui o ápice das negociações multilaterais\"</span>, o termo sublinhado possui a mesma significação de:",
+      svg: null,
       opcoes: [
-        "A) Causa, pois aponta o motivo direto de a meta ser considerada ambiciosa.",
-        "B) Concessão, pois introduz um fato contrário que não impede a oração principal.",
-        "C) Condição, visto que impõe uma premissa obrigatória para a viabilidade.",
-        "D) Consequência, por indicar o resultado inevitável das metas estipuladas."
+        "Ponto culminante / Declínio",
+        "Ponto mais elevado / Vértice",
+        "Início formal / Prelúdio",
+        "Fase transitória / Impasse"
       ],
       correta: 1,
-      explicacao: "A conjunção subordinativa 'Embora' introduz uma oração subordinada adverbial concessiva, indicando um obstáculo que não é suficiente para anular a oração principal."
+      explicacao: "'Ápice' refere-se ao topo, cume ou ponto mais elevado em uma escala ou processo."
     },
     {
       materia: "Matemática",
-      enunciado: "Um complexo eólico na Região Nordeste possui capacidade nominal de <strong class='enunciado-destaque'>150 MW</strong>. Devido às oscilações dos ventos, opera com fator de capacidade de <strong class='enunciado-destaque'>40%</strong>. Sabendo que uma residência consome em média <strong class='enunciado-destaque'>200 kWh/mês</strong>, quantas residências esse complexo consegue abastecer continuadamente ao longo de um mês de 30 dias?",
+      enunciado: "Segundo o texto-base, projeta-se a presença de <strong class='enunciado-destaque'>40.000 participantes</strong> na COP30, sendo <strong class='enunciado-destaque'>7.000</strong> integrantes de comitivas diplomáticas e técnicos. Qual é a porcentagem correspondente ao público geral (não diplomático)?",
       svg: `<svg viewBox="0 0 400 100" style="width:100%; height:100px; font-family:'Plus Jakarta Sans', sans-serif;">
               <rect width="400" height="100" rx="8" fill="#0d1913" stroke="rgba(255,255,255,0.08)"/>
-              <text x="20" y="30" fill="#10b981" font-weight="700" font-size="13">Dados Operacionais do Complexo</text>
-              <text x="20" y="60" fill="#ffffff" font-size="12">• Capacidade Nominal: 150 MW</text>
-              <text x="20" y="80" fill="#ffffff" font-size="12">• Fator de Carga: 40% | Consumo Médio: 200 kWh/mês</text>
+              <text x="20" y="30" fill="#10b981" font-weight="700" font-size="13">Divisão do Público da COP30</text>
+              <text x="20" y="60" fill="#ffffff" font-size="12">• Total: 40.000 | Diplomáticos: 7.000</text>
+              <text x="20" y="80" fill="#f59e0b" font-size="12">• Público geral: 33.000</text>
             </svg>`,
       opcoes: [
-        "A) 180.000 residências",
-        "B) 216.000 residências",
-        "C) 360.000 residências",
-        "D) 540.000 residências"
+        "82,5%",
+        "85,0%",
+        "87,5%",
+        "90,0%"
       ],
-      correta: 1,
-      explicacao: "Potência real = 150 MW × 0,40 = 60 MW = 60.000 kW. Em 30 dias (720h), a energia gerada é 60.000 kW × 720 h = 43.200.000 kWh. Dividindo pelo consumo (200 kWh): 43.200.000 / 200 = 216.000 residências."
+      correta: 0,
+      explicacao: "Público geral = 40.000 - 7.000 = 33.000. Porcentagem = (33.000 / 40.000) * 100 = 82,5%."
     },
     {
       materia: "Português",
-      enunciado: "Considere a oração: <span class='destaque-sublinhado'>\"Atribui-se aos debates climáticos da COP30 papel decisivo no redirecionamento de investimentos ecológicos\"</span>. Quanto à sintaxe e concordância, assinale a afirmação correta:",
+      enunciado: "Em <span class='destaque-sublinhado'>\"O evento exige do Brasil a demonstração prática de compromissos...\"</span>, a regência do verbo <strong class='enunciado-destaque'>\"exigir\"</strong> classifica-o sintaticamente como:",
       svg: null,
       opcoes: [
-        "A) O termo 'papel decisivo' exerce a função de sujeito paciente, e o verbo 'Atribui-se' está corretamente no singular.",
-        "B) 'aos debates climáticos' é o sujeito sintático da oração, determinando a flexão do verbo.",
-        "C) A partícula 'se' funciona como índice de indeterminação do sujeito, exigindo verbo na 3ª pessoa.",
-        "D) Há erro de regência verbal, pois o verbo atribuir exige obrigatoriamente a preposição 'em'."
-      ],
-      correta: 0,
-      explicacao: "Na voz passiva sintética com a partícula 'se', o termo 'papel decisivo' é o sujeito paciente no singular ('Papel decisivo é atribuído...'), exigindo a concordância do verbo no singular."
-    },
-    {
-      materia: "Matemática",
-      enunciado: "Para abastecer uma instalação da COP30, construiu-se um reservatório cilíndrico reto com <strong class='enunciado-destaque'>6 metros de diâmetro interno</strong> e <strong class='enunciado-destaque'>5 metros de altura</strong>. Se o volume de água retido corresponde a <strong class='enunciado-destaque'>80%</strong> da sua capacidade máxima, qual é a quantidade de água acumulada em m³? (Adote π = 3,14)",
-      svg: `<svg viewBox="0 0 400 110" style="width:100%; height:110px; font-family:'Plus Jakarta Sans', sans-serif;">
-              <rect width="400" height="110" rx="8" fill="#0d1913" stroke="rgba(255,255,255,0.08)"/>
-              <ellipse cx="80" cy="30" rx="35" ry="10" fill="none" stroke="#10b981" stroke-width="2"/>
-              <line x1="45" y1="30" x2="45" y2="85" stroke="#10b981" stroke-width="2"/>
-              <line x1="115" y1="30" x2="115" y2="85" stroke="#10b981" stroke-width="2"/>
-              <ellipse cx="80" cy="85" rx="35" ry="10" fill="none" stroke="#10b981" stroke-width="2"/>
-              <text x="145" y="48" fill="#ffffff" font-size="12">Diâmetro = 6 m</text>
-              <text x="145" y="72" fill="#ffffff" font-size="12">Altura = 5 m</text>
-            </svg>`,
-      opcoes: [
-        "A) 113,04 m³",
-        "B) 141,30 m³",
-        "C) 176,62 m³",
-        "D) 226,08 m³"
-      ],
-      correta: 0,
-      explicacao: "Diâmetro = 6 m → Raio = 3 m. Volume total = π · r² · h = 3,14 × (3²) × 5 = 141,3 m³. Volume com 80% ocupado = 141,3 × 0,80 = 113,04 m³."
-    },
-    {
-      materia: "Português",
-      enunciado: "Assinale a opção em que o emprego do sinal indicativo de crase atende <strong class='enunciado-destaque'>RIGOROSAMENTE</strong> à norma-padrão da língua portuguesa:",
-      svg: null,
-      opcoes: [
-        "A) A comissão dirigiu-se à uma sala reservada para dar início à votação das propostas.",
-        "B) Os representantes compareceram à reuniões bilaterais para debater à respeito das metas.",
-        "C) O relatório faz referência à matriz energética brasileira e recomenda adesão à medidas severas.",
-        "D) As propostas relativas à preservação amazônica foram submetidas à appreciation dos conferencistas."
+        "Verbo Intransitivo.",
+        "Verbo Transitivo Direto.",
+        "Verbo Transitivo Indireto.",
+        "Verbo Transitivo Direto e Indireto."
       ],
       correta: 3,
-      explicacao: "Em 'relativas à preservação' (a + a = à) e 'submetidas à apreciação' (a + a = à), ocorre fusão da preposição com o artigo feminino singular."
+      explicacao: "Quem exige, exige algo ('a demonstração...') de alguém ('do Brasil'). Trata-se de um verbo bitransitivo (VTD-I)."
     },
     {
       materia: "Matemática",
-      enunciado: "Um estudo sobre o desmatamento projetou que a área destruída em uma reserva diminui a uma taxa constante a cada ano. Em 2020 foram desmatados <strong class='enunciado-destaque'>1.200 km²</strong> e, em 2024, esse valor caiu para <strong class='enunciado-destaque'>720 km²</strong>. Mantendo essa Progressão Aritmética, em qual ano o desmatamento atingirá exatamente <strong class='enunciado-destaque'>ZERO</strong>?",
+      enunciado: "O investimento total de R$ 7,3 bilhões contempla 38 intervenções urbanas. Se R$ 980 milhões foram destinados exclusivamente ao Parque da Cidade, qual o montante reservado para as demais 37 obras?",
       svg: null,
       opcoes: [
-        "A) 2028",
-        "B) 2030",
-        "C) 2032",
-        "D) 2034"
+        "R$ 6,32 bilhões",
+        "R$ 6,42 bilhões",
+        "R$ 6,50 bilhões",
+        "R$ 6,68 bilhões"
       ],
-      correta: 1,
-      explicacao: "Período de 4 anos (2020 a 2024): Redução total = 1.200 - 720 = 480 km². Redução anual (razão) = 480 / 4 = 120 km²/ano. Para zerar a taxa inicial de 1.200 km²: 1.200 / 120 = 10 anos. Ano final: 2020 + 10 = 2030."
+      correta: 0,
+      explicacao: "R$ 7,3 bilhões = R$ 7.300 milhões. Subtraindo R$ 980 milhões do Parque da Cidade: 7.300 - 980 = R$ 6.320 milhões = R$ 6,32 bilhões."
     },
     {
       materia: "Português",
-      enunciado: "No excerto <span class='destaque-sublinhado'>\"O avanço tecnológico, cujos impactos ambientais foram amplamente debatidos, exige responsabilidade socioambiental\"</span>, a oração isolada por vírgulas possui classificação sintática de:",
+      enunciado: "Observe o trecho: <span class='destaque-sublinhado'>\"A Zona Azul — espaço restrito às deliberações soberanas [...] — e a Zona Verde...\"</span>. Os travessões foram empregados para:",
       svg: null,
       opcoes: [
-        "A) Oração subordinada adjetiva explicativa.",
-        "B) Oração subordinada adjetiva restritiva.",
-        "C) Oração subordinada substantiva apositiva.",
-        "D) Oração coordenada sindética explicativa."
+        "Isolar uma fala direta de personagem diplomático.",
+        "Delimitar um aposto explicativo sobre a Zona Azul.",
+        "Indicar a mudança de interlocutor em um debate.",
+        "Substituir vírgulas que isolam uma oração adjetiva restritiva."
       ],
-      correta: 0,
-      explicacao: "Orações introduzidas por pronomes relativos ('cujos') e devidamente isoladas por vírgulas são classificadas como orações subordinadas adjetivas explicativas."
+      correta: 1,
+      explicacao: "Os travessões destacam a definição/explicação do termo 'Zona Azul', funcionando como um aposto explicativo."
     },
     {
       materia: "Matemática",
-      enunciado: "Um drone de monitoramento mapeia uma reserva florestal de formato triangular cujos lados medem <strong class='enunciado-destaque'>13 km</strong>, <strong class='enunciado-destaque'>14 km</strong> e <strong class='enunciado-destaque'>15 km</strong>. Qual é a área dessa região de cobertura em km²?",
+      enunciado: "Para acomodar comitivas da COP30, construiu-se uma estrutura retangular temporária de <strong class='enunciado-destaque'>120 metros de comprimento por 50 metros de largura</strong>. Qual é o perímetro total e a área dessa estrutura, respectivamente?",
       svg: `<svg viewBox="0 0 400 110" style="width:100%; height:110px; font-family:'Plus Jakarta Sans', sans-serif;">
               <rect width="400" height="110" rx="8" fill="#0d1913" stroke="rgba(255,255,255,0.08)"/>
-              <polygon points="60,90 180,25 340,90" fill="none" stroke="#10b981" stroke-width="2"/>
-              <text x="100" y="50" fill="#94a3b8" font-size="11">13 km</text>
-              <text x="260" y="50" fill="#94a3b8" font-size="11">15 km</text>
-              <text x="180" y="102" fill="#94a3b8" font-size="11">14 km</text>
+              <rect x="100" y="25" width="200" height="60" fill="none" stroke="#10b981" stroke-width="2"/>
+              <text x="200" y="20" fill="#ffffff" font-size="11" text-anchor="middle">Comprimento: 120 m</text>
+              <text x="310" y="60" fill="#ffffff" font-size="11">Largura: 50 m</text>
             </svg>`,
       opcoes: [
-        "A) 72 km²",
-        "B) 84 km²",
-        "C) 90 km²",
-        "D) 96 km²"
+        "340 m e 6.000 m²",
+        "340 m e 3.000 m²",
+        "170 m e 6.000 m²",
+        "240 m e 3.500 m²"
       ],
-      correta: 1,
-      explicacao: "Utilizando a Fórmula de Heron: Perímetro = 13 + 14 + 15 = 42 km → Semiperímetro (p) = 21 km. Área = √(21 × (21-13) × (21-14) × (21-15)) = √(21 × 8 × 7 × 6) = √7056 = 84 km²."
+      correta: 0,
+      explicacao: "Perímetro = 2*(120 + 50) = 2*170 = 340 metros. Área = 120 * 50 = 6.000 m²."
     },
     {
       materia: "Português",
-      enunciado: "Indique a alternativa em que a regência nominal e verbal atende integralmente às exigências do padrão culto:",
+      enunciado: "No trecho <span class='destaque-sublinhado'>\"destacando-se R$ 980 milhões alocados no Parque da Cidade\"</span>, a palavra 'alocados' pode ser substituída sem alterar o sentido do texto por:",
       svg: null,
       opcoes: [
-        "A) As ONGs ambientais que o estudante simpatiza preferem trabalhar do que apenas debater.",
-        "B) As ONGs ambientais com que o estudante simpatiza preferem trabalhar a apenas debater.",
-        "C) As ONGs ambientais em que o estudante simpatiza preferem mais trabalhar do que apenas debater.",
-        "D) As ONGs ambientais de que o estudante simpatiza preferem antes trabalhar que apenas debater."
+        "Subtraídos",
+        "Destinados",
+        "Arrecadados",
+        "Desviados"
       ],
       correta: 1,
-      explicacao: "Quem 'simpatiza', simpatiza 'com' (com que). O verbo 'preferir' exige a preposição 'a' e rejeita intensificadores como 'mais' ou 'do que'."
+      explicacao: "'Alocar' recursos significa destiná-los, distribuí-los ou atribuí-los a um fim específico."
     },
     {
       materia: "Matemática",
-      enunciado: "Um reservatório sustentável em formato cúbico possui capacidade total de <strong class='enunciado-destaque'>64.000 litros</strong>. Qual é a medida aproximada da diagonal interna desse reservatório em metros? (Considere 1 m³ = 1.000 L e √3 ≈ 1,73)",
+      enunciado: "Em uma simulação para o transporte na COP30, ônibus elétricos partem do centro de Belém em intervalos constantes de <strong class='enunciado-destaque'>12 minutos</strong>, enquanto barcos ecológicos partem a cada <strong class='enunciado-destaque'>20 minutos</strong>. Se ambos partiram juntos às 08h00, qual será o próximo horário de partida simultânea?",
       svg: null,
       opcoes: [
-        "A) 4,00 m",
-        "B) 5,66 m",
-        "C) 6,92 m",
-        "D) 8,00 m"
+        "08h40",
+        "09h00",
+        "09h20",
+        "09h40"
+      ],
+      correta: 1,
+      explicacao: "Cálculo do MMC(12, 20): 12 = 2² * 3; 20 = 2² * 5. MMC = 2² * 3 * 5 = 60 minutos (1 hora). Horário: 08h00 + 1h = 09h00."
+    },
+    {
+      materia: "Português",
+      enunciado: "Na frase <span class='destaque-sublinhado'>\"É necessário que os países cumpram as metas climáticas estabelecidas\"</span>, a oração sublinhada exerce a função sintática de:",
+      svg: null,
+      opcoes: [
+        "Objeto Direto",
+        "Sujeito Oracional",
+        "Predicativo do Sujeito",
+        "Complemento Nominal"
+      ],
+      correta: 1,
+      explicacao: "A estrutura equivale a 'Que os países cumpram as metas é necessário'. A oração funciona como sujeito da oração principal 'É necessário' (Oração Subordinada Substantiva Subjetiva)."
+    },
+    {
+      materia: "Matemática",
+      enunciado: "Um relatório aponta que o desmatamento ilegal na região caiu em uma Progressão Aritmética nos últimos 4 anos: <strong class='enunciado-destaque'>1.200 km², 1.050 km², 900 km²...</strong> Mantendo a tendência, qual será a área desmatada no 5º ano?",
+      svg: null,
+      opcoes: [
+        "750 km²",
+        "600 km²",
+        "500 km²",
+        "450 km²"
+      ],
+      correta: 1,
+      explicacao: "Razão da P.A. (r) = 1.050 - 1.200 = -150. 4º termo = 900 - 150 = 750 km². 5º termo = 750 - 150 = 600 km²."
+    },
+    {
+      materia: "Português",
+      enunciado: "Assinale a alternativa que apresenta a correta acentuação gráfica e justificativa do vocábulo <strong class='enunciado-destaque'>\"ápice\"</strong>:",
+      svg: null,
+      opcoes: [
+        "Oxítona terminada em vogal.",
+        "Paroxítona terminada em 'e'.",
+        "Proparoxítona, devendo todas ser acentuadas.",
+        "Vocábulo monossílabo tônico."
       ],
       correta: 2,
-      explicacao: "64.000 L = 64 m³. Volume do cubo V = a³ → a³ = 64 → a = 4 metros. A diagonal interna do cubo é dada por d = a√3 = 4 × 1,73 = 6,92 metros."
-    },
-    {
-      materia: "Português",
-      enunciado: "Assinale a alternativa em que a concordância nominal apresenta uma incorreção sintática:",
-      svg: null,
-      opcoes: [
-        "A) Seguem anexas ao relatório as planilhas de metas de redução de emissões.",
-        "B) É necessário atenção permanente durante o processamento dos dados climáticos.",
-        "C) A deputada mesmo apresentou as propostas para a preservação ambiental.",
-        "D) Bastantes pesquisadores apresentaram pareceres bastante plausíveis sobre o clima."
-      ],
-      correta: 1,
-      explicacao: "Sem determinante antes do substantivo, a expressão 'É necessário' permanece invariável. Porém, em contexto formal com foco no substantivo ou com especificação, exige flexão: 'É necessária a atenção' ou 'É necessária atenção'."
+      explicacao: "A sílaba tônica é a antepenúltima (á-pi-ce), classificando-a como proparoxítona. Todas as proparoxítonas recebem acento."
     },
     {
       materia: "Matemática",
-      enunciado: "Dois sensores ecológicos transmitem dados periodicamente: o sensor A a cada <strong class='enunciado-destaque'>18 minutos</strong> e o B a cada <strong class='enunciado-destaque'>24 minutos</strong>. Se ambos transmitiram simultaneamente às <strong class='enunciado-destaque'>08h00</strong>, a que horas voltarão a emitir sinais juntos pela primeira vez?",
+      enunciado: "Uma delegação comprou 150 credenciais para seus congressistas. Ao pagar à vista, obteve um desconto de <strong class='enunciado-destaque'>15%</strong> no valor total de R$ 30.000,00. Qual foi o valor final economizado pelo grupo?",
       svg: null,
       opcoes: [
-        "A) 08h42",
-        "B) 09h12",
-        "C) 09h24",
-        "D) 10h00"
-      ],
-      correta: 1,
-      explicacao: "Cálculo do MMC(18, 24): 18 = 2 · 3² | 24 = 2³ · 3 → MMC = 2³ · 3² = 72 minutos. 72 min = 1h12min. Somando ao horário inicial (08h00): 09h12."
-    },
-    {
-      materia: "Português",
-      enunciado: "Na frase <span class='destaque-sublinhado'>\"Não só os governos locais aprovaram as diretrizes ecológicas, mas também as entidades internacionais as ratificaram\"</span>, a estrutura em destaque estabelece sentido de:",
-      svg: null,
-      opcoes: [
-        "A) Adição e ênfase de ideias.",
-        "B) Oposição e contraste sintático.",
-        "C) Alternância e exclusão mútua.",
-        "D) Causa e consequência proporcional."
-      ],
-      correta: 0,
-      explicacao: "A locução correlativa 'Não só... mas também' conecta orações coordenadas sindéticas aditivas, enfatizando a união de fatos."
-    },
-    {
-      materia: "Matemática",
-      enunciado: "Na planta de um projeto arquitetônico desenhada na escala de <strong class='enunciado-destaque'>1:250</strong>, um auditório retangular possui <strong class='enunciado-destaque'>12 cm</strong> de comprimento e <strong class='enunciado-destaque'>8 cm</strong> de largura. Qual é a área real desse auditório em m²?",
-      svg: null,
-      opcoes: [
-        "A) 600 m²",
-        "B) 2.400 m²",
-        "C) 6.000 m²",
-        "D) 24.000 m²"
-      ],
-      correta: 0,
-      explicacao: "Comprimento real = 12 cm × 250 = 3.000 cm = 30 m. Largura real = 8 cm × 250 = 2.000 cm = 20 m. Área real = 30 m × 20 m = 600 m²."
-    },
-    {
-      materia: "Português",
-      enunciado: "Assinale a opção em que os sinais de pontuação isolam corretamente um <strong class='enunciado-destaque'>APOSTO EXPLICATIVO</strong>:",
-      svg: null,
-      opcoes: [
-        "A) Belém, capital do Pará, sediará debates fundamentais para o futuro do planeta.",
-        "B) Os delegados, que chegaram cedo, ocuparam o auditório principal.",
-        "C) Se houver consenso, os tratados ambientais serão assinados amanhã.",
-        "D) Jovens, lideranças e cientistas participaram ativamente do simpósio."
-      ],
-      correta: 0,
-      explicacao: "'Capital do Pará' explica e identifica o substantivo próprio 'Belém', desempenhando a função sintática de aposto explicativo isolado por vírgulas."
-    },
-    {
-      materia: "Matemática",
-      enunciado: "Um capital de <strong class='enunciado-destaque'>R$ 20.000,00</strong> foi aplicado do sistema de juros compostos a uma taxa de <strong class='enunciado-destaque'>10% ao ano</strong>. Qual será o montante total acumulado ao final de 2 anos?",
-      svg: null,
-      opcoes: [
-        "A) R$ 22.000,00",
-        "B) R$ 24.000,00",
-        "C) R$ 24.200,00",
-        "D) R$ 25.400,00"
+        "R$ 3.500,00",
+        "R$ 4.000,00",
+        "R$ 4.500,00",
+        "R$ 5.000,00"
       ],
       correta: 2,
-      explicacao: "Fórmula dos Juros Compostos: M = C(1 + i)^t → M = 20.000 × (1,10)² = 20.000 × 1,21 = R$ 24.200,00."
+      explicacao: "Valor economizado = 15% de 30.000 = (15 / 100) * 30.000 = 15 * 300 = R$ 4.500,00."
     },
     {
       materia: "Português",
-      enunciado: "Identifique a opção em que ocorre <strong class='enunciado-destaque'>ERRO DE COLOCAÇÃO PRONOMINAL</strong> segundo a norma culta:",
+      enunciado: "Considere a oração: <span class='destaque-sublinhado'>\"Se o Brasil não descarbonizar sua matriz produtiva, sofrerá sanções econômicas.\"</span> A oração introduzida pela conjunção <strong class='enunciado-destaque'>\"Se\"</strong> expressa ideia de:",
       svg: null,
       opcoes: [
-        "A) Nunca se falou tanto em sustentabilidade global quanto na última década.",
-        "B) Os acadêmicos tinham manifestado-se contra a redução das áreas de preservação.",
-        "C) Caso se aprovem as propostas, haverá investimento em energia limpa.",
-        "D) Dir-se-ia que as negociações atingiram um ponto crucial."
+        "Concessão",
+        "Causa",
+        "Condição",
+        "Consequência"
       ],
-      correta: 1,
-      explicacao: "Com verbos no particípio em tempos compostos ('tinha manifestado'), não se aceita a ênclise ao particípio. A forma correta é 'tinham-se manifestado' ou 'se tinham manifestado'."
+      correta: 2,
+      explicacao: "A conjunção 'Se' estabelece uma hipótese/condição para que ocorra a consequência descrita na oração principal."
     },
     {
       materia: "Matemática",
-      enunciado: "A probabilidade de um painel solar apresentar falha técnica é de <strong class='enunciado-destaque'>5%</strong>. Ao instalar um conjunto de 3 painéis independentes, qual é a probabilidade aproximada de que <strong class='enunciado-destaque'>PELO MENOS UM</strong> apresente defeito?",
+      enunciado: "A probabilidade de um visitante sorteado aleatoriamente na Zona Verde da COP30 ser do estado do Pará é de <strong class='enunciado-destaque'>35%</strong>. Se em um determinado pavilhão há <strong class='enunciado-destaque'>240 pessoas</strong>, qual é a estimativa de paraenses nesse local?",
       svg: null,
       opcoes: [
-        "A) 14,26%",
-        "B) 15,00%",
-        "C) 85,74%",
-        "D) 95,00%"
+        "72 pessoas",
+        "84 pessoas",
+        "96 pessoas",
+        "108 pessoas"
       ],
-      correta: 0,
-      explicacao: "P(pelo menos 1 com defeito) = 1 - P(nenhum com defeito). Probabilidade de não falhar = 0,95. P(3 sem falha) = (0,95)³ ≈ 0,8574 (85,74%). Logo, P = 1 - 0,8574 = 0,1426 (14,26%)."
+      correta: 1,
+      explicacao: "Estimativa = 35% de 240 = (35 / 100) * 240 = 0,35 * 240 = 84 pessoas."
     },
     {
       materia: "Português",
-      enunciado: "De acordo com o Acordo Ortográfico vigente, marque a opção inteiramente correta referente ao emprego do hífen:",
+      enunciado: "Em <span class='destaque-sublinhado'>\"O combate incisivo ao desmatamento é urgente\"</span>, a expressão 'ao desmatamento' exerce a função sintática de:",
       svg: null,
       opcoes: [
-        "A) Para-raios, eco-sistema, micro-ondas, autoestrada.",
-        "B) Para-raios, ecossistema, micro-ondas, autoestrada.",
-        "C) Pararaios, ecossistema, microondas, auto-estrada.",
-        "D) Para-raios, eco-sistema, microondas, autoestrada."
+        "Objeto Indireto",
+        "Complemento Nominal",
+        "Adjunto Adnominal",
+        "Agente da Passiva"
       ],
       correta: 1,
-      explicacao: "'Para-raios' exige hífen por ser composto por verbo + substantivo. 'Ecossistema' junta sem hífen (prefixo 'eco' + s junta duplicando o s). 'Micro-ondas' mantém hífen por encontros de vogais iguais. 'Autoestrada' aglutina sem hífen por vogais diferentes."
+      explicacao: "'Combate' é um substantivo abstrato que exige complemento preposicionado para completar seu sentido. O termo 'ao desmatamento' sofre a ação do combate, sendo complemento nominal."
     },
     {
       materia: "Matemática",
-      enunciado: "O custo operacional de purificação de água é modelado pela função quadrática <strong class='enunciado-destaque'>C(x) = x² - 12x + 45</strong>, na qual C é o custo em milhares de reais e x representa os milhares de litros purificados. Qual valor de x proporciona o custo <strong class='enunciado-destaque'>MÍNIMO</strong>?",
-      svg: `<svg viewBox="0 0 400 100" style="width:100%; height:100px; font-family:'Plus Jakarta Sans', sans-serif;">
-              <rect width="400" height="100" rx="8" fill="#0d1913" stroke="rgba(255,255,255,0.08)"/>
-              <path d="M 60 20 Q 200 110 340 20" fill="none" stroke="#10b981" stroke-width="2"/>
-              <circle cx="200" cy="65" r="4" fill="#f59e0b"/>
-              <text x="215" y="70" fill="#ffffff" font-size="11">Vértice da Função C(x)</text>
+      enunciado: "Um reservatório de água potável no Parque da Cidade possui formato cilíndrico com raio da base r = 3 m e altura h = 10 m. Considerando π = 3,14, qual é o volume aproximado desse reservatório em m³?",
+      svg: `<svg viewBox="0 0 400 110" style="width:100%; height:110px; font-family:'Plus Jakarta Sans', sans-serif;">
+              <rect width="400" height="110" rx="8" fill="#0d1913" stroke="rgba(255,255,255,0.08)"/>
+              <ellipse cx="200" cy="30" rx="50" ry="12" fill="none" stroke="#10b981" stroke-width="2"/>
+              <ellipse cx="200" cy="85" rx="50" ry="12" fill="none" stroke="#10b981" stroke-width="2"/>
+              <line x1="150" y1="30" x2="150" y2="85" stroke="#10b981" stroke-width="2"/>
+              <line x1="250" y1="30" x2="250" y2="85" stroke="#10b981" stroke-width="2"/>
+              <text x="270" y="60" fill="#ffffff" font-size="11">Altura = 10 m</text>
             </svg>`,
       opcoes: [
-        "A) 6.000 litros",
-        "B) 9.000 litros",
-        "C) 12.000 litros",
-        "D) 45.000 litros"
+        "282,6 m³",
+        "314,0 m³",
+        "254,2 m³",
+        "188,4 m³"
       ],
       correta: 0,
-      explicacao: "O ponto mínimo é dado pela coordenada do vértice Xv = -b / (2a) = -(-12) / (2 × 1) = 6. Como x representa milhares de litros, x = 6 equivale a 6.000 litros."
+      explicacao: "Volume do cilindro = π * r² * h = 3,14 * (3)² * 10 = 3,14 * 9 * 10 = 282,6 m³."
+    },
+    {
+      materia: "Português",
+      enunciado: "Indique a alternativa que apresenta desvio de concordância verbal de acordo com a norma-padrão:",
+      svg: null,
+      opcoes: [
+        "Mais de um diplomata discursou na abertura.",
+        "Faz três anos que Belém se prepara para a conferência.",
+        "Houveram muitos debates sobre a transição energética.",
+        "Cerca de 40 mil pessoas visitarão a capital paraense."
+      ],
+      correta: 2,
+      explicacao: "O verbo 'haver' no sentido de existir/ocorrer é impersonal e deve permanecer na 3ª pessoa do singular: 'Houve muitos debates'."
+    },
+    {
+      materia: "Matemática",
+      enunciado: "A pegada de carbono de um evento é calculada pela função <strong class='enunciado-destaque'>C(t) = 2t² - 12t + 25</strong>, onde C é a emissão em toneladas de CO₂ e t é o tempo em dias de evento. Em qual dia ocorre a menor taxa de emissão (mínimo da função)?",
+      svg: null,
+      opcoes: [
+        "2º dia",
+        "3º dia",
+        "4º dia",
+        "6º dia"
+      ],
+      correta: 1,
+      explicacao: "O tempo de emissão mínima ocorre no X do vértice: Xv = -b / (2a) = -(-12) / (2 * 2) = 12 / 4 = 3º dia."
+    },
+    {
+      materia: "Português",
+      enunciado: "Assinale a opção em que a colocação pronominal segue rigorosamente o padrão culto:",
+      svg: null,
+      opcoes: [
+        "Me disseram que os projetos da COP30 já começaram.",
+        "Jamais esqueceremos-nos dos compromissos ambientais.",
+        "Não se devem ignorar as propostas da sociedade civil.",
+        "Os negociadores apresentaram-se, nos dando boas expectativas."
+      ],
+      correta: 2,
+      explicacao: "O advérbio de negação 'Não' atrai obrigatoriamente o pronome oblíquo 'se' (próclise). Em A há próclise em início de frase; B tem ênclise após advérbio atrativo; D possui próclise inadequada após vírgula."
+    },
+    {
+      materia: "Matemática",
+      enunciado: "Um mapa oficial da COP30 utiliza a escala de <strong class='enunciado-destaque'>1 : 10.000</strong>. Se a distância entre o Parque da Cidade e a Zona Azul no mapa é de <strong class='enunciado-destaque'>8 cm</strong>, qual é a distância real em quilômetros?",
+      svg: null,
+      opcoes: [
+        "0,8 km",
+        "8,0 km",
+        "80 km",
+        "800 km"
+      ],
+      correta: 0,
+      explicacao: "Distância real = 8 cm * 10.000 = 80.000 cm. Convertendo para metros: 80.000 / 100 = 800 m. Convertendo para quilômetros: 800 / 1.000 = 0,8 km."
     }
   ];
+
+  // FUNÇÃO PARA EMBARALHAR AS OPÇÕES MANTENDO A CORRETA AJUSTADA
+  function embaralharOpcoesBanco() {
+    bancoQuestoes.forEach((q) => {
+      const opcaoCorretaTexto = q.opcoes[q.correta];
+      for (let i = q.opcoes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [q.opcoes[i], q.opcoes[j]] = [q.opcoes[j], q.opcoes[i]];
+      }
+      q.correta = q.opcoes.indexOf(opcaoCorretaTexto);
+    });
+  }
+
+  embaralharOpcoesBanco();
 
   let questaoAtual = 0;
   const respostasUsuario = {};
@@ -392,7 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
     questaoAtual = index;
     const q = bancoQuestoes[index];
 
-    // Atualiza Barra de Progresso
     const percProgresso = ((index + 1) / bancoQuestoes.length) * 100;
     const barraFill = document.getElementById('barra-progresso');
     if (barraFill) barraFill.style.width = `${percProgresso}%`;
@@ -418,6 +418,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const opcoesContainer = document.getElementById('quiz-opcoes');
+    const letras = ['A', 'B', 'C', 'D'];
+
     if (opcoesContainer) {
       opcoesContainer.innerHTML = '';
       q.opcoes.forEach((opcao, i) => {
@@ -425,14 +427,13 @@ document.addEventListener('DOMContentLoaded', () => {
         div.className = `opcao-item ${respostasUsuario[index] === i ? 'selecionada' : ''}`;
         div.innerHTML = `
           <input type="radio" name="opcao-quiz" value="${i}" ${respostasUsuario[index] === i ? 'checked' : ''}>
-          <span>${opcao}</span>
+          <span><strong>${letras[i]})</strong> ${opcao}</span>
         `;
         div.onclick = () => selecionarOpcao(i);
         opcoesContainer.appendChild(div);
       });
     }
 
-    // Botões de Navegação
     if (btnAnterior) btnAnterior.style.display = index === 0 ? 'none' : 'inline-block';
     if (btnProximo) btnProximo.textContent = index === bancoQuestoes.length - 1 ? 'Finalizar Quiz' : 'Próxima Questão →';
   }
@@ -465,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 4. CONSOLIDAÇÃO DOS RESULTADOS
+  // 4. CONSOLIDAÇÃO DOS RESULTADOS E CONDICIONAL DO CERTIFICADO
   // ==========================================
   function finalizarQuizCompleto() {
     const resultadoSimulado = JSON.parse(localStorage.getItem('resultadoSimulado')) || { total: 0, portugues: 0, matematica: 0 };
@@ -509,7 +510,29 @@ document.addEventListener('DOMContentLoaded', () => {
     salvarNoRanking(nomeUsuario, totalAcertosGeral, percentualGeral);
     exibirRanking();
     gerarGabaritoComentado();
-    gerarCertificadoRN(nomeUsuario, totalAcertosGeral, percentualGeral);
+
+    // REGRA DE CORTE DE 50% PARA O CERTIFICADO
+    const certArea = document.getElementById('card-certificado-area');
+    if (certArea) {
+      if (percentualGeral >= 50) {
+        certArea.innerHTML = `
+          <h3 style="color: var(--ifrn-green-light); margin-bottom: 20px; text-align: center; font-size: 1.3rem;">Certificado Institucional de Conclusão</h3>
+          <div class="cert-container" id="cert-svg-box"></div>
+        `;
+        gerarCertificadoRN(nomeUsuario, totalAcertosGeral, percentualGeral);
+      } else {
+        certArea.innerHTML = `
+          <h3 style="color: var(--ifrn-red); margin-bottom: 12px; text-align: center; font-size: 1.3rem;">Certificado Indisponível</h3>
+          <div class="feedback-box feedback-alerta">
+            <h4 style="font-size: 1.1rem; margin-bottom: 8px; font-weight: 700;">Aproveitamento Abaixo de 50%</h4>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+              Você obteve <strong>${percentualGeral}%</strong> de aproveitamento geral (${totalAcertosGeral} acertos de 60 questões). Para garantir a emissão do seu Certificado Oficial, é necessário atingir no mínimo <strong>50% de acertos</strong>.<br><br>
+              💡 <em>Dica: Revise o gabarito comentado abaixo, reforce seus estudos nos pontos onde teve dúvidas e tente novamente!</em>
+            </p>
+          </div>
+        `;
+      }
+    }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -521,11 +544,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const gabaritoLista = document.getElementById('gabarito-lista');
     if (!gabaritoLista) return;
     gabaritoLista.innerHTML = '';
+    const letras = ['A', 'B', 'C', 'D'];
 
     bancoQuestoes.forEach((q, idx) => {
       const resp = respostasUsuario[idx];
       const acertou = resp === q.correta;
-      const textoSuaResposta = resp !== undefined ? q.opcoes[resp] : 'Não respondida';
+      const textoSuaResposta = resp !== undefined ? `${letras[resp]}) ${q.opcoes[resp]}` : 'Não respondida';
 
       const item = document.createElement('div');
       item.style.background = 'rgba(0,0,0,0.3)';
@@ -537,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.innerHTML = `
         <p style="margin: 0 0 8px 0; font-weight:700; color: var(--text-main); font-size: 0.98rem;">Questão ${idx + 1}. [${q.materia}] ${q.enunciado}</p>
         <p style="margin: 0 0 4px 0; font-size: 0.9rem; color: var(--text-muted);">Sua resposta: <span style="color:${acertou ? 'var(--ifrn-green-light)' : 'var(--ifrn-red)'}; font-weight:bold;">${textoSuaResposta}</span></p>
-        ${!acertou ? `<p style="margin: 0 0 4px 0; font-size: 0.9rem; color: var(--text-muted);">Resposta correta: <span style="color: var(--ifrn-green-light); font-weight:bold;">${q.opcoes[q.correta]}</span></p>` : ''}
+        ${!acertou ? `<p style="margin: 0 0 4px 0; font-size: 0.9rem; color: var(--text-muted);">Resposta correta: <span style="color: var(--ifrn-green-light); font-weight:bold;">${letras[q.correta]}) ${q.opcoes[q.correta]}</span></p>` : ''}
         <p style="font-size: 0.88rem; color: var(--text-dim); margin-top: 8px; line-height: 1.5;"><em>Explicação: ${q.explicacao}</em></p>
       `;
       gabaritoLista.appendChild(item);
@@ -642,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </g>
 
         <text x="410" y="46" fill="#FFFFFF" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="3">
-          CURSINHO PREPARATÓRIO IF26
+          INSTITUTO FEDERAL DO RIO GRANDE DO NORTE
         </text>
 
         <text x="400" y="112" fill="#0F172A" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="1">
@@ -666,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <line x1="200" y1="248" x2="600" y2="248" stroke="#CBD5E1" stroke-width="1.5"/>
 
         <text x="400" y="285" fill="#334155" font-size="14" text-anchor="middle">
-          concluiu com êxito o Simulado de Preparação para a prova do Exame de Seleção IFRN 2026,
+          concluiu com êxito a Maratona Unificada do Simulado + Quiz Extra,
         </text>
         <text x="400" y="310" fill="#334155" font-size="14" text-anchor="middle">
           obtendo aproveitamento geral de <tspan font-weight="800" fill="#008542">${percentual}%</tspan> com o total de <tspan font-weight="800" fill="#996515">${acertos} acertos</tspan> de 60 questões.
