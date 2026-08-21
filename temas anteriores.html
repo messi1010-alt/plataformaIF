@@ -5,150 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Provas e Temas Anteriores | Exame de Seleção IFRN 2026</title>
 
+  <!-- CSS Global -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Fontes Oficiais -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    /* Estilos específicos para a página de Repositório de Provas e Temas */
-    .provas-container {
-      max-width: 1100px;
-      margin: 40px auto 60px;
-      padding: 0 20px;
-    }
-
-    .provas-header {
-      margin-bottom: 32px;
-      text-align: left;
-    }
-
-    .provas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .prova-card {
-      background: var(--card-color, rgba(13, 25, 19, 0.65));
-      border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius, 16px);
-      padding: 24px;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      backdrop-filter: blur(12px);
-    }
-
-    .prova-card:hover {
-      border-color: var(--card-border-hover, rgba(46, 182, 90, 0.5));
-      transform: translateY(-4px);
-    }
-
-    .prova-header-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-
-    .prova-tag {
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--ifrn-green-light, #10b981);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    .prova-ano {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--text-main, #f8fafc);
-      margin: 0;
-    }
-
-    .prova-desc {
-      color: var(--text-muted, #94a3b8);
-      font-size: 0.92rem;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    .links-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .btn-download {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
-      border-radius: 10px;
-      color: var(--text-main, #f8fafc);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .btn-download:hover {
-      background: var(--ifrn-green, #008542);
-      border-color: var(--ifrn-green, #008542);
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(0, 133, 66, 0.3);
-    }
-
-    .btn-download.gabarito:hover {
-      background: #10b981;
-      border-color: #10b981;
-    }
-
-    .dica-box {
-      margin-top: 40px;
-      background: rgba(245, 158, 11, 0.08);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      border-radius: var(--radius, 16px);
-      padding: 20px;
-      color: var(--text-main, #f8fafc);
-    }
-
-    .dica-box h3 {
-      color: #f59e0b;
-      margin-top: 0;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .dica-box p {
-      margin: 8px 0 0;
-      font-size: 0.95rem;
-      color: var(--text-muted, #94a3b8);
-      line-height: 1.6;
-    }
-
-    /* Espaçamento entre as seções principais */
-    .secao-espacamento {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- Header / Navegação Global -->
   <header class="navbar-header">
     <div class="navbar-container">
       <a href="index.html" class="logo">
@@ -170,189 +37,194 @@
         <a href="matemática.html" class="nav-link">Matemática</a>
         <a href="redação.html" class="nav-link">Redação</a>
         <a href="exame-selecao.html" class="nav-link">Sobre o exame</a>
-        
         <a href="questoes.html" class="nav-link">Simulado (Prova)</a>
         <a href="provas-e-temas.html" class="nav-link active">Provas e Temas</a>
       </nav>
     </div>
   </header>
 
-  <main class="container provas-container">
-    <section class="secao-espacamento">
-      <span class="badge badge-primary">Histórico Oficial IFRN / FUNCERN</span>
-      <h2 class="titulo" style="margin-top: 10px;">Provas anteriotes/gabaritos do Exame de Seleção</h2>
-      <p style="color: var(--text-muted, #94a3b8); font-size: 1.05rem; margin-bottom: 24px;">Confira as perguntas temáticas oficiais cobradas nas edições recentes do Exame de Seleção (Técnico Integrado).</p>
-
-
-      <div class="provas-grid">
-
-        <div class="prova-card">
-          <div>
-            <div class="prova-header-card">
-              <h2 class="prova-ano">Exame 2026</h2>
-              <span class="prova-tag">Mais Recente</span>
-            </div>
-            <p class="prova-desc">Provas de Língua Portuguesa, Matemática e Produção Textual (Artigo de Opinião).</p>
-          </div>
-          <div class="links-group">
-            <a href="https://portal.ifrn.edu.br/documents/24234/Caderno_de_Provas_-T%C3%A9cnico_Integrado_2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">
-              📄 Baixar Caderno de Prova (PDF)
-            </a>
-            <a href="https://portal.ifrn.edu.br/documents/24650/GABARITO_EXAME_DE_SELE%C3%87%C3%83O_2026_-_DEFINITIVO.pdf" target="_blank" rel="noopener noreferrer" class="btn-download gabarito">
-              ✅ Baixar Gabarito Oficial (PDF)
-            </a>
-          </div>
-        </div>
-
-        <div class="prova-card">
-          <div>
-            <div class="prova-header-card">
-              <h2 class="prova-ano">Exame 2025</h2>
-              <span class="prova-tag">Técnico Integrado</span>
-            </div>
-            <p class="prova-desc">Provas objetivas completas e proposta de redação do processo seletivo 2025.</p>
-          </div>
-          <div class="links-group">
-            <a href="https://portal.ifrn.edu.br/documents/16968/PROVA_IFRN_-_EXAME_DE_SELE%C3%87%C3%83O_2025.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">
-              📄 Baixar Caderno de Prova (PDF)
-            </a>
-            <a href="https://portal.ifrn.edu.br/documents/16969/Gabarito_Oficial_Preliminar_-_IFRN_-_integrado.pdf" target="_blank" rel="noopener noreferrer" class="btn-download gabarito">
-              ✅ Baixar Gabarito Oficial (PDF)
-            </a>
-          </div>
-        </div>
-
-        <div class="prova-card">
-          <div>
-            <div class="prova-header-card">
-              <h2 class="prova-ano">Exame 2024</h2>
-              <span class="prova-tag">Técnico Integrado</span>
-            </div>
-            <p class="prova-desc">Exame de seleção dos Cursos Técnicos Integrados ao Ensino Médio.</p>
-          </div>
-          <div class="links-group">
-            <a href="https://portal.ifrn.edu.br/documents/10663/Cadernos_de_provas_-_Cursos_Tecnicos_Integrados_2024_.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">
-              📄 Baixar Caderno de Prova (PDF)
-            </a>
-            <a href="https://portal.ifrn.edu.br/documents/10664/IFRN_Edital_78.2023_Exame_de_Sele%C3%A7%C3%A3o_2024_Gabarito_Oficial_Preliminar.pdf" target="_blank" rel="noopener noreferrer" class="btn-download gabarito">
-              ✅ Baixar Gabarito Oficial (PDF)
-            </a>
-          </div>
-        </div>
-
-      <div class="prova-card">
-  <div>
-    <div class="prova-header-card">
-      <h2 class="prova-ano">Livro do PROTEU</h2>
-      <span class="prova-tag">Material de Estudo</span>
-    </div>
-    <p class="prova-desc">Material didático preparatório oficial para o Exame de Seleção do IFRN.</p>
-  </div>
-  <div class="links-group">
-    <a href="https://drive.google.com/file/d/1DGPZy593Rnc940nTdr9EYOu1vVetc62v/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-download">
-      📘 Baixar Livro PROTEU (PDF)
-    </a>
-  </div>
-</div>
-
-    </section>
-
-    <section class="secao-espacamento">
-      <span class="badge badge-primary">Histórico Oficial IFRN / FUNCERN</span>
-      <h2 class="titulo" style="margin-top: 10px;">Temas Reais das Redações do IFRN</h2>
-      <p style="color: var(--text-muted, #94a3b8); font-size: 1.05rem; margin-bottom: 24px;">Confira as perguntas temáticas oficiais cobradas nas edições recentes do Exame de Seleção (Técnico Integrado).</p>
-
-      <details class="accordion-item">
-        <summary class="accordion-header">
-          <h2>Exame de Seleção 2026 (Edital nº 48/2025-PROEN)</h2>
-        </summary>
-        <div class="accordion-content">
-          <span class="badge badge-accent">Último Exame Realizado</span>
-          <br><br>
-          <div class="formula">
-            "o Brasil deve assumir um papel central no combate às mudanças climáticas?"
-          </div>
-          <div class="section-box">
-            <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
-            <p><strong>Pseudônimo Solicitado:</strong> Amazonino Belém.</p>
-            <p><strong>Contexto:</strong> Liderança do Brasil em acordos ambientais internacionais (COP30), transição energética, proteção das florestas e mitigação do aquecimento global.</p>
-          </div>
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary class="accordion-header">
-          <h2>Exame de Seleção 2025 (Edital nº 23/2024-PROEN)</h2>
-        </summary>
-        <div class="accordion-content">
-          <span class="badge badge-accent">Tema Oficial 2025</span>
-          <br><br>
-          <div class="formula">
-            "O USO DE CELULARES DEVE SER PROIBIDO NAS ESCOLAS BRASILEIRAS?"
-          </div>
-          <div class="section-box">
-            <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
-            <p><strong>Pseudônimo Solicitado:</strong> O REI DA NET.</p>
-            <p><strong>Contexto:</strong> Discussão sobre uso de tecnologia, smartphones em sala de aula, distração pedagógica, tempo de tela e regulação do ambiente escolar.</p>
-          </div>
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary class="accordion-header">
-          <h2>Exame de Seleção 2024 (Edital nº 78/2023-PROEN)</h2>
-        </summary>
-        <div class="accordion-content">
-          <span class="badge badge-accent">Tema Oficial 2024</span>
-          <br><br>
-          <div class="formula">
-            "a responsabilidade pela preservação da Amazônia é de todos os países?"
-          </div>
-          <div class="section-box">
-            <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
-            <p><strong>Pseudônimo Solicitado:</strong> Amazonense da Silva.</p>
-            <p><strong>Contexto:</strong> Cúpula da Amazônia, emergência climática, soberania nacional, desmatamento e cooperação internacional na proteção ambiental.</p>
-          </div>
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary class="accordion-header">
-          <h2>Exame de Seleção 2023 (Edital nº 40/2022-PROEN)</h2>
-        </summary>
-        <div class="accordion-content">
-          <span class="badge badge-accent">Tema Oficial 2023</span>
-          <br><br>
-          <div class="formula">
-            "A Lei das Cotas privilegia pretos e pardos em detrimento dos direitos dos brancos, tornando desigual a disputa por uma vaga nas universidades?"
-          </div>
-          <div class="section-box">
-            <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
-            <p><strong>Pseudônimo Solicitado:</strong> Negritude Iorubá.</p>
-            <p><strong>Contexto:</strong> Ações afirmativas, igualdade de oportunidades, racismo estrutural e reparação histórica no ensino superior brasileiro.</p>
-          </div>
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary class="accordion-header">
-          <h2>Exame de Seleção 2022 (Edital nº 29/2021-PROEN)</h2>
-        </summary>
-        <div class="accordion-content">
-          <span class="badge badge-accent">Tema Oficial</span>
-          <br><br>
-          <div class="formula">
-            "O governo brasileiro é responsável por proteger as terras indígenas?"
-          </div>
-          <div class="section-box">
-            <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
-            <p><strong>Contexto:</strong> Demarcação de terras, direitos dos povos originários, preservação ambiental e dever constitucional do Estado.</p>
-          </div>
-        </div>
-      </details>
-    </section>
-
+  <main class="container">
     
+    <!-- Seção de Cadernos de Prova e Gabaritos -->
+    <section>
+      <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+        <span class="badge badge-primary">Histórico Oficial IFRN / FUNCERN</span>
+        <h1 class="section-title" style="margin-top: 10px;">Provas anteriores e gabaritos</h1>
+        <p class="section-subtitle" style="margin: 0;">Confira os cadernos de provas e gabaritos oficiais das edições recentes do Exame de Seleção (Técnico Integrado).</p>
+      </div>
+
+      <div class="grid cards-grid">
+
+        <!-- Exame 2026 -->
+        <article class="card">
+          <div class="quiz-header-top">
+            <h2>Exame 2026</h2>
+            <span class="badge badge-glass">Mais Recente</span>
+          </div>
+          <p class="card-description">Provas de Língua Portuguesa, Matemática e Produção Textual (Artigo de Opinião).</p>
+          <div class="opcoes-container" style="margin-top: auto;">
+            <a href="https://portal.ifrn.edu.br/documents/24234/Caderno_de_Provas_-T%C3%A9cnico_Integrado_2026.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; font-size: 0.9rem;">
+              📄 Caderno de Prova (PDF)
+            </a>
+            <a href="https://portal.ifrn.edu.br/documents/24650/GABARITO_EXAME_DE_SELE%C3%87%C3%83O_2026_-_DEFINITIVO.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">
+              ✅ Gabarito Oficial (PDF)
+            </a>
+          </div>
+        </article>
+
+        <!-- Exame 2025 -->
+        <article class="card">
+          <div class="quiz-header-top">
+            <h2>Exame 2025</h2>
+            <span class="badge badge-primary">Técnico Integrado</span>
+          </div>
+          <p class="card-description">Provas objetivas completas e proposta de redação do processo seletivo 2025.</p>
+          <div class="opcoes-container" style="margin-top: auto;">
+            <a href="https://portal.ifrn.edu.br/documents/16968/PROVA_IFRN_-_EXAME_DE_SELE%C3%87%C3%83O_2025.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; font-size: 0.9rem;">
+              📄 Caderno de Prova (PDF)
+            </a>
+            <a href="https://portal.ifrn.edu.br/documents/16969/Gabarito_Oficial_Preliminar_-_IFRN_-_integrado.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">
+              ✅ Gabarito Oficial (PDF)
+            </a>
+          </div>
+        </article>
+
+        <!-- Exame 2024 -->
+        <article class="card">
+          <div class="quiz-header-top">
+            <h2>Exame 2024</h2>
+            <span class="badge badge-primary">Técnico Integrado</span>
+          </div>
+          <p class="card-description">Exame de seleção dos Cursos Técnicos Integrados ao Ensino Médio.</p>
+          <div class="opcoes-container" style="margin-top: auto;">
+            <a href="https://portal.ifrn.edu.br/documents/10663/Cadernos_de_provas_-_Cursos_Tecnicos_Integrados_2024_.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; font-size: 0.9rem;">
+              📄 Caderno de Prova (PDF)
+            </a>
+            <a href="https://portal.ifrn.edu.br/documents/10664/IFRN_Edital_78.2023_Exame_de_Sele%C3%A7%C3%A3o_2024_Gabarito_Oficial_Preliminar.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">
+              ✅ Gabarito Oficial (PDF)
+            </a>
+          </div>
+        </article>
+
+        <!-- Livro PROTEU -->
+        <article class="card">
+          <div class="quiz-header-top">
+            <h2>Livro do PROTEU</h2>
+            <span class="badge badge-glass">Material de Estudo</span>
+          </div>
+          <p class="card-description">Material didático preparatório oficial para o Exame de Seleção do IFRN.</p>
+          <div class="opcoes-container" style="margin-top: auto;">
+            <a href="https://drive.google.com/file/d/1DGPZy593Rnc940nTdr9EYOu1vVetc62v/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">
+              📘 Baixar Livro PROTEU (PDF)
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Seção Temas de Redação -->
+    <section>
+      <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+        <span class="badge badge-primary">Histórico Oficial IFRN / FUNCERN</span>
+        <h2 class="section-title" style="margin-top: 10px;">Temas Reais das Redações do IFRN</h2>
+        <p class="section-subtitle" style="margin: 0;">Confira as perguntas temáticas oficiais cobradas nas edições recentes do Exame de Seleção (Técnico Integrado).</p>
+      </div>
+
+      <div class="accordion-group">
+        
+        <!-- Tema 2026 -->
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h2>Exame de Seleção 2026 (Edital nº 48/2025-PROEN)</h2>
+          </summary>
+          <div class="accordion-content">
+            <span class="badge badge-accent">Último Exame Realizado</span>
+            <div class="formula">
+              "O Brasil deve assumir um papel central no combate às mudanças climáticas?"
+            </div>
+            <div class="section-box">
+              <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
+              <p><strong>Pseudônimo Solicitado:</strong> Amazonino Belém.</p>
+              <p><strong>Contexto:</strong> Liderança do Brasil em acordos ambientais internacionais (COP30), transição energética, proteção das florestas e mitigação do aquecimento global.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- Tema 2025 -->
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h2>Exame de Seleção 2025 (Edital nº 23/2024-PROEN)</h2>
+          </summary>
+          <div class="accordion-content">
+            <span class="badge badge-accent">Tema Oficial 2025</span>
+            <div class="formula">
+              "O USO DE CELULARES DEVE SER PROIBIDO NAS ESCOLAS BRASILEIRAS?"
+            </div>
+            <div class="section-box">
+              <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
+              <p><strong>Pseudônimo Solicitado:</strong> O REI DA NET.</p>
+              <p><strong>Contexto:</strong> Discussão sobre uso de tecnologia, smartphones em sala de aula, distração pedagógica, tempo de tela e regulação do ambiente escolar.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- Tema 2024 -->
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h2>Exame de Seleção 2024 (Edital nº 78/2023-PROEN)</h2>
+          </summary>
+          <div class="accordion-content">
+            <span class="badge badge-accent">Tema Oficial 2024</span>
+            <div class="formula">
+              "A responsabilidade pela preservação da Amazônia é de todos os países?"
+            </div>
+            <div class="section-box">
+              <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
+              <p><strong>Pseudônimo Solicitado:</strong> Amazonense da Silva.</p>
+              <p><strong>Contexto:</strong> Cúpula da Amazônia, emergência climática, soberania nacional, desmatamento e cooperação internacional na proteção ambiental.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- Tema 2023 -->
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h2>Exame de Seleção 2023 (Edital nº 40/2022-PROEN)</h2>
+          </summary>
+          <div class="accordion-content">
+            <span class="badge badge-accent">Tema Oficial 2023</span>
+            <div class="formula">
+              "A Lei das Cotas privilegia pretos e pardos em detrimento dos direitos dos brancos, tornando desigual a disputa por uma vaga nas universidades?"
+            </div>
+            <div class="section-box">
+              <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
+              <p><strong>Pseudônimo Solicitado:</strong> Negritude Iorubá.</p>
+              <p><strong>Contexto:</strong> Ações afirmativas, igualdade de oportunidades, racismo estrutural e reparação histórica no ensino superior brasileiro.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- Tema 2022 -->
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h2>Exame de Seleção 2022 (Edital nº 29/2021-PROEN)</h2>
+          </summary>
+          <div class="accordion-content">
+            <span class="badge badge-accent">Tema Oficial 2022</span>
+            <div class="formula">
+              "O governo brasileiro é responsável por proteger as terras indígenas?"
+            </div>
+            <div class="section-box">
+              <p><strong>Gênero Exigido:</strong> Artigo de Opinião.</p>
+              <p><strong>Contexto:</strong> Demarcação de terras, direitos dos povos originários, preservação ambiental e dever constitutional do Estado.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
   </main>
 
   <footer>
