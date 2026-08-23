@@ -973,6 +973,50 @@
             }
         });
     });
+
+<!-- Área de Escrita com bloqueio via atributos HTML adicionados -->
+<div class="editor-container">
+    <input type="text" id="tituloRedacao" class="input-titulo" placeholder="Digite o título da sua redação aqui..." maxlength="100" onpaste="return false;" ondrop="return false;" autocomplete="off" disabled>
+    <textarea id="textoRedacao" class="textarea-redacao" placeholder="Comece a digitar seu artigo de opinião aqui... (Recurso de colar desativado)" onpaste="return false;" ondrop="return false;" autocomplete="off" disabled></textarea>
+</div>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const textarea = document.getElementById("textoRedacao");
+        const inputTitulo = document.getElementById("tituloRedacao");
+
+        // 1. Bloqueia Paste e Drop via JS
+        ['paste', 'drop'].forEach(evento => {
+            textarea.addEventListener(evento, bloquearAcao);
+            inputTitulo.addEventListener(evento, bloquearAcao);
+        });
+
+        function bloquearAcao(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            alert("O recurso de colar foi desativado para simular as condições reais da prova.");
+            return false;
+        }
+
+        // 2. Trava Anti-Bypass para Teclados Móbile (detecta inserções em massa)
+        let ultimoComprimento = 0;
+        textarea.addEventListener("input", function (e) {
+            const textoAtual = textarea.value;
+            const diferenca = textoAtual.length - ultimoComprimento;
+
+            // Se forem inseridos mais de 4 caracteres de uma única vez (característica de colar)
+            if (diferenca > 4 && e.inputType !== "insertFromPaste") {
+                alert("Colar texto não é permitido neste simulador!");
+                // Desfaz a colagem mantendo apenas o texto anterior
+                textarea.value = textoAtual.substring(0, ultimoComprimento);
+                return;
+            }
+
+            ultimoComprimento = textarea.value.length;
+        });
+    });
+
+
 </script>
 
     </main>
