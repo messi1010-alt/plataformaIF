@@ -879,6 +879,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Elementos do Simulador
         const btnIniciar = document.getElementById("btnIniciarTempo");
         const cronometroEl = document.getElementById("cronometro");
         const textarea = document.getElementById("textoRedacao");
@@ -887,10 +888,37 @@
         const contadorPalavrasEl = document.getElementById("contadorPalavras");
         const alertaEl = document.getElementById("alertaLinhas");
 
+        // Variáveis de Controle do Tempo (1h 20m)
         let tempoTotal = 80 * 60;
         let intervalo = null;
         let emExecucao = false;
+        let ultimoComprimento = 0;
 
+        // ---------------------------------------------------------------------
+        // 1. SISTEMA ANTI-BYPASS DE COLAGEM E DRAG-AND-DROP
+        // ---------------------------------------------------------------------
+        function bloquearAcao(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            alert("O recurso de colar/arrastar texto foi desativado para garantir o treino autoral da sua redação.");
+            return false;
+        }
+
+        ['paste', 'drop', 'contextmenu'].forEach(evento => {
+            textarea.addEventListener(evento, bloquearAcao);
+            inputTitulo.addEventListener(evento, bloquearAcao);
+        });
+
+        // Bloqueio de Atalhos de Teclado (Ctrl+V / Cmd+V)
+        textarea.addEventListener("keydown", function (e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
+                bloquearAcao(e);
+            }
+        });
+
+        // ---------------------------------------------------------------------
+        // 2. CRONÔMETRO DE TEMPO SIMULADO
+        // ---------------------------------------------------------------------
         function formatarTempo(segundos) {
             const h = Math.floor(segundos / 3600);
             const m = Math.floor((segundos % 3600) / 60);
@@ -907,6 +935,8 @@
                 alertaEl.className = "alerta-status erro";
                 alertaEl.innerHTML = "<strong>Tempo esgotado!</strong> O tempo limite de 1h20min foi atingido.";
                 btnIniciar.disabled = true;
+                btnIniciar.textContent = "Tempo Esgotado";
+                btnIniciar.classList.remove("ativo");
                 return;
             }
             tempoTotal--;
@@ -932,17 +962,25 @@
             }
         });
 
-        textarea.addEventListener("paste", function (e) {
-            e.preventDefault();
-            alert("O recurso de colar foi desativado para garantir o treino autoral da sua redação.");
-        });
-
-        textarea.addEventListener("input", function () {
+        // ---------------------------------------------------------------------
+        // 3. CÁLCULO DE LINHAS, PALAVRAS E VALIDAÇÃO EM TEMPO REAL
+        // ---------------------------------------------------------------------
+        textarea.addEventListener("input", function (e) {
             const texto = textarea.value;
 
+            // Trava Anti-Bypass para Teclados Mobile (detecta inserções maciças de caracteres)
+            const diferenca = texto.length - ultimoComprimento;
+            if (diferenca > 4) {
+                alert("Colar texto não é permitido neste simulador!");
+                textarea.value = texto.substring(0, ultimoComprimento);
+                return;
+            }
+
+            // Contagem de Palavras
             const palavras = texto.trim() === "" ? 0 : texto.trim().split(/\s+/).length;
             contadorPalavrasEl.textContent = palavras;
 
+            // Contagem de Linhas (baseada na média de 65 caracteres por linha da folha oficial)
             const paragrafos = texto.split("\n");
             let totalLinhas = 0;
 
@@ -955,9 +993,11 @@
             });
 
             if (texto.length === 0) totalLinhas = 0;
+            ultimoComprimento = textarea.value.length;
 
             contadorLinhasEl.textContent = `${totalLinhas} / 30`;
 
+            // Feedback Visual de Acordo com a Quantidade de Linhas
             if (totalLinhas === 0) {
                 alertaEl.className = "alerta-status info";
                 alertaEl.innerHTML = "Digite seu texto. O ideal para a prova do IFRN é manter-se entre <strong>20 e 30 linhas</strong>.";
@@ -973,51 +1013,8 @@
             }
         });
     });
-
-<!-- Área de Escrita com bloqueio via atributos HTML adicionados -->
-<div class="editor-container">
-    <input type="text" id="tituloRedacao" class="input-titulo" placeholder="Digite o título da sua redação aqui..." maxlength="100" onpaste="return false;" ondrop="return false;" autocomplete="off" disabled>
-    <textarea id="textoRedacao" class="textarea-redacao" placeholder="Comece a digitar seu artigo de opinião aqui... (Recurso de colar desativado)" onpaste="return false;" ondrop="return false;" autocomplete="off" disabled></textarea>
-</div>
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const textarea = document.getElementById("textoRedacao");
-        const inputTitulo = document.getElementById("tituloRedacao");
-
-        // 1. Bloqueia Paste e Drop via JS
-        ['paste', 'drop'].forEach(evento => {
-            textarea.addEventListener(evento, bloquearAcao);
-            inputTitulo.addEventListener(evento, bloquearAcao);
-        });
-
-        function bloquearAcao(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            alert("O recurso de colar foi desativado para simular as condições reais da prova.");
-            return false;
-        }
-
-        // 2. Trava Anti-Bypass para Teclados Móbile (detecta inserções em massa)
-        let ultimoComprimento = 0;
-        textarea.addEventListener("input", function (e) {
-            const textoAtual = textarea.value;
-            const diferenca = textoAtual.length - ultimoComprimento;
-
-            // Se forem inseridos mais de 4 caracteres de uma única vez (característica de colar)
-            if (diferenca > 4 && e.inputType !== "insertFromPaste") {
-                alert("Colar texto não é permitido neste simulador!");
-                // Desfaz a colagem mantendo apenas o texto anterior
-                textarea.value = textoAtual.substring(0, ultimoComprimento);
-                return;
-            }
-
-            ultimoComprimento = textarea.value.length;
-        });
-    });
-
-
 </script>
+
 
     </main>
 
