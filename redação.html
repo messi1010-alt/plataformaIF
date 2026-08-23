@@ -683,11 +683,11 @@
 <hr class="section-divider"
 
 <!-- ==========================================================================
-     SIMULADOR DE REDAÇÃO (PAINEL FIXO / STICKY NO ACCORDION)
+     SIMULADOR DE REDAÇÃO COM HISTÓRICO EM LOCALSTORAGE
      ========================================================================== -->
 <details class="accordion-item">
     <summary class="accordion-header">
-        <h2>Simulador Prático de Redação (Com Tempo e Linhas)</h2>
+        <h2>Simulador Prático de Redação (Com Tempo, Linhas e Histórico)</h2>
     </summary>
     <div class="accordion-content">
         <div class="section-box">
@@ -700,7 +700,7 @@
             <div class="painel-card tempo-box">
                 <span class="painel-label">Tempo Restante:</span>
                 <span id="cronometro" class="painel-valor">01:20:00</span>
-                <button id="btnIniciarTempo" class="btn-simulador">Iniciar Cronômetro</button>
+                <button id="btnIniciarTempo" class="btn-simulador" type="button">Iniciar Cronômetro</button>
             </div>
             
             <div class="painel-card">
@@ -721,8 +721,29 @@
 
         <!-- Área de Escrita -->
         <div class="editor-container">
-            <input type="text" id="tituloRedacao" class="input-titulo" placeholder="Digite o título da sua redação aqui..." maxlength="100" disabled>
-            <textarea id="textoRedacao" class="textarea-redacao" placeholder="Comece a digitar seu artigo de opinião aqui... (O recurso de colar está desativado para simular a escrita autoral)" disabled></textarea>
+            <input type="text" id="tituloRedacao" class="input-titulo" placeholder="Digite o título da sua redação aqui..." maxlength="100" onpaste="return false;" ondrop="return false;" autocomplete="off" disabled>
+            <textarea id="textoRedacao" class="textarea-redacao" placeholder="Comece a digitar seu artigo de opinião aqui... (O recurso de colar está desativado)" onpaste="return false;" ondrop="return false;" autocomplete="off" disabled></textarea>
+        </div>
+
+        <!-- Ações do Simulador -->
+        <div class="acoes-simulador">
+            <button id="btnSalvarRedacao" type="button" class="btn-acao btn-salvar">Salvar no Histórico</button>
+            <button id="btnLimparCampos" type="button" class="btn-acao btn-limpar">Limpar Editor</button>
+        </div>
+
+        <!-- Seção do Histórico em Caixa (Box) -->
+        <div class="historico-box">
+            <div class="historico-header">
+                <div>
+                    <h3>Redações Salvas</h3>
+                    <p class="historico-subtitulo">Histórico local armazenado neste navegador</p>
+                </div>
+                <button id="btnLimparTudo" type="button" class="btn-acao btn-excluir-tudo">Apagar Todo Histórico</button>
+            </div>
+            
+            <div id="listaHistorico" class="historico-lista-scroll">
+                <!-- As redações salvas serão inseridas dinamicamente aqui -->
+            </div>
         </div>
     </div>
 </details>
@@ -738,22 +759,16 @@
         --text-dark-muted: #839b92;
     }
 
-    /* Torna a área do conteúdo do accordion o container de rolagem limite */
-    .accordion-content {
-        position: relative;
-    }
+    .accordion-content { position: relative; }
 
-    /* Painel do Cronômetro Fixado (Sticky) */
     .simulador-painel {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
         margin-bottom: 20px;
-        
-        /* Recursos para fixar no topo */
         position: sticky;
-        top: 10px; /* Distância do topo da tela ao rolar */
-        z-index: 100; /* Fica por cima do texto durante a rolagem */
+        top: 10px;
+        z-index: 100;
         background-color: var(--bg-dark-card);
         padding: 10px;
         border-radius: 10px;
@@ -779,7 +794,6 @@
         margin-bottom: 4px;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
     }
 
     .painel-valor {
@@ -800,14 +814,8 @@
         transition: all 0.2s ease;
     }
 
-    .btn-simulador:hover {
-        background-color: var(--green-accent-hover);
-    }
-
-    .btn-simulador.ativo {
-        background-color: #e74c3c;
-        color: #ffffff;
-    }
+    .btn-simulador:hover { background-color: var(--green-accent-hover); }
+    .btn-simulador.ativo { background-color: #e74c3c; color: #ffffff; }
 
     .alerta-status {
         padding: 12px 16px;
@@ -815,7 +823,6 @@
         margin-bottom: 15px;
         font-size: 0.95rem;
     }
-
     .alerta-status.info { background-color: #10241e; color: #9fe2cb; border: 1px solid #1a4237; }
     .alerta-status.sucesso { background-color: #12301c; color: #7bed9f; border: 1px solid #2ed573; }
     .alerta-status.alerta { background-color: #302711; color: #eccc68; border: 1px solid #ffa502; }
@@ -841,13 +848,9 @@
         outline: none;
     }
 
-    .input-titulo:focus {
-        border-color: var(--green-accent);
-    }
-
     .textarea-redacao {
         width: 100%;
-        height: 450px;
+        height: 400px;
         padding: 15px;
         font-size: 1rem;
         line-height: 1.6;
@@ -861,10 +864,6 @@
         outline: none;
     }
 
-    .textarea-redacao:focus {
-        border-color: var(--green-accent);
-    }
-
     .textarea-redacao:disabled, .input-titulo:disabled {
         background-color: #060a09;
         color: #43554e;
@@ -872,14 +871,150 @@
         border-color: #12211c;
     }
 
-    .textarea-redacao::placeholder, .input-titulo::placeholder {
-        color: #4f635c;
+    .acoes-simulador {
+        display: flex;
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    /* Botões Padrão */
+    .btn-acao {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.2s, opacity 0.2s;
+    }
+
+    .btn-salvar { background-color: #3498db; color: #ffffff; }
+    .btn-salvar:hover { background-color: #2980b9; }
+
+    .btn-limpar { background-color: #485460; color: #ffffff; }
+    .btn-limpar:hover { background-color: #3d4852; }
+
+    .btn-excluir-tudo { background-color: #c0392b; color: #ffffff; font-size: 0.8rem; padding: 6px 12px; }
+    .btn-excluir-tudo:hover { background-color: #a93226; }
+
+    .btn-excluir-item {
+        background-color: #e74c3c;
+        color: #ffffff;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    .btn-excluir-item:hover { background-color: #c0392b; }
+
+    /* Estilização da Box do Histórico */
+    .historico-box {
+        margin-top: 35px;
+        background-color: var(--bg-dark-card);
+        border: 1px solid var(--border-dark-green);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .historico-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-dark-green);
+    }
+
+    .historico-header h3 {
+        color: var(--text-dark-main);
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .historico-subtitulo {
+        font-size: 0.8rem;
+        color: var(--text-dark-muted);
+        margin: 4px 0 0 0;
+    }
+
+    .historico-lista-scroll {
+        max-height: 450px;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+
+    /* Scrollbar personalizada para a Box */
+    .historico-lista-scroll::-webkit-scrollbar {
+        width: 8px;
+    }
+    .historico-lista-scroll::-webkit-scrollbar-track {
+        background: var(--bg-dark-input);
+        border-radius: 4px;
+    }
+    .historico-lista-scroll::-webkit-scrollbar-thumb {
+        background: var(--border-dark-green);
+        border-radius: 4px;
+    }
+
+    .card-redacao-salva {
+        background-color: var(--bg-dark-input);
+        border: 1px solid var(--border-dark-green);
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .card-redacao-salva:last-child {
+        margin-bottom: 0;
+    }
+
+    .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .card-titulo {
+        font-size: 1.05rem;
+        font-weight: bold;
+        color: var(--green-accent);
+    }
+
+    .card-data {
+        font-size: 0.8rem;
+        color: var(--text-dark-muted);
+    }
+
+    .card-texto {
+        white-space: pre-wrap;
+        color: var(--text-dark-main);
+        font-size: 0.95rem;
+        background-color: #060a09;
+        padding: 12px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        max-height: 120px;
+        overflow-y: auto;
+        border: 1px solid #101c18;
+    }
+
+    .card-detalhes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+        color: var(--text-dark-muted);
     }
 </style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Elementos do Simulador
+        // Elementos do DOM
         const btnIniciar = document.getElementById("btnIniciarTempo");
         const cronometroEl = document.getElementById("cronometro");
         const textarea = document.getElementById("textoRedacao");
@@ -887,20 +1022,25 @@
         const contadorLinhasEl = document.getElementById("contadorLinhas");
         const contadorPalavrasEl = document.getElementById("contadorPalavras");
         const alertaEl = document.getElementById("alertaLinhas");
+        const btnSalvar = document.getElementById("btnSalvarRedacao");
+        const btnLimpar = document.getElementById("btnLimparCampos");
+        const btnLimparTudo = document.getElementById("btnLimparTudo");
+        const listaHistoricoEl = document.getElementById("listaHistorico");
 
-        // Variáveis de Controle do Tempo (1h 20m)
-        let tempoTotal = 80 * 60;
+        // Variáveis de Controle
+        let tempoTotal = 80 * 60; // 1h 20m
         let intervalo = null;
         let emExecucao = false;
         let ultimoComprimento = 0;
+        const CHAVE_STORAGE = "redacoes_ifrn_salvas";
 
         // ---------------------------------------------------------------------
-        // 1. SISTEMA ANTI-BYPASS DE COLAGEM E DRAG-AND-DROP
+        // 1. BLOQUEIO ANTI-COLAGEM E DRAG-AND-DROP
         // ---------------------------------------------------------------------
         function bloquearAcao(e) {
             e.preventDefault();
             e.stopPropagation();
-            alert("O recurso de colar/arrastar texto foi desativado para garantir o treino autoral da sua redação.");
+            alert("O recurso de colar/arrastar texto foi desativado para simular as condições reais da prova.");
             return false;
         }
 
@@ -909,7 +1049,6 @@
             inputTitulo.addEventListener(evento, bloquearAcao);
         });
 
-        // Bloqueio de Atalhos de Teclado (Ctrl+V / Cmd+V)
         textarea.addEventListener("keydown", function (e) {
             if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
                 bloquearAcao(e);
@@ -917,7 +1056,7 @@
         });
 
         // ---------------------------------------------------------------------
-        // 2. CRONÔMETRO DE TEMPO SIMULADO
+        // 2. CRONÔMETRO E CONTROLE DO BOTÃO INICIAR
         // ---------------------------------------------------------------------
         function formatarTempo(segundos) {
             const h = Math.floor(segundos / 3600);
@@ -937,6 +1076,7 @@
                 btnIniciar.disabled = true;
                 btnIniciar.textContent = "Tempo Esgotado";
                 btnIniciar.classList.remove("ativo");
+                emExecucao = false;
                 return;
             }
             tempoTotal--;
@@ -945,51 +1085,57 @@
 
         btnIniciar.addEventListener("click", function () {
             if (!emExecucao) {
+                // Iniciar ou Retomar
                 intervalo = setInterval(atualizarCronometro, 1000);
                 emExecucao = true;
-                textarea.disabled = false;
+                
+                // Libera os campos para escrita
                 inputTitulo.disabled = false;
-                textarea.focus();
+                textarea.disabled = false;
+                inputTitulo.focus();
+                
                 btnIniciar.textContent = "Pausar Tempo";
                 btnIniciar.classList.add("ativo");
+                
+                if (textarea.value.length === 0) {
+                    alertaEl.className = "alerta-status info";
+                    alertaEl.innerHTML = "Tempo rodando! Digite seu texto. O ideal para o IFRN é manter-se entre <strong>20 e 30 linhas</strong>.";
+                }
             } else {
+                // Pausar
                 clearInterval(intervalo);
                 emExecucao = false;
-                textarea.disabled = true;
+                
+                // Bloqueia os campos enquanto pausado
                 inputTitulo.disabled = true;
+                textarea.disabled = true;
+                
                 btnIniciar.textContent = "Continuar Tempo";
                 btnIniciar.classList.remove("ativo");
             }
         });
 
         // ---------------------------------------------------------------------
-        // 3. CÁLCULO DE LINHAS, PALAVRAS E VALIDAÇÃO EM TEMPO REAL
+        // 3. CONTADORES E VALIDAÇÃO DE INPUT
         // ---------------------------------------------------------------------
-        textarea.addEventListener("input", function (e) {
+        function atualizarContadores() {
             const texto = textarea.value;
 
-            // Trava Anti-Bypass para Teclados Mobile (detecta inserções maciças de caracteres)
+            // Anti-Bypass Mobile para colagem rápida
             const diferenca = texto.length - ultimoComprimento;
-            if (diferenca > 4) {
+            if (diferenca > 10) {
                 alert("Colar texto não é permitido neste simulador!");
                 textarea.value = texto.substring(0, ultimoComprimento);
                 return;
             }
 
-            // Contagem de Palavras
             const palavras = texto.trim() === "" ? 0 : texto.trim().split(/\s+/).length;
             contadorPalavrasEl.textContent = palavras;
 
-            // Contagem de Linhas (baseada na média de 65 caracteres por linha da folha oficial)
             const paragrafos = texto.split("\n");
             let totalLinhas = 0;
-
-            paragrafos.forEach(paragraf => {
-                if (paragraf.length === 0) {
-                    totalLinhas += 1;
-                } else {
-                    totalLinhas += Math.ceil(paragraf.length / 65);
-                }
+            paragrafos.forEach(p => {
+                totalLinhas += p.length === 0 ? 1 : Math.ceil(p.length / 65);
             });
 
             if (texto.length === 0) totalLinhas = 0;
@@ -997,10 +1143,9 @@
 
             contadorLinhasEl.textContent = `${totalLinhas} / 30`;
 
-            // Feedback Visual de Acordo com a Quantidade de Linhas
             if (totalLinhas === 0) {
                 alertaEl.className = "alerta-status info";
-                alertaEl.innerHTML = "Digite seu texto. O ideal para a prova do IFRN é manter-se entre <strong>20 e 30 linhas</strong>.";
+                alertaEl.innerHTML = "Digite seu texto. O ideal para o IFRN é manter-se entre <strong>20 e 30 linhas</strong>.";
             } else if (totalLinhas < 20) {
                 alertaEl.className = "alerta-status alerta";
                 alertaEl.innerHTML = `Sua redação está com aproximadamente <strong>${totalLinhas} linhas</strong>. O mínimo recomendado é de 20 linhas.`;
@@ -1009,12 +1154,102 @@
                 alertaEl.innerHTML = `Excelente! Seu texto tem aproximadamente <strong>${totalLinhas} linhas</strong>, dentro do limite exigido (20 a 30 linhas).`;
             } else {
                 alertaEl.className = "alerta-status erro";
-                alertaEl.innerHTML = `Atenção: Seu texto ultrapassou a estimativa de 30 linhas (atualmente <strong>${totalLinhas} linhas</strong>). Reduza o tamanho para não perder pontos.`;
+                alertaEl.innerHTML = `Atenção: Seu texto ultrapassou a estimativa de 30 linhas (atualmente <strong>${totalLinhas} linhas</strong>).`;
+            }
+        }
+
+        textarea.addEventListener("input", atualizarContadores);
+
+        // ---------------------------------------------------------------------
+        // 4. PERSISTÊNCIA EM LOCALSTORAGE (SALVAR, CARREGAR E EXCLUIR)
+        // ---------------------------------------------------------------------
+        function buscarRedacoes() {
+            return JSON.parse(localStorage.getItem(CHAVE_STORAGE) || "[]");
+        }
+
+        function renderizarHistorico() {
+            const redacoes = buscarRedacoes();
+
+            if (redacoes.length === 0) {
+                listaHistoricoEl.innerHTML = `<p style="color: var(--text-dark-muted); text-align: center; font-size: 0.95rem; padding: 20px 0;">Nenhuma redação salva no seu navegador até o momento.</p>`;
+                return;
+            }
+
+            listaHistoricoEl.innerHTML = redacoes.map((item, index) => `
+                <div class="card-redacao-salva">
+                    <div class="card-top">
+                        <span class="card-titulo">${escapeHtml(item.titulo)}</span>
+                        <span class="card-data">Data: ${item.data} às ${item.hora}</span>
+                    </div>
+                    <div class="card-texto">${escapeHtml(item.texto)}</div>
+                    <div class="card-detalhes">
+                        <span>Linhas: <strong>${item.linhas}</strong> | Palavras: <strong>${item.palavras}</strong></span>
+                        <button class="btn-excluir-item" onclick="excluirRedacao(${index})">Excluir</button>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        btnSalvar.addEventListener("click", function () {
+            const texto = textarea.value.trim();
+            const titulo = inputTitulo.value.trim() || "Sem Título";
+
+            if (!texto) {
+                alert("Sua redação está vazia! Digite algum conteúdo antes de salvar.");
+                return;
+            }
+
+            const agora = new Date();
+            const novaRedacao = {
+                titulo: titulo,
+                texto: texto,
+                linhas: contadorLinhasEl.textContent,
+                palavras: contadorPalavrasEl.textContent,
+                data: agora.toLocaleDateString("pt-BR"),
+                hora: agora.toLocaleTimeString("pt-BR", { hour: '2-digit', minute: '2-digit' })
+            };
+
+            const historico = buscarRedacoes();
+            historico.unshift(novaRedacao);
+            localStorage.setItem(CHAVE_STORAGE, JSON.stringify(historico));
+
+            alert("Redação salva no histórico do navegador com sucesso!");
+            renderizarHistorico();
+        });
+
+        btnLimpar.addEventListener("click", function () {
+            if (confirm("Deseja mesmo limpar a área de texto? O texto não salvo será perdido.")) {
+                textarea.value = "";
+                inputTitulo.value = "";
+                ultimoComprimento = 0;
+                atualizarContadores();
             }
         });
+
+        btnLimparTudo.addEventListener("click", function () {
+            if (confirm("Tem certeza que deseja apagar TODO o seu histórico de redações salvas? Esta ação é irreversível.")) {
+                localStorage.removeItem(CHAVE_STORAGE);
+                renderizarHistorico();
+            }
+        });
+
+        window.excluirRedacao = function (index) {
+            if (confirm("Deseja remover esta redação do histórico?")) {
+                const historico = buscarRedacoes();
+                historico.splice(index, 1);
+                localStorage.setItem(CHAVE_STORAGE, JSON.stringify(historico));
+                renderizarHistorico();
+            }
+        };
+
+        function escapeHtml(texto) {
+            return texto.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Carrega o histórico inicial
+        renderizarHistorico();
     });
 </script>
-
 
     </main>
 
