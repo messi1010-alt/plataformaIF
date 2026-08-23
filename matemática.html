@@ -47,7 +47,7 @@
                 <a href="exame-selecao.html" class="nav-link">Sobre o Exame de Seleção</a>
                 <a href="questoes.html" class="nav-link">Simulado (prova)</a>
                 <a href="temas-anteriores.html" class="nav-link">Temas Anteriores</a>
-<a href="cursos-tecnicos.html" class="nav-link"> Cursos Técnicos IFRN</a>
+                <a href="cursos-tecnicos.html" class="nav-link"> Cursos Técnicos IFRN</a>
             </nav>
         </div>
     </header>
@@ -59,7 +59,703 @@
 
     <main>
 
-        <!-- GEOMETRIA PLANA -->
+        <!-- 1. FRAÇÃO -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Fração</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Operações Básicas</h3>
+                    <p>Uma fração $\frac{a}{b}$ representa uma parte de um todo dividido em partes iguais, na qual $a$ é o numerador (partes consideradas) e $b$ é o denominador (total de partes divididas, com $b \neq 0$).</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Adição e Subtração</h3>
+                        <p>Para denominadores iguais, mantêm-se o denominador e somam-se/subtraem-se os numeradores. Para denominadores diferentes, calcula-se o Mínimo Múltiplo Comum ($\text{MMC}$):</p>
+                        <p>$$\frac{a}{b} \pm \frac{c}{d} = \frac{a \cdot d \pm b \cdot c}{b \cdot d}$$</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Multiplicação e Divisão</h3>
+                        <p><strong>Multiplicação:</strong> $$\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}$$</p>
+                        <p><strong>Divisão:</strong> $$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c}$$</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Calcule a soma das frações: $\frac{1}{3} + \frac{2}{5}$.</p>
+                        <p><strong>Resolução:</strong> O $\text{MMC}(3, 5) = 15$. Reescrevendo as frações:<br>
+                        $$\frac{1}{3} + \frac{2}{5} = \frac{1 \cdot 5 + 2 \cdot 3}{15} = \frac{5 + 6}{15} = \frac{11}{15}$$<br>
+                        <strong>Gabarito: $\frac{11}{15}$</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Efetue a divisão entre as frações: $\frac{3}{4} \div \frac{2}{5}$.</p>
+                        <p><strong>Resolução:</strong> Mantém-se a primeira fração e multiplica-se pelo inverso da segunda:<br>
+                        $$\frac{3}{4} \div \frac{2}{5} = \frac{3}{4} \cdot \frac{5}{2} = \frac{3 \cdot 5}{4 \cdot 2} = \frac{15}{8}$$<br>
+                        <strong>Gabarito: $\frac{15}{8}$</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Simplifique a fração $\frac{48}{72}$ até a forma irredutível. ($\text{MDC}(48, 72) = 24 \implies \frac{48 \div 24}{72 \div 24} = \frac{2}{3}$).</li>
+                        <li>Calcule o resultado de: $\frac{5}{6} - \frac{1}{4}$. ($\text{MMC}(6, 4) = 12 \implies \frac{10 - 3}{12} = \frac{7}{12}$).</li>
+                        <li>Quanto equivale a $\frac{2}{3}$ da quantia de R$ 900,00? ($\frac{2}{3} \cdot 900 = 2 \cdot 300 = \text{R\$ } 600{,}00$).</li>
+                        <li>Efetue a multiplicação: $\left(\frac{2}{3}\right) \cdot \left(\frac{9}{10}\right)$. ($\frac{2 \cdot 9}{3 \cdot 10} = \frac{18}{30} = \frac{3}{5}$).</li>
+                        <li>Um bolo foi dividido em 12 fatias iguais. Se João comeu $\frac{1}{4}$ do bolo e Maria comeu $\frac{1}{3}$, quantas fatias sobraram? (João: $\frac{1}{4} \cdot 12 = 3$; Maria: $\frac{1}{3} \cdot 12 = 4$; Sobraram: $12 - (3 + 4) = 5\text{ fatias}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 2. NOTAÇÃO CIENTÍFICA -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Notação Científica</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Regra Formativa</h3>
+                    <p>A notação científica é uma forma padronizada de representação numérica utilizada para simplificar a escrita de números extremamente grandes ou muito próximos de zero através de potências de base 10.</p>
+                    <p>$$N = a \cdot 10^n$$</p>
+                    <p>Em que $1 \le |a| &lt; 10$ ($a$ é a mantissa) e $n \in \mathbb{Z}$ ($n$ é o expoente inteiro).</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Representação de Números Grandes ($n &gt; 0$)</h3>
+                        <p>Ao deslocar a vírgula para a <strong>esquerda</strong> até obter a mantissa entre $1$ e $10$, o expoente $n$ da potência de $10$ é positivo e igual ao número de casas decimais deslocadas.<br>Exemplo: $450.000 = 4{,}5 \cdot 10^5$.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Representação de Números Pequenos ($n &lt; 0$)</h3>
+                        <p>Ao deslocar a vírgula para a <strong>direita</strong> até obter a mantissa entre $1$ e $10$, o expoente $n$ da potência de $10$ é negativo e em módulo igual ao número de casas decimais deslocadas.<br>Exemplo: $0{,}00032 = 3{,}2 \cdot 10^{-4}$.</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Escreva o número $0{,}0000078$ em notação científica.</p>
+                        <p><strong>Resolução:</strong> Desloca-se a vírgula 6 casas para a direita para obter a mantissa $7{,}8$. O expoente é $-6$:<br>
+                        $$0{,}0000078 = 7{,}8 \cdot 10^{-6}$$<br>
+                        <strong>Gabarito: $7{,}8 \cdot 10^{-6}$</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Efetue a multiplicação: $(2 \cdot 10^4) \cdot (3 \cdot 10^3)$.</p>
+                        <p><strong>Resolução:</strong> Multiplicam-se as mantissas e somam-se os expoentes das potências de base 10 ($10^a \cdot 10^b = 10^{a+b}$):<br>
+                        $$(2 \cdot 3) \cdot 10^{4+3} = 6 \cdot 10^7$$<br>
+                        <strong>Gabarito: $6 \cdot 10^7$</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Escreva a distância média da Terra ao Sol ($149.600.000\text{ km}$) em notação científica. ($1{,}496 \cdot 10^8\text{ km}$).</li>
+                        <li>Escreva o diâmetro de uma célula de $0{,}000005\text{ m}$ em notação científica. ($5 \cdot 10^{-6}\text{ m}$).</li>
+                        <li>Represente $4{,}23 \cdot 10^{-3}$ em sua forma decimal expandida. ($0{,}00423$).</li>
+                        <li>Efetue a divisão: $\frac{8 \cdot 10^8}{2 \cdot 10^3}$. ($\frac{8}{2} \cdot 10^{8-3} = 4 \cdot 10^5$).</li>
+                        <li>Calcule a soma $(3 \cdot 10^5) + (4 \cdot 10^4)$ expressando o resultado em notação científica. ($30 \cdot 10^4 + 4 \cdot 10^4 = 34 \cdot 10^4 = 3{,}4 \cdot 10^5$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 3. RAZÃO E PROPORÇÃO -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Razão e Proporção</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito</h3>
+                    <p><strong>Razão:</strong> É o quociente entre dois números $a$ e $b$ ($b \neq 0$), indicado por $\frac{a}{b}$ ou $a : b$, utilizado para comparar duas grandezas.</p>
+                    <p><strong>Proporção:</strong> É a igualdade entre duas razões: $\frac{a}{b} = \frac{c}{d}$. A propriedade fundamental das proporções estabelece que o produto dos meios é igual ao produto dos extremos:</p>
+                    <p>$$a \cdot d = b \cdot c$$</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Grandezas Diretamente Proporcionais</h3>
+                        <p>Duas grandezas são diretamente proporcionais quando a variação de uma provoca a variação da outra na mesma razão: $$\frac{A}{B} = k \quad (k \text{ é constante})$$</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Grandezas Inversamente Proporcionais</h3>
+                        <p>Duas grandezas são inversamente proporcionais quando o aumento de uma provoca a redução da outra na mesma proporção: $$A \cdot B = k \quad (k \text{ é constante})$$</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Se a razão entre a idade de Pedro e a idade de Paulo é de $2/3$, e a soma das idades dos dois é de 25 anos, qual é a idade de Pedro?</p>
+                        <p><strong>Resolução:</strong> Seja $k$ a constante de proporcionalidade. As idades são $2k$ e $3k$.<br>
+                        $$2k + 3k = 25 \implies 5k = 25 \implies k = \frac{25}{5} = 5$$
+                        A idade de Pedro é $$2k = 2 \cdot 5 = 10\text{ anos}$$<br>
+                        <strong>Gabarito: 10 anos</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Determine o valor de $x$ na proporção: $\frac{x}{12} = \frac{5}{20}$.</p>
+                        <p><strong>Resolução:</strong> Aplicando a propriedade fundamental das proporções ($a \cdot d = b \cdot c$):<br>
+                        $$20 \cdot x = 12 \cdot 5 \implies 20x = 60 \implies x = \frac{60}{20} = 3$$<br>
+                        <strong>Gabarito: $x = 3$</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>A razão entre dois números é $3/5$. Se o menor deles é 18, qual é o valor do maior número? ($\frac{18}{y} = \frac{3}{5} \implies 3y = 90 \implies y = 30$).</li>
+                        <li>Divida o número 120 em duas partes diretamente proporcionais aos números 2 e 3. ($2k + 3k = 120 \implies 5k = 120 \implies k = 24$; Partes: $48$ e $72$).</li>
+                        <li>Divida o número 180 em duas partes inversamente proporcionais aos números 2 e 4. ($\frac{x}{1/2} = \frac{y}{1/4} \implies 2x = 4y \implies x = 2y$; $2y + y = 180 \implies 3y = 180 \implies y = 60, x = 120$).</li>
+                        <li>A maquete de um edifício foi construída na escala 1:50. Se a maquete tem 80 cm de altura, qual é a altura real do prédio em metros? ($H_{\text{real}} = 80 \cdot 50 = 4000\text{ cm} = 40\text{ m}$).</li>
+                        <li>A razão entre o número de meninos e meninas em uma turma é $4/5$. Se há 20 meninos, qual é o total de meninas? ($\frac{20}{M} = \frac{4}{5} \implies 4M = 100 \implies M = 25\text{ meninas}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 4. RAZÕES ESPECIAIS -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Razões Especiais</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Aplicações</h3>
+                    <p>Razões especiais são quocientes pré-definidos entre grandezas de naturezas distintas, amplamente utilizados na Física, Geografia e no cotidiano.</p>
+                </section>
+
+                <section class="section-box">
+                    <h3>Principais Razões Especiais</h3>
+                    <div class="table-container" role="region" aria-label="Tabela de razões especiais" tabindex="0">
+                        <table>
+                            <caption>Tabela com as principais razões especiais, fórmulas e unidades</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Razão Especial</th>
+                                    <th scope="col">Fórmula</th>
+                                    <th scope="col">Unidade Típica</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Velocidade Média</th>
+                                    <td>$V_m = \frac{\Delta s}{\Delta t}$</td>
+                                    <td>km/h ou m/s</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Densidade Demográfica</th>
+                                    <td>$D = \frac{N_{\text{hab}}}{\text{Área}}$</td>
+                                    <td>hab/km²</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Escala</th>
+                                    <td>$E = \frac{d_{\text{desenho}}}{D_{\text{real}}}$</td>
+                                    <td>Adimensional (mesma unidade)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Vazão</th>
+                                    <td>$Q = \frac{V}{\Delta t}$</td>
+                                    <td>L/min ou m³/h</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Um automóvel percorre uma distância de 300 km em 4 horas. Qual foi a sua velocidade média nesse percurso?</p>
+                        <p><strong>Resolução:</strong> $$V_m = \frac{\Delta s}{\Delta t} = \frac{300\text{ km}}{4\text{ h}} = 75\text{ km/h}$$<br>
+                        <strong>Gabarito: 75 km/h</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Um mapa foi desenhado na escala $1:100.000$. Uma distância de $5\text{ cm}$ nesse mapa corresponde a qual distância real em quilômetros?</p>
+                        <p><strong>Resolução:</strong> Pela definição de escala $E = \frac{d}{D}$:<br>
+                        $$\frac{1}{100.000} = \frac{5\text{ cm}}{D} \implies D = 5 \cdot 100.000\text{ cm} = 500.000\text{ cm}$$
+                        Convertendo para metros: $500.000\text{ cm} = 5.000\text{ m}$.<br>
+                        Convertendo para quilômetros: $5.000\text{ m} = 5\text{ km}$.<br>
+                        <strong>Gabarito: 5 km</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Uma cidade possui $250.000$ habitantes distribuídos em uma área de $500\text{ km}^2$. Calcule a sua densidade demográfica. ($D = \frac{250000}{500} = 500\text{ hab/km}^2$).</li>
+                        <li>Converta a velocidade de $72\text{ km/h}$ para metros por segundo ($\text{m/s}$). ($V = \frac{72}{3{,}6} = 20\text{ m/s}$).</li>
+                        <li>Uma torneira enche um reservatório de $500\text{ litros}$ em $20\text{ minutos}$. Qual é a sua vazão em $\text{L/min}$? ($Q = \frac{500}{20} = 25\text{ L/min}$).</li>
+                        <li>Em um mapa feito na escala $1:200$, a parede de uma sala mede $3\text{ cm}$. Qual é o comprimento real em metros? ($D = 3 \cdot 200 = 600\text{ cm} = 6\text{ m}$).</li>
+                        <li>Um carro consome $40\text{ litros}$ de combustível para percorrer $480\text{ km}$. Qual é o consumo médio desse veículo em $\text{km/L}$? ($C = \frac{480}{40} = 12\text{ km/L}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 5. REGRA DE TRÊS -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Regra de Três</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito</h3>
+                    <p>A Regra de Três é um método prático utilizado para resolver problemas que envolvem duas ou mais grandezas proporcionalmente relacionadas.</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Regra de Três Simples</h3>
+                        <p>Envolve apenas duas grandezas relacionáveis de forma diretamente ou inversamente proporcional.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Regra de Três Composta</h3>
+                        <p>Envolve três ou mais grandezas. A análise de proporcionalidade (direta ou inversa) deve ser feita individualmente entre a grandeza que contém a incógnita $x$ e cada uma das demais.</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01 (Inversamente Proporcional)</h4>
+                        <p>4 operários, trabalhando no mesmo ritmo, constroem um muro em 6 dias. Em quantos dias 8 operários, de mesmo rendimento, construiriam o mesmo muro?</p>
+                        <p><strong>Resolução:</strong> Operários e dias são grandezas inversamente proporcionais ($A_1 \cdot B_1 = A_2 \cdot B_2$):<br>
+                        $$4 \cdot 6 = 8 \cdot x \implies 24 = 8x \implies x = \frac{24}{8} = 3\text{ dias}$$<br>
+                        <strong>Gabarito: 3 dias</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02 (Diretamente Proporcional)</h4>
+                        <p>Com 3 litros de tinta é possível pintar $15\text{ m}^2$ de parede. Quantos litros dessa mesma tinta serão necessários para pintar $45\text{ m}^2$?</p>
+                        <p><strong>Resolução:</strong> Litros de tinta e área são grandezas diretamente proporcionais ($\frac{A_1}{B_1} = \frac{A_2}{B_2}$):<br>
+                        $$\frac{3}{x} = \frac{15}{45} \implies 15 \cdot x = 3 \cdot 45 \implies 15x = 135 \implies x = \frac{135}{15} = 9\text{ litros}$$<br>
+                        <strong>Gabarito: 9 litros</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Um veículo a uma velocidade constante de $80\text{ km/h}$ realiza certo trajeto em $3\text{ horas}$. Quanto tempo levaria para fazer o mesmo trajeto a $120\text{ km/h}$? ($80 \cdot 3 = 120 \cdot t \implies 240 = 120t \implies t = 2\text{ horas}$).</li>
+                        <li>Se 5 canetas idênticas custam R$ 12,50, quanto custarão 12 canetas do mesmo modelo? ($\frac{5}{12} = \frac{12{,}50}{x} \implies 5x = 150 \implies x = \text{R\$ } 30{,}00$).</li>
+                        <li>Em 8 dias, 6 máquinas idênticas produzem 1.200 peças. Quantas peças serão produzidas por 10 máquinas do mesmo tipo trabalhando durante 12 dias? ($\frac{1200}{x} = \frac{6}{10} \cdot \frac{8}{12} = \frac{48}{120} = \frac{2}{5} \implies 2x = 6000 \implies x = 3.000\text{ peças}$).</li>
+                        <li>Para alimentar 15 cavalos durante 30 dias são necessários 600 kg de ração. Quantos quilogramas de ração serão necessários para alimentar 10 cavalos por 12 dias? ($\frac{600}{x} = \frac{15}{10} \cdot \frac{30}{12} = \frac{3}{2} \cdot \frac{5}{2} = \frac{15}{4} \implies 15x = 2400 \implies x = 160\text{ kg}$).</li>
+                        <li>Uma equipe de 10 pedreiros realiza uma reforma em 15 dias. Quantos pedreiros de mesmo rendimento seriam necessários para concluir a mesma obra em 6 dias? ($10 \cdot 15 = P \cdot 6 \implies 150 = 6P \implies P = 25\text{ pedreiros}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 6. JUROS SIMPLES -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Juros Simples</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Definição</h3>
+                    <p>No regime de <strong>Juros Simples</strong>, a taxa de juros incide exclusivamente sobre o Capital Inicial ($C$) durante todo o período da aplicação.</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Fórmula dos Juros</h3>
+                        <p>$$J = C \cdot i \cdot t$$</p>
+                        <ul>
+                            <li><strong>$J$:</strong> Valor dos Juros gerados.</li>
+                            <li><strong>$C$:</strong> Capital inicial aplicado.</li>
+                            <li><strong>$i$:</strong> Taxa de juros (expressa obrigatoriamente em valor decimal na fórmula, $i = \frac{\text{taxa\%}}{100}$).</li>
+                            <li><strong>$t$:</strong> Tempo de aplicação.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Fórmula do Montante</h3>
+                        <p>$$M = C + J \quad \text{ou} \quad M = C \cdot (1 + i \cdot t)$$</p>
+                        <p>O Montante ($M$) é a soma acumulada do Capital inicial aplicado aos Juros gerados.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Compatibilidade de Unidades</h3>
+                        <p>A taxa de juros ($i$) e o tempo ($t$) <strong>devem estar expressos rigorosamente na mesma unidade de tempo</strong> (ex.: taxa mensal e tempo em meses, ou taxa anual e tempo em anos).</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Um investimento de R$ 1.200,00 foi aplicado sob o regime de juros simples a uma taxa de 2% ao mês durante 5 meses. Qual o valor dos juros produzidos e o montante final?</p>
+                        <p><strong>Resolução:</strong> Dados: $C = 1200$, $i = 2\% \text{ a.m.} = 0{,}02$, $t = 5 \text{ meses}$.<br>
+                        Juros: $$J = C \cdot i \cdot t = 1200 \cdot 0{,}02 \cdot 5 = 1200 \cdot 0{,}10 = 120{,}00\text{ reais}$$
+                        Montante: $$M = C + J = 1200 + 120 = 1.320{,}00\text{ reais}$$<br>
+                        <strong>Gabarito: Juros = R$ 120,00; Montante = R$ 1.320,00</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Durante quanto tempo um capital de R$ 800,00 deve ficar aplicado a uma taxa de juros simples de 3% ao mês para render R$ 144,00 de juros?</p>
+                        <p><strong>Resolução:</strong> Dados: $J = 144$, $C = 800$, $i = 3\% \text{ a.m.} = 0{,}03$.<br>
+                        $$J = C \cdot i \cdot t \implies 144 = 800 \cdot 0{,}03 \cdot t \implies 144 = 24 \cdot t \implies t = \frac{144}{24} = 6\text{ meses}$$<br>
+                        <strong>Gabarito: 6 meses</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Calcule os juros simples gerados por R$ 2.500,00 aplicados a $1{,}5\%$ ao mês durante 1 ano ($12\text{ meses}$). ($J = 2500 \cdot 0{,}015 \cdot 12 = \text{R\$ } 450{,}00$).</li>
+                        <li>Qual é o montante acumulado por uma aplicação de R$ 5.000,00 a uma taxa de juros simples de $10\%$ ao ano durante 3 anos? ($M = 5000 \cdot (1 + 0{,}10 \cdot 3) = 5000 \cdot 1{,}30 = \text{R\$ } 6.500{,}00$).</li>
+                        <li>Qual taxa mensal de juros simples faz com que um capital de R$ 1.000,00 produza R$ 200,00 de juros ao fim de 8 meses? ($200 = 1000 \cdot i \cdot 8 \implies 8000i = 200 \implies i = 0{,}025 = 2{,}5\%\text{ a.m.}$).</li>
+                        <li>Em quanto tempo um capital dobrará de valor se aplicado a uma taxa de juros simples de $5\%$ ao mês? ($J = C \implies C = C \cdot 0{,}05 \cdot t \implies 0{,}05t = 1 \implies t = 20\text{ meses}$).</li>
+                        <li>Um empréstimo de R$ 3.000,00 gerou um montante final de R$ 3.540,00 ao fim de 6 meses. Qual foi a taxa mensal de juros simples cobrada? ($J = 3540 - 3000 = 540$; $540 = 3000 \cdot i \cdot 6 \implies 18000i = 540 \implies i = 0{,}03 = 3\%\text{ a.m.}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 7. EXPRESSÕES ALGÉBRICAS -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Expressões Algébricas</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Produtos Notáveis</h3>
+                    <p>Expressões algébricas são estruturas matemáticas que envolvem números, variáveis (letras) e operações. A simplificação de expressões exige o agrupamento e a redução de termos semelhantes.</p>
+                </section>
+
+                <section class="section-box">
+                    <h3>Representação Geométrica de $(a + b)^2$</h3>
+                    <div class="svg-container">
+                        <svg width="220" height="220" viewBox="0 0 220 220" aria-labelledby="title-prod-notavel desc-prod-notavel">
+                            <title id="title-prod-notavel">Produto Notável</title>
+                            <desc id="desc-prod-notavel">Demonstração geométrica da expansão de a mais b ao quadrado dividida em a ao quadrado, dois ab e b ao quadrado</desc>
+                            <rect x="20" y="20" width="120" height="120" rx="4" fill="rgba(16, 185, 129, 0.3)" stroke="#10b981" stroke-width="1.5"/>
+                            <text x="75" y="85" fill="#ffffff" font-weight="bold" font-size="16">a²</text>
+                            
+                            <rect x="140" y="20" width="60" height="120" rx="4" fill="rgba(245, 158, 11, 0.25)" stroke="#f59e0b" stroke-width="1.5"/>
+                            <text x="160" y="85" fill="#f59e0b" font-weight="bold" font-size="14">ab</text>
+                            
+                            <rect x="20" y="140" width="120" height="60" rx="4" fill="rgba(245, 158, 11, 0.25)" stroke="#f59e0b" stroke-width="1.5"/>
+                            <text x="70" y="175" fill="#f59e0b" font-weight="bold" font-size="14">ab</text>
+                            
+                            <rect x="140" y="140" width="60" height="60" rx="4" fill="rgba(59, 130, 246, 0.3)" stroke="#3b82f6" stroke-width="1.5"/>
+                            <text x="163" y="175" fill="#3b82f6" font-weight="bold" font-size="14">b²</text>
+                        </svg>
+                    </div>
+                </section>
+
+                <section class="section-box">
+                    <h3>Produtos Notáveis Importantes</h3>
+                    <ul>
+                        <li><strong>Quadrado da Soma de Dois Termos:</strong> $$(a + b)^2 = a^2 + 2ab + b^2$$</li>
+                        <li><strong>Quadrado da Diferença de Dois Termos:</strong> $$(a - b)^2 = a^2 - 2ab + b^2$$</li>
+                        <li><strong>Produto da Soma pela Diferença de Dois Termos:</strong> $$(a + b)(a - b) = a^2 - b^2$$</li>
+                    </ul>
+                </section>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Desenvolva a expressão algébrica $(2x + 3)^2$.</p>
+                        <p><strong>Resolução:</strong> Aplicando o quadrado da soma ($(a + b)^2 = a^2 + 2ab + b^2$), com $a = 2x$ e $b = 3$:<br>
+                        $$(2x + 3)^2 = (2x)^2 + 2 \cdot (2x) \cdot (3) + (3)^2 = 4x^2 + 12x + 9$$<br>
+                        <strong>Gabarito: $4x^2 + 12x + 9$</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Simplifique a expressão algébrica: $3(x + 2) - 2(2x - 1)$.</p>
+                        <p><strong>Resolução:</strong> Aplicando a propriedade distributiva:<br>
+                        $$3(x + 2) - 2(2x - 1) = 3x + 6 - 4x + 2 = (3x - 4x) + (6 + 2) = -x + 8$$<br>
+                        <strong>Gabarito: $-x + 8$</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Fatore completamente a expressão $x^2 - 16$. ($(x + 4)(x - 4)$).</li>
+                        <li>Calcule o valor numérico da expressão $2x^2 - 3x + 5$ para $x = -2$. ($2(-2)^2 - 3(-2) + 5 = 2(4) + 6 + 5 = 8 + 6 + 5 = 19$).</li>
+                        <li>Desenvolva o produto notável $(x - 5)^2$. ($x^2 - 10x + 25$).</li>
+                        <li>Simplifique a fração algébrica $\frac{x^2 - 9}{x + 3}$ para $x \neq -3$. ($\frac{(x + 3)(x - 3)}{x + 3} = x - 3$).</li>
+                        <li>Fatore por colocação de fator comum em evidência: $5x^3 + 10x^2$. ($5x^2(x + 2)$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 8. SISTEMA DE EQUAÇÕES -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Sistema de Equações</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Métodos de Resolução</h3>
+                    <p>Um sistema de equações do $1^{\text{o}}$ grau com duas incógnitas é formado por um conjunto de equações que devem ser satisfeitas simultaneamente pelo mesmo par ordenado $(x, y)$.</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Método da Substituição</h3>
+                        <p>Isola-se uma das incógnitas em uma das equações e substitui-se a expressão resultante na outra equação.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Método da Adição</h3>
+                        <p>Multiplicam-se as equações por valores adequados para que os coeficientes de uma das incógnitas fiquem opostos (simétricos), permitindo eliminá-la ao somar as duas equações membro a membro.</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Resolva o sistema de equações: $\begin{cases} x + y = 10 \\ x - y = 4 \end{cases}$</p>
+                        <p><strong>Resolução (Método da Adição):</strong> Somando as duas equações membro a membro:<br>
+                        $$(x + x) + (y - y) = 10 + 4 \implies 2x = 14 \implies x = \frac{14}{2} = 7$$<br>
+                        Substituindo $x = 7$ na primeira equação:<br>
+                        $$7 + y = 10 \implies y = 10 - 7 = 3$$<br>
+                        <strong>Gabarito: Par ordenado $(7, 3)$</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Em uma fazenda há galinhas ($g$) e coelhos ($c$), totalizando 20 animais e 56 patas. Quantos coelhos há na fazenda?</p>
+                        <p><strong>Resolução:</strong> Montando o sistema com o total de animais e patas:<br>
+                        $$\begin{cases} g + c = 20 \quad (\text{eq. 1}) \\ 2g + 4c = 56 \quad (\text{eq. 2}) \end{cases}$$<br>
+                        Multiplicando a eq. 1 por $-2$: $$-2g - 2c = -40$$<br>
+                        Somando com a eq. 2:<br>
+                        $$(-2g + 2g) + (-2c + 4c) = -40 + 56 \implies 2c = 16 \implies c = \frac{16}{2} = 8$$<br>
+                        <strong>Gabarito: 8 coelhos</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Resolva o sistema: $\begin{cases} 2x + y = 7 \\ x - y = 2 \end{cases}$ (Somando: $3x = 9 \implies x = 3$; substituindo: $3 - y = 2 \implies y = 1 \implies (3, 1)$).</li>
+                        <li>A soma de dois números é 50 e a diferença entre eles é 14. Quais são esses números? ($\begin{cases} x + y = 50 \\ x - y = 14 \end{cases} \implies 2x = 64 \implies x = 32, y = 18$).</li>
+                        <li>Paguei R$ 25,00 por 3 canetas e 1 caderno. Minha amiga pagou R$ 21,00 por 2 canetas e 1 caderno do mesmo tipo. Qual é o preço unitário de cada item? ($\begin{cases} 3c + 1k = 25 \\ 2c + 1k = 21 \end{cases} \implies c = \text{R\$ } 4{,}00 \text{ e } k = \text{R\$ } 13{,}00$).</li>
+                        <li>Determine a solução do sistema: $\begin{cases} 3x + 2y = 12 \\ x - y = 1 \end{cases}$ ($x = y + 1 \implies 3(y + 1) + 2y = 12 \implies 5y = 9 \implies y = 1{,}8; x = 2{,}8$).</li>
+                        <li>Em um estacionamento há carros ($c$) e motos ($m$), totalizando 15 veículos e 46 pneus. Quantos carros estão estacionados? ($\begin{cases} c + m = 15 \\ 4c + 2m = 46 \end{cases} \implies 2c = 16 \implies c = 8 \text{ carros}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 9. EQUAÇÃO DO 2º GRAU -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Equação do 2º Grau</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Forma Geral</h3>
+                    <p>Uma equação do $2^\circ$ grau com uma incógnita é qualquer equação polinomial que pode ser escrita na forma $ax^2 + bx + c = 0$, em que $a, b, c \in \mathbb{R}$ e $a \neq 0$. Os valores de $x$ que satisfazem a igualdade são chamados de <strong>raízes</strong>.</p>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Fórmula Resolutiva (Bhaskara) e Discriminante ($\Delta$)</h3>
+                        <p>$$x = \frac{-b \pm \sqrt{\Delta}}{2a}$$</p>
+                        <p>Onde o discriminante $\Delta$ é dado por: $$\Delta = b^2 - 4ac$$</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Análise do Discriminante ($\Delta$)</h3>
+                        <ul>
+                            <li><strong>$\Delta &gt; 0$:</strong> Duas raízes reais e distintas ($x_1 \neq x_2$).</li>
+                            <li><strong>$\Delta = 0$:</strong> Duas raízes reais e iguais ($x_1 = x_2$).</li>
+                            <li><strong>$\Delta &lt; 0$:</strong> Não possui raízes no conjunto dos números reais ($\mathbb{R}$).</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Relações de Girard (Soma e Produto)</h3>
+                        <p>Para equações na forma $ax^2 + bx + c = 0$ que admitem raízes reais $x_1$ e $x_2$:</p>
+                        <ul>
+                            <li><strong>Soma das raízes ($S$):</strong> $$S = x_1 + x_2 = -\frac{b}{a}$$</li>
+                            <li><strong>Produto das raízes ($P$):</strong> $$P = x_1 \cdot x_2 = \frac{c}{a}$$</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Encontre as raízes reais da equação $x^2 - 7x + 10 = 0$.</p>
+                        <p><strong>Resolução:</strong> Coeficientes: $a = 1, b = -7, c = 10$.<br>
+                        $$\Delta = (-7)^2 - 4 \cdot (1) \cdot (10) = 49 - 40 = 9$$
+                        $$x = \frac{-(-7) \pm \sqrt{9}}{2(1)} = \frac{7 \pm 3}{2}$$
+                        $$x_1 = \frac{7 + 3}{2} = \frac{10}{2} = 5 \quad \text{e} \quad x_2 = \frac{7 - 3}{2} = \frac{4}{2} = 2$$<br>
+                        <strong>Gabarito: $S = \{2, 5\}$</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Determine a soma e o produto das raízes da equação $2x^2 - 8x + 6 = 0$ utilizando as Relações de Girard.</p>
+                        <p><strong>Resolução:</strong> Coeficientes: $a = 2, b = -8, c = 6$.<br>
+                        Soma: $$S = -\frac{b}{a} = -\frac{-8}{2} = 4$$
+                        Produto: $$P = \frac{c}{a} = \frac{6}{2} = 3$$<br>
+                        <strong>Gabarito: Soma = 4; Produto = 3</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Resolva no conjunto dos números reais a equação incompleta $3x^2 - 12 = 0$. ($3x^2 = 12 \implies x^2 = 4 \implies x = \pm 2$).</li>
+                        <li>Determine $k$ para que $x^2 - 6x + k = 0$ possua duas raízes reais iguais ($\Delta = 0$). ($(-6)^2 - 4(1)(k) = 0 \implies 36 - 4k = 0 \implies k = 9$).</li>
+                        <li>Determine as raízes da equação $x^2 - 5x + 6 = 0$ identificando dois números cuja soma seja 5 e o produto seja 6. ($x_1 = 2, x_2 = 3$).</li>
+                        <li>Resolva a equação incompleta $x^2 - 4x = 0$ utilizando fatoração. ($x(x - 4) = 0 \implies x_1 = 0 \text{ ou } x_2 = 4$).</li>
+                        <li>A área de um retângulo é $36\text{ m}^2$. Sabendo que o comprimento excede a largura em $5\text{ m}$, calcule as dimensões. ($x(x + 5) = 36 \implies x^2 + 5x - 36 = 0 \implies (x + 9)(x - 4) = 0 \implies x = 4\text{ m}$; Dimensões: $4\text{ m}$ por $9\text{ m}$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 10. FUNÇÕES -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Funções (Afim e Quadrática)</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito de Função e Plano Cartesiano</h3>
+                    <p>Uma função é uma regra que associa cada elemento de um conjunto inicial (domínio, representado pela variável $x$) a um único elemento em um conjunto final (imagem, representada por $y$ ou $f(x)$).</p>
+                    <p>No Plano Cartesiano, o eixo horizontal é o eixo das abscissas ($x$) e o vertical é o eixo das ordenadas ($y$).</p>
+
+                    <div class="svg-container">
+                        <svg width="300" height="260" viewBox="0 0 300 260" aria-labelledby="title-plano-cartesiano desc-plano-cartesiano">
+                            <title id="title-plano-cartesiano">Plano Cartesiano e Função Afim</title>
+                            <desc id="desc-plano-cartesiano">Gráfico cartesiano demonstrando a reta de uma função afim e a indicação do ponto P com coordenadas 3 e 2</desc>
+                            <defs>
+                                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                </pattern>
+                            </defs>
+                            <rect width="300" height="260" fill="url(#grid)" />
+
+                            <line x1="20" y1="130" x2="280" y2="130" stroke="#94a3b8" stroke-width="2"/>
+                            <line x1="150" y1="240" x2="150" y2="20" stroke="#94a3b8" stroke-width="2"/>
+                            
+                            <text x="285" y="135" fill="#f1f5f9" font-size="12" font-weight="bold">x</text>
+                            <text x="145" y="15" fill="#f1f5f9" font-size="12" font-weight="bold">y</text>
+                            <text x="138" y="145" fill="#94a3b8" font-size="10">0</text>
+
+                            <line x1="210" y1="130" x2="210" y2="90" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
+                            <line x1="150" y1="90" x2="210" y2="90" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
+                            <circle cx="210" cy="90" r="5" fill="#f59e0b"/>
+                            <text x="215" y="85" fill="#f59e0b" font-size="12" font-weight="bold">P(3, 2)</text>
+
+                            <line x1="90" y1="210" x2="250" y2="50" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+                            <text x="235" y="42" fill="#10b981" font-size="11" font-weight="bold">f(x) = ax + b</text>
+                        </svg>
+                    </div>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Função Afim ($1^\circ$ Grau)</h3>
+                        <p>Definida pela lei $f(x) = ax + b$, com $a, b \in \mathbb{R}$ e $a \neq 0$. Seu gráfico é uma <strong>reta</strong>.</p>
+                        <ul>
+                            <li><strong>$a$ (Coeficiente Angular):</strong> Taxa de variação. Se $a &gt; 0$, a função é crescente; se $a &lt; 0$, é decrescente.</li>
+                            <li><strong>$b$ (Coeficiente Linear):</strong> Ordenada do ponto de intersecção com o eixo $y$, ponto $(0, b)$.</li>
+                            <li><strong>Raiz ou Zero da Função:</strong> Valor de $x$ para o qual $f(x) = 0$: $$x = -\frac{b}{a}$$</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Função Quadrática ($2^\circ$ Grau)</h3>
+                        <p>Definida por $f(x) = ax^2 + bx + c$, com $a, b, c \in \mathbb{R}$ e $a \neq 0$. O gráfico é uma <strong>parábola</strong>.</p>
+                        <ul>
+                            <li><strong>Concavidade:</strong> $a &gt; 0$ (voltada para cima $\cup$) ou $a &lt; 0$ (voltada para baixo $\cap$).</li>
+                            <li><strong>Vértice da Parábola ($V$):</strong> Ponto extremo de máximo ou mínimo: $$x_v = -\frac{b}{2a} \quad \text{e} \quad y_v = -\frac{\Delta}{4a}$$</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Gráfico da Parábola e Vértice</h3>
+                    <div class="svg-container">
+                        <svg width="300" height="220" viewBox="0 0 300 220" aria-labelledby="title-parabola desc-parabola">
+                            <title id="title-parabola">Gráfico de Parábola</title>
+                            <desc id="desc-parabola">Gráfico cartesiano com uma parábola com concavidade para cima destacando a posição do Vértice</desc>
+                            <line x1="20" y1="180" x2="280" y2="180" stroke="#94a3b8" stroke-width="2"/>
+                            <line x1="150" y1="200" x2="150" y2="20" stroke="#94a3b8" stroke-width="2"/>
+                            
+                            <path d="M 50,40 Q 150,220 250,40" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+                            
+                            <circle cx="150" cy="130" r="5" fill="#f59e0b"/>
+                            <text x="160" y="135" fill="#f59e0b" font-size="12" font-weight="bold">Vértice V(Xv, Yv)</text>
+                            <line x1="150" y1="130" x2="150" y2="180" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
+                            <text x="142" y="195" fill="#f59e0b" font-size="11" font-weight="bold">Xv</text>
+                        </svg>
+                    </div>
+                </section>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Um motorista de aplicativo cobra uma taxa fixa de R$ 5,00 mais R$ 2,00 por quilômetro rodado. Escreva a lei da função que modela o valor cobrado e determine o custo de uma corrida de 12 km.</p>
+                        <p><strong>Resolução:</strong> Lei da função afim: $f(x) = 2x + 5$, onde $x$ representa os quilômetros rodados.<br>
+                        Para $x = 12$: $$f(12) = 2 \cdot (12) + 5 = 24 + 5 = 29$$<br>
+                        <strong>Gabarito: R$ 29,00</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Determine o vértice da parábola dada pela função $f(x) = x^2 - 6x + 5$.</p>
+                        <p><strong>Resolução:</strong> Coeficientes: $a = 1, b = -6, c = 5$.<br>
+                        Cálculo do $x_v$: $$x_v = -\frac{b}{2a} = -\frac{-6}{2(1)} = \frac{6}{2} = 3$$
+                        Cálculo do $\Delta$: $$\Delta = b^2 - 4ac = (-6)^2 - 4(1)(5) = 36 - 20 = 16$$
+                        Cálculo do $y_v$: $$y_v = -\frac{\Delta}{4a} = -\frac{16}{4(1)} = -4$$<br>
+                        <strong>Gabarito: Vértice $V(3, -4)$</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Encontre a raiz da função afim $f(x) = 3x - 12$. ($3x - 12 = 0 \implies x = 4$).</li>
+                        <li>Dada a função $f(x) = -2x + 8$, verifique se ela é crescente ou decrescente e calcule $f(5)$. ($a = -2 &lt; 0 \implies \text{decrescente}; f(5) = -2(5) + 8 = -2$).</li>
+                        <li>Determine as raízes da função quadrática $f(x) = x^2 - 5x + 6$. ($x^2 - 5x + 6 = 0 \implies \Delta = 1 \implies x_1 = 3, x_2 = 2$).</li>
+                        <li>Um projétil é lançado e sua altura $h$ em metros segue a função $h(t) = -t^2 + 8t$, em que $t$ é o tempo decorrido em segundos. Qual é a altura máxima atingida? ($t_v = -\frac{8}{2(-1)} = 4\text{ s} \implies h_{\text{máx}} = -(4)^2 + 8(4) = -16 + 32 = 16\text{ m}$).</li>
+                        <li>Em qual ponto o gráfico da função $f(x) = 4x - 7$ intercepta o eixo $y$? (No ponto $(0, b) = (0, -7)$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+        <!-- 11. GEOMETRIA PLANA -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Geometria Plana</h2>
@@ -225,644 +921,7 @@
             </div>
         </details>
 
-        <!-- EXPRESSÕES ALGÉBRICAS -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Expressões Algébricas</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Produtos Notáveis</h3>
-                    <p>Expressões algébricas são estruturas matemáticas que envolvem números, variáveis (letras) e operações. A simplificação de expressões exige o agrupamento e a redução de termos semelhantes.</p>
-                </section>
-
-                <section class="section-box">
-                    <h3>Representação Geométrica de $(a + b)^2$</h3>
-                    <div class="svg-container">
-                        <svg width="220" height="220" viewBox="0 0 220 220" aria-labelledby="title-prod-notavel desc-prod-notavel">
-                            <title id="title-prod-notavel">Produto Notável</title>
-                            <desc id="desc-prod-notavel">Demonstração geométrica da expansão de a mais b ao quadrado dividida em a ao quadrado, dois ab e b ao quadrado</desc>
-                            <rect x="20" y="20" width="120" height="120" rx="4" fill="rgba(16, 185, 129, 0.3)" stroke="#10b981" stroke-width="1.5"/>
-                            <text x="75" y="85" fill="#ffffff" font-weight="bold" font-size="16">a²</text>
-                            
-                            <rect x="140" y="20" width="60" height="120" rx="4" fill="rgba(245, 158, 11, 0.25)" stroke="#f59e0b" stroke-width="1.5"/>
-                            <text x="160" y="85" fill="#f59e0b" font-weight="bold" font-size="14">ab</text>
-                            
-                            <rect x="20" y="140" width="120" height="60" rx="4" fill="rgba(245, 158, 11, 0.25)" stroke="#f59e0b" stroke-width="1.5"/>
-                            <text x="70" y="175" fill="#f59e0b" font-weight="bold" font-size="14">ab</text>
-                            
-                            <rect x="140" y="140" width="60" height="60" rx="4" fill="rgba(59, 130, 246, 0.3)" stroke="#3b82f6" stroke-width="1.5"/>
-                            <text x="163" y="175" fill="#3b82f6" font-weight="bold" font-size="14">b²</text>
-                        </svg>
-                    </div>
-                </section>
-
-                <section class="section-box">
-                    <h3>Produtos Notáveis Importantes</h3>
-                    <ul>
-                        <li><strong>Quadrado da Soma de Dois Termos:</strong> $$(a + b)^2 = a^2 + 2ab + b^2$$</li>
-                        <li><strong>Quadrado da Diferença de Dois Termos:</strong> $$(a - b)^2 = a^2 - 2ab + b^2$$</li>
-                        <li><strong>Produto da Soma pela Diferença de Dois Termos:</strong> $$(a + b)(a - b) = a^2 - b^2$$</li>
-                    </ul>
-                </section>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Desenvolva a expressão algébrica $(2x + 3)^2$.</p>
-                        <p><strong>Resolução:</strong> Aplicando o quadrado da soma ($(a + b)^2 = a^2 + 2ab + b^2$), com $a = 2x$ e $b = 3$:<br>
-                        $$(2x + 3)^2 = (2x)^2 + 2 \cdot (2x) \cdot (3) + (3)^2 = 4x^2 + 12x + 9$$<br>
-                        <strong>Gabarito: $4x^2 + 12x + 9$</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Simplifique a expressão algébrica: $3(x + 2) - 2(2x - 1)$.</p>
-                        <p><strong>Resolução:</strong> Aplicando a propriedade distributiva:<br>
-                        $$3(x + 2) - 2(2x - 1) = 3x + 6 - 4x + 2 = (3x - 4x) + (6 + 2) = -x + 8$$<br>
-                        <strong>Gabarito: $-x + 8$</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Fatore completamente a expressão $x^2 - 16$. ($(x + 4)(x - 4)$).</li>
-                        <li>Calcule o valor numérico da expressão $2x^2 - 3x + 5$ para $x = -2$. ($2(-2)^2 - 3(-2) + 5 = 2(4) + 6 + 5 = 8 + 6 + 5 = 19$).</li>
-                        <li>Desenvolva o produto notável $(x - 5)^2$. ($x^2 - 10x + 25$).</li>
-                        <li>Simplifique a fração algébrica $\frac{x^2 - 9}{x + 3}$ para $x \neq -3$. ($\frac{(x + 3)(x - 3)}{x + 3} = x - 3$).</li>
-                        <li>Fatore por colocação de fator comum em evidência: $5x^3 + 10x^2$. ($5x^2(x + 2)$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- SISTEMA DE EQUAÇÕES -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Sistema de Equações</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Métodos de Resolução</h3>
-                    <p>Um sistema de equações do $1^{\text{o}}$ grau com duas incógnitas é formado por um conjunto de equações que devem ser satisfeitas simultaneamente pelo mesmo par ordenado $(x, y)$.</p>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Método da Substituição</h3>
-                        <p>Isola-se uma das incógnitas em uma das equações e substitui-se a expressão resultante na outra equação.</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Método da Adição</h3>
-                        <p>Multiplicam-se as equações por valores adequados para que os coeficientes de uma das incógnitas fiquem opostos (simétricos), permitindo eliminá-la ao somar as duas equações membro a membro.</p>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Resolva o sistema de equações: $\begin{cases} x + y = 10 \\ x - y = 4 \end{cases}$</p>
-                        <p><strong>Resolução (Método da Adição):</strong> Somando as duas equações membro a membro:<br>
-                        $$(x + x) + (y - y) = 10 + 4 \implies 2x = 14 \implies x = \frac{14}{2} = 7$$<br>
-                        Substituindo $x = 7$ na primeira equação:<br>
-                        $$7 + y = 10 \implies y = 10 - 7 = 3$$<br>
-                        <strong>Gabarito: Par ordenado $(7, 3)$</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Em uma fazenda há galinhas ($g$) e coelhos ($c$), totalizando 20 animais e 56 patas. Quantos coelhos há na fazenda?</p>
-                        <p><strong>Resolução:</strong> Montando o sistema com o total de animais e patas:<br>
-                        $$\begin{cases} g + c = 20 \quad (\text{eq. 1}) \\ 2g + 4c = 56 \quad (\text{eq. 2}) \end{cases}$$<br>
-                        Multiplicando a eq. 1 por $-2$: $$-2g - 2c = -40$$<br>
-                        Somando com a eq. 2:<br>
-                        $$(-2g + 2g) + (-2c + 4c) = -40 + 56 \implies 2c = 16 \implies c = \frac{16}{2} = 8$$<br>
-                        <strong>Gabarito: 8 coelhos</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Resolva o sistema: $\begin{cases} 2x + y = 7 \\ x - y = 2 \end{cases}$ (Somando: $3x = 9 \implies x = 3$; substituindo: $3 - y = 2 \implies y = 1 \implies (3, 1)$).</li>
-                        <li>A soma de dois números é 50 e a diferença entre eles é 14. Quais são esses números? ($\begin{cases} x + y = 50 \\ x - y = 14 \end{cases} \implies 2x = 64 \implies x = 32, y = 18$).</li>
-                        <li>Paguei R$ 25,00 por 3 canetas e 1 caderno. Minha amiga pagou R$ 21,00 por 2 canetas e 1 caderno do mesmo tipo. Qual é o preço unitário de cada item? ($\begin{cases} 3c + 1k = 25 \\ 2c + 1k = 21 \end{cases} \implies c = \text{R\$ } 4{,}00 \text{ e } k = \text{R\$ } 13{,}00$).</li>
-                        <li>Determine a solução do sistema: $\begin{cases} 3x + 2y = 12 \\ x - y = 1 \end{cases}$ ($x = y + 1 \implies 3(y + 1) + 2y = 12 \implies 5y = 9 \implies y = 1{,}8; x = 2{,}8$).</li>
-                        <li>Em um estacionamento há carros ($c$) e motos ($m$), totalizando 15 veículos e 46 pneus. Quantos carros estão estacionados? ($\begin{cases} c + m = 15 \\ 4c + 2m = 46 \end{cases} \implies 2c = 16 \implies c = 8 \text{ carros}$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- FUNÇÕES -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Funções (Afim e Quadrática)</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito de Função e Plano Cartesiano</h3>
-                    <p>Uma função é uma regra que associa cada elemento de um conjunto inicial (domínio, representado pela variável $x$) a um único elemento em um conjunto final (imagem, representada por $y$ ou $f(x)$).</p>
-                    <p>No Plano Cartesiano, o eixo horizontal é o eixo das abscissas ($x$) e o vertical é o eixo das ordenadas ($y$).</p>
-
-                    <div class="svg-container">
-                        <svg width="300" height="260" viewBox="0 0 300 260" aria-labelledby="title-plano-cartesiano desc-plano-cartesiano">
-                            <title id="title-plano-cartesiano">Plano Cartesiano e Função Afim</title>
-                            <desc id="desc-plano-cartesiano">Gráfico cartesiano demonstrando a reta de uma função afim e a indicação do ponto P com coordenadas 3 e 2</desc>
-                            <defs>
-                                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                                </pattern>
-                            </defs>
-                            <rect width="300" height="260" fill="url(#grid)" />
-
-                            <line x1="20" y1="130" x2="280" y2="130" stroke="#94a3b8" stroke-width="2"/>
-                            <line x1="150" y1="240" x2="150" y2="20" stroke="#94a3b8" stroke-width="2"/>
-                            
-                            <text x="285" y="135" fill="#f1f5f9" font-size="12" font-weight="bold">x</text>
-                            <text x="145" y="15" fill="#f1f5f9" font-size="12" font-weight="bold">y</text>
-                            <text x="138" y="145" fill="#94a3b8" font-size="10">0</text>
-
-                            <line x1="210" y1="130" x2="210" y2="90" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
-                            <line x1="150" y1="90" x2="210" y2="90" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
-                            <circle cx="210" cy="90" r="5" fill="#f59e0b"/>
-                            <text x="215" y="85" fill="#f59e0b" font-size="12" font-weight="bold">P(3, 2)</text>
-
-                            <line x1="90" y1="210" x2="250" y2="50" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-                            <text x="235" y="42" fill="#10b981" font-size="11" font-weight="bold">f(x) = ax + b</text>
-                        </svg>
-                    </div>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Função Afim ($1^\circ$ Grau)</h3>
-                        <p>Definida pela lei $f(x) = ax + b$, com $a, b \in \mathbb{R}$ e $a \neq 0$. Seu gráfico é uma <strong>reta</strong>.</p>
-                        <ul>
-                            <li><strong>$a$ (Coeficiente Angular):</strong> Taxa de variação. Se $a &gt; 0$, a função é crescente; se $a &lt; 0$, é decrescente.</li>
-                            <li><strong>$b$ (Coeficiente Linear):</strong> Ordenada do ponto de intersecção com o eixo $y$, ponto $(0, b)$.</li>
-                            <li><strong>Raiz ou Zero da Função:</strong> Valor de $x$ para o qual $f(x) = 0$: $$x = -\frac{b}{a}$$</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <h3>Função Quadrática ($2^\circ$ Grau)</h3>
-                        <p>Definida por $f(x) = ax^2 + bx + c$, com $a, b, c \in \mathbb{R}$ e $a \neq 0$. O gráfico é uma <strong>parábola</strong>.</p>
-                        <ul>
-                            <li><strong>Concavidade:</strong> $a &gt; 0$ (voltada para cima $\cup$) ou $a &lt; 0$ (voltada para baixo $\cap$).</li>
-                            <li><strong>Vértice da Parábola ($V$):</strong> Ponto extremo de máximo ou mínimo: $$x_v = -\frac{b}{2a} \quad \text{e} \quad y_v = -\frac{\Delta}{4a}$$</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Gráfico da Parábola e Vértice</h3>
-                    <div class="svg-container">
-                        <svg width="300" height="220" viewBox="0 0 300 220" aria-labelledby="title-parabola desc-parabola">
-                            <title id="title-parabola">Gráfico de Parábola</title>
-                            <desc id="desc-parabola">Gráfico cartesiano com uma parábola com concavidade para cima destacando a posição do Vértice</desc>
-                            <line x1="20" y1="180" x2="280" y2="180" stroke="#94a3b8" stroke-width="2"/>
-                            <line x1="150" y1="200" x2="150" y2="20" stroke="#94a3b8" stroke-width="2"/>
-                            
-                            <path d="M 50,40 Q 150,220 250,40" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-                            
-                            <circle cx="150" cy="130" r="5" fill="#f59e0b"/>
-                            <text x="160" y="135" fill="#f59e0b" font-size="12" font-weight="bold">Vértice V(Xv, Yv)</text>
-                            <line x1="150" y1="130" x2="150" y2="180" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
-                            <text x="142" y="195" fill="#f59e0b" font-size="11" font-weight="bold">Xv</text>
-                        </svg>
-                    </div>
-                </section>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Um motorista de aplicativo cobra uma taxa fixa de R$ 5,00 mais R$ 2,00 por quilômetro rodado. Escreva a lei da função que modela o valor cobrado e determine o custo de uma corrida de 12 km.</p>
-                        <p><strong>Resolução:</strong> Lei da função afim: $f(x) = 2x + 5$, onde $x$ representa os quilômetros rodados.<br>
-                        Para $x = 12$: $$f(12) = 2 \cdot (12) + 5 = 24 + 5 = 29$$<br>
-                        <strong>Gabarito: R$ 29,00</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Determine o vértice da parábola dada pela função $f(x) = x^2 - 6x + 5$.</p>
-                        <p><strong>Resolução:</strong> Coeficientes: $a = 1, b = -6, c = 5$.<br>
-                        Cálculo do $x_v$: $$x_v = -\frac{b}{2a} = -\frac{-6}{2(1)} = \frac{6}{2} = 3$$
-                        Cálculo do $\Delta$: $$\Delta = b^2 - 4ac = (-6)^2 - 4(1)(5) = 36 - 20 = 16$$
-                        Cálculo do $y_v$: $$y_v = -\frac{\Delta}{4a} = -\frac{16}{4(1)} = -4$$<br>
-                        <strong>Gabarito: Vértice $V(3, -4)$</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Encontre a raiz da função afim $f(x) = 3x - 12$. ($3x - 12 = 0 \implies x = 4$).</li>
-                        <li>Dada a função $f(x) = -2x + 8$, verifique se ela é crescente ou decrescente e calcule $f(5)$. ($a = -2 &lt; 0 \implies \text{decrescente}; f(5) = -2(5) + 8 = -2$).</li>
-                        <li>Determine as raízes da função quadrática $f(x) = x^2 - 5x + 6$. ($x^2 - 5x + 6 = 0 \implies \Delta = 1 \implies x_1 = 3, x_2 = 2$).</li>
-                        <li>Um projétil é lançado e sua altura $h$ em metros segue a função $h(t) = -t^2 + 8t$, em que $t$ é o tempo decorrido em segundos. Qual é a altura máxima atingida? ($t_v = -\frac{8}{2(-1)} = 4\text{ s} \implies h_{\text{máx}} = -(4)^2 + 8(4) = -16 + 32 = 16\text{ m}$).</li>
-                        <li>Em qual ponto o gráfico da função $f(x) = 4x - 7$ intercepta o eixo $y$? (No ponto $(0, b) = (0, -7)$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- RAZÃO E PROPORÇÃO -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Razão e Proporção</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito</h3>
-                    <p><strong>Razão:</strong> É o quociente entre dois números $a$ e $b$ ($b \neq 0$), indicado por $\frac{a}{b}$ ou $a : b$, utilizado para comparar duas grandezas.</p>
-                    <p><strong>Proporção:</strong> É a igualdade entre duas razões: $\frac{a}{b} = \frac{c}{d}$. A propriedade fundamental das proporções estabelece que o produto dos meios é igual ao produto dos extremos:</p>
-                    <p>$$a \cdot d = b \cdot c$$</p>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Grandezas Diretamente Proporcionais</h3>
-                        <p>Duas grandezas são diretamente proporcionais quando a variação de uma provoca a variação da outra na mesma razão: $$\frac{A}{B} = k \quad (k \text{ é constante})$$</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Grandezas Inversamente Proporcionais</h3>
-                        <p>Duas grandezas são inversamente proporcionais quando o aumento de uma provoca a redução da outra na mesma proporção: $$A \cdot B = k \quad (k \text{ é constante})$$</p>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Se a razão entre a idade de Pedro e a idade de Paulo é de $2/3$, e a soma das idades dos dois é de 25 anos, qual é a idade de Pedro?</p>
-                        <p><strong>Resolução:</strong> Seja $k$ a constante de proporcionalidade. As idades são $2k$ e $3k$.<br>
-                        $$2k + 3k = 25 \implies 5k = 25 \implies k = \frac{25}{5} = 5$$
-                        A idade de Pedro é $$2k = 2 \cdot 5 = 10\text{ anos}$$<br>
-                        <strong>Gabarito: 10 anos</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Determine o valor de $x$ na proporção: $\frac{x}{12} = \frac{5}{20}$.</p>
-                        <p><strong>Resolução:</strong> Aplicando a propriedade fundamental das proporções ($a \cdot d = b \cdot c$):<br>
-                        $$20 \cdot x = 12 \cdot 5 \implies 20x = 60 \implies x = \frac{60}{20} = 3$$<br>
-                        <strong>Gabarito: $x = 3$</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>A razão entre dois números é $3/5$. Se o menor deles é 18, qual é o valor do maior número? ($\frac{18}{y} = \frac{3}{5} \implies 3y = 90 \implies y = 30$).</li>
-                        <li>Divida o número 120 em duas partes diretamente proporcionais aos números 2 e 3. ($2k + 3k = 120 \implies 5k = 120 \implies k = 24$; Partes: $48$ e $72$).</li>
-                        <li>Divida o número 180 em duas partes inversamente proporcionais aos números 2 e 4. ($\frac{x}{1/2} = \frac{y}{1/4} \implies 2x = 4y \implies x = 2y$; $2y + y = 180 \implies 3y = 180 \implies y = 60, x = 120$).</li>
-                        <li>A maquete de um edifício foi construída na escala 1:50. Se a maquete tem 80 cm de altura, qual é a altura real do prédio em metros? ($H_{\text{real}} = 80 \cdot 50 = 4000\text{ cm} = 40\text{ m}$).</li>
-                        <li>A razão entre o número de meninos e meninas em uma turma é $4/5$. Se há 20 meninos, qual é o total de meninas? ($\frac{20}{M} = \frac{4}{5} \implies 4M = 100 \implies M = 25\text{ meninas}$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- RAZÕES ESPECIAIS -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Razões Especiais</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Aplicações</h3>
-                    <p>Razões especiais são quocientes pré-definidos entre grandezas de naturezas distintas, amplamente utilizados na Física, Geografia e no cotidiano.</p>
-                </section>
-
-                <section class="section-box">
-                    <h3>Principais Razões Especiais</h3>
-                    <div class="table-container" role="region" aria-label="Tabela de razões especiais" tabindex="0">
-                        <table>
-                            <caption>Tabela com as principais razões especiais, fórmulas e unidades</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Razão Especial</th>
-                                    <th scope="col">Fórmula</th>
-                                    <th scope="col">Unidade Típica</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Velocidade Média</th>
-                                    <td>$V_m = \frac{\Delta s}{\Delta t}$</td>
-                                    <td>km/h ou m/s</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Densidade Demográfica</th>
-                                    <td>$D = \frac{N_{\text{hab}}}{\text{Área}}$</td>
-                                    <td>hab/km²</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Escala</th>
-                                    <td>$E = \frac{d_{\text{desenho}}}{D_{\text{real}}}$</td>
-                                    <td>Adimensional (mesma unidade)</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Vazão</th>
-                                    <td>$Q = \frac{V}{\Delta t}$</td>
-                                    <td>L/min ou m³/h</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Um automóvel percorre uma distância de 300 km em 4 horas. Qual foi a sua velocidade média nesse percurso?</p>
-                        <p><strong>Resolução:</strong> $$V_m = \frac{\Delta s}{\Delta t} = \frac{300\text{ km}}{4\text{ h}} = 75\text{ km/h}$$<br>
-                        <strong>Gabarito: 75 km/h</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Um mapa foi desenhado na escala $1:100.000$. Uma distância de $5\text{ cm}$ nesse mapa corresponde a qual distância real em quilômetros?</p>
-                        <p><strong>Resolução:</strong> Pela definição de escala $E = \frac{d}{D}$:<br>
-                        $$\frac{1}{100.000} = \frac{5\text{ cm}}{D} \implies D = 5 \cdot 100.000\text{ cm} = 500.000\text{ cm}$$
-                        Convertendo para metros: $500.000\text{ cm} = 5.000\text{ m}$.<br>
-                        Convertendo para quilômetros: $5.000\text{ m} = 5\text{ km}$.<br>
-                        <strong>Gabarito: 5 km</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Uma cidade possui $250.000$ habitantes distribuídos em uma área de $500\text{ km}^2$. Calcule a sua densidade demográfica. ($D = \frac{250000}{500} = 500\text{ hab/km}^2$).</li>
-                        <li>Converta a velocidade de $72\text{ km/h}$ para metros por segundo ($\text{m/s}$). ($V = \frac{72}{3{,}6} = 20\text{ m/s}$).</li>
-                        <li>Uma torneira enche um reservatório de $500\text{ litros}$ em $20\text{ minutos}$. Qual é a sua vazão em $\text{L/min}$? ($Q = \frac{500}{20} = 25\text{ L/min}$).</li>
-                        <li>Em um mapa feito na escala $1:200$, a parede de uma sala mede $3\text{ cm}$. Qual é o comprimento real em metros? ($D = 3 \cdot 200 = 600\text{ cm} = 6\text{ m}$).</li>
-                        <li>Um carro consome $40\text{ litros}$ de combustível para percorrer $480\text{ km}$. Qual é o consumo médio desse veículo em $\text{km/L}$? ($C = \frac{480}{40} = 12\text{ km/L}$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- PROBABILIDADE -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Probabilidade</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Definição</h3>
-                    <p>A Probabilidade mede numericamente a chance de ocorrência de um determinado evento em um experimento aleatório equiprovável.</p>
-                    <p>$$P(A) = \frac{n(A)}{n(\Omega)} = \frac{\text{Número de casos favoráveis}}{\text{Número total de casos possíveis}}$$</p>
-                </section>
-
-                <section class="section-box">
-                    <h3>Visualização do Espaço Amostral (Exemplo da Urna)</h3>
-                    <div class="svg-container">
-                        <svg width="280" height="150" viewBox="0 0 280 150" aria-labelledby="title-urna desc-urna">
-                            <title id="title-urna">Experimento de probabilidade</title>
-                            <desc id="desc-urna">Ilustração de uma urna contendo 7 bolas divididas por cores representando o espaço amostral</desc>
-                            <rect x="20" y="20" width="240" height="110" rx="15" fill="rgba(15, 23, 42, 0.4)" stroke="#94a3b8" stroke-width="2"/>
-                            
-                            <circle cx="60" cy="55" r="16" fill="#ef4444"/>
-                            <circle cx="100" cy="55" r="16" fill="#ef4444"/>
-                            <circle cx="140" cy="55" r="16" fill="#ef4444"/>
-                            
-                            <circle cx="180" cy="55" r="16" fill="#3b82f6"/>
-                            <circle cx="220" cy="55" r="16" fill="#3b82f6"/>
-                            
-                            <circle cx="100" cy="95" r="16" fill="#10b981"/>
-                            <circle cx="140" cy="95" r="16" fill="#10b981"/>
-
-                            <text x="30" y="142" fill="#cbd5e1" font-size="11" font-weight="bold">Espaço Amostral (U) = 7 bolas</text>
-                        </svg>
-                    </div>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Espaço Amostral ($\Omega$)</h3>
-                        <p>É o conjunto de todos os resultados possíveis de um experimento aleatório (ex.: no lançamento de um dado de 6 faces, $\Omega = \{1, 2, 3, 4, 5, 6\}$ e $n(\Omega) = 6$).</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Evento ($A$)</h3>
-                        <p>É qualquer subconjunto do espaço amostral (ex.: obter um número par no lançamento do dado: $A = \{2, 4, 6\}$ e $n(A) = 3$).</p>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Ao lançar um dado honesto de 6 faces, qual é a probabilidade de obter um número primo?</p>
-                        <p><strong>Resolução:</strong> Espaço amostral $\Omega = \{1,2,3,4,5,6\} \implies n(\Omega) = 6$.<br>
-                        Evento primos $A = \{2,3,5\} \implies n(A) = 3$.<br>
-                        $$P(A) = \frac{n(A)}{n(\Omega)} = \frac{3}{6} = \frac{1}{2} = 0{,}50 = 50\%$$<br>
-                        <strong>Gabarito: 50% (ou 1/2)</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Em uma urna há 5 bolas vermelhas, 3 azuis e 2 verdes. Retirando-se uma bola ao acaso, qual a probabilidade de ela NÃO ser azul?</p>
-                        <p><strong>Resolução:</strong> Total de bolas $n(\Omega) = 5 + 3 + 2 = 10$.<br>
-                        Bolas não azuis (vermelhas ou verdes): $n(A) = 5 + 2 = 7$.<br>
-                        $$P(A) = \frac{7}{10} = 0{,}70 = 70\%$$<br>
-                        <strong>Gabarito: 70% (ou 7/10)</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Qual a probabilidade de retirar aleatoriamente um Ás de um baralho padrão de $52$ cartas? ($P = \frac{4}{52} = \frac{1}{13}$).</li>
-                        <li>No lançamento simultâneo de dois dados comuns de 6 faces, qual a probabilidade de a soma ser igual a 7? ($n(\Omega) = 36$; Casos favoráveis: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\} \implies 6$; $P = \frac{6}{36} = \frac{1}{6}$).</li>
-                        <li>Escolhendo-se ao acaso um dia da semana, qual a probabilidade de ser um dia do fim de semana? ($P = \frac{2}{7}$).</li>
-                        <li>Uma moeda honesta é lançada três vezes consecutivas. Qual a probabilidade de obter exatamente três caras? ($n(\Omega) = 2^3 = 8$; Fav: \{(C,C,C)\} $\implies 1$; $P = \frac{1}{8} = 12{,}5\%$).</li>
-                        <li>Escolhendo-se aleatoriamente um número inteiro de $1$ a $20$, qual a probabilidade de ele ser um múltiplo de $4$? (Múltiplos: $\{4,8,12,16,20\} \implies 5$; $P = \frac{5}{20} = \frac{1}{4} = 25\%$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- REGRA DE TRÊS -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Regra de Três</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito</h3>
-                    <p>A Regra de Três é um método prático utilizado para resolver problemas que envolvem duas ou mais grandezas proporcionalmente relacionadas.</p>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Regra de Três Simples</h3>
-                        <p>Envolve apenas duas grandezas relacionáveis de forma diretamente ou inversamente proporcional.</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Regra de Três Composta</h3>
-                        <p>Envolve três ou mais grandezas. A análise de proporcionalidade (direta ou inversa) deve ser feita individualmente entre a grandeza que contém a incógnita $x$ e cada uma das demais.</p>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01 (Inversamente Proporcional)</h4>
-                        <p>4 operários, trabalhando no mesmo ritmo, constroem um muro em 6 dias. Em quantos dias 8 operários, de mesmo rendimento, construiriam o mesmo muro?</p>
-                        <p><strong>Resolução:</strong> Operários e dias são grandezas inversamente proporcionais ($A_1 \cdot B_1 = A_2 \cdot B_2$):<br>
-                        $$4 \cdot 6 = 8 \cdot x \implies 24 = 8x \implies x = \frac{24}{8} = 3\text{ dias}$$<br>
-                        <strong>Gabarito: 3 dias</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02 (Diretamente Proporcional)</h4>
-                        <p>Com 3 litros de tinta é possível pintar $15\text{ m}^2$ de parede. Quantos litros dessa mesma tinta serão necessários para pintar $45\text{ m}^2$?</p>
-                        <p><strong>Resolução:</strong> Litros de tinta e área são grandezas diretamente proporcionais ($\frac{A_1}{B_1} = \frac{A_2}{B_2}$):<br>
-                        $$\frac{3}{x} = \frac{15}{45} \implies 15 \cdot x = 3 \cdot 45 \implies 15x = 135 \implies x = \frac{135}{15} = 9\text{ litros}$$<br>
-                        <strong>Gabarito: 9 litros</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Um veículo a uma velocidade constante de $80\text{ km/h}$ realiza certo trajeto em $3\text{ horas}$. Quanto tempo levaria para fazer o mesmo trajeto a $120\text{ km/h}$? ($80 \cdot 3 = 120 \cdot t \implies 240 = 120t \implies t = 2\text{ horas}$).</li>
-                        <li>Se 5 canetas idênticas custam R$ 12,50, quanto custarão 12 canetas do mesmo modelo? ($\frac{5}{12} = \frac{12{,}50}{x} \implies 5x = 150 \implies x = \text{R\$ } 30{,}00$).</li>
-                        <li>Em 8 dias, 6 máquinas idênticas produzem 1.200 peças. Quantas peças serão produzidas por 10 máquinas do mesmo tipo trabalhando durante 12 dias? ($\frac{1200}{x} = \frac{6}{10} \cdot \frac{8}{12} = \frac{48}{120} = \frac{2}{5} \implies 2x = 6000 \implies x = 3.000\text{ peças}$).</li>
-                        <li>Para alimentar 15 cavalos durante 30 dias são necessários 600 kg de ração. Quantos quilogramas de ração serão necessários para alimentar 10 cavalos por 12 dias? ($\frac{600}{x} = \frac{15}{10} \cdot \frac{30}{12} = \frac{3}{2} \cdot \frac{5}{2} = \frac{15}{4} \implies 15x = 2400 \implies x = 160\text{ kg}$).</li>
-                        <li>Uma equipe de 10 pedreiros realiza uma reforma em 15 dias. Quantos pedreiros de mesmo rendimento seriam necessários para concluir a mesma obra em 6 dias? ($10 \cdot 15 = P \cdot 6 \implies 150 = 6P \implies P = 25\text{ pedreiros}$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- FRAÇÃO -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Fração</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Operações Básicas</h3>
-                    <p>Uma fração $\frac{a}{b}$ representa uma parte de um todo dividido em partes iguais, na qual $a$ é o numerador (partes consideradas) e $b$ é o denominador (total de partes divididas, com $b \neq 0$).</p>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Adição e Subtração</h3>
-                        <p>Para denominadores iguais, mantêm-se o denominador e somam-se/subtraem-se os numeradores. Para denominadores diferentes, calcula-se o Mínimo Múltiplo Comum ($\text{MMC}$):</p>
-                        <p>$$\frac{a}{b} \pm \frac{c}{d} = \frac{a \cdot d \pm b \cdot c}{b \cdot d}$$</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Multiplicação e Divisão</h3>
-                        <p><strong>Multiplicação:</strong> $$\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}$$</p>
-                        <p><strong>Divisão:</strong> $$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c}$$</p>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Calcule a soma das frações: $\frac{1}{3} + \frac{2}{5}$.</p>
-                        <p><strong>Resolução:</strong> O $\text{MMC}(3, 5) = 15$. Reescrevendo as frações:<br>
-                        $$\frac{1}{3} + \frac{2}{5} = \frac{1 \cdot 5 + 2 \cdot 3}{15} = \frac{5 + 6}{15} = \frac{11}{15}$$<br>
-                        <strong>Gabarito: $\frac{11}{15}$</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Efetue a divisão entre as frações: $\frac{3}{4} \div \frac{2}{5}$.</p>
-                        <p><strong>Resolução:</strong> Mantém-se a primeira fração e multiplica-se pelo inverso da segunda:<br>
-                        $$\frac{3}{4} \div \frac{2}{5} = \frac{3}{4} \cdot \frac{5}{2} = \frac{3 \cdot 5}{4 \cdot 2} = \frac{15}{8}$$<br>
-                        <strong>Gabarito: $\frac{15}{8}$</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Simplifique a fração $\frac{48}{72}$ até a forma irredutível. ($\text{MDC}(48, 72) = 24 \implies \frac{48 \div 24}{72 \div 24} = \frac{2}{3}$).</li>
-                        <li>Calcule o resultado de: $\frac{5}{6} - \frac{1}{4}$. ($\text{MMC}(6, 4) = 12 \implies \frac{10 - 3}{12} = \frac{7}{12}$).</li>
-                        <li>Quanto equivale a $\frac{2}{3}$ da quantia de R$ 900,00? ($\frac{2}{3} \cdot 900 = 2 \cdot 300 = \text{R\$ } 600{,}00$).</li>
-                        <li>Efetue a multiplicação: $\left(\frac{2}{3}\right) \cdot \left(\frac{9}{10}\right)$. ($\frac{2 \cdot 9}{3 \cdot 10} = \frac{18}{30} = \frac{3}{5}$).</li>
-                        <li>Um bolo foi dividido em 12 fatias iguais. Se João comeu $\frac{1}{4}$ do bolo e Maria comeu $\frac{1}{3}$, quantas fatias sobraram? (João: $\frac{1}{4} \cdot 12 = 3$; Maria: $\frac{1}{3} \cdot 12 = 4$; Sobraram: $12 - (3 + 4) = 5\text{ fatias}$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- NOTAÇÃO CIENTÍFICA -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Notação Científica</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Regra Formativa</h3>
-                    <p>A notação científica é uma forma padronizada de representação numérica utilizada para simplificar a escrita de números extremamente grandes ou muito próximos de zero através de potências de base 10.</p>
-                    <p>$$N = a \cdot 10^n$$</p>
-                    <p>Em que $1 \le |a| &lt; 10$ ($a$ é a mantissa) e $n \in \mathbb{Z}$ ($n$ é o expoente inteiro).</p>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Representação de Números Grandes ($n &gt; 0$)</h3>
-                        <p>Ao deslocar a vírgula para a <strong>esquerda</strong> até obter a mantissa entre $1$ e $10$, o expoente $n$ da potência de $10$ é positivo e igual ao número de casas decimais deslocadas.<br>Exemplo: $450.000 = 4{,}5 \cdot 10^5$.</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Representação de Números Pequenos ($n &lt; 0$)</h3>
-                        <p>Ao deslocar a vírgula para a <strong>direita</strong> até obter a mantissa entre $1$ e $10$, o expoente $n$ da potência de $10$ é negativo e em módulo igual ao número de casas decimais deslocadas.<br>Exemplo: $0{,}00032 = 3{,}2 \cdot 10^{-4}$.</p>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Escreva o número $0{,}0000078$ em notação científica.</p>
-                        <p><strong>Resolução:</strong> Desloca-se a vírgula 6 casas para a direita para obter a mantissa $7{,}8$. O expoente é $-6$:<br>
-                        $$0{,}0000078 = 7{,}8 \cdot 10^{-6}$$<br>
-                        <strong>Gabarito: $7{,}8 \cdot 10^{-6}$</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Efetue a multiplicação: $(2 \cdot 10^4) \cdot (3 \cdot 10^3)$.</p>
-                        <p><strong>Resolução:</strong> Multiplicam-se as mantissas e somam-se os expoentes das potências de base 10 ($10^a \cdot 10^b = 10^{a+b}$):<br>
-                        $$(2 \cdot 3) \cdot 10^{4+3} = 6 \cdot 10^7$$<br>
-                        <strong>Gabarito: $6 \cdot 10^7$</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Escreva a distância média da Terra ao Sol ($149.600.000\text{ km}$) em notação científica. ($1{,}496 \cdot 10^8\text{ km}$).</li>
-                        <li>Escreva o diâmetro de uma célula de $0{,}000005\text{ m}$ em notação científica. ($5 \cdot 10^{-6}\text{ m}$).</li>
-                        <li>Represente $4{,}23 \cdot 10^{-3}$ em sua forma decimal expandida. ($0{,}00423$).</li>
-                        <li>Efetue a divisão: $\frac{8 \cdot 10^8}{2 \cdot 10^3}$. ($\frac{8}{2} \cdot 10^{8-3} = 4 \cdot 10^5$).</li>
-                        <li>Calcule a soma $(3 \cdot 10^5) + (4 \cdot 10^4)$ expressando o resultado em notação científica. ($30 \cdot 10^4 + 4 \cdot 10^4 = 34 \cdot 10^4 = 3{,}4 \cdot 10^5$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- VOLUME DE SÓLIDOS -->
+        <!-- 12. VOLUME DE SÓLIDOS -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Volume de Sólidos Geométricos</h2>
@@ -971,7 +1030,7 @@
             </div>
         </details>
 
-        <!-- ANÁLISE DE GRÁFICOS E ESTATÍSTICA -->
+        <!-- 13. ANÁLISE DE GRÁFICOS E ESTATÍSTICA -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Análise de Gráficos e Estatística</h2>
@@ -1098,148 +1157,8 @@
                 </section>
             </div>
         </details>
-        
-        <!-- EQUAÇÃO DO 2º GRAU -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Equação do 2º Grau</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Forma Geral</h3>
-                    <p>Uma equação do $2^\circ$ grau com uma incógnita é qualquer equação polinomial que pode ser escrita na forma $ax^2 + bx + c = 0$, em que $a, b, c \in \mathbb{R}$ e $a \neq 0$. Os valores de $x$ que satisfazem a igualdade são chamados de <strong>raízes</strong>.</p>
-                </section>
 
-                <div class="grid">
-                    <article class="card">
-                        <h3>Fórmula Resolutiva (Bhaskara) e Discriminante ($\Delta$)</h3>
-                        <p>$$x = \frac{-b \pm \sqrt{\Delta}}{2a}$$</p>
-                        <p>Onde o discriminante $\Delta$ é dado por: $$\Delta = b^2 - 4ac$$</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Análise do Discriminante ($\Delta$)</h3>
-                        <ul>
-                            <li><strong>$\Delta &gt; 0$:</strong> Duas raízes reais e distintas ($x_1 \neq x_2$).</li>
-                            <li><strong>$\Delta = 0$:</strong> Duas raízes reais e iguais ($x_1 = x_2$).</li>
-                            <li><strong>$\Delta &lt; 0$:</strong> Não possui raízes no conjunto dos números reais ($\mathbb{R}$).</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <h3>Relações de Girard (Soma e Produto)</h3>
-                        <p>Para equações na forma $ax^2 + bx + c = 0$ que admitem raízes reais $x_1$ e $x_2$:</p>
-                        <ul>
-                            <li><strong>Soma das raízes ($S$):</strong> $$S = x_1 + x_2 = -\frac{b}{a}$$</li>
-                            <li><strong>Produto das raízes ($P$):</strong> $$P = x_1 \cdot x_2 = \frac{c}{a}$$</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Encontre as raízes reais da equação $x^2 - 7x + 10 = 0$.</p>
-                        <p><strong>Resolução:</strong> Coeficientes: $a = 1, b = -7, c = 10$.<br>
-                        $$\Delta = (-7)^2 - 4 \cdot (1) \cdot (10) = 49 - 40 = 9$$
-                        $$x = \frac{-(-7) \pm \sqrt{9}}{2(1)} = \frac{7 \pm 3}{2}$$
-                        $$x_1 = \frac{7 + 3}{2} = \frac{10}{2} = 5 \quad \text{e} \quad x_2 = \frac{7 - 3}{2} = \frac{4}{2} = 2$$<br>
-                        <strong>Gabarito: $S = \{2, 5\}$</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Determine a soma e o produto das raízes da equação $2x^2 - 8x + 6 = 0$ utilizando as Relações de Girard.</p>
-                        <p><strong>Resolução:</strong> Coeficientes: $a = 2, b = -8, c = 6$.<br>
-                        Soma: $$S = -\frac{b}{a} = -\frac{-8}{2} = 4$$
-                        Produto: $$P = \frac{c}{a} = \frac{6}{2} = 3$$<br>
-                        <strong>Gabarito: Soma = 4; Produto = 3</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Resolva no conjunto dos números reais a equação incompleta $3x^2 - 12 = 0$. ($3x^2 = 12 \implies x^2 = 4 \implies x = \pm 2$).</li>
-                        <li>Determine $k$ para que $x^2 - 6x + k = 0$ possua duas raízes reais iguais ($\Delta = 0$). ($(-6)^2 - 4(1)(k) = 0 \implies 36 - 4k = 0 \implies k = 9$).</li>
-                        <li>Determine as raízes da equação $x^2 - 5x + 6 = 0$ identificando dois números cuja soma seja 5 e o produto seja 6. ($x_1 = 2, x_2 = 3$).</li>
-                        <li>Resolva a equação incompleta $x^2 - 4x = 0$ utilizando fatoração. ($x(x - 4) = 0 \implies x_1 = 0 \text{ ou } x_2 = 4$).</li>
-                        <li>A área de um retângulo é $36\text{ m}^2$. Sabendo que o comprimento excede a largura em $5\text{ m}$, calcule as dimensões. ($x(x + 5) = 36 \implies x^2 + 5x - 36 = 0 \implies (x + 9)(x - 4) = 0 \implies x = 4\text{ m}$; Dimensões: $4\text{ m}$ por $9\text{ m}$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- JUROS SIMPLES -->
-        <details class="accordion-item">
-            <summary class="accordion-header">
-                <h2>Juros Simples</h2>
-            </summary>
-            <div class="accordion-content">
-                <section class="section-box">
-                    <h3>Conceito e Definição</h3>
-                    <p>No regime de <strong>Juros Simples</strong>, a taxa de juros incide exclusivamente sobre o Capital Inicial ($C$) durante todo o período da aplicação.</p>
-                </section>
-
-                <div class="grid">
-                    <article class="card">
-                        <h3>Fórmula dos Juros</h3>
-                        <p>$$J = C \cdot i \cdot t$$</p>
-                        <ul>
-                            <li><strong>$J$:</strong> Valor dos Juros gerados.</li>
-                            <li><strong>$C$:</strong> Capital inicial aplicado.</li>
-                            <li><strong>$i$:</strong> Taxa de juros (expressa obrigatoriamente em valor decimal na fórmula, $i = \frac{\text{taxa\%}}{100}$).</li>
-                            <li><strong>$t$:</strong> Tempo de aplicação.</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <h3>Fórmula do Montante</h3>
-                        <p>$$M = C + J \quad \text{ou} \quad M = C \cdot (1 + i \cdot t)$$</p>
-                        <p>O Montante ($M$) é a soma acumulada do Capital inicial aplicado aos Juros gerados.</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Compatibilidade de Unidades</h3>
-                        <p>A taxa de juros ($i$) e o tempo ($t$) <strong>devem estar expressos rigorosamente na mesma unidade de tempo</strong> (ex.: taxa mensal e tempo em meses, ou taxa anual e tempo em anos).</p>
-                    </article>
-                </div>
-
-                <section class="section-box">
-                    <h3>Questões Resolvidas</h3>
-                    <article class="exercicio-box">
-                        <h4>Questão 01</h4>
-                        <p>Um investimento de R$ 1.200,00 foi aplicado sob o regime de juros simples a uma taxa de 2% ao mês durante 5 meses. Qual o valor dos juros produzidos e o montante final?</p>
-                        <p><strong>Resolução:</strong> Dados: $C = 1200$, $i = 2\% \text{ a.m.} = 0{,}02$, $t = 5 \text{ meses}$.<br>
-                        Juros: $$J = C \cdot i \cdot t = 1200 \cdot 0{,}02 \cdot 5 = 1200 \cdot 0{,}10 = 120{,}00\text{ reais}$$
-                        Montante: $$M = C + J = 1200 + 120 = 1.320{,}00\text{ reais}$$<br>
-                        <strong>Gabarito: Juros = R$ 120,00; Montante = R$ 1.320,00</strong>.</p>
-                    </article>
-
-                    <article class="exercicio-box">
-                        <h4>Questão 02</h4>
-                        <p>Durante quanto tempo um capital de R$ 800,00 deve ficar aplicado a uma taxa de juros simples de 3% ao mês para render R$ 144,00 de juros?</p>
-                        <p><strong>Resolução:</strong> Dados: $J = 144$, $C = 800$, $i = 3\% \text{ a.m.} = 0{,}03$.<br>
-                        $$J = C \cdot i \cdot t \implies 144 = 800 \cdot 0{,}03 \cdot t \implies 144 = 24 \cdot t \implies t = \frac{144}{24} = 6\text{ meses}$$<br>
-                        <strong>Gabarito: 6 meses</strong>.</p>
-                    </article>
-                </section>
-
-                <section class="section-box">
-                    <h3>Exercícios para Praticar</h3>
-                    <ol>
-                        <li>Calcule os juros simples gerados por R$ 2.500,00 aplicados a $1{,}5\%$ ao mês durante 1 ano ($12\text{ meses}$). ($J = 2500 \cdot 0{,}015 \cdot 12 = \text{R\$ } 450{,}00$).</li>
-                        <li>Qual é o montante acumulado por uma aplicação de R$ 5.000,00 a uma taxa de juros simples de $10\%$ ao ano durante 3 anos? ($M = 5000 \cdot (1 + 0{,}10 \cdot 3) = 5000 \cdot 1{,}30 = \text{R\$ } 6.500{,}00$).</li>
-                        <li>Qual taxa mensal de juros simples faz com que um capital de R$ 1.000,00 produza R$ 200,00 de juros ao fim de 8 meses? ($200 = 1000 \cdot i \cdot 8 \implies 8000i = 200 \implies i = 0{,}025 = 2{,}5\%\text{ a.m.}$).</li>
-                        <li>Em quanto tempo um capital dobrará de valor se aplicado a uma taxa de juros simples de $5\%$ ao mês? ($J = C \implies C = C \cdot 0{,}05 \cdot t \implies 0{,}05t = 1 \implies t = 20\text{ meses}$).</li>
-                        <li>Um empréstimo de R$ 3.000,00 gerou um montante final de R$ 3.540,00 ao fim de 6 meses. Qual foi a taxa mensal de juros simples cobrada? ($J = 3540 - 3000 = 540$; $540 = 3000 \cdot i \cdot 6 \implies 18000i = 540 \implies i = 0{,}03 = 3\%\text{ a.m.}$).</li>
-                    </ol>
-                </section>
-            </div>
-        </details>
-
-        <!-- ESTATÍSTICA (MEDIDAS DE TENDÊNCIA CENTRAL) -->
+        <!-- 14. ESTATÍSTICA (MEDIDAS DE TENDÊNCIA CENTRAL) -->
         <details class="accordion-item">
             <summary class="accordion-header">
                 <h2>Estatística (Média, Moda e Mediana)</h2>
@@ -1305,6 +1224,537 @@
                 </section>
             </div>
         </details>
+
+        <!-- 15. PROBABILIDADE -->
+        <details class="accordion-item">
+            <summary class="accordion-header">
+                <h2>Probabilidade</h2>
+            </summary>
+            <div class="accordion-content">
+                <section class="section-box">
+                    <h3>Conceito e Definição</h3>
+                    <p>A Probabilidade mede numericamente a chance de ocorrência de um determinado evento em um experimento aleatório equiprovável.</p>
+                    <p>$$P(A) = \frac{n(A)}{n(\Omega)} = \frac{\text{Número de casos favoráveis}}{\text{Número total de casos possíveis}}$$</p>
+                </section>
+
+                <section class="section-box">
+                    <h3>Visualização do Espaço Amostral (Exemplo da Urna)</h3>
+                    <div class="svg-container">
+                        <svg width="280" height="150" viewBox="0 0 280 150" aria-labelledby="title-urna desc-urna">
+                            <title id="title-urna">Experimento de probabilidade</title>
+                            <desc id="desc-urna">Ilustração de uma urna contendo 7 bolas divididas por cores representando o espaço amostral</desc>
+                            <rect x="20" y="20" width="240" height="110" rx="15" fill="rgba(15, 23, 42, 0.4)" stroke="#94a3b8" stroke-width="2"/>
+                            
+                            <circle cx="60" cy="55" r="16" fill="#ef4444"/>
+                            <circle cx="100" cy="55" r="16" fill="#ef4444"/>
+                            <circle cx="140" cy="55" r="16" fill="#ef4444"/>
+                            
+                            <circle cx="180" cy="55" r="16" fill="#3b82f6"/>
+                            <circle cx="220" cy="55" r="16" fill="#3b82f6"/>
+                            
+                            <circle cx="100" cy="95" r="16" fill="#10b981"/>
+                            <circle cx="140" cy="95" r="16" fill="#10b981"/>
+
+                            <text x="30" y="142" fill="#cbd5e1" font-size="11" font-weight="bold">Espaço Amostral (U) = 7 bolas</text>
+                        </svg>
+                    </div>
+                </section>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Espaço Amostral ($\Omega$)</h3>
+                        <p>É o conjunto de todos os resultados possíveis de um experimento aleatório (ex.: no lançamento de um dado de 6 faces, $\Omega = \{1, 2, 3, 4, 5, 6\}$ e $n(\Omega) = 6$).</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Evento ($A$)</h3>
+                        <p>É qualquer subconjunto do espaço amostral (ex.: obter um número par no lançamento do dado: $A = \{2, 4, 6\}$ e $n(A) = 3$).</p>
+                    </article>
+                </div>
+
+                <section class="section-box">
+                    <h3>Questões Resolvidas</h3>
+                    <article class="exercicio-box">
+                        <h4>Questão 01</h4>
+                        <p>Ao lançar um dado honesto de 6 faces, qual é a probabilidade de obter um número primo?</p>
+                        <p><strong>Resolução:</strong> Espaço amostral $\Omega = \{1,2,3,4,5,6\} \implies n(\Omega) = 6$.<br>
+                        Evento primos $A = \{2,3,5\} \implies n(A) = 3$.<br>
+                        $$P(A) = \frac{n(A)}{n(\Omega)} = \frac{3}{6} = \frac{1}{2} = 0{,}50 = 50\%$$<br>
+                        <strong>Gabarito: 50% (ou 1/2)</strong>.</p>
+                    </article>
+
+                    <article class="exercicio-box">
+                        <h4>Questão 02</h4>
+                        <p>Em uma urna há 5 bolas vermelhas, 3 azuis e 2 verdes. Retirando-se uma bola ao acaso, qual a probabilidade de ela NÃO ser azul?</p>
+                        <p><strong>Resolução:</strong> Total de bolas $n(\Omega) = 5 + 3 + 2 = 10$.<br>
+                        Bolas não azuis (vermelhas ou verdes): $n(A) = 5 + 2 = 7$.<br>
+                        $$P(A) = \frac{7}{10} = 0{,}70 = 70\%$$<br>
+                        <strong>Gabarito: 70% (ou 7/10)</strong>.</p>
+                    </article>
+                </section>
+
+                <section class="section-box">
+                    <h3>Exercícios para Praticar</h3>
+                    <ol>
+                        <li>Qual a probabilidade de retirar aleatoriamente um Ás de um baralho padrão de $52$ cartas? ($P = \frac{4}{52} = \frac{1}{13}$).</li>
+                        <li>No lançamento simultâneo de dois dados comuns de 6 faces, qual a probabilidade de a soma ser igual a 7? ($n(\Omega) = 36$; Casos favoráveis: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\} \implies 6$; $P = \frac{6}{36} = \frac{1}{6}$).</li>
+                        <li>Escolhendo-se ao acaso um dia da semana, qual a probabilidade de ser um dia do fim de semana? ($P = \frac{2}{7}$).</li>
+                        <li>Uma moeda honesta é lançada três vezes consecutivas. Qual a probabilidade de obter exatamente três caras? ($n(\Omega) = 2^3 = 8$; Fav: \{(C,C,C)\} $\implies 1$; $P = \frac{1}{8} = 12{,}5\%$).</li>
+                        <li>Escolhendo-se aleatoriamente um número inteiro de $1$ a $20$, qual a probabilidade de ele ser um múltiplo de $4$? (Múltiplos: $\{4,8,12,16,20\} \implies 5$; $P = \frac{5}{20} = \frac{1}{4} = 25\%$).</li>
+                    </ol>
+                </section>
+            </div>
+        </details>
+
+<!-- ==========================================================================
+     ESTILOS ESPECÍFICOS PARA VALIDAÇÃO DO ACCORDION (<style>)
+     ============================================
+     ============================== -->
+     
+     <hr class=section-divider>
+<style>
+  /* Modificadores de estado para as opções do Accordion */
+  .opcao-resposta.correta {
+    background-color: var(--success-bg) !important;
+    border-color: var(--success) !important;
+    color: var(--text-main);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  }
+
+  .opcao-resposta.incorreta {
+    background-color: var(--error-bg) !important;
+    border-color: var(--error) !important;
+    color: var(--text-main);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+  }
+
+  /* Desabilita interação após a escolha */
+  .opcao-resposta.bloqueada {
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* Mensagem de feedback dinâmico */
+  .feedback-resposta {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: none;
+    animation: fadeIn 0.25s ease-in-out;
+  }
+
+  .feedback-resposta.sucesso {
+    display: block;
+    background-color: var(--success-bg);
+    border: 1px solid var(--success);
+    color: #4ade80;
+  }
+
+  .feedback-resposta.erro {
+    display: block;
+    background-color: var(--error-bg);
+    border: 1px solid var(--error);
+    color: #fca5a5;
+  }
+</style>
+
+<!-- ==========================================================================
+     ESTRUTURA DO ACCORDION DE EXERCÍCIOS (HTML)
+     ========================================================================== -->
+
+
+<div class="accordion-group">
+
+  <!-- ==========================================================================
+       EXERCÍCIO NÍVEL I (5 QUESTÕES)
+       ========================================================================== -->
+  <details class="accordion-item">
+    <summary class="accordion-header">
+      <h2>Exercício nível I</h2>
+    </summary>
+    <div class="accordion-content">
+
+      <!-- Questão 1.1 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Razão e Proporção</span>
+          <span class="badge badge-accent">Nível I - Q1</span>
+        </div>
+        <p class="enunciado-titulo">
+          1. Em uma turma do IFRN com 40 alunos, a razão entre meninos e meninas é de <span class="math-frac"><span class="math-num">3</span><span class="math-den">5</span></span>. Quantas meninas há nessa turma?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="c">
+          <label class="opcao-resposta"><input type="radio" name="q1_1" value="a"><span>A) 15 meninas</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_1" value="b"><span>B) 20 meninas</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_1" value="c"><span>C) 25 meninas</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_1" value="d"><span>D) 30 meninas</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 1.2 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Equação do 1º Grau</span>
+          <span class="badge badge-accent">Nível I - Q2</span>
+        </div>
+        <p class="enunciado-titulo">
+          2. O triplo de um número somado a 12 resulta em 45. Qual é esse número?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="a">
+          <label class="opcao-resposta"><input type="radio" name="q1_2" value="a"><span>A) 11</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_2" value="b"><span>B) 12</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_2" value="c"><span>C) 15</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_2" value="d"><span>D) 19</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 1.3 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Porcentagem</span>
+          <span class="badge badge-accent">Nível I - Q3</span>
+        </div>
+        <p class="enunciado-titulo">
+          3. Um livro didático custava R$ 80,00 e teve um desconto de 15%. Qual é o novo valor do livro?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="b">
+          <label class="opcao-resposta"><input type="radio" name="q1_3" value="a"><span>A) R$ 65,00</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_3" value="b"><span>B) R$ 68,00</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_3" value="c"><span>C) R$ 70,00</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_3" value="d"><span>D) R$ 72,00</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 1.4 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Geometria Plana</span>
+          <span class="badge badge-accent">Nível I - Q4</span>
+        </div>
+        <p class="enunciado-titulo">
+          4. Qual é o perímetro de um terreno retangular que possui 12 metros de largura por 25 metros de comprimento?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="d">
+          <label class="opcao-resposta"><input type="radio" name="q1_4" value="a"><span>A) 37 metros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_4" value="b"><span>B) 50 metros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_4" value="c"><span>C) 62 metros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_4" value="d"><span>D) 74 metros</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 1.5 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Estatística BÁSICA</span>
+          <span class="badge badge-accent">Nível I - Q5</span>
+        </div>
+        <p class="enunciado-titulo">
+          5. Um estudante obteve as notas 6,0; 7,0 e 8,0 nas três primeiras avaliações. Qual é a sua média aritmética atual?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="b">
+          <label class="opcao-resposta"><input type="radio" name="q1_5" value="a"><span>A) 6,5</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_5" value="b"><span>B) 7,0</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_5" value="c"><span>C) 7,5</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q1_5" value="d"><span>D) 8,0</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+    </div>
+  </details>
+
+  <!-- ==========================================================================
+       EXERCÍCIO NÍVEL II (5 QUESTÕES)
+       ========================================================================== -->
+  <details class="accordion-item">
+    <summary class="accordion-header">
+      <h2>Exercício nível II</h2>
+    </summary>
+    <div class="accordion-content">
+
+      <!-- Questão 2.1 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Regra de Três Composta</span>
+          <span class="badge badge-accent">Nível II - Q1</span>
+        </div>
+        <p class="enunciado-titulo">
+          1. Se 6 impressoras imprimem 1.200 relatórios em 4 dias, em quantos dias 8 impressoras de mesmo rendimento imprimirão 2.400 relatórios?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="c">
+          <label class="opcao-resposta"><input type="radio" name="q2_1" value="a"><span>A) 4 dias</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_1" value="b"><span>B) 5 dias</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_1" value="c"><span>C) 6 dias</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_1" value="d"><span>D) 8 dias</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 2.2 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Sistema de Equações</span>
+          <span class="badge badge-accent">Nível II - Q2</span>
+        </div>
+        <p class="enunciado-titulo">
+          2. Em um estacionamento do IFRN há carros e motos, totalizando 30 veículos e 96 rodas. Quantos carros estão no local?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="b">
+          <label class="opcao-resposta"><input type="radio" name="q2_2" value="a"><span>A) 12 carros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_2" value="b"><span>B) 18 carros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_2" value="c"><span>C) 20 carros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_2" value="d"><span>D) 22 carros</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 2.3 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Equação do 2º Grau</span>
+          <span class="badge badge-accent">Nível II - Q3</span>
+        </div>
+        <p class="enunciado-titulo">
+          3. Quais são as raízes reais da equação $x^2 - 7x + 10 = 0$?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="a">
+          <label class="opcao-resposta"><input type="radio" name="q2_3" value="a"><span>A) x = 2 e x = 5</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_3" value="b"><span>B) x = -2 e x = -5</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_3" value="c"><span>C) x = 1 e x = 10</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_3" value="d"><span>D) x = 3 e x = 4</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 2.4 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Geometria e Área</span>
+          <span class="badge badge-accent">Nível II - Q4</span>
+        </div>
+        <p class="enunciado-titulo">
+          4. Um canteiro circular possui raio igual a 7 metros. Utilizando $\pi = 3,14$, qual é a área aproximada desse canteiro?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="c">
+          <label class="opcao-resposta"><input type="radio" name="q2_4" value="a"><span>A) 43,96 m²</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_4" value="b"><span>B) 138,16 m²</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_4" value="c"><span>C) 153,86 m²</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_4" value="d"><span>D) 175,84 m²</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 2.5 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Aumentos Sucessivos</span>
+          <span class="badge badge-accent">Nível II - Q5</span>
+        </div>
+        <p class="enunciado-titulo">
+          5. O preço de uma mensalidade de R$ 500,00 sofreu dois aumentos sucessivos: um de 10% e outro de 20%. Qual o valor final após os reajustes?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="d">
+          <label class="opcao-resposta"><input type="radio" name="q2_5" value="a"><span>A) R$ 630,00</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_5" value="b"><span>B) R$ 640,00</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_5" value="c"><span>C) R$ 650,00</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q2_5" value="d"><span>D) R$ 660,00</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+    </div>
+  </details>
+
+  <!-- ==========================================================================
+       EXERCÍCIO NÍVEL III (5 QUESTÕES)
+       ========================================================================== -->
+  <details class="accordion-item">
+    <summary class="accordion-header">
+      <h2>Exercício nível III</h2>
+    </summary>
+    <div class="accordion-content">
+
+      <!-- Questão 3.1 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Função Quadrática</span>
+          <span class="badge badge-accent">Nível III - Q1</span>
+        </div>
+        <p class="enunciado-titulo">
+          1. A trajetória de um projétil é dada por $f(x) = -x^2 + 8x + 9$. Qual é a altura máxima atingida por ele?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="c">
+          <label class="opcao-resposta"><input type="radio" name="q3_1" value="a"><span>A) 16 metros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_1" value="b"><span>B) 20 metros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_1" value="c"><span>C) 25 metros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_1" value="d"><span>D) 32 metros</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 3.2 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Progressão Aritmética</span>
+          <span class="badge badge-accent">Nível III - Q2</span>
+        </div>
+        <p class="enunciado-titulo">
+          2. Em uma PA onde $a_1 = 5$ e a razão $r = 4$, qual é a soma dos 20 primeiros termos ($S_{20}$)?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="b">
+          <label class="opcao-resposta"><input type="radio" name="q3_2" value="a"><span>A) 810</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_2" value="b"><span>B) 860</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_2" value="c"><span>C) 900</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_2" value="d"><span>D) 920</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 3.3 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Geometria Espacial</span>
+          <span class="badge badge-accent">Nível III - Q3</span>
+        </div>
+        <p class="enunciado-titulo">
+          3. Um reservatório cilíndrico possui raio da base igual a 3 metros e altura de 10 metros. Qual o seu volume máximo em litros? ($\pi = 3,14$)
+        </p>
+        <div class="opcoes-container" data-resposta-correta="a">
+          <label class="opcao-resposta"><input type="radio" name="q3_3" value="a"><span>A) 282.600 litros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_3" value="b"><span>B) 28.260 litros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_3" value="c"><span>C) 94.200 litros</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_3" value="d"><span>D) 188.400 litros</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 3.4 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Equação Exponencial</span>
+          <span class="badge badge-accent">Nível III - Q4</span>
+        </div>
+        <p class="enunciado-titulo">
+          4. Qual é o valor real de $x$ que satisfaz a equação exponencial $3^{2x - 1} = 27$?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="c">
+          <label class="opcao-resposta"><input type="radio" name="q3_4" value="a"><span>A) x = 1</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_4" value="b"><span>B) x = 1,5</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_4" value="c"><span>C) x = 2</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_4" value="d"><span>D) x = 3</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+      <!-- Questão 3.5 -->
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Análise Combinatória</span>
+          <span class="badge badge-accent">Nível III - Q5</span>
+        </div>
+        <p class="enunciado-titulo">
+          5. De quantas maneiras distintas uma comissão de 3 professores pode ser formada a partir de um grupo de 8 professores disponíveis?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="b">
+          <label class="opcao-resposta"><input type="radio" name="q3_5" value="a"><span>A) 48 maneiras</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_5" value="b"><span>B) 56 maneiras</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_5" value="c"><span>C) 112 maneiras</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q3_5" value="d"><span>D) 336 maneiras</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+    </div>
+  </details>
+  
+
+  <details class="accordion-item">
+    <summary class="accordion-header">
+      <h2>Desafio Bônus</h2>
+    </summary>
+    <div class="accordion-content">
+
+      <div class="exercicio-box">
+        <div class="quiz-header-top">
+          <span class="badge badge-primary">Geometria Espacial & Escala</span>
+          <span class="badge badge-accent">Nível Desafio - ENEM</span>
+        </div>
+        <p class="enunciado-titulo">
+          Um projetista deseja construir uma maquete de um reservatório de água em formato de cilindro circular reto. O reservatório real tem capacidade para 1.000 m³ e altura de 10 metros. A maquete será construída na escala volumétrica de 1 : 1.000.000 (um para um milhão). Qual deve ser a medida da área da base desse reservatório na maquete, em centímetros quadrados ($\text{cm}^2$)?
+        </p>
+        <div class="opcoes-container" data-resposta-correta="b">
+          <label class="opcao-resposta"><input type="radio" name="q_bonus" value="a"><span>A) 1,0 cm²</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q_bonus" value="b"><span>B) 10,0 cm²</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q_bonus" value="c"><span>C) 100,0 cm²</span></label>
+          <label class="opcao-resposta"><input type="radio" name="q_bonus" value="d"><span>D) 1.000,0 cm²</span></label>
+        </div>
+        <div class="feedback-resposta"></div>
+      </div>
+
+    </div>
+  </details>
+
+
+
+</div>
+
+
+
+<!-- ==========================================================================
+     LÓGICA DE INTERAÇÃO E VALIDAÇÃO (<script>)
+     ========================================================================== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const todosOsGrupos = document.querySelectorAll(".opcoes-container");
+
+    todosOsGrupos.forEach((container) => {
+      const inputs = container.querySelectorAll("input[type='radio']");
+      const respostaCorreta = container.getAttribute("data-resposta-correta");
+      const exercicioBox = container.closest(".exercicio-box");
+      const feedbackBox = exercicioBox.querySelector(".feedback-resposta");
+
+      inputs.forEach((input) => {
+        input.addEventListener("change", function () {
+          const valorSelecionado = this.value;
+          const todasAsOpcoes = container.querySelectorAll(".opcao-resposta");
+
+          // Reseta classes de opções do container atual
+          todasAsOpcoes.forEach((opcao) => {
+            opcao.classList.remove("correta", "incorreta");
+            opcao.classList.add("bloqueada");
+          });
+
+          const labelSelecionado = this.closest(".opcao-resposta");
+
+          if (valorSelecionado === respostaCorreta) {
+            // Caso Acerto
+            labelSelecionado.classList.add("correta");
+            feedbackBox.className = "feedback-resposta sucesso";
+            feedbackBox.innerHTML = "<strong>✓ Resposta Correta!</strong> Excelente raciocínio.";
+          } else {
+            // Caso Erro
+            labelSelecionado.classList.add("incorreta");
+
+            // Destaca também a opção que era a correta para fins pedagógicos
+            const inputCorreto = container.querySelector(`input[value='${respostaCorreta}']`);
+            if (inputCorreto) {
+              inputCorreto.closest(".opcao-resposta").classList.add("correta");
+            }
+
+            feedbackBox.className = "feedback-resposta erro";
+            feedbackBox.innerHTML = "<strong>✕ Resposta Incorreta.</strong> A opção realce em verde é a alternativa correta.";
+          }
+        });
+      });
+    });
+  });
+</script>
 
     </main>
 
