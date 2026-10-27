@@ -1,42 +1,131 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
-  // 1. MENU HAMBÚRGUER E NAVEGAÇÃO
+  // 1. CONTROLE DO MODAL DE DISCIPLINAS E CARDS
   // ==========================================
-  const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
-  const navOverlay = document.getElementById('navOverlay');
+  const modal = document.getElementById('modalDisciplinas');
+  const btnFecharModal = document.getElementById('btnFecharModal');
+  const btnHeroComecar = document.getElementById('btnHeroComecar');
+  const btnNavPraticar = document.getElementById('btnNavPraticar');
 
-  if (menuToggle && navMenu) {
-    function toggleMenu() {
-      const isOpen = navMenu.classList.contains('active');
-      isOpen ? fecharMenu() : abrirMenu();
-    }
+  const cards = document.querySelectorAll('.card');
+  const opcaoBtns = document.querySelectorAll('.opcao-btn');
+  let elementoFocadoAntesDoModal = null;
 
-    function abrirMenu() {
-      menuToggle.classList.add('active');
-      navMenu.classList.add('active');
-      if (navOverlay) navOverlay.classList.add('active');
-      menuToggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function fecharMenu() {
-      menuToggle.classList.remove('active');
-      navMenu.classList.remove('active');
-      if (navOverlay) navOverlay.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    menuToggle.addEventListener('click', toggleMenu);
-    if (navOverlay) navOverlay.addEventListener('click', fecharMenu);
-
-    navMenu.addEventListener('click', (event) => {
-      if (event.target.classList.contains('nav-link')) {
-        fecharMenu();
+  // Função para fechar/recolher qualquer card que esteja aberto anteriormente
+  function fecharCardsAbertos(excetoCard = null) {
+    cards.forEach(c => {
+      if (c !== excetoCard) {
+        c.classList.remove('ativo');
       }
     });
   }
+
+  // Controle do Modal
+  function abrirModal() {
+    if (!modal) return;
+    fecharCardsAbertos();
+
+    elementoFocadoAntesDoModal = document.activeElement;
+    modal.classList.add('ativo');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (btnFecharModal) btnFecharModal.focus();
+  }
+
+  function fecharModal() {
+    if (!modal) return;
+    modal.classList.remove('ativo');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (elementoFocadoAntesDoModal) elementoFocadoAntesDoModal.focus();
+  }
+
+  // Lógica corrigida para os cards (fecha os outros e alterna o atual)
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const estaAtivo = card.classList.contains('ativo');
+      
+      // Fecha todos os cards da página
+      cards.forEach(c => c.classList.remove('ativo'));
+
+      // Se o card clicado não estava ativo, abre ele
+      if (!estaAtivo) {
+        card.classList.add('ativo');
+      }
+    });
+  });
+
+  // Event Listeners do Modal
+  if (btnHeroComecar) btnHeroComecar.addEventListener('click', abrirModal);
+
+  if (btnNavPraticar) {
+    btnNavPraticar.addEventListener('click', (e) => {
+      e.preventDefault();
+      abrirModal();
+    });
+  }
+
+  if (btnFecharModal) btnFecharModal.addEventListener('click', fecharModal);
+
+  opcaoBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      fecharModal();
+    });
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      fecharModal();
+    }
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      fecharModal();
+      fecharCardsAbertos();
+    }
+
+    // Focus Trap dentro do Modal ativado
+    if (event.key === 'Tab' && modal && modal.classList.contains('ativo')) {
+      const elementosFocaveis = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (elementosFocaveis.length === 0) return;
+
+      const primeiroElem = elementosFocaveis[0];
+      const ultimoElem = elementosFocaveis[elementosFocaveis.length - 1];
+
+      if (event.shiftKey) {
+        if (document.activeElement === primeiroElem) {
+          ultimoElem.focus();
+          event.preventDefault();
+        }
+      } else {
+        if (document.activeElement === ultimoElem) {
+          primeiroElem.focus();
+          event.preventDefault();
+        }
+      }
+    }
+  });
+
+
+  // ==========================================
+  // 1.1 CONTROLE DOS ACORDEÕES (DETAILS / SUMMARY)
+  // Fecha o anterior automaticamente ao abrir um novo
+  // ==========================================
+  const acordesDetails = document.querySelectorAll('details.accordion-item');
+
+  acordesDetails.forEach((details) => {
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        acordesDetails.forEach((outroDetails) => {
+          if (outroDetails !== details) {
+            outroDetails.open = false;
+          }
+        });
+      }
+    });
+  });
+
 
   // ==========================================
   // 2. LÓGICA DA TELA INICIAL (quiz.html)
@@ -86,8 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
   // ==========================================
-  // 3. QUIZ SURPRESA (BANCO DE QUESTÕES FOCADO NA COP30)
+  // 3. QUIZ SURPRESA (BANCO DE QUESTÕES)
   // ==========================================
   const bancoQuestoes = [
     {
@@ -215,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Complemento Nominal"
       ],
       correta: 1,
-      explicacao: "A estrutura equivale a 'Que os países cumpram as metas é necessário'. A oração funciona como sujeito da oração principal 'É necessário' (Oração Subordinada Substantiva Subjetiva)."
+      explicacao: "A estrutura equivale a 'Que os países cumpram as metas é necessário'. A oração funciona como sujeito da oração principal 'É necessário'."
     },
     {
       materia: "Matemática",
@@ -293,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Agente da Passiva"
       ],
       correta: 1,
-      explicacao: "'Combate' é um substantivo abstrato que exige complemento preposicionado para completar seu sentido. O termo 'ao desmatamento' sofre a ação do combate, sendo complemento nominal."
+      explicacao: "'Combate' é um substantivo abstrato que exige complemento preposicionado para completar seu sentido, agindo como complemento nominal."
     },
     {
       materia: "Matemática",
@@ -326,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Cerca de 40 mil pessoas visitarão a capital paraense."
       ],
       correta: 2,
-      explicacao: "O verbo 'haver' no sentido de existir/ocorrer é impersonal e deve permanecer na 3ª pessoa do singular: 'Houve muitos debates'."
+      explicacao: "O verbo 'haver' no sentido de existir/ocorrer é impessoal e deve permanecer no singular: 'Houve muitos debates'."
     },
     {
       materia: "Matemática",
@@ -352,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Os negociadores apresentaram-se, nos dando boas expectativas."
       ],
       correta: 2,
-      explicacao: "O advérbio de negação 'Não' atrai obrigatoriamente o pronome oblíquo 'se' (próclise). Em A há próclise em início de frase; B tem ênclise após advérbio atrativo; D possui próclise inadequada após vírgula."
+      explicacao: "O advérbio de negação 'Não' atrai obrigatoriamente o pronome oblíquo 'se' (próclise)."
     },
     {
       materia: "Matemática",
@@ -365,11 +455,11 @@ document.addEventListener('DOMContentLoaded', () => {
         "800 km"
       ],
       correta: 0,
-      explicacao: "Distância real = 8 cm * 10.000 = 80.000 cm. Convertendo para metros: 80.000 / 100 = 800 m. Convertendo para quilômetros: 800 / 1.000 = 0,8 km."
+      explicacao: "Distância real = 8 cm * 10.000 = 80.000 cm = 800 m = 0,8 km."
     }
   ];
 
-  // FUNÇÃO PARA EMBARALHAR AS OPÇÕES MANTENDO A CORRETA AJUSTADA
+  // Função para embaralhar opções
   function embaralharOpcoesBanco() {
     bancoQuestoes.forEach((q) => {
       const opcaoCorretaTexto = q.opcoes[q.correta];
@@ -465,8 +555,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
   // ==========================================
-  // 4. CONSOLIDAÇÃO DOS RESULTADOS E CONDICIONAL DO CERTIFICADO
+  // 4. CONSOLIDAÇÃO DOS RESULTADOS E CERTIFICADO
   // ==========================================
   function finalizarQuizCompleto() {
     const resultadoSimulado = JSON.parse(localStorage.getItem('resultadoSimulado')) || { total: 0, portugues: 0, matematica: 0 };
@@ -511,7 +602,6 @@ document.addEventListener('DOMContentLoaded', () => {
     exibirRanking();
     gerarGabaritoComentado();
 
-    // REGRA DE CORTE DE 50% PARA O CERTIFICADO
     const certArea = document.getElementById('card-certificado-area');
     if (certArea) {
       if (percentualGeral >= 50) {
@@ -527,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h4 style="font-size: 1.1rem; margin-bottom: 8px; font-weight: 700;">Aproveitamento Abaixo de 50%</h4>
             <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
               Você obteve <strong>${percentualGeral}%</strong> de aproveitamento geral (${totalAcertosGeral} acertos de 60 questões). Para garantir a emissão do seu Certificado Oficial, é necessário atingir no mínimo <strong>50% de acertos</strong>.<br><br>
-              💡 <em>Dica: Revise o gabarito comentado abaixo, reforce seus estudos nos pontos onde teve dúvidas e tente novamente!</em>
+              💡 <em>Dica: Revise o gabarito comentado abaixo e tente novamente!</em>
             </p>
           </div>
         `;
@@ -536,6 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
 
   // ==========================================
   // 5. GABARITO COMENTADO
@@ -567,6 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gabaritoLista.appendChild(item);
     });
   }
+
 
   // ==========================================
   // 6. RANKING LOCAL
@@ -610,8 +702,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   exibirRanking();
 
+
   // ==========================================
-  // 7. GERADOR DE CERTIFICADO REFINADO
+  // 7. GERADOR DE CERTIFICADO
   // ==========================================
   function gerarCertificadoRN(nome, acertos, percentual) {
     const certContainer = document.getElementById('cert-svg-box');
@@ -653,19 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <path d="M 24 24 L 776 24 L 776 60 L 24 60 Z" fill="url(#ifrnGreenGrad)"/>
         <rect x="24" y="60" width="752" height="3" fill="url(#goldGrad)"/>
 
-        <g transform="translate(38, 28) scale(0.65)">
-          <rect x="0" y="0" width="12" height="12" rx="1" fill="#C80510"/>
-          <rect x="15" y="0" width="12" height="12" rx="1" fill="#FFFFFF"/>
-          <rect x="30" y="0" width="12" height="12" rx="1" fill="#FFFFFF"/>
-          <rect x="0" y="15" width="12" height="12" rx="1" fill="#FFFFFF"/>
-          <rect x="15" y="15" width="12" height="12" rx="1" fill="#FFFFFF"/>
-          <rect x="30" y="15" width="12" height="12" rx="1" fill="#FFFFFF"/>
-          <rect x="0" y="30" width="12" height="12" rx="1" fill="#FFFFFF"/>
-          <rect x="15" y="30" width="12" height="12" rx="1" fill="#FFFFFF"/>
-          <rect x="30" y="30" width="12" height="12" rx="1" fill="#FFFFFF"/>
-        </g>
-
-        <text x="410" y="46" fill="#FFFFFF" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="3">
+        <text x="400" y="46" fill="#FFFFFF" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="3">
           INSTITUTO FEDERAL DO RIO GRANDE DO NORTE
         </text>
 
@@ -723,3 +804,260 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 });
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exame de Seleção IFRN 2027 | Guia Completo e Informações Oficiais</title>
+
+  <!-- Importação de Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Barra de Navegação Header -->
+  <header class="navbar-header">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        IFRN 2027
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Navegação Principal">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="português.html" class="nav-link">Português</a>
+        <a href="matemática.html" class="nav-link">Matemática</a>
+        <a href="redação.html" class="nav-link">Redação</a>
+        <a href="exame-selecao.html" class="nav-link active" aria-current="page">Sobre o Exame de Seleção</a>
+        <a href="questoes.html" class="nav-link">Simulado</a>
+        <a href="temas-anteriores.html" class="nav-link">Temas Anteriores</a>
+        <a href="cursos-tecnicos.html" class="nav-link">Cursos Técnicos IFRN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Header Principal do Conteúdo -->
+    <header class="page-header">
+      <span class="badge badge-primary">Edital nº 42/2026-PROEN/IFRN</span>
+      <h1>Exame de Seleção IFRN 2027</h1>
+      <p>Guia unificado com prazos, estrutura da prova, regramento, cursos do campus, atendimento especial e cotas para os Cursos Técnicos Integrados.</p>
+    </header>
+
+    <!-- Cards Informativos Resumidos -->
+    <section class="section-cards" style="padding-top: 0; margin-bottom: 24px;">
+      <div class="grid">
+        <div class="card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>40 Questões Objetivas</h3>
+          <p>20 de Língua Portuguesa e 20 de Matemática (Múltipla escolha).</p>
+        </div>
+
+        <div class="card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>Redação (100 Pts)</h3>
+          <p>Produção Textual Escrita discursiva (9 a 30 linhas).</p>
+        </div>
+
+        <div class="card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>4h de Duração</h3>
+          <p>Das 13h15 às 17h15. Portões fecham rigorosamente às 12h45.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Vagas e Cotas</h3>
+          <p>50% das vagas reservadas para estudantes de escolas públicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 1: Cronograma e Inscrições -->
+    <section class="section-group">
+      <details class="accordion-item" open>
+        <summary class="accordion-header">
+          <h2>1. Cronograma Oficial e Inscrições</h2>
+        </summary>
+        <div class="accordion-content">
+          <p><strong>Orientações Importantes:</strong> A inscrição exige obrigatoriamente o <strong>CPF próprio do candidato</strong>. No sistema, é permitido escolher até duas opções de cursos técnicos no mesmo campus por ordem de preferência.</p>
+          
+          <div class="table-container" style="margin-top: 16px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Etapa Principal</th>
+                  <th>Período / Data</th>
+                  <th>Detalhes / Observação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Inscrições On-line</strong></td>
+                  <td>10/08 a 24/09/2026</td>
+                  <td>Portal da FUNCERN (Taxa: R$ 50,00)</td>
+                </tr>
+                <tr>
+                  <td><strong>Solicitação de Isenção</strong></td>
+                  <td>10/08 a 30/08/2026</td>
+                  <td>Destinado a inscritos no CadÚnico</td>
+                </tr>
+                <tr>
+                  <td><strong>Atendimento Especial</strong></td>
+                  <td>Até 24/09/2026</td>
+                  <td>Necessário envio de laudo médico comprobatório</td>
+                </tr>
+                <tr>
+                  <td><strong>Aplicação das Provas</strong></td>
+                  <td><strong>18/10/2026</strong> (13h15 às 17h15)</td>
+                  <td>Fechamento dos portões às 12h45</td>
+                </tr>
+                <tr>
+                  <td><strong>Resultado Final</strong></td>
+                  <td>22/12/2026</td>
+                  <td>Divulgação da lista definitiva de aprovados</td>
+                </tr>
+                <tr>
+                  <td><strong>Pré-Matrículas On-line</strong></td>
+                  <td>07/01 a 12/01/2027</td>
+                  <td>Via Plataforma Gov.br / Sistema IFRN</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="attention" style="margin-top: 12px;">
+            <strong>Atenção ao Horário:</strong> Todos os prazos e horários seguem rigorosamente o fuso oficial do estado do Rio Grande do Norte.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SEÇÃO 2: Regras e Estrutura da Prova -->
+    <section class="section-group">
+      <details class="accordion-item">
+        <summary class="accordion-header">
+          <h2>2. Estrutura da Prova, Avaliação e Regras</h2>
+        </summary>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Componente</th>
+                  <th>Formato</th>
+                  <th>Peso / Pontuação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Língua Portuguesa</strong></td>
+                  <td>20 Questões (Múltipla Escolha)</td>
+                  <td>100 Pontos</td>
+                </tr>
+                <tr>
+                  <td><strong>Matemática</strong></td>
+                  <td>20 Questões (Múltipla Escolha)</td>
+                  <td>100 Pontos</td>
+                </tr>
+                <tr>
+                  <td><strong>Redação</strong></td>
+                  <td>Texto Dissertativo-Argumentativo (9 a 30 linhas)</td>
+                  <td>100 Pontos</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-top: 16px;"><strong>Critérios de Desempate:</strong> 1º Maior nota na Redação $\rightarrow$ 2º Maior nota em Português $\rightarrow$ 3º Maior nota em Matemática $\rightarrow$ 4º Maior idade.</p>
+          
+          <h3 style="margin-top: 20px; font-size: 1.1rem; color: var(--text-main);">Orientações para o Dia do Exame</h3>
+          <ul style="line-height: 1.7; margin-top: 8px;">
+            <li><strong>O que levar:</strong> Documento oficial com foto (físico ou digital oficial), Cartão de Inscrição impresso e caneta esferográfica de corpo transparente com tinta preta ou azul.</li>
+            <li><strong>Caderno de Provas:</strong> É permitido levar o caderno de questões para casa caso o estudante permaneça na sala até os <strong>últimos 30 minutos finais</strong> (a partir das 16h45).</li>
+            <li><strong>Proibições:</strong> O uso de celulares, relógios inteligentes e eletrônicos resulta em eliminação sumária se emitirem qualquer som nos envelopes porta-objetos.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SEÇÃO 3: Cotas, Cursos e Conteúdos -->
+    <section class="section-group">
+      <details class="accordion-item">
+        <summary class="accordion-header">
+          <h2>3. Sistema de Cotas, Cursos e Conteúdos Programáticos</h2>
+        </summary>
+        <div class="accordion-content">
+          <p><strong>Reserva de Vagas (50%):</strong> O IFRN destina metade de suas vagas para egressos de escolas públicas, subdivididas por renda, autodeclaração étnico-racial (PPI), quilombolas e pessoas com deficiência (PCD), exigindo validação prévia (Heteroidentificação para PPI e laudos recentes para PCD).</p>
+          
+          <div class="grid" style="margin-top: 20px;">
+            <div class="exercicio-box">
+              <h3>Conteúdos de Português</h3>
+              <ul style="font-size: 0.95rem;">
+                <li>Interpretação e compreensão textual;</li>
+                <li>Sintaxe (Concordância, Regência e Crase);</li>
+                <li>Coesão, coerência e pontuação;</li>
+                <li>Classes de palavras e variação linguística.</li>
+              </ul>
+            </div>
+
+            <div class="exercicio-box">
+              <h3>Conteúdos de Matemática</h3>
+              <ul style="font-size: 0.95rem;">
+                <li>Operações fundamentais, MMC e MDC;</li>
+                <li>Razão, proporção e porcentagem;</li>
+                <li>Equações do 1º e 2º graus;</li>
+                <li>Geometria plana e Teorema de Pitágoras.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;">Exemplos de Cursos Integrados Oferecidos</h3>
+            <p style="margin: 0; font-size: 0.95rem;">Os campi do IFRN contam com habilitações técnicas tradicionais como <strong>Informática</strong>, <strong>Edificações</strong>, <strong>Mecânica</strong>, <strong>Meio Ambiente</strong> e <strong>Refrigeração</strong> cursadas de forma integrada ao Ensino Médio regular.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 - Guia Oficial do Exame de Seleção IFRN | Fonte: Edital nº 42/2026-PROEN/IFRN.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
