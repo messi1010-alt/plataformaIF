@@ -6,11 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Plataforma de estudos gratuita e preparatória para o Exame de Seleção do IFRN. Cronogramas, questões, teoria e simuladores focados.">
-  <meta name="theme-color" content="#040907">
+  <meta name="theme-color" content="#050907">
 
-  <title>IFRN | Plataforma de Estudos</title>
+  <title>NEXIF | Plataforma de Estudos IFRN</title>
 
-  <!-- Importação de fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -21,18 +20,28 @@
 
 <body>
 
-  <!-- Cabeçalho Principal -->
+  <!-- Cabeçalho Principal (Com suporte completo ao Menu Mobile) -->
   <header class="navbar-header" role="banner">
     <div class="navbar-container">
       <a href="index.html" class="logo" aria-label="Página Inicial">
         <span class="logo-dot" aria-hidden="true"></span>
-        IFRN
+        NEXIF
       </a>
 
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="nav-overlay" id="navOverlay"></div>
+
       <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
+        <a href="index.html" class="nav-link active" aria-current="page">Início</a>
         <a href="#estudos" class="nav-link">Áreas</a>
         <a href="#diferenciais" class="nav-link">Diferenciais</a>
-        <a href="#praticar" class="nav-link" id="btnNavPraticar">Praticar</a>
+        <a href="questoes.html" class="nav-link">Simulado</a>
+        <a href="#praticar" class="nav-link" id="btnNavPraticar">Praticar Agora</a>
       </nav>
     </div>
   </header>
@@ -42,57 +51,82 @@
 
     <!-- Seção Hero -->
     <section class="hero">
-      <div class="badge-tag">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
-          aria-hidden="true">
-          <polygon
-            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-          </polygon>
-        </svg>
-        Preparatório Exame de Seleção
-      </div>
+      <div class="hero-glow-effect" aria-hidden="true"></div>
 
-      <h1>Conquiste a sua vaga no <span>IFRN</span></h1>
-
-      <p>
-        Sua plataforma centralizada de estudos com cronogramas, teoria focada, resoluções de questões e guias práticos
-        desenvolvidos sob medida.
-      </p>
-
-      <button type="button" class="btn btn-primary" id="btnHeroComecar">
-        Começar agora
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </button>
-
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Gratuito &amp; Aberto</div>
+      <div class="hero-container">
+        <div class="badge-tag">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+          Preparatório Exame de Seleção IFRN
         </div>
-        <div class="stat-item">
-          <div class="stat-number">Focado</div>
-          <div class="stat-label">No Edital Atualizado</div>
+
+        <h1>Conquiste a sua vaga no <span>IFRN</span></h1>
+
+        <p>
+          Sua plataforma centralizada de estudos com cronogramas, teoria focada, resoluções de questões e simulador de
+          redação desenvolvidos sob medida.
+        </p>
+
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary" id="btnHeroComecar">
+            Explorar Matérias
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <a href="questoes.html" class="btn btn-secondary">
+            Resolver Simulado
+          </a>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">Direto</div>
-          <div class="stat-label">Ao Ponto Sem Encheção</div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Gratuito &amp; Aberto</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">Focado</div>
+            <div class="stat-label">No Edital Atualizado</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">Direto</div>
+            <div class="stat-label">Ao Ponto Sem Encheção</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Seção de Áreas de Conhecimento -->
+    <!-- Banner de Destaque / Acesso Rápido -->
+    <div class="proitec-glass-banner">
+      <div class="popup-content">
+        <div class="popup-header">
+          <span class="badge-glass">Edital IFRN</span>
+          <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
+            Treine a redação no formato oficial (20 a 30 linhas) com cronômetro e folha pautada para PDF.
+          </p>
+        </div>
+        <a href="redação.html" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.9rem;">
+          Abrir Simulador de Redação
+        </a>
+      </div>
+    </div>
+
+    <!-- Seção de Áreas de Conhecimento (Cards Clicáveis) -->
     <section id="estudos">
       <div class="section-header">
-        <h2 class="titulo">Áreas de Conhecimento</h2>
-        <p class="subtitulo">Conheça o conteúdo abordado em cada uma das frentes da prova</p>
+        <h2 class="section-title">Áreas de Conhecimento</h2>
+        <p class="section-subtitle">Clique em uma frente para acessar o guia teórico completo e exercícios</p>
       </div>
 
       <div class="grid">
-        <article class="card">
+        <a href="português.html" class="card">
           <div class="icon-box" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -101,9 +135,10 @@
           </div>
           <h3>Português</h3>
           <p>Gramática, interpretação de texto, análise sintática, variação linguística e listas explicativas.</p>
-        </article>
+          <span class="badge badge-primary" style="align-self: flex-start;">Acessar módulo →</span>
+        </a>
 
-        <article class="card">
+        <a href="matemática.html" class="card">
           <div class="icon-box" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -114,9 +149,10 @@
           </div>
           <h3>Matemática</h3>
           <p>Álgebra, geometria, razões, porcentagem e resolução passo a passo de questões do exame.</p>
-        </article>
+          <span class="badge badge-primary" style="align-self: flex-start;">Acessar módulo →</span>
+        </a>
 
-        <article class="card">
+        <a href="redação.html" class="card">
           <div class="icon-box" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 20h9"></path>
@@ -124,26 +160,28 @@
             </svg>
           </div>
           <h3>Redação</h3>
-          <p>Estrutura dissertativa, repertórios coringa, propostas anteriores e técnicas de argumentação.</p>
-        </article>
+          <p>Artigo de opinião, repertórios coringa, simulador com cronômetro e exportação em folha pautada.</p>
+          <span class="badge badge-primary" style="align-self: flex-start;">Acessar módulo →</span>
+        </a>
 
-        <article class="card">
+        <a href="cursos-tecnicos.html" class="card">
           <div class="icon-box" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
             </svg>
           </div>
           <h3>Cursos Técnicos</h3>
-          <p>Projetos Pedagógicos de cada curso dos IFs Santa Cruz e São Paulo do Potengi.</p>
-        </article>
+          <p>Projetos Pedagógicos de cada curso dos campi Santa Cruz e São Paulo do Potengi.</p>
+          <span class="badge badge-primary" style="align-self: flex-start;">Ver cursos →</span>
+        </a>
       </div>
     </section>
 
     <!-- Seção Diferenciais -->
     <section id="diferenciais">
       <div class="section-header">
-        <h2 class="titulo">Por que utilizar esta plataforma?</h2>
-        <p class="subtitulo">Recursos pensados para otimizar ao máximo o seu tempo de preparação</p>
+        <h2 class="section-title">Por que utilizar esta plataforma?</h2>
+        <p class="section-subtitle">Recursos pensados para otimizar ao máximo o seu tempo de preparação</p>
       </div>
 
       <div class="grid">
@@ -186,9 +224,10 @@
   </main>
 
   <!-- Rodapé -->
-  <footer>
-    <p>&copy; Plataforma IFRN. Desenvolvido para impulsionar a sua aprovação.</p>
+ <footer>
+    <p>&copy; Plataforma de prepação para a prova do Exame de Seleção IFRN </p>
   </footer>
+
 
   <!-- Modal de Opções de Estudo -->
   <div id="modalDisciplinas" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitulo"
@@ -196,9 +235,9 @@
     <div class="modal-card">
       <button type="button" class="fechar-modal" id="btnFecharModal" aria-label="Fechar modal">&times;</button>
 
-      <div class="modal-header">
-        <h2 id="modalTitulo">O que você deseja praticar agora?</h2>
-        <p>Escolha uma matéria ou ferramenta para iniciar seus estudos:</p>
+      <div class="modal-header" style="margin-bottom: 24px;">
+        <h2 id="modalTitulo" style="margin-bottom: 8px;">O que você deseja praticar agora?</h2>
+        <p style="margin: 0;">Escolha uma matéria ou ferramenta para iniciar seus estudos:</p>
       </div>
 
       <div class="opcoes-container">
@@ -239,7 +278,7 @@
           </div>
           <div class="opcao-info">
             <span class="opcao-titulo">Redação</span>
-            <span class="opcao-desc">Estrutura e Repertórios</span>
+            <span class="opcao-desc">Estrutura, Repertórios e Simulador</span>
           </div>
         </a>
 
@@ -299,88 +338,7 @@
     </div>
   </div>
 
-  <!-- JavaScript Atualizado -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('modalDisciplinas');
-      const btnFecharModal = document.getElementById('btnFecharModal');
-      const btnHeroComecar = document.getElementById('btnHeroComecar');
-      const btnNavPraticar = document.getElementById('btnNavPraticar');
-
-      const opcaoBtns = document.querySelectorAll('.opcao-btn');
-      let elementoFocadoAntesDoModal = null;
-
-      // Controle do Modal
-      function abrirModal() {
-        if (!modal) return;
-        elementoFocadoAntesDoModal = document.activeElement;
-        modal.classList.add('ativo');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        if (btnFecharModal) btnFecharModal.focus();
-      }
-
-      function fecharModal() {
-        if (!modal) return;
-        modal.classList.remove('ativo');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (elementoFocadoAntesDoModal) elementoFocadoAntesDoModal.focus();
-      }
-
-      // Event Listeners
-      if (btnHeroComecar) btnHeroComecar.addEventListener('click', abrirModal);
-
-      if (btnNavPraticar) {
-        btnNavPraticar.addEventListener('click', (e) => {
-          e.preventDefault();
-          abrirModal();
-        });
-      }
-
-      if (btnFecharModal) btnFecharModal.addEventListener('click', fecharModal);
-
-      opcaoBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          fecharModal();
-        });
-      });
-
-      window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-          fecharModal();
-        }
-      });
-
-      window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          fecharModal();
-        }
-
-        // Focus Trap dentro do Modal ativado
-        if (event.key === 'Tab' && modal && modal.classList.contains('ativo')) {
-          const elementosFocaveis = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-          if (elementosFocaveis.length === 0) return;
-
-          const primeiroElem = elementosFocaveis[0];
-          const ultimoElem = elementosFocaveis[elementosFocaveis.length - 1];
-
-          if (event.shiftKey) {
-            if (document.activeElement === primeiroElem) {
-              ultimoElem.focus();
-              event.preventDefault();
-            }
-          } else {
-            if (document.activeElement === ultimoElem) {
-              primeiroElem.focus();
-              event.preventDefault();
-            }
-          }
-        }
-      });
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
